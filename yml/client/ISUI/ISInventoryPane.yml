@@ -162,6 +162,8 @@ languages:
           favoriteStar:
             type: Texture
           favoriteRecipeInputStar: {}
+          player:
+            type: integer
         methods:
           - name: initialise
           - name: createChildren
