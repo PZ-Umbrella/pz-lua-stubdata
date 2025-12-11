@@ -164,6 +164,8 @@ languages:
           favoriteRecipeInputStar: {}
           player:
             type: integer
+            tags:
+              - StubGen_Extra
         methods:
           - name: initialise
           - name: createChildren
