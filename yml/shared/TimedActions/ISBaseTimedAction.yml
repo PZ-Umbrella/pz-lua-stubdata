@@ -78,6 +78,8 @@ languages:
                 type: string
               - name: parameter
                 type: string
+            tags:
+              - StubGen_Extra
           - name: isValidStart
             return:
               - type: boolean
@@ -110,32 +112,18 @@ languages:
               - type: boolean
           - name: start
             notes: Called when the client starts the action.
-          - name: serverStart
-            notes: Called when the server starts the action.
-            return:
-              - type: boolean
           - name: isStarted
             return:
               - type: boolean
           - name: stop
             notes: Called upon cancelling the action on the client.
-          - name: serverStop
-            notes: Called upon cancelling the action on the server.
-            return:
-              - type: boolean
           - name: perform
             notes:
               Called upon completion on the client. In singleplayer, called before complete().
-          - name: complete
-            notes:
-              "Called upon completion on the server. In singleplayer, called after perform().
-              Optional: if this function is not defined, the new action networking model will not be used."
-            return:
-              - type: boolean
           - name: getDuration
             notes:
               Calculates the duration of the timed action.
-              Overriding this should be prefered over setting the maxTime in new() to prevent exploits.
+              Networked timed actions should override this to calculate the duration of the action.
             return:
               - type: number
           - name: create
@@ -205,3 +193,19 @@ languages:
             parameters:
               - name: deltas
                 type: MoveDeltaModifiers
+      umbrella.NetworkedTimedAction:
+        methods:
+          - name: complete
+            notes:
+              "Called upon completion on the server. In singleplayer, called after perform().
+              Optional: if this function is not defined, the new action networking model will not be used."
+            return:
+              - type: boolean
+          - name: serverStop
+            notes: Called upon cancelling the action on the server.
+            return:
+              - type: boolean
+          - name: serverStart
+            notes: Called when the server starts the action.
+            return:
+              - type: boolean
