@@ -153,7 +153,7 @@ languages:
           - name: ReceiveTradeRequest
             parameters:
               - name: requester
-                type: string
+                type: IsoPlayer
           - name: AcceptedTrade
             parameters:
               - name: accepted
