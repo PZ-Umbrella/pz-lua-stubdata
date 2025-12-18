@@ -57,12 +57,14 @@ languages:
             type: number
           y:
             type: number
-      umbrella.XYWH:
+      umbrella.XYZ:
+        extends: umbrella.XY
         fields:
-          x:
+          z:
             type: number
-          y:
-            type: number
+      umbrella.XYWH:
+        extends: umbrella.XY
+        fields:
           w:
             type: number
           h:

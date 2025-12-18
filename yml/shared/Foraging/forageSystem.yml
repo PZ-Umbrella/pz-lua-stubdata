@@ -85,7 +85,7 @@ languages:
           clothingPenalties: {}
           isForageableFuncs: {}
           globalXPModifier:
-            defaultValue: "800"
+            defaultValue: "400"
           levelXPModifier:
             defaultValue: "5"
           worldSprites: {}

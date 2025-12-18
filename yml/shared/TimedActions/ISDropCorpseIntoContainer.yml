@@ -13,12 +13,22 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISDropCorpseIntoContainer"'
+          bodyCache:
+            type: table<integer, table<IGrappleable, ItemContainer>>
         fields:
           targetContainer:
             type: ItemContainer
+          grappledChar:
+            type: IGrappleable
         methods:
           - name: isValid
             return:
               - type: boolean
           - name: start
+          - name: complete
+            return:
+              - type: boolean
+          - name: getDuration
+            return:
+              - type: number
           - name: perform

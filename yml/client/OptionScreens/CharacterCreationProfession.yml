@@ -187,6 +187,12 @@ languages:
             parameters:
               - name: list
                 type: ISScrollingListBox
+          - name: isTraitEnabled
+            parameters:
+              - name: trait
+                type: CharacterTraitDefinition
+            return:
+              - type: boolean
           - name: populateTraitList
             parameters:
               - name: list

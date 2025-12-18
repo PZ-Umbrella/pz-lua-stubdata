@@ -34,6 +34,12 @@ languages:
                 type: IsoPlayer
               - name: args
                 type: table
+          - name: checkTrap
+            parameters:
+              - name: player
+                type: IsoPlayer
+              - name: args
+                type: umbrella.XYZ
           - name: removeBait
             parameters:
               - name: player

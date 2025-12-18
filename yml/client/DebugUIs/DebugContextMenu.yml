@@ -132,6 +132,16 @@ languages:
                 type: IsoPlayer
               - name: isActive
                 type: boolean
+          - name: onJumpVehicle
+            parameters:
+              - name: vehicle
+                type: BaseVehicle
+          - name: onHitLandmine
+            parameters:
+              - name: vehicle
+                type: BaseVehicle
+              - name: square
+                type: IsoGridSquare
           - name: OnRemoveAllZombies
             parameters:
               - name: zombie
