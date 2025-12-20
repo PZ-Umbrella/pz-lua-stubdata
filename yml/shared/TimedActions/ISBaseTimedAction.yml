@@ -3,9 +3,15 @@ languages:
   lua:
     classes:
       ISBaseTimedAction:
+        notes: When using the new network model, an action's table must be global and its name must match its Type.
         extends: ISBaseObject
         constructors:
-          - parameters:
+          - notes:
+              When using the new network model, this will be called on the server when the action starts on the client.
+              The client object's field values will be passed to the parameters with matching names.
+              Care should be taken when modifying these arguments as the server will receive the client's already modified values.
+              If there is no field with a matching name, nil is passed.
+            parameters:
               - name: character
                 type: IsoPlayer
         staticFields:
@@ -62,13 +68,27 @@ languages:
           netAction:
             type: NetTimedAction
             nullable: true
+            notes: Nil on clients.
             tags:
               - StubGen_Extra
         methods:
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
+            tags:
+              - StubGen_Extra
           - name: isValidStart
             return:
               - type: boolean
           - name: isValid
+            notes: Called every tick during the action to determine if the action should continue.
+            return:
+              - type: boolean
+                name: valid
+                notes: If non-true, the action will be cancelled.
           - name: isUsingTimeout
             return:
               - type: boolean
@@ -91,12 +111,19 @@ languages:
             return:
               - type: boolean
           - name: start
+            notes: Called when the client starts the action.
           - name: isStarted
             return:
               - type: boolean
           - name: stop
+            notes: Called upon cancelling the action on the client.
           - name: perform
+            notes:
+              Called upon completion on the client. In singleplayer, called before complete().
           - name: getDuration
+            notes:
+              Calculates the duration of the timed action.
+              Networked timed actions should override this to calculate the duration of the action.
             return:
               - type: number
           - name: create
@@ -166,3 +193,19 @@ languages:
             parameters:
               - name: deltas
                 type: MoveDeltaModifiers
+      umbrella.NetworkedTimedAction:
+        methods:
+          - name: complete
+            notes:
+              "Called upon completion on the server. In singleplayer, called after perform().
+              Optional: if this function is not defined, the new action networking model will not be used."
+            return:
+              - type: boolean
+          - name: serverStop
+            notes: Called upon cancelling the action on the server.
+            return:
+              - type: boolean
+          - name: serverStart
+            notes: Called when the server starts the action.
+            return:
+              - type: boolean
