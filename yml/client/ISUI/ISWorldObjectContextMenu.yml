@@ -74,8 +74,21 @@ languages:
                 type: boolean
                 nullable: true
             return:
-              - type: boolean
+              - type: ISContextMenu | boolean
                 nullable: true
+            overloads:
+              - parameters:
+                  - name: player
+                    type: integer
+                  - name: worldobjects
+                    type: IsoObject[]
+                  - name: x
+                    type: number
+                  - name: y
+                    type: number
+                return:
+                  - type: ISContextMenu
+                    nullable: true
           - name: activateRadio
             parameters:
               - name: pl
