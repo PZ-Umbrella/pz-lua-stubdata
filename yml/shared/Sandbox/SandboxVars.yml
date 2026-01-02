@@ -7,7 +7,7 @@ languages:
           - StubGen_Extra
         fields:
           "[string]":
-            type: unknown
+            type: any
           Basement:
             type: umbrella.SandboxVars.Basement
           Map:
