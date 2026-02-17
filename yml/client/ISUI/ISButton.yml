@@ -54,6 +54,8 @@ languages:
           image:
             type: Texture
             nullable: true
+          textureColor:
+            type: umbrella.RGBA
           forcedWidthImage:
             type: number
             nullable: true
@@ -104,8 +106,6 @@ languages:
           onClickArgs:
             type: unknown[]
           backgroundColorMouseOver:
-            type: umbrella.RGBA
-          textureColor:
             type: umbrella.RGBA
           textColor:
             type: umbrella.RGBA
@@ -209,6 +209,10 @@ languages:
               - name: image
                 type: Texture
                 nullable: true
+          - name: setTextureColor
+            parameters:
+              - name: color
+                type: ColorInfo
           - name: forceImageSize
             parameters:
               - name: width

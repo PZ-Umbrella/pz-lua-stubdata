@@ -684,7 +684,7 @@ languages:
             parameters:
               - name: worldobjects
                 type: IsoObject[]
-              - name: WItem
+              - name: isoDeadBody
                 type: IsoDeadBody
               - name: player
                 type: integer
@@ -974,30 +974,6 @@ languages:
                 type: IsoGridSquare
               - name: down
                 type: boolean
-              - name: player
-                type: integer
-          - name: onMetalBarBarricade
-            parameters:
-              - name: worldobjects
-                type: IsoObject[]
-              - name: window
-                type: IsoThumpable
-              - name: player
-                type: integer
-          - name: onMetalBarricade
-            parameters:
-              - name: worldobjects
-                type: IsoObject[]
-              - name: window
-                type: IsoThumpable
-              - name: player
-                type: integer
-          - name: onBarricade
-            parameters:
-              - name: worldobjects
-                type: IsoObject[]
-              - name: window
-                type: IsoThumpable
               - name: player
                 type: integer
           - name: restoreDoor
@@ -1482,3 +1458,9 @@ languages:
               - name: param
                 type: string
                 nullable: true
+          - name: onBarricade
+            parameters:
+              - name: spriteName
+                type: string
+              - name: playerObj
+                type: IsoPlayer

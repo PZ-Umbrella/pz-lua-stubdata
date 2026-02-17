@@ -67,13 +67,6 @@ languages:
         return:
           - type: ISBackButtonWheel
             nullable: true
-      - name: getPlayerCraftingUI
-        parameters:
-          - name: id
-            type: integer
-        return:
-          - type: ISCraftingUI
-            nullable: true
       - name: getPlayerZoneUI
         parameters:
           - name: id

@@ -1,0 +1,26 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISRadioAndTvMenu:
+        staticMethods:
+          - name: createMenu
+            parameters:
+              - name: worldObjects
+                type: IsoObject[]
+              - name: context
+                type: ISContextMenu
+              - name: playerObj
+                type: IsoPlayer
+          - name: openTvPanel
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: item
+                type: IsoWaveSignal
+          - name: openRadioPanel
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: item
+                type: Radio

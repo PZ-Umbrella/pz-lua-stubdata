@@ -6,33 +6,7 @@ languages:
         staticFields:
           cheat:
             defaultValue: false or getDebug()
-          woodWorkXp:
-            defaultValue: "0"
-          ghs:
-            defaultValue: '"<GHC>"'
-          bhs:
-            defaultValue: '"<BHC>"'
         staticMethods:
-          - name: doBuildMenu
-            parameters:
-              - name: player
-                type: integer
-              - name: context
-                type: ISContextMenu
-              - name: worldobjects
-                type: IsoObject[]
-              - name: test
-                type: boolean
-                nullable: true
-            return:
-              - type: boolean
-                nullable: true
-          - name: onDismantle
-            parameters:
-              - name: worldobjects
-                type: IsoObject[]
-              - name: player
-                type: IsoPlayer
           - name: buildRampsMenu
             parameters:
               - name: subMenu

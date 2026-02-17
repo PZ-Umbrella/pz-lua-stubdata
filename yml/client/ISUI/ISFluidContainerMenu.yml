@@ -1,0 +1,54 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISFluidContainerMenu:
+        staticMethods:
+          - name: createMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: item
+                type: InventoryItem
+                nullable: true
+              - name: waterContainer
+                type: InventoryItem | IsoWorldInventoryObject
+                nullable: true
+              - name: playerObj
+                type: IsoPlayer
+          - name: showInfo
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: container
+                type: FluidContainer
+          - name: transferFluids
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: container
+                type: FluidContainer
+          - name: emptyFluidContainer
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: container
+                type: FluidContainer
+          - name: showUI
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: container
+                type: FluidContainer
+              - name: ui
+                type: ISFluidInfoUI
+          - name: joypadHideInventoryAndLoot
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+          - name: addDebugFluid
+            parameters:
+              - name: cont
+                type: FluidContainer
+              - name: fluid
+                type: string

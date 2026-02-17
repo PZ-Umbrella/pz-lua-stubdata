@@ -1,0 +1,21 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISMoveableContextMenu:
+        staticMethods:
+          - name: createMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: item
+                type: InventoryItem
+                nullable: true
+              - name: playerObj
+                type: IsoPlayer
+          - name: openMovableCursor
+            parameters:
+              - name: item
+                type: InventoryItem
+              - name: playerObj
+                type: IsoPlayer

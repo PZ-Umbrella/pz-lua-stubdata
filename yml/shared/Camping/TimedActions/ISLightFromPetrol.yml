@@ -14,12 +14,14 @@ languages:
                 type: InventoryItem
               - name: petrol
                 type: InventoryItem
-              - name: maxTime
-                type: integer
+              - name: maxTimeInit
+                type: number
         staticFields:
           Type:
             defaultValue: '"ISLightFromPetrol"'
         fields:
+          maxTimeInit:
+            type: number
           campfire:
             type: SCampfireGlobalObject
           lighter:

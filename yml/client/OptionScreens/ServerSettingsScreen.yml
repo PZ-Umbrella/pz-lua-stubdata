@@ -783,12 +783,6 @@ languages:
             return:
               - type: number
           - name: positionEntries
-      ServerSettingsScreen.SpawnPointsListBox:
-        extends: ISScrollingListBox
-        local: true
-        staticFields:
-          Type:
-            defaultValue: '"SpawnPointsListBox"'
       ServerSettingsScreen.ServerSettingsScreenGroupBox:
         extends: ServerSettingsScreen.ServerSettingsScreenPanel
         local: true

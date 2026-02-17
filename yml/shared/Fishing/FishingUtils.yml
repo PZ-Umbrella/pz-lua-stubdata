@@ -9,12 +9,16 @@ languages:
       Fishing.Utils:
         local: true
         staticFields:
-          stopFishingKeysKeyboard: {}
-          hotbarKeys: {}
+          stopFishingKeysKeyboard:
+            type: string[]
+          hotbarKeys:
+            type: string[]
           tempVec2:
             defaultValue: Vector2.new()
-          skillSizeLimit: {}
-          fishSizeChancesBySkillLevel: {}
+          skillSizeLimit:
+            type: table<integer, number>
+          fishSizeChancesBySkillLevel:
+            type: table<integer, [integer, integer, integer]>
         staticMethods:
           - name: isWaterCoords
             parameters:
@@ -74,7 +78,9 @@ languages:
           - name: isGamepadReelMove
             parameters:
               - name: joypad
+                type: integer
               - name: prevValue
+                type: number
             return:
               - type: number
               - type: number

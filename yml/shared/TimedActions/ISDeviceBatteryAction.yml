@@ -1,0 +1,66 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISDeviceBatteryAction:
+        extends: ISBaseTimedAction
+        constructors:
+          - parameters:
+              - name: character
+                type: IsoPlayer
+              - name: isRemove
+                type: boolean
+              - name: secondaryItem
+                type: InventoryItem
+                nullable: true
+              - name: parameter
+                type: integer | IsoGridSquare
+                nullable: true
+        staticFields:
+          Type:
+            defaultValue: '"ISDeviceBatteryAction"'
+        fields:
+          ignoreHandsWounds:
+            type: boolean
+          isRemove:
+            type: boolean
+          secondaryItem:
+            type: InventoryItem
+            nullable: true
+          parameter:
+            type: integer | IsoGridSquare
+            nullable: true
+          deviceData:
+            type: DeviceData
+            nullable: true
+        methods:
+          - name: isValid
+            return:
+              - type: boolean
+          - name: complete
+            return:
+              - type: boolean
+          - name: invoke
+          - name: getDuration
+            return:
+              - type: number
+          - name: getDeviceDataParameter
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: device
+                type: InventoryItem | IsoObject | VehiclePart
+              - name: deviceType
+                type: string
+            return:
+              - type: integer | IsoGridSquare
+                nullable: true
+          - name: getDeviceDataFromParameter
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: parameter
+                type: integer | IsoGridSquare
+            return:
+              - type: DeviceData
+                nullable: true

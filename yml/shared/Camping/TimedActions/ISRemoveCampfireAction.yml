@@ -10,8 +10,8 @@ languages:
                 type: IsoPlayer
               - name: campfire
                 type: SCampfireGlobalObject
-              - name: maxTime
-                type: integer
+              - name: maxTimeInit
+                type: number
         staticFields:
           Type:
             defaultValue: '"ISRemoveCampfireAction"'
@@ -21,6 +21,8 @@ languages:
             nullable: true
           character:
             type: IsoPlayer
+          maxTimeInit:
+            type: number
           campfire:
             type: SCampfireGlobalObject
         methods:

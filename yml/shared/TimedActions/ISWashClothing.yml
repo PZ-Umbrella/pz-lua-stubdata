@@ -65,6 +65,12 @@ languages:
           - name: getDuration
             return:
               - type: number
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
         staticMethods:
           - name: GetSoapRemaining
             parameters:

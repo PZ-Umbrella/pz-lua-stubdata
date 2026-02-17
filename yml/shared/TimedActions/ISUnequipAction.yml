@@ -10,7 +10,7 @@ languages:
                 type: IsoPlayer
               - name: item
                 type: InventoryItem
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
         staticFields:
           Type:
@@ -23,10 +23,20 @@ languages:
             type: boolean
           item:
             type: InventoryItem
+          maxTimeInit:
+            type: number
           ignoreHandsWounds:
             type: boolean
           clothingAction:
             type: boolean
+          hotbar:
+            type: ISHotbar
+            nullable: true
+          fromHotbar:
+            type: boolean
+            nullable: true
+          animSpeed:
+            type: number
         methods:
           - name: isValid
             return:

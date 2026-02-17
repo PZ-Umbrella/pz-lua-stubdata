@@ -19,6 +19,9 @@ languages:
           Type:
             defaultValue: '"ISDropVehicleItemAction"'
         fields:
+          wasValid:
+            type: boolean
+            nullable: true
           dropSquare:
             type: IsoGridSquare
           item:

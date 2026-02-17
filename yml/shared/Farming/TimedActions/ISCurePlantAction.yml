@@ -14,7 +14,7 @@ languages:
                 type: integer
               - name: plant
                 type: CPlantGlobalObject
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
               - name: cure
                 type: string
@@ -29,6 +29,8 @@ languages:
             type: InventoryItem
           uses:
             type: integer
+          maxTimeInit:
+            type: number
           cure:
             type: string
           plant:

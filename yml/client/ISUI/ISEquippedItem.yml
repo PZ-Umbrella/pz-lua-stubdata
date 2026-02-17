@@ -26,6 +26,14 @@ languages:
             type: ISEquippedItem
             nullable: true
         fields:
+          warIconTimer:
+            type: number
+          changingSafetyState:
+            type: boolean
+          previousSafetyState:
+            type: boolean
+          currentSafetyState:
+            type: boolean
           healthIconOscillatorLevel:
             type: number
           previousHealth:
@@ -36,6 +44,8 @@ languages:
             type: number
           toolTip:
             type: ISToolTip
+          toolRender:
+            type: ISToolTipInv
           playerNum:
             type: integer
           inventory:
@@ -54,17 +64,22 @@ languages:
             type: Texture
           inventoryTextureOn:
             type: Texture
-          inventoryTextureOff: {}
+          inventoryTextureOff:
+            type: Texture
           heartIconOn:
             type: Texture
-          heartIconOff: {}
+          heartIconOff:
+            type: Texture
           craftingIconOn:
             type: Texture
-          craftingIconOff: {}
+          craftingIconOff:
+            type: Texture
           moveableIconBuildOn:
             type: Texture
-          moveableIconBuildOff: {}
-          movableIconOn: {}
+          moveableIconBuildOff:
+            type: Texture
+          movableIconOn:
+            type: Texture
           movableIconOff:
             type: Texture
           movableIconPickup:
@@ -79,27 +94,36 @@ languages:
             type: Texture
           searchIconOn:
             type: Texture
-          searchIconOff: {}
+          searchIconOff:
+            type: Texture
           zoneIconOn:
             type: Texture
-          zoneIconOff: {}
+          zoneIconOff:
+            type: Texture
           mapIconOn:
             type: Texture
           mapIconOff:
             type: Texture
           debugIconOn:
             type: Texture
-          debugIconOff: {}
+          debugIconOff:
+            type: Texture
           clientIconOn:
             type: Texture
-          clientIconOff: {}
+          clientIconOff:
+            type: Texture
           adminIconOn:
             type: Texture
-          adminIconOff: {}
-          warIconOn: {}
-          warIconOff: {}
-          safetyOn: {}
-          safetyOff: {}
+          adminIconOff:
+            type: Texture
+          warIconOn:
+            type: Texture
+          warIconOff:
+            type: Texture
+          safetyTint:
+            type: Texture
+          safetyBackground:
+            type: Texture
           warSoon:
             type: Texture
           clockTexture:
@@ -114,6 +138,12 @@ languages:
             type: number
           healthIconOscillatorStartLevel:
             type: number
+          ghc:
+            type: ColorInfo
+          bhc:
+            type: ColorInfo
+          nhc:
+            type: ColorInfo
           sidebarSizeOption:
             type: integer
           mouseOverList:
@@ -185,6 +215,12 @@ languages:
                 type: boolean
               - name: _text
                 type: string
+          - name: doInvToolTip
+            parameters:
+              - name: item
+                type: InventoryItem
+              - name: player
+                type: IsoPlayer
           - name: checkBounds
             parameters:
               - name: _boundsItem
@@ -302,43 +338,6 @@ languages:
             type: Texture
           texMiniMap:
             type: Texture
-        methods:
-          - name: prerender
-          - name: render
-          - name: onMouseDown
-            parameters:
-              - name: x
-                type: number
-              - name: y
-                type: number
-            return:
-              - type: boolean
-          - name: onMouseUp
-            parameters:
-              - name: x
-                type: number
-              - name: y
-                type: number
-            return:
-              - type: boolean
-      ISMetaPopup:
-        extends: ISPanel
-        constructors:
-          - parameters:
-              - name: x
-                type: number
-              - name: y
-                type: number
-              - name: width
-                type: number
-              - name: height
-                type: number
-        staticFields:
-          Type:
-            defaultValue: '"ISMetaPopup"'
-        fields:
-          texAnimalZone: {}
-          texRoomEditor: {}
         methods:
           - name: prerender
           - name: render

@@ -42,14 +42,6 @@ languages:
             return:
               - type: boolean
           - name: performToggleOnOff
-          - name: isValidRemoveBattery
-            return:
-              - type: boolean
-          - name: performRemoveBattery
-          - name: isValidAddBattery
-            return:
-              - type: boolean
-          - name: performAddBattery
           - name: isValidSetChannel
             return:
               - type: boolean
@@ -83,11 +75,3 @@ languages:
             return:
               - type: boolean
           - name: performTogglePlayMedia
-          - name: isValidAddMedia
-            return:
-              - type: boolean
-          - name: performAddMedia
-          - name: isValidRemoveMedia
-            return:
-              - type: boolean
-          - name: performRemoveMedia

@@ -131,6 +131,14 @@ languages:
                 type: integer
             return:
               - type: ISPathFindAction
+          - name: pathToGrabCorpse
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: corpse
+                type: IsoDeadBody
+            return:
+              - type: ISPathFindAction
     functions:
       - name: ISPathFindAction_pathToLocationF
         parameters:

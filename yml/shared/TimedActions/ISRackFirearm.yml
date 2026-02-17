@@ -14,12 +14,12 @@ languages:
           Type:
             defaultValue: '"ISRackFirearm"'
         fields:
+          gun:
+            type: HandWeapon
           playedEjectAmmoStartSound:
             type: boolean
           useProgressBar:
             type: boolean
-          gun:
-            type: HandWeapon
         methods:
           - name: isValid
             return:
