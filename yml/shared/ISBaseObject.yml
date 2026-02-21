@@ -17,6 +17,7 @@ languages:
             parameters:
               - name: type
                 type: string
+                notes: The Type of the derived class will be set to this value.
             return:
               - type: ISBaseObject
           - name: addEventListener
