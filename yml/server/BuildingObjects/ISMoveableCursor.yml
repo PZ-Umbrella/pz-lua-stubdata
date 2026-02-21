@@ -33,7 +33,7 @@ languages:
             type: IsoObject
             nullable: true
           tryInitialInvItem:
-            type: boolean
+            type: InventoryItem
             nullable: true
           cursorFacing:
             type: integer
@@ -128,7 +128,7 @@ languages:
           - name: tryInitialItem
             parameters:
               - name: _item
-                type: boolean
+                type: InventoryItem
           - name: setMoveableMode
             parameters:
               - name: _mode

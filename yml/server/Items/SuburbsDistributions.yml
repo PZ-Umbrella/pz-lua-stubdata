@@ -28,8 +28,6 @@ languages:
           Pistol: {}
           Pistol2: {}
           Pistol3: {}
-          Revolver: {}
-          Revolver_Long: {}
     functions:
       - name: ClearAllDistributionItems
         parameters:

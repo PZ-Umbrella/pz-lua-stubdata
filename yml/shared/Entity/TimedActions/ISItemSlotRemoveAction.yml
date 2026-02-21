@@ -10,7 +10,9 @@ languages:
                 type: IsoPlayer
               - name: entity
                 type: IsoObject
-              - name: itemSlot
+              - name: resource
+                type: ResourceItem
+              - name: internalItemSlot
                 type: ISItemSlot
               - name: item
                 type: InventoryItem

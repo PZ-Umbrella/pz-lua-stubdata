@@ -10,8 +10,8 @@ languages:
                 type: IsoPlayer
               - name: iconID
                 type: string
-              - name: itemTypeList
-                type: string[]
+              - name: itemDataList
+                type: table[]
               - name: targetContainer
                 type: ItemContainer
               - name: itemType
@@ -26,8 +26,8 @@ languages:
             type: ItemContainer
           itemType:
             type: string
-          itemTypeList:
-            type: string[]
+          itemDataList:
+            type: table[]
           iconID:
             type: string
           manager:

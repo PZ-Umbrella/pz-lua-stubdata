@@ -12,7 +12,6 @@ languages:
                 type: IsoAnimal
               - name: prevFocus
                 type: ISUIElement
-                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISOpenAnimalInfo"'
@@ -26,8 +25,7 @@ languages:
           useProgressBar:
             type: boolean
           prevFocus:
-            type: ISUIElement
-            nullable: true
+            type: table
         methods:
           - name: isValid
             return:
@@ -40,9 +38,6 @@ languages:
           - name: forceStop
           - name: stop
           - name: perform
-          - name: complete
-            return:
-              - type: boolean
           - name: getDuration
             return:
               - type: number

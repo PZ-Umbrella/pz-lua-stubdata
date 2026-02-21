@@ -234,13 +234,6 @@ languages:
           - name: render
           - name: updateListSort
           - name: sortInternetList
-          - name: sortServerList
-            parameters:
-              - name: a
-              - name: b
-            return:
-              - type: boolean
-                nullable: true
           - name: renderSortButtons
           - name: onMouseDown_Tabs
             parameters:

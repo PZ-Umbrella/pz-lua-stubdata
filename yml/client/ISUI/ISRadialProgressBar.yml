@@ -48,3 +48,7 @@ languages:
             return:
               - type: Texture
                 nullable: true
+          - name: setColor
+            parameters:
+              - name: _col
+                type: ColorInfo

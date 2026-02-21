@@ -43,3 +43,6 @@ languages:
                 type: string
               - name: parameter
                 type: string
+          - name: isMineralDeposit
+            return:
+              - type: boolean

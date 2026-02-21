@@ -54,6 +54,12 @@ languages:
           - name: complete
             return:
               - type: boolean
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
           - name: getDuration
             return:
               - type: number

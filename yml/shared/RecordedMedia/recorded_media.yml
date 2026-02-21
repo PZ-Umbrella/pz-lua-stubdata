@@ -24,8 +24,10 @@ languages:
             type: string
             nullable: true
           spawning:
-            type: 0 | 1
+            type: 0 | 1 | 2
             nullable: true
+          lines:
+            type: umbrella.RecMediaLine[]
       umbrella.RecMediaLine:
         fields:
           text:

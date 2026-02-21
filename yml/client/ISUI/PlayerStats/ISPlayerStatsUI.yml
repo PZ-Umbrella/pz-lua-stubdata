@@ -28,8 +28,6 @@ languages:
           selectedPerk:
             type: umbrella.ISPlayerStatsUI.PerkTable
             nullable: true
-          syncWeightTimer:
-            type: number
           mainPanel:
             type: ISPanel
           closeBtn:
@@ -104,7 +102,6 @@ languages:
           - name: subPanelRender
           - name: prerender
           - name: render
-          - name: updateWeight
           - name: canModifyThis
             return:
               - type: boolean

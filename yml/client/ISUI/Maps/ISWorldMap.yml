@@ -126,6 +126,9 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISWorldMap"'
+          instance:
+            type: ISWorldMap
+            nullable: true
         fields:
           mapAPI:
             type: UIWorldMapV1

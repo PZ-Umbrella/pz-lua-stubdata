@@ -503,6 +503,12 @@ languages:
                 type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
             return:
               - type: InventoryItem[]
+          - name: getActualUniqueItems
+            parameters:
+              - name: items
+                type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
+            return:
+              - type: InventoryItem[]
       ISInventoryPaneDraggedItems:
         constructors:
           - parameters:
@@ -538,6 +544,9 @@ languages:
             parameters:
               - name: item
                 type: InventoryItem
+            return:
+              - type: boolean
+          - name: cannotDropAnyItem
             return:
               - type: boolean
           - name: reset

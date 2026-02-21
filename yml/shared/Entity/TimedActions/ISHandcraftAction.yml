@@ -136,6 +136,11 @@ languages:
                 type: string
               - name: parameter
                 type: string
+          - name: fixManualInputs
+          - name: fixMovedItems
+            parameters:
+              - name: items
+                type: ArrayList<InventoryItem>
         staticMethods:
           - name: FromLogicMultiple
             parameters:

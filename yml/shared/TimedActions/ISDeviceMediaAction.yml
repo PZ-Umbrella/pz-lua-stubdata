@@ -2,47 +2,45 @@ version: "1.1"
 languages:
   lua:
     classes:
-      ISCutHair:
+      ISDeviceMediaAction:
         extends: ISBaseTimedAction
         constructors:
           - parameters:
               - name: character
                 type: IsoPlayer
-              - name: hairStyle
-                type: string
-              - name: item
+              - name: isRemove
+                type: boolean
+              - name: secondaryItem
                 type: InventoryItem
                 nullable: true
-              - name: maxTimeInit
-                type: number
+              - name: parameter
+                type: integer | IsoGridSquare
+                nullable: true
         staticFields:
           Type:
-            defaultValue: '"ISCutHair"'
+            defaultValue: '"ISDeviceMediaAction"'
         fields:
-          sound:
-            type: integer
-            nullable: true
-          hairStyle:
-            type: string
-          item:
+          ignoreHandsWounds:
+            type: boolean
+          isRemove:
+            type: boolean
+          secondaryItem:
             type: InventoryItem
             nullable: true
-          maxTimeInit:
-            type: number
-          maxTime:
-            type: number
+          parameter:
+            type: integer | IsoGridSquare
+            nullable: true
+          deviceData:
+            type: DeviceData
+            nullable: true
         methods:
           - name: isValid
             return:
               - type: boolean
-          - name: update
-          - name: start
-          - name: stop
-          - name: perform
-          - name: stopSound
           - name: complete
             return:
               - type: boolean
+          - name: invoke
           - name: getDuration
             return:
               - type: number

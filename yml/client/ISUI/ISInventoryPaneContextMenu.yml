@@ -97,6 +97,14 @@ languages:
                 type: ISContextMenu
               - name: playerNum
                 type: integer
+          - name: doPrintMediaMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: items
+                type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
+              - name: player
+                type: integer
           - name: doLiteratureMenu
             parameters:
               - name: context
@@ -823,6 +831,12 @@ languages:
                 type: InventoryItem
               - name: fav
                 type: boolean
+          - name: onMediaText
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: text
+                type: string
           - name: onMoveItemsTo
             parameters:
               - name: items

@@ -45,6 +45,8 @@ languages:
           - name: serverStart
           - name: start
           - name: stop
+          - name: serverStop
+          - name: dropFish
           - name: perform
           - name: complete
             return:

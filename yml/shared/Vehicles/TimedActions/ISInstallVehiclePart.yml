@@ -12,7 +12,7 @@ languages:
                 type: VehiclePart
               - name: item
                 type: InventoryItem
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
         staticFields:
           Type:
@@ -24,6 +24,8 @@ languages:
             type: BaseVehicle
           part:
             type: VehiclePart
+          maxTimeInit:
+            type: number
           jobType:
             type: string
         methods:
