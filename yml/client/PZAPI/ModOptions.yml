@@ -343,7 +343,7 @@ languages:
           - name: setEnabled
             parameters:
               - name: bool
-                type: string
+                type: boolean
       umbrella.ModOptions.TextEntry:
         extends: umbrella.ModOptions.BaseOption
         fields:
