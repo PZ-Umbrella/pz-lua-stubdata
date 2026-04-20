@@ -521,23 +521,3 @@ languages:
                 type: number
             return:
               - type: boolean
-      umbrella.ISWorldMap.MouseOverPrintMedia:
-        fields:
-          mediaID:
-            type: string
-          location:
-            type: umbrella.ISWorldMap.PrintMediaLocation
-          x:
-            type: number
-          y:
-            type: number
-      umbrella.ISWorldMap.PrintMediaLocation:
-        fields:
-          x1:
-            type: number
-          x2:
-            type: number
-          y1:
-            type: number
-          y2:
-            type: number

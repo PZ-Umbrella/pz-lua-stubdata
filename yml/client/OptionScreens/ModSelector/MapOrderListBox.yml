@@ -74,8 +74,3 @@ languages:
         staticFields:
           MapOrderListBox:
             type: ModSelector.MapOrderListBox
-      umbrella.ModSelector.MapOrderListBoxItem:
-        extends: umbrella.ISScrollingListBox.Item
-        fields:
-          color:
-            type: umbrella.RGB

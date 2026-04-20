@@ -185,22 +185,6 @@ languages:
         staticFields:
           putSoundContainer:
             nullable: true
-      umbrella.ISInventoryTransferAction.QueueItem:
-        fields:
-          items:
-            type: InventoryItem[]
-          time:
-            type: number
-          type:
-            type: string
-      umbrella.ISInventoryTransferAction.Transaction:
-        fields:
-          "[1]":
-            type: InventoryItem
-          "[2]":
-            type: ItemContainer
-          "[3]":
-            type: ItemContainer
     functions:
       - name: javaTransferItems
         parameters:

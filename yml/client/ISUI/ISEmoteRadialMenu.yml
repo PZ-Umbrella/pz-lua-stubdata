@@ -61,10 +61,3 @@ languages:
             parameters:
               - name: key
                 type: integer
-      umbrella.ISEmoteRadialMenu.MenuItem:
-        fields:
-          name:
-            type: string
-          subMenu:
-            type: table<string, string>
-            nullable: true

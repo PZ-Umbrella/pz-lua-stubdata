@@ -19,14 +19,3 @@ languages:
               - name: _isNewGame
                 type: boolean
           - name: OnEveryHour
-      umbrella.DynamicRadio.Script:
-        staticMethods:
-          - name: OnLoadRadioScripts
-          - name: OnEveryHour
-            parameters:
-              - name: channel
-                type: RadioChannel
-              - name: gametime
-                type: GameTime
-              - name: radio
-                type: ZomboidRadio

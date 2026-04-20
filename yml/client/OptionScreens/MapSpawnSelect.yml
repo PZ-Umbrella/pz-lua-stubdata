@@ -39,6 +39,10 @@ languages:
             type: boolean
           selectedMapIndex:
             type: integer
+          smallResolution:
+            type: boolean
+          mediumResolution:
+            type: boolean
           mapPanel:
             type: MapSpawnSelectImage
           textEntryLabel:
@@ -375,29 +379,3 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
-      umbrella.MapSpawnSelect.Item:
-        fields:
-          name:
-            type: string
-          region:
-            type: umbrella.SpawnRegion
-            nullable: true
-          dir:
-            type: string
-          desc:
-            type: string
-          worldimage:
-            type: Texture
-            nullable: true
-          zoomX:
-            type: number
-            nullable: true
-          zoomY:
-            type: number
-            nullable: true
-          zoomS:
-            type: number
-            nullable: true
-          demoVideo:
-            type: string
-            nullable: true

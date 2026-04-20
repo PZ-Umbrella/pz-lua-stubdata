@@ -23,39 +23,70 @@ languages:
           Type:
             defaultValue: '"ISAdminPowerUI"'
           messages: {}
-          cheatTooltips:
-            type: table<string, string>
           instance:
             type: ISAdminPowerUI
             nullable: true
         fields:
-          ok:
-            type: ISButton
-          tickBox:
+          tickBoxLeft:
+            type: ISTickBox
+          tickBoxRight:
             type: ISTickBox
           richText:
             type: ISRichTextLayout
-          setFunction:
-            type: table<integer, umbrella.ISAdminPowerUI.SetFunction>
+          ok:
+            type: ISButton
+          cancel:
+            type: ISButton
+          setFunctionLeft:
+            type: table
+          cheatTooltipsLeft:
+            type: table
+          setFunctionRight:
+            type: table
+          cheatTooltipsRight:
+            type: table
           player:
             type: IsoPlayer
         methods:
           - name: initialise
-          - name: addAdminPowerOptions
-          - name: addOption
+          - name: addOptionLeft
             parameters:
               - name: text
                 type: string
               - name: selected
                 type: boolean
               - name: setFunction
-                type: umbrella.ISAdminPowerUI.SetFunction
+                type: function
+          - name: addOptionRight
+            parameters:
+              - name: text
+                type: string
+              - name: selected
+                type: boolean
+              - name: setFunction
+                type: function
+          - name: addTooltip
+            parameters:
+              - name: tooltips
+                type: table
+              - name: name
+                type: string
+              - name: capability
+          - name: updateAdminPower
+          - name: addAdminPowerOptionsLeft
+          - name: addAdminPowerOptionsRight
           - name: onTicked
             parameters:
               - name: index
                 type: integer
               - name: selected
                 type: boolean
+          - name: renderTickBox
+            parameters:
+              - name: tickBox
+                type: ISTickBox
+              - name: tooltips
+                type: table
           - name: render
           - name: prerender
           - name: onClick
@@ -63,4 +94,7 @@ languages:
               - name: button
                 type: ISButton
         staticMethods:
+          - name: OnOpenPanel
+            return:
+              - type: ISAdminPowerUI
           - name: onGameStart

@@ -77,9 +77,3 @@ languages:
             parameters:
               - name: data
                 type: umbrella.WatchWindow.DataItem
-      umbrella.WatchWindow.DataItem:
-        fields:
-          obj:
-            type: table
-          item:
-            type: "{ key: unknown, value: unknown }"

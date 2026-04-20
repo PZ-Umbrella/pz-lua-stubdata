@@ -241,11 +241,3 @@ languages:
               - name: joypadData
                 type: JoypadData
           - name: close
-      umbrella.ISTextBoxMap.ColorButtonInfo:
-        fields:
-          item:
-            type: string
-          colorInfo:
-            type: ColorInfo
-          tooltip:
-            type: string

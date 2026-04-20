@@ -1449,6 +1449,16 @@ languages:
             parameters:
               - name: force
                 type: boolean
+          - name: getMaxWidthOfElements
+            parameters:
+              - name: ...
+            return:
+              - type: number
+          - name: setElementWidthToMaxOf
+            parameters:
+              - name: ...
+            return:
+              - type: number
           - name: shrinkWrap
             parameters:
               - name: padRight

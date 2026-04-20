@@ -38,9 +38,6 @@ languages:
             type: number
           highlightSquares:
             type: IsoObject[]
-          marker:
-            type: WorldMarkers.GridSquareMarker
-            nullable: true
           OnRenderTick:
             type: function
             nullable: true
@@ -58,12 +55,6 @@ languages:
             type: boolean
         methods:
           - name: initialise
-          - name: onItemType
-            parameters:
-              - name: buttons
-                type: ISRadioButtons
-              - name: index
-                type: integer
           - name: destroy
           - name: onClick
             parameters:

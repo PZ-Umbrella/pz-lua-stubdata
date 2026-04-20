@@ -163,6 +163,15 @@ languages:
                 type: integer
             return:
               - type: boolean
+          - name: walkAdjObject
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: object
+              - name: allowDiagonal
+              - name: keepActions
+            return:
+              - type: boolean
           - name: haveToBeTransfered
             parameters:
               - name: player

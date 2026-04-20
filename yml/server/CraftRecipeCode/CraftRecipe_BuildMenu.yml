@@ -1,16 +1,6 @@
 version: "1.1"
 languages:
   lua:
-    classes:
-      umbrella.CraftRecipe.OnAddToMenuParams:
-        fields:
-          player:
-            type: IsoPlayer
-          recipe:
-            type: CraftRecipe
-          shouldShowAll:
-            type: boolean
-            nullable: true
     functions:
       - name: debugTest
         parameters:

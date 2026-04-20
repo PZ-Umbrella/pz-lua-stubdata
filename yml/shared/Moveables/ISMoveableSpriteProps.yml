@@ -109,6 +109,9 @@ languages:
           removePropane:
             type: boolean
             nullable: true
+          basementWallAdjacentToTheVoid:
+            type: boolean
+            nullable: true
       SpriteGridCache:
         fields:
           "[integer]":
@@ -850,6 +853,11 @@ languages:
                 type: umbrella.ISMoveableSpriteProps.ScrapItemLists
             return:
               - type: number
+          - name: transmitPlaySound
+            parameters:
+              - name: _character
+              - name: _sound
+                type: string
           - name: scrapObject
             parameters:
               - name: _character
@@ -982,6 +990,9 @@ languages:
             return:
               - type: integer
                 nullable: true
+          - name: playScrapSuccessSound
+            parameters:
+              - name: _character
           - name: scrapObjectViaCursor
             parameters:
               - name: _character
@@ -1084,6 +1095,11 @@ languages:
             parameters:
               - name: _object
                 type: IsoObject
+            return:
+              - type: boolean
+          - name: isBasementWallAdjacentToTheVoid
+            parameters:
+              - name: object
             return:
               - type: boolean
         staticMethods:
@@ -1259,55 +1275,3 @@ languages:
                 type: IsoObject
             return:
               - type: ISThumpableSpriteProps
-      umbrella.ISMoveableSpriteProps.BaseCheckResult:
-        fields:
-          containerFull:
-            type: boolean
-            nullable: true
-          craftValid:
-            type: boolean
-            nullable: true
-          haveTool:
-            type: InventoryItem | false
-            nullable: true
-          haveTool2:
-            type: InventoryItem | false
-            nullable: true
-      umbrella.ISMoveableSpriteProps.CanRepairResult:
-        extends: umbrella.ISMoveableSpriteProps.BaseCheckResult
-        fields:
-          canRepair:
-            type: boolean
-          hasParts:
-            type: boolean
-            nullable: true
-      umbrella.ISMoveableSpriteProps.CanScrapResult:
-        extends: umbrella.ISMoveableSpriteProps.BaseCheckResult
-        fields:
-          canScrap:
-            type: boolean
-      umbrella.ISMoveableSpriteProps.InfoTableItem:
-        extends: umbrella.RGB
-        fields:
-          txt:
-            type: string
-      umbrella.ISMoveableSpriteProps.ScrapItemLists:
-        fields:
-          usable:
-            type: string[]
-          unusable:
-            type: string[]
-      umbrella.SpriteGridCache.Item:
-        fields:
-          square:
-            type: IsoGridSquare
-          object:
-            type: IsoObject
-          sprInstance:
-            type: IsoSpriteInstance
-          sprite:
-            type: IsoSprite
-          x:
-            type: number
-          y:
-            type: number

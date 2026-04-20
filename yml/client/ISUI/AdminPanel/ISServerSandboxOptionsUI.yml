@@ -226,9 +226,3 @@ languages:
               - name: settings
           - name: setJoypadButtons
           - name: ensureVisible
-      umbrella.ISServerSandboxOptionsUI.ListBoxItem:
-        fields:
-          page:
-            type: umbrella.ServerSettingsScreen.SettingsPage
-          panel:
-            type: ISUIElement

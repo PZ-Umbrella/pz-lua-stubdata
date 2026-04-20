@@ -79,6 +79,18 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: GenericCraftTransferAndStart
+            parameters:
+              - name: _player
+              - name: _entity
+              - name: _component
+              - name: _funcCanStart
+              - name: _funcStart
+              - name: _itemsToTransfer
+              - name: _itemSlot
+            return:
+              - type: boolean
+                nullable: true
           - name: HandcraftStart
             parameters:
               - name: _player
@@ -295,38 +307,3 @@ languages:
           - name: ReadIni
           - name: WriteIni
           - name: OnSave
-      umbrella.ISEntityUI.ComponentPanelInfo:
-        fields:
-          panelClass:
-            type: ISUIElement
-          component:
-            type: Component
-          uiStyle:
-            type: XuiSkin.ComponentUiStyle
-      umbrella.ISEntityUI.PlayerTable:
-        fields:
-          windows:
-            type: table<string, umbrella.ISEntityUI.WindowTable>
-      umbrella.ISEntityUI.ReloadTableItem:
-        fields:
-          player:
-            type: IsoPlayer
-          entity:
-            type: GameEntity
-      umbrella.ISEntityUI.WindowTable:
-        fields:
-          instance:
-            type: ISUIElement
-            nullable: true
-          x:
-            type: number
-            nullable: true
-          y:
-            type: number
-            nullable: true
-          width:
-            type: number
-            nullable: true
-          height:
-            type: number
-            nullable: true

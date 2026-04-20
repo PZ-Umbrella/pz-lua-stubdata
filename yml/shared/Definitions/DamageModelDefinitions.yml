@@ -44,13 +44,3 @@ languages:
                 type: umbrella.DamageModelDefinition
             return:
               - type: boolean
-      umbrella.DamageModelDefinition:
-        fields:
-          texture:
-            type: string
-          bodyPart:
-            type: BodyPartType
-          damageCategories:
-            type: string[]
-          criticalHit:
-            type: boolean

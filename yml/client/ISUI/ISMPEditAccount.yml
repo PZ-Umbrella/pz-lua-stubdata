@@ -28,6 +28,8 @@ languages:
             type: ISButton
           rememberPasswordTickBox:
             type: ISTickBox
+          addBelow:
+            type: ISTickBox
           steamRelayTickBox:
             type: ISTickBox
           googleAuthPopup:
@@ -42,8 +44,6 @@ languages:
             type: ISButton
           saveBtn:
             type: ISButton
-          originalHeight:
-            type: number
           isPasswordModified:
             type: boolean
           servers_serveripmessage_lines: {}

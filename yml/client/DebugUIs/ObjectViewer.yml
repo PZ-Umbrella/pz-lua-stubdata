@@ -100,9 +100,3 @@ languages:
             parameters:
               - name: data
                 type: umbrella.ObjectViewer.WatchItem
-      umbrella.ObjectViewer.WatchItem:
-        fields:
-          obj:
-            type: unknown
-          item:
-            type: umbrella.ISScrollingListBox.Item

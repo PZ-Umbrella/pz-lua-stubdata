@@ -187,15 +187,3 @@ languages:
             type: UIWorldMapV3
         methods:
           - name: instantiate
-      umbrella.ISPrintMediaTextPanel.MapInfo:
-        fields:
-          x:
-            type: number
-          y:
-            type: number
-          w:
-            type: number
-          h:
-            type: number
-          mapID:
-            type: string

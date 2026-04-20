@@ -59,23 +59,3 @@ languages:
             parameters:
               - name: data
                 type: umbrella.FishingManager.MPUpdateData
-      umbrella.FishingManager.MPUpdateData:
-        fields:
-          Reject:
-            type: boolean
-      umbrella.FishingManager.StatesTable:
-        fields:
-          None:
-            type: Fishing.States.None
-          Idle:
-            type: Fishing.States.Idle
-          Cast:
-            type: Fishing.States.Cast
-          Wait:
-            type: Fishing.States.Wait
-          ReelIn:
-            type: Fishing.States.ReelIn
-          ReelOut:
-            type: Fishing.States.ReelOut
-          PickupFish:
-            type: Fishing.States.PickupFish

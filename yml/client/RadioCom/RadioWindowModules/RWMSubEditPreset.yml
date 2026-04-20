@@ -102,13 +102,3 @@ languages:
           - name: getYPrompt
             return:
               - type: string
-      umbrella.RWMSubEditPreset.LinePair:
-        fields:
-          ui:
-            type: ISUIElement
-          text:
-            type: string
-            nullable: true
-          textLen:
-            type: number
-            nullable: true

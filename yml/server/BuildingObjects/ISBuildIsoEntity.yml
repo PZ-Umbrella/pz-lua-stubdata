@@ -297,20 +297,3 @@ languages:
                 type: IsoPlayer
             return:
               - type: table<string, umbrella.ISBuildIsoEntity.ItemResult>
-      umbrella.ISBuildIsoEntity.ItemResult:
-        fields:
-          count:
-            type: number
-          uses:
-            type: number
-          invCount:
-            type: number
-          invUses:
-            type: number
-          items:
-            type: InventoryItem[]
-          invItems:
-            type: InventoryItem[]
-          hasTestedInventory:
-            type: boolean
-            nullable: true

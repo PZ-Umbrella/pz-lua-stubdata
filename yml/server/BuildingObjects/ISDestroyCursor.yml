@@ -108,6 +108,8 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: cycleToPreviousObject
+          - name: cycleToNextObject
           - name: rotateKey
             parameters:
               - name: key
@@ -169,6 +171,24 @@ languages:
             parameters:
               - name: object
                 type: IsoObject
+            return:
+              - type: boolean
+          - name: checkNorthWestCorner
+            parameters:
+              - name: object
+          - name: isBasementWallAdjacentToTheVoid
+            parameters:
+              - name: object
+            return:
+              - type: boolean
+          - name: canDestroyWall_North
+            parameters:
+              - name: object
+            return:
+              - type: boolean
+          - name: canDestroyWall_West
+            parameters:
+              - name: object
             return:
               - type: boolean
           - name: getObjectList

@@ -184,9 +184,3 @@ languages:
             parameters:
               - name: _key
                 type: integer
-      umbrella.ISMoveableInfoWindow.TextureInfo:
-        fields:
-          texture:
-            type: Texture
-          offsetY:
-            type: number

@@ -36,6 +36,7 @@ languages:
           - name: waitToStart
             return:
               - type: boolean
+          - name: interruptWaitToStart
           - name: update
           - name: start
           - name: stop

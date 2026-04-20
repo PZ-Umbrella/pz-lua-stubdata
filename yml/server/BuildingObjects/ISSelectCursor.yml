@@ -59,11 +59,3 @@ languages:
                 type: number
               - name: square
                 type: IsoGridSquare
-      umbrella.ISSelectCursor.UI:
-        extends: ISUIElement
-        fields:
-          cursor:
-            type: ISSelectCursor
-            nullable: true
-          onSquareSelected:
-            type: "fun(square: IsoGridSquare)"

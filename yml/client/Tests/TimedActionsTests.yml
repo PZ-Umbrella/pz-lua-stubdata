@@ -13,7 +13,3 @@ languages:
           - name: getTests
             return:
               - type: umbrella.TimedActionTests.Test[]
-      umbrella.TimedActionTests.Test:
-        fields:
-          run:
-            type: "fun(self: umbrella.TimedActionTests.Test)"

@@ -75,15 +75,3 @@ languages:
             parameters:
               - name: _v
                 type: number
-      umbrella.ISGradientBar.Settings:
-        fields:
-          radius:
-            type: integer
-          darkAlpha:
-            type: number
-          colBorder:
-            type: umbrella.RGBA
-          colBorderInner:
-            type: umbrella.RGBA
-          doKnob:
-            type: boolean

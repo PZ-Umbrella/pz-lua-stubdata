@@ -114,9 +114,3 @@ languages:
               - name: dy
                 type: number
           - name: playSwitchSound
-      umbrella.ISKnob.ValueTable:
-        fields:
-          angle:
-            type: number
-          value:
-            type: number

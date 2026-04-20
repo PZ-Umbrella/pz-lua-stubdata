@@ -2,6 +2,90 @@ version: "1.1"
 languages:
   lua:
     classes:
+      NewGameScreen.ModePanel:
+        extends: ISPanel
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: target
+              - name: callback
+        staticFields:
+          Type:
+            defaultValue: '"ModePanel"'
+        fields:
+          richText:
+            type: ISRichTextPanel
+          data:
+            nullable: true
+          texture:
+            nullable: true
+          title:
+            type: string
+            nullable: true
+          selected:
+            type: boolean
+          centerThumbnail:
+            type: boolean
+          mode: {}
+          textureHeight:
+            type: number
+          textureWidth:
+            type: number
+          textureX:
+            type: number
+          borderColorMouseOver:
+            type: table
+          borderColorInactive:
+            type: table
+          callback: {}
+        methods:
+          - name: createChildren
+          - name: setData
+            parameters:
+              - name: data
+          - name: updateView
+          - name: render
+          - name: onMouseMove
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onMouseMoveOutside
+            parameters:
+              - name: dx
+                type: number
+              - name: dy
+                type: number
+          - name: onMouseDoubleClick
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDown
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onMouseDownRichText
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: setSelected
+            parameters:
+              - name: val
       NewGameScreen:
         extends: ISPanelJoypad
         constructors:
@@ -17,64 +101,75 @@ languages:
         staticFields:
           Type:
             defaultValue: '"NewGameScreen"'
+          defaultGameModeData: {}
           instance:
             type: NewGameScreen
             nullable: true
         fields:
-          mainPanel:
-            type: ISPanelJoypad
-          survival:
-            type: ISLabel
-          buttonMods:
-            type: ISButton
-          mainPanelReqWidth:
+          gameModeData:
+            type: table
+          dataShift:
             type: number
+          inChallengesView:
+            type: boolean
           backButton:
             type: ISButton
           nextButton:
             type: ISButton
+          modsButton:
+            type: ISButton
+          titleLabel:
+            type: ISLabel
           richText:
             type: ISRichTextPanel
+          panels:
+            type: table
           selectedItem:
             type: ISLabel
-          fadeOut:
+          viewDimensions:
+            type: table
+          selectedJoypad:
             type: number
-            nullable: true
-          fadeIn:
-            type: number
-            nullable: true
-          overBottomPanelButton:
-            type: ISUIElement
-            nullable: true
-          MouseEnterMainMenuItem:
-            type: integer
-            nullable: true
-          modal:
-            nullable: true
           joypadButtons:
             type: ISButton[]
-          joypadFocused:
+          smallResolution:
             type: boolean
-            nullable: true
-          itemheightoverride:
+          mediumResolution:
+            type: boolean
+          nextData:
             type: table
-          selected:
-            type: integer
-          startY:
-            type: number
+          prevData:
+            type: table
         methods:
-          - name: initialise
-          - name: instantiate
+          - name: clickChallenges
           - name: create
-          - name: needDifficulty
-            return:
-              - type: boolean
-          - name: prerenderBottomPanelLabel
+          - name: loadChallenges
+          - name: calcViewDimensions
+          - name: updatePanels
+          - name: onItemDblClick
+            parameters:
+              - name: item
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: onItemClick
+            parameters:
+              - name: item
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: updatePreview
           - name: update
-          - name: disableBtn
-          - name: updateBottomPanelButtons
-          - name: render
           - name: prerender
+          - name: setVisible
+            parameters:
+              - name: visible
+                type: boolean
+              - name: joypadData
+                type: JoypadData
+                nullable: true
           - name: onOptionMouseDown
             parameters:
               - name: button
@@ -92,31 +187,25 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
-          - name: Label_setJoypadFocused
+          - name: onJoypadDirLeft
             parameters:
-              - name: focused
               - name: joypadData
                 type: JoypadData
-          - name: onResolutionChange
+          - name: onJoypadDirRight
             parameters:
-              - name: oldw
-                type: number
-              - name: oldh
-                type: number
-              - name: neww
-                type: number
-              - name: newh
-                type: number
+              - name: joypadData
+                type: JoypadData
+          - name: selectNewPanel
+            parameters:
+              - name: index
+          - name: findLastPanel
+            return:
+              - type: number
+          - name: onResolutionChange
           - name: onResetLua
             parameters:
               - name: reason
                 type: string
-          - name: onJoypadNavigateStart_Descendant
-            parameters:
-              - name: descendant
-                type: ISUIElement
-              - name: joypadData
-                type: JoypadData
           - name: onJoypadBeforeDeactivate
             parameters:
               - name: joypadData
@@ -125,140 +214,3 @@ languages:
             parameters:
               - name: key
                 type: integer
-        staticMethods:
-          - name: onChooseDifficulty
-            parameters:
-              - name: item
-                type: ISLabel
-              - name: x
-                type: number
-              - name: y
-                type: number
-          - name: dblClickTutorial
-            parameters:
-              - name: item
-                type: ISLabel
-              - name: x
-                type: number
-              - name: y
-                type: number
-          - name: dblClickPlaystyle
-            parameters:
-              - name: item
-                type: ISLabel
-              - name: x
-                type: number
-              - name: y
-                type: number
-          - name: dblClickChallenge
-            parameters:
-              - name: item
-                type: ISLabel
-              - name: x
-                type: number
-              - name: y
-                type: number
-          - name: dblClickDifficulty
-            parameters:
-              - name: item
-                type: ISLabel
-              - name: x
-                type: number
-              - name: y
-                type: number
-          - name: dblClickSurvival
-            parameters:
-              - name: item
-                type: ISLabel
-              - name: x
-                type: number
-              - name: y
-                type: number
-          - name: onMenuItemMouseDown
-            parameters:
-              - name: item
-                type: ISLabel
-              - name: x
-                type: number
-              - name: y
-                type: number
-      NewGameScreen.HorizontalLine:
-        extends: ISPanel
-        local: true
-        constructors:
-          - parameters:
-              - name: x
-                type: number
-              - name: y
-                type: number
-              - name: width
-                type: number
-        staticFields:
-          Type:
-            defaultValue: '"HorizontalLine"'
-        methods:
-          - name: prerender
-          - name: render
-      NewGameScreen.MainPanel:
-        extends: ISPanelJoypad
-        local: true
-        staticFields:
-          Type:
-            defaultValue: '"NewGameScreen_MainPanel"'
-        fields:
-          lastSelectedChild:
-            type: ISUIElement
-          joypadButtons:
-            type: ISButton[]
-        methods:
-          - name: prerender
-          - name: render
-          - name: renderActiveMods
-          - name: ensureVisible
-          - name: onMouseWheel
-            parameters:
-              - name: del
-                type: number
-            return:
-              - type: boolean
-          - name: onGainJoypadFocus
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onLoseJoypadFocus
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadBeforeDeactivate
-            parameters:
-              - name: joypadData
-                type: JoypadData
-      NewGameScreen.RichText:
-        extends: ISRichTextPanel
-        local: true
-        staticFields:
-          Type:
-            defaultValue: '"NewGameScreen_RichText"'
-          doRightJoystickScrolling:
-            defaultValue: ISPanelJoypad.doRightJoystickScrolling
-        methods:
-          - name: prerender
-          - name: render
-          - name: onJoypadDown
-            parameters:
-              - name: button
-                type: integer
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirUp
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadDirDown
-            parameters:
-              - name: joypadData
-                type: JoypadData
-          - name: onJoypadBeforeDeactivate
-            parameters:
-              - name: joypadData
-                type: JoypadData

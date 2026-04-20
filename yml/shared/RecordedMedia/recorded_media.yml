@@ -6,37 +6,3 @@ languages:
         fields:
           "[string]":
             type: table<string, umbrella.RecMediaItem>
-      umbrella.RecMediaItem:
-        fields:
-          itemDisplayName:
-            type: string
-          title:
-            type: string
-          subtitle:
-            type: string
-            nullable: true
-          category:
-            type: string
-          author:
-            type: string
-            nullable: true
-          extra:
-            type: string
-            nullable: true
-          spawning:
-            type: 0 | 1 | 2
-            nullable: true
-          lines:
-            type: umbrella.RecMediaLine[]
-      umbrella.RecMediaLine:
-        fields:
-          text:
-            type: string
-          r:
-            type: number
-          g:
-            type: number
-          b:
-            type: number
-          codes:
-            type: string

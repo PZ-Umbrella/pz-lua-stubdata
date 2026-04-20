@@ -232,18 +232,3 @@ languages:
             parameters:
               - name: info
                 type: ISFarmingInfo
-      umbrella.ISFarmingInfo.DiseaseTable:
-        fields:
-          text:
-            type: string
-          "[integer]":
-            type: umbrella.ISFarmingInfo.DiseaseInfo
-            nullable: true
-      umbrella.ISFarmingInfo.DiseaseInfo:
-        fields:
-          name:
-            type: string
-            nullable: true
-          value:
-            type: string
-            nullable: true

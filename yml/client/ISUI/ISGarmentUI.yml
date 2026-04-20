@@ -232,16 +232,3 @@ languages:
                 type: IsoPlayer
               - name: bodyPart
                 type: BloodBodyPartType
-      umbrella.ISGarmentUI.TextureInfo:
-        fields:
-          texture:
-            type: Texture
-          hole:
-            type: Texture
-            nullable: true
-          blood:
-            type: Texture
-            nullable: true
-          patch:
-            type: Texture
-            nullable: true

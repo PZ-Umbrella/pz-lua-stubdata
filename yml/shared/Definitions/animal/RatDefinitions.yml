@@ -5,6 +5,6 @@ languages:
       AnimalDefinitions:
         staticFields:
           stages: {}
-          genome: {}
           breeds: {}
+          genome: {}
           animals: {}

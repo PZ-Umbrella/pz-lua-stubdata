@@ -84,21 +84,3 @@ languages:
                 type: number
             return:
               - type: table
-      umbrella.ISSineWaveDisplay.WaveParams:
-        fields:
-          minLen:
-            type: number
-          maxLen:
-            type: number
-          minHeight:
-            type: number
-          maxHeight:
-            type: number
-          minUpd:
-            type: integer
-          maxUpd:
-            type: integer
-          minSpeed:
-            type: integer
-          maxSpeed:
-            type: integer

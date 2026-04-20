@@ -10,13 +10,3 @@ languages:
         fields:
           "[integer]":
             type: umbrella.KeybindTable
-      umbrella.KeybindElement:
-        fields:
-          key:
-            type: integer
-          value:
-            type: string
-      umbrella.KeybindSection:
-        fields:
-          value:
-            type: string

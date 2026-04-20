@@ -53,9 +53,3 @@ languages:
           - name: prerender
           - name: render
           - name: onResize
-      umbrella.ISSSLEvent.EventDataTable:
-        fields:
-          eventSound:
-            type: EventSound
-          dataPoints:
-            type: ArrayList<DataPoint>

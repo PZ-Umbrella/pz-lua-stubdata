@@ -48,36 +48,97 @@ languages:
       Joypad:
         staticFields:
           AButton:
-            defaultValue: "0"
+            defaultValue: JoypadButton.A
           BButton:
-            defaultValue: "1"
+            defaultValue: JoypadButton.B
           XButton:
-            defaultValue: "2"
+            defaultValue: JoypadButton.X
           YButton:
-            defaultValue: "3"
+            defaultValue: JoypadButton.Y
           LBumper:
-            defaultValue: "4"
+            defaultValue: JoypadButton.LeftBump
           RBumper:
-            defaultValue: "5"
+            defaultValue: JoypadButton.RightBump
           Back:
-            defaultValue: "6"
+            defaultValue: JoypadButton.Back
           Start:
-            defaultValue: "7"
+            defaultValue: JoypadButton.Start
           LStickButton:
-            defaultValue: "8"
+            defaultValue: JoypadButton.LeftStick
           RStickButton:
-            defaultValue: "9"
+            defaultValue: JoypadButton.RightStick
           Other:
-            defaultValue: "10"
+            defaultValue: JoypadButton.Guide
           DPadLeft:
-            defaultValue: "100"
+            defaultValue: JoypadButton.DPadLeft
           DPadRight:
-            defaultValue: "101"
+            defaultValue: JoypadButton.DPadRight
           DPadUp:
-            defaultValue: "102"
+            defaultValue: JoypadButton.DPadUp
           DPadDown:
-            defaultValue: "103"
-          Texture: {}
+            defaultValue: JoypadButton.DPadDown
+          ButtonTextures: {}
+          AxisTextures: {}
+          Texture:
+            type: Joypad.Texture
+      Joypad.Texture:
+        local: true
+        staticFields:
+          AButton:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.A]
+          BButton:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.B]
+          XButton:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.X]
+          YButton:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Y]
+          LBumper:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.LeftBump]
+          RBumper:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.RightBump]
+          Start:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Start]
+          Back:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Back]
+          Menu:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Start]
+          View:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Back]
+          LStick:
+            defaultValue: Joypad.AxisTextures[JoypadAxis2d.LeftStick]
+          LStickLR:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.LeftStickX]
+          LStickUD:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.LeftStickY]
+          RStick:
+            defaultValue: Joypad.AxisTextures[JoypadAxis2d.RightStick]
+          RStickLR:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.RightStickX]
+          RStickUD:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.RightStickY]
+          DPad:
+            defaultValue: getTexture("media/ui/controller/" ..
+              ((getCore():getOptionControllerButtonStyle() == 1) and "XBOX" or
+              "PS4") .. "_DPad.png")
+          DPadUp:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.DPadUp]
+          DPadRight:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.DPadRight]
+          DPadDown:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.DPadDown]
+          DPadLeft:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.DPadLeft]
+          LTrigger:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.LeftTrigger]
+          RTrigger:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.RightTrigger]
+        staticMethods:
+          - name: fromCommand
+            parameters:
+              - name: command
+            return:
+              - type: unknown
+                nullable: true
       joypad:
         staticFields:
           wantNoise:
@@ -289,6 +350,16 @@ languages:
         parameters:
           - name: playerID
             type: integer
+      - name: isIgnoreAim
+        parameters:
+          - name: uiElement
+        return:
+          - type: boolean
+      - name: isIgnoreButtons
+        parameters:
+          - name: uiElement
+        return:
+          - type: boolean
       - name: updateJoypadFocus
         parameters:
           - name: joypadData
