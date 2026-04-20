@@ -33,16 +33,16 @@ languages:
             type: number
           itemTarget:
             type: number
-          part:
-            type: VehiclePart
           vehicle:
             type: BaseVehicle
+          part:
+            type: VehiclePart
           item:
             type: InventoryItem
-          fluidCont:
-            type: FluidContainer
           otherItems:
             type: InventoryItem[]
+          fluidCont:
+            type: FluidContainer
         methods:
           - name: isValid
             return:

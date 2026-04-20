@@ -14,10 +14,10 @@ languages:
           Type:
             defaultValue: '"ISSmashVehicleWindow"'
         fields:
-          part:
-            type: VehiclePart
           vehicle:
             type: BaseVehicle
+          part:
+            type: VehiclePart
           window:
             type: VehicleWindow
         methods:

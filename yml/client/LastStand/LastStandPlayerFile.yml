@@ -50,3 +50,37 @@ languages:
           - name: readBonus
             return:
               - type: boolean
+      umbrella.LastStandPlayerFile.PlayerData:
+        fields:
+          traits:
+            type: string[]
+          skills:
+            type: table<string, integer>
+          playedTime:
+            type: number | string
+          forename:
+            type: string
+          surname:
+            type: string
+          female:
+            type: boolean
+          profession:
+            type: string
+          globalXp:
+            type: string
+          level:
+            type: string
+          humanVisual:
+            type: string
+          clothingVisuals:
+            type: string[]
+            nullable: true
+          boostGoldLevel:
+            type: string
+            nullable: true
+          boostXpLevel:
+            type: string
+            nullable: true
+          startingGoldLevel:
+            type: string
+            nullable: true

@@ -59,3 +59,14 @@ languages:
                 type: IsoGridSquare
             return:
               - type: umbrella.ISMoveableTools.MoveableListItem[]
+      umbrella.ISMoveableTools.MoveableListItem:
+        extends: umbrella.ISMoveableTools.ObjectListItem
+        fields:
+          isOverlay:
+            type: boolean
+      umbrella.ISMoveableTools.ObjectListItem:
+        fields:
+          object:
+            type: IsoObject
+          moveProps:
+            type: ISMoveableSpriteProps

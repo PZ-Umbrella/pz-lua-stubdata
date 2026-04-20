@@ -48,8 +48,6 @@ languages:
             parameters:
               - name: handlerClass
                 type: table
-              - name: displayToRight
-                type: boolean
           - name: AddFloorHandler
             parameters:
               - name: handlerClass

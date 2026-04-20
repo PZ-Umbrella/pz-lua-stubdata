@@ -96,3 +96,9 @@ languages:
                 type: boolean
             return:
               - type: IsoGridSquare
+      umbrella.ISFeedingTrough.TroughSprite:
+        fields:
+          backLeft:
+            type: string
+          backRight:
+            type: string

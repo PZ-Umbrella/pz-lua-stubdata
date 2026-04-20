@@ -112,3 +112,13 @@ languages:
         staticFields:
           ModLoadOrderPanel:
             type: ModSelector.ModLoadOrderPanel
+      umbrella.ModSelector.ModLoadOrderData:
+        fields:
+          name:
+            type: string
+          icon:
+            type: string
+          modId:
+            type: string
+          modInfo:
+            type: ChooseGameInfo.Mod

@@ -54,6 +54,8 @@ languages:
             type: boolean
           showCurrentContents:
             type: boolean
+          margin:
+            type: number
           autoFillContents:
             type: boolean
           isAutoFill:
@@ -152,3 +154,42 @@ languages:
             parameters:
               - name: _containers
                 type: ArrayList<ItemContainer>
+      umbrella.ISCraftInventoryPanel.ListItem:
+        fields:
+          isHeader:
+            type: boolean
+          isNode:
+            type: boolean
+          name:
+            type: string
+          text:
+            type: string
+          textWidth:
+            type: number
+          hasExpandArrow:
+            type: boolean
+            nullable: true
+          isUnavailable:
+            type: boolean
+            nullable: true
+          index:
+            type: integer
+            nullable: true
+          script:
+            type: Item
+            nullable: true
+          fluid:
+            type: Fluid
+            nullable: true
+          iconTexture:
+            type: Texture
+            nullable: true
+          iconColor:
+            type: umbrella.RGB
+            nullable: true
+          node:
+            type: InputItemNode
+            nullable: true
+          inventoryItem:
+            type: InventoryItem
+            nullable: true

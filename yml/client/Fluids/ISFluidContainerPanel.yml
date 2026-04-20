@@ -233,3 +233,25 @@ languages:
               - name: _b
                 type: boolean
           - name: onClose
+      umbrella.ISFluidContainerPanel.InfoTableItem:
+        fields:
+          tag:
+            type: string
+          value:
+            type: string
+          cache:
+            type: number
+      umbrella.ISFluidContainerPanel.InfoTable:
+        fields:
+          capacity:
+            type: umbrella.ISFluidContainerPanel.InfoTableItem
+          stored:
+            type: umbrella.ISFluidContainerPanel.InfoTableItem
+          free:
+            type: umbrella.ISFluidContainerPanel.InfoTableItem
+      umbrella.ISFluidContainerPanel.TextureItem:
+        fields:
+          texture:
+            type: Texture
+          offsetY:
+            type: number

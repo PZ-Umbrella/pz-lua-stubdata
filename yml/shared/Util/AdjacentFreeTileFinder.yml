@@ -94,14 +94,6 @@ languages:
             return:
               - type: IsoGridSquare
                 nullable: true
-          - name: tryDirection
-            parameters:
-              - name: directions
-              - name: gridSquare
-              - name: choices
-            return:
-              - type: boolean
-                nullable: true
           - name: FindEdge
             parameters:
               - name: gridSquare

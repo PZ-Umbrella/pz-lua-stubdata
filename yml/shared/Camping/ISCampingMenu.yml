@@ -114,17 +114,6 @@ languages:
                 type: ISBBQLightFromLiterature | ISLightFromLiterature
               - name: kindleAction
                 type: ISBBQLightFromKindle | ISLightFromKindle
-          - name: doCampingMenu
-            parameters:
-              - name: player
-              - name: context
-                type: ISContextMenu
-              - name: worldobjects
-                type: IsoObject[]
-              - name: test
-            return:
-              - type: boolean
-                nullable: true
           - name: toPlayerInventory
             parameters:
               - name: playerObj
@@ -250,3 +239,25 @@ languages:
                 nullable: true
               - name: timedAction
                 type: ISBaseTimedAction
+      umbrella.ISCampingMenu.NearbyFuelInfo:
+        fields:
+          starters:
+            type: InventoryItem[]
+          fuelList:
+            type: InventoryItem[]
+          tinder:
+            type: InventoryItem[]
+          itemCount:
+            type: table<string, integer>
+          petrol:
+            type: InventoryItem
+            nullable: true
+          percedWood:
+            type: InventoryItem
+            nullable: true
+          branch:
+            type: InventoryItem
+            nullable: true
+          stick:
+            type: InventoryItem
+            nullable: true

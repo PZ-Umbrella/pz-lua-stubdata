@@ -1,0 +1,84 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISCheatPanelUI:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: player
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISCheatPanelUI"'
+          instance:
+            type: ISCheatPanelUI
+            nullable: true
+          cheatTooltips:
+            type: table<string, string>
+          OptionList:
+            type: umbrella.ISCheatPanelUI.Option[]
+          OptionById:
+            type: table<string, umbrella.ISCheatPanelUI.Option>
+        fields:
+          ok:
+            type: ISButton
+          tickBox:
+            type: ISTickBox
+          player:
+            type: number
+        methods:
+          - name: initialise
+          - name: addAdminPowerOptions
+          - name: onTicked
+            parameters:
+              - name: index
+                type: integer
+              - name: selected
+                type: boolean
+          - name: render
+          - name: prerender
+          - name: onClick
+            parameters:
+              - name: button
+                type: ISButton
+          - name: saveOptions
+        staticMethods:
+          - name: AddOption
+            parameters:
+              - name: id
+                type: string
+              - name: xln
+                type: string
+              - name: functionGet
+                type: "fun(option: umbrella.ISCheatPanelUI.Option): boolean"
+              - name: functionSet
+                type: "fun(option: umbrella.ISCheatPanelUI.Option, value: boolean)"
+            return:
+              - type: umbrella.ISCheatPanelUI.Option
+          - name: OnOpenPanel
+            return:
+              - type: ISCheatPanelUI
+                nullable: true
+          - name: EnableCheats
+      umbrella.ISCheatPanelUI.Option:
+        fields:
+          id:
+            type: string
+          text:
+            type: string
+          tooltip:
+            type: string
+            nullable: true
+          functionGet:
+            type: "fun(option: umbrella.ISCheatPanelUI.Option): boolean"
+          functionSet:
+            type: "fun(option: umbrella.ISCheatPanelUI.Option, value: boolean)"

@@ -92,3 +92,9 @@ languages:
                 type: UserLog
               - name: suspiciousActivity
                 type: table<string, number>
+      umbrella.ISPlayerStatsSuspicionActivityUI.SuspicionActivity:
+        fields:
+          type:
+            type: string
+          amount:
+            type: number

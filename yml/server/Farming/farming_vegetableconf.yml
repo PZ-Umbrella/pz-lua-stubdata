@@ -55,6 +55,56 @@ languages:
                 type: boolean
             return:
               - type: SPlantGlobalObject
+      umbrella.Farming.Props:
+        fields:
+          icon:
+            type: string
+          texture:
+            type: string
+          waterLvl:
+            type: integer
+          waterNeeded:
+            type: integer
+          timeToGrow:
+            type: integer
+          minVeg:
+            type: integer
+          maxVeg:
+            type: integer
+          minVegAutorized:
+            type: integer
+          maxVegAutorized:
+            type: integer
+          vegetableName:
+            type: string
+          seedName:
+            type: string
+          seedTypes:
+            type: string[]
+            nullable: true
+          badMonth:
+            type: integer[]
+          sowMonth:
+            type: integer[]
+          bestMonth:
+            type: integer[]
+          riskMonth:
+            type: integer[]
+            nullable: true
+          seasonRecipe:
+            type: string
+          harvestLevel:
+            type: integer
+          mature:
+            type: integer
+          fullGrown:
+            type: integer
+          scytheHarvest:
+            type: boolean
+            nullable: true
+          harvestPosition:
+            type: '"Low" | "Mid" | "High"'
+            nullable: true
     functions:
       - name: getNbOfSeed
         parameters:

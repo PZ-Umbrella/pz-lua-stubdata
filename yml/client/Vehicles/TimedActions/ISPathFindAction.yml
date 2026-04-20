@@ -93,15 +93,6 @@ languages:
                 type: number[]
             return:
               - type: ISPathFindAction
-          - name: pathToNearestPreferred
-            parameters:
-              - name: character
-              - name: locations
-                type: table
-              - name: locationsAlt
-                type: table
-            return:
-              - type: ISPathFindAction
           - name: pathToSitOnFurniture
             parameters:
               - name: character
@@ -148,14 +139,6 @@ languages:
                 type: IsoDeadBody
             return:
               - type: ISPathFindAction
-          - name: pathAdjacentToMultiTileObject
-            parameters:
-              - name: character
-              - name: object
-              - name: allowDiagonal
-            return:
-              - type: ISPathFindAction
-                nullable: true
     functions:
       - name: ISPathFindAction_pathToLocationF
         parameters:

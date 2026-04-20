@@ -34,6 +34,12 @@ languages:
             type: boolean
           textureLink:
             type: Texture
+          margin:
+            type: number
+          itemSpacing:
+            type: number
+          itemMargin:
+            type: number
           itemNameMaxLines:
             type: number
           doToolTip:

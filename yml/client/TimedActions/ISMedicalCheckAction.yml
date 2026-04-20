@@ -43,3 +43,8 @@ languages:
             return:
               - type: umbrella.ISMedicalCheckAction.HealthWindow
                 nullable: true
+      umbrella.ISMedicalCheckAction.HealthWindow:
+        extends: ISCollapsableWindow
+        fields:
+          nested:
+            type: ISHealthPanel

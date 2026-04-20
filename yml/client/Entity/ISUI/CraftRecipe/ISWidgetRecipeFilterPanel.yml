@@ -43,6 +43,24 @@ languages:
           callbackTarget:
             type: unknown
             nullable: true
+          paddingTop:
+            type: number
+          paddingBottom:
+            type: number
+          paddingLeft:
+            type: number
+          paddingRight:
+            type: number
+          marginTop:
+            type: number
+          marginBottom:
+            type: number
+          marginLeft:
+            type: number
+          marginRight:
+            type: number
+          margin:
+            type: number
           autoFillContents:
             type: boolean
           needFilterCombo:

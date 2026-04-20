@@ -191,3 +191,35 @@ languages:
                 type: integer
               - name: joypadData
                 type: JoypadData
+      umbrella.ISClothingInsPanel.NodeDetailsTable:
+        fields:
+          labelTitle:
+            type: ISLabel
+          labelMid:
+            type: ISLabel
+            nullable: true
+          labelMin:
+            type: ISLabel
+            nullable: true
+          labelMax:
+            type: ISLabel
+            nullable: true
+          bar:
+            type: ISGradientBar
+            nullable: true
+      umbrella.ISClothingInsPanel.View:
+        fields:
+          title:
+            type: string
+          min:
+            type: string
+          mid:
+            type: string
+          max:
+            type: string
+          tex:
+            type: Texture
+          scheme:
+            type: umbrella.ISBodyPartPanel.ColorSchemeTable[]
+          functionName:
+            type: string

@@ -90,7 +90,6 @@ languages:
           - name: waitToStart
             return:
               - type: boolean
-          - name: interruptWaitToStart
           - name: start
           - name: isStarted
             return:

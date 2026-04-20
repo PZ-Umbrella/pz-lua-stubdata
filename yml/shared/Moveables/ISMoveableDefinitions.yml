@@ -222,3 +222,91 @@ languages:
           - name: resetHealth
           - name: resetRepair
           - name: resetFloorReplaceSprites
+      umbrella.ISMoveableDefinitions.BaseDefinition:
+        fields:
+          name:
+            type: string
+          tools:
+            type: string[]
+          tools2:
+            type: string[]
+          perk:
+            type: PerkFactory.Perk
+          perkName:
+            type: string
+          baseActionTime:
+            type: number
+          sound:
+            type: string
+          isWav:
+            type: boolean
+          baseChance:
+            type: number
+            nullable: true
+      umbrella.ISMoveableDefinitions.MaterialDefinition:
+        fields:
+          returnItem:
+            type: string
+          maxAmount:
+            type: number
+          chancePerRoll:
+            type: number
+      umbrella.ISMoveableDefinitions.RepairDefinition:
+        extends: umbrella.ISMoveableDefinitions.BaseDefinition
+        fields:
+          parts:
+            type: umbrella.ISMoveableDefinitions.RepairPart[]
+          toolNames:
+            type: table<string, string>
+            nullable: true
+      umbrella.ISMoveableDefinitions.RepairPart:
+        fields:
+          displayName:
+            type: string
+          itemType:
+            type: string
+          amount:
+            type: number
+          required:
+            type: boolean
+          damageAmount:
+            type: number
+            nullable: true
+      umbrella.ISMoveableDefinitions.ScrapDefinition:
+        extends: umbrella.ISMoveableDefinitions.BaseDefinition
+        fields:
+          unusableItem:
+            type: string
+            nullable: true
+          returnItems:
+            type: umbrella.ISMoveableDefinitions.ScrapReturnItem
+          returnItemsStatic:
+            type: umbrella.ISMoveableDefinitions.ScrapReturnItem
+          toolNames:
+            type: table<string, string>
+            nullable: true
+      umbrella.ISMoveableDefinitions.ScrapReturnItem:
+        fields:
+          returnItem:
+            type: string
+          maxAmount:
+            type: number
+          chancePerRoll:
+            type: number
+      umbrella.ISMoveableDefinitions.ToolDefinition:
+        fields:
+          items:
+            type: string[]
+          perk:
+            type: PerkFactory.Perk
+          perkName:
+            type: string
+          baseActionTime:
+            type: number
+          sound:
+            type: string
+          isWav:
+            type: boolean
+          itemNames:
+            type: table<string, string>
+            nullable: true

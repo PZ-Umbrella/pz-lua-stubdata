@@ -1489,3 +1489,27 @@ languages:
             return:
               - type: ISRecipeTooltip
           - name: releaseAll
+      umbrella.ISRecipeTooltip.ContentsLine:
+        fields:
+          type:
+            type: string
+          x:
+            type: number
+          y:
+            type: number
+          width:
+            type: number
+          height:
+            type: number
+          r:
+            type: number
+          g:
+            type: number
+          b:
+            type: number
+          text:
+            type: string
+            nullable: true
+          texture:
+            type: Texture
+            nullable: true

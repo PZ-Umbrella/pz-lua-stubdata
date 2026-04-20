@@ -19,10 +19,6 @@ languages:
           ammoCountStart:
             type: integer
             nullable: true
-          unloadedThisLoop:
-            type: boolean
-          updateLoadBulletsTime:
-            type: number
           unloadFinished:
             type: boolean
           useProgressBar:
@@ -33,10 +29,6 @@ languages:
               - type: boolean
           - name: start
           - name: update
-          - name: isLocal
-            return:
-              - type: boolean
-          - name: updateLoadingTime
           - name: initVars
           - name: serverStop
           - name: serverStart

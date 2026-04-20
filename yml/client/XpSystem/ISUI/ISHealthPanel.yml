@@ -877,3 +877,12 @@ languages:
             parameters:
               - name: previousAction
               - name: itemType
+      umbrella.ISHealthPanel.BodyPartHandler:
+        extends: ISBaseObject
+        fields:
+          bodyPart:
+            type: BodyPart
+          panel:
+            type: ISHealthPanel
+          items:
+            type: table

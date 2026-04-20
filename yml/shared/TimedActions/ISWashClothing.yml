@@ -10,6 +10,8 @@ languages:
                 type: IsoPlayer
               - name: sink
                 type: IsoObject
+              - name: soaps
+                type: InventoryItem[]
               - name: item
                 type: InventoryItem
               - name: bloodAmount

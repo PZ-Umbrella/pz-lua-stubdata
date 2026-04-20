@@ -357,6 +357,12 @@ languages:
                 type: number
             return:
               - type: boolean
+      umbrella.ISEquippedItem.MouseOverItem:
+        fields:
+          object:
+            type: table
+          displayString:
+            type: string
     functions:
       - name: launchEquippedItem
         parameters:

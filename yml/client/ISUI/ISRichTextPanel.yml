@@ -34,8 +34,6 @@ languages:
           indent:
             type: number
             nullable: true
-          onmousedown: {}
-          onmouseup: {}
           textDirty:
             type: boolean
           fonts:
@@ -146,26 +144,6 @@ languages:
                 type: string
             return:
               - type: string
-          - name: setOnMouseDownFunction
-            parameters:
-              - name: target
-              - name: onmousedown
-          - name: setOnMouseUpFunction
-            parameters:
-              - name: target
-              - name: onmouseup
-          - name: onMouseDown
-            parameters:
-              - name: x
-                type: number
-              - name: y
-                type: number
-          - name: onMouseUp
-            parameters:
-              - name: x
-                type: number
-              - name: y
-                type: number
           - name: onMouseWheel
             parameters:
               - name: del
@@ -178,7 +156,6 @@ languages:
               - name: alpha
                 type: number
           - name: render
-          - name: updateAutoScroll
           - name: onResize
           - name: setMargins
             parameters:

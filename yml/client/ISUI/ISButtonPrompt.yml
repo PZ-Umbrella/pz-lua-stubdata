@@ -224,46 +224,32 @@ languages:
           - name: cmdExitVehicle
           - name: stopAction
           - name: dropCorpse
-          - name: clearButtonBindings
-          - name: getBestButtonBindingAction
-            parameters:
-              - name: buttonBinding
-              - name: dir
-          - name: getBestInteractButtonAction
+          - name: getBestAButtonAction
             parameters:
               - name: dir
-          - name: testInteractButtonAction
+                type: IsoDirections
+          - name: testAButtonAction
             parameters:
               - name: dir
-          - name: doInteractButtonDoorOrWindowOrWindowFrame
+                type: IsoDirections
+          - name: doAButtonDoorOrWindowOrWindowFrame
             parameters:
               - name: dir
+                type: IsoDirections
               - name: obj
                 type: IsoObject
-          - name: getBestCancelButtonAction
+          - name: getBestBButtonAction
             parameters:
               - name: dir
-          - name: getBestClimbThroughButtonAction
+                type: IsoDirections
+          - name: testBButtonAction
             parameters:
               - name: dir
-          - name: getBestSmashWindowButtonAction
+                type: IsoDirections
+          - name: doBButtonDoorOrWindowOrWindowFrame
             parameters:
               - name: dir
-          - name: getBestApplyBrakesButtonAction
-            parameters:
-              - name: dir
-          - name: getBestSprintButtonAction
-            parameters:
-              - name: dir
-          - name: testClimbThroughButtonAction
-            parameters:
-              - name: dir
-          - name: testSmashWindowButtonAction
-            parameters:
-              - name: dir
-          - name: doClimbThroughButtonDoorOrWindowOrWindowFrame
-            parameters:
-              - name: dir
+                type: IsoDirections
               - name: obj
                 type: IsoObject
           - name: getBestYButtonAction
@@ -274,9 +260,10 @@ languages:
             parameters:
               - name: dir
                 type: IsoDirections
-          - name: getInteractOptionsButtonObjects
+          - name: getXButtonObjects
             parameters:
               - name: dir
+                type: IsoDirections
             return:
               - type: LuaList
                 nullable: true
@@ -294,27 +281,6 @@ languages:
           - name: onYPress
           - name: onLBPress
           - name: onRBPress
-          - name: setButtonBindingPrompt
-            parameters:
-              - name: buttonBinding
-              - name: str
-                type: string
-              - name: func
-              - name: param1
-              - name: param2
-              - name: param3
-              - name: param4
-          - name: setButtonPrompt
-            parameters:
-              - name: button
-                type: ISButton
-              - name: str
-                type: string
-              - name: func
-              - name: param1
-              - name: param2
-              - name: param3
-              - name: param4
           - name: setAPrompt
             parameters:
               - name: str
@@ -441,3 +407,9 @@ languages:
                 type: integer
               - name: joypadData
                 type: JoypadData
+      umbrella.ISButtonPrompt.Test:
+        fields:
+          sqs:
+            type: IsoGridSquare[]
+          square:
+            type: IsoGridSquare

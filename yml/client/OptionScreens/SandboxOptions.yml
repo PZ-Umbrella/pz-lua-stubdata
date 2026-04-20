@@ -70,12 +70,6 @@ languages:
               - name: bool
                 type: boolean
           - name: doSearch
-          - name: createControlForSetting
-            parameters:
-              - name: setting
-              - name: tooltip
-            return:
-              - type: table
           - name: createPanel
             parameters:
               - name: page
@@ -129,11 +123,27 @@ languages:
               - name: userDefined
                 type: boolean
           - name: loadPresets
-          - name: getSandboxPreset
-            parameters:
-              - name: preset
+          - name: getNormalPreset
             return:
-              - type: table
+              - type: umbrella.SandboxOptionsScreen.Preset
+          - name: getSurvivalPreset
+            return:
+              - type: umbrella.SandboxOptionsScreen.Preset
+          - name: getHardPreset
+            return:
+              - type: umbrella.SandboxOptionsScreen.Preset
+          - name: getBeginnerPreset
+            return:
+              - type: umbrella.SandboxOptionsScreen.Preset
+          - name: getApocalypsePreset
+            return:
+              - type: umbrella.SandboxOptionsScreen.Preset
+          - name: getSurvivorPreset
+            return:
+              - type: umbrella.SandboxOptionsScreen.Preset
+          - name: getBuilderPreset
+            return:
+              - type: umbrella.SandboxOptionsScreen.Preset
           - name: prerender
           - name: render
           - name: setSandboxVars
@@ -368,3 +378,18 @@ languages:
             parameters:
               - name: value
                 type: string
+      umbrella.SandboxOptionsScreen.Preset:
+        fields:
+          name:
+            type: string
+          options:
+            type: SandboxOptions
+          userDefined:
+            type: boolean
+            nullable: true
+      umbrella.SandboxOptionsScreen.ListBoxItem:
+        fields:
+          page:
+            type: umbrella.ServerSettingsScreen.SettingsPage
+          panel:
+            type: ISUIElement

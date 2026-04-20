@@ -44,7 +44,6 @@ languages:
             type: umbrella.RGBA
           onmousedown:
             type: umbrella.ISScrollingListBox.MouseCallback
-          overrideAButtonFunction: {}
           onmousedblclick:
             type: umbrella.ISScrollingListBox.MouseCallback
           items:
@@ -273,10 +272,6 @@ languages:
               - name: onmousedown
                 type: umbrella.ISScrollingListBox.MouseCallback
                 nullable: true
-          - name: setOverrideAButtonFunction
-            parameters:
-              - name: target
-              - name: fct
           - name: invokeOnMouseDownFunction
           - name: setOnMouseDoubleClick
             parameters:
@@ -398,3 +393,32 @@ languages:
                 type: umbrella.ISScrollingListBox.Item
             return:
               - type: boolean
+      umbrella.ISScrollingListBox.Column:
+        fields:
+          name:
+            type: string
+          size:
+            type: number
+      umbrella.ISScrollingListBox.Item:
+        fields:
+          text:
+            type: string
+          item:
+            type: unknown
+            nullable: true
+          tooltip:
+            type: string
+            nullable: true
+          itemindex:
+            type: integer
+          index:
+            type: integer
+            nullable: true
+          height:
+            type: number
+          textColor:
+            type: umbrella.RGBA
+            nullable: true
+          selectedTextColor:
+            type: umbrella.RGBA
+            nullable: true

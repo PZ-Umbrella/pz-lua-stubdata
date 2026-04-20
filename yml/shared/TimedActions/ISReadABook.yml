@@ -86,3 +86,11 @@ languages:
                 type: IsoPlayer
               - name: item
                 type: Literature
+      umbrella.ISReadABook.Stats:
+        fields:
+          boredom:
+            type: number
+          unhappyness:
+            type: number
+          stress:
+            type: number

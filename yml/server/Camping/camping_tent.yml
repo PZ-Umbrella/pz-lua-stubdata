@@ -67,3 +67,13 @@ languages:
             return:
               - type: IsoObject
                 nullable: true
+      umbrella.Camping.TentSprites:
+        fields:
+          frontLeft:
+            type: string
+          backLeft:
+            type: string
+          frontRight:
+            type: string
+          backRight:
+            type: string

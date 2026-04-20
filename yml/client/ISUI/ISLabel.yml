@@ -84,10 +84,6 @@ languages:
             parameters:
               - name: name
                 type: string
-          - name: setNameWithoutMoving
-            parameters:
-              - name: name
-                type: string
           - name: setWidthToName
             parameters:
               - name: minWidth

@@ -507,11 +507,6 @@ languages:
               - type: boolean
       VehicleUtils:
         staticMethods:
-          - name: getInventoryContainersRecurse
-            parameters:
-              - name: containers
-                type: table
-              - name: container
           - name: getContainers
             parameters:
               - name: playerNum
@@ -675,6 +670,8 @@ languages:
                 type: IsoPlayer
               - name: vehicle
                 type: BaseVehicle
+              - name: pressedNotTapped
+                type: boolean
           - name: RemoveTire
             parameters:
               - name: part
@@ -748,3 +745,27 @@ languages:
                 type: BaseVehicle
               - name: part
                 type: VehiclePart
+      umbrella.VehicleUtils.Item:
+        fields:
+          type:
+            type: string
+          tags:
+            type: string
+            nullable: true
+      umbrella.VehicleUtils.Script:
+        fields:
+          script:
+            type: Item
+            nullable: true
+          unknownTag:
+            type: string
+            nullable: true
+          unknownType:
+            type: string
+            nullable: true
+      umbrella.VehicleUtils.ScriptResult:
+        fields:
+          item:
+            type: umbrella.VehicleUtils.Item
+          scripts:
+            type: umbrella.VehicleUtils.Script[]

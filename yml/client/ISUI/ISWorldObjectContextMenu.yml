@@ -320,24 +320,12 @@ languages:
                 type: IsoPlayer
               - name: fishNet
                 type: InventoryItem
-          - name: onWalkNextToWaterComplete
-            parameters:
-              - name: callback
-              - name: args
-          - name: onWalkNextToWaterFail
-            parameters:
-              - name: playerObj
-                type: IsoPlayer
-              - name: waterSquare
-              - name: range
-              - name: callback
-              - name: args
           - name: onCheckFishingNet
             parameters:
               - name: worldobjects
                 type: IsoObject[]
                 nullable: true
-              - name: playerObj
+              - name: player
                 type: IsoPlayer
               - name: trap
                 type: IsoObject
@@ -355,7 +343,7 @@ languages:
             parameters:
               - name: worldobjects
                 type: IsoObject[]
-              - name: playerObj
+              - name: player
                 type: IsoPlayer
               - name: trap
                 type: IsoObject
@@ -626,6 +614,17 @@ languages:
               - name: battery
                 type: DrainableComboItem
                 nullable: true
+          - name: doThumpableWindowOption
+            parameters:
+              - name: test
+                type: boolean
+                nullable: true
+              - name: context
+                type: ISContextMenu
+              - name: player
+                type: integer
+            return:
+              - type: boolean
           - name: onWaterDispenserBottle
             parameters:
               - name: playerObj
@@ -806,11 +805,27 @@ languages:
                 type: InventoryItem
             return:
               - type: boolean
+          - name: doFillFluidMenu
+            parameters:
+              - name: sink
+                type: IsoObject
+              - name: playerNum
+                type: integer
+              - name: context
+                type: ISContextMenu
           - name: doFillFuelMenu
             parameters:
               - name: source
                 type: IsoObject
               - name: playerNum
+                type: integer
+              - name: context
+                type: ISContextMenu
+          - name: doDrinkWaterMenu
+            parameters:
+              - name: object
+                type: IsoObject
+              - name: player
                 type: integer
               - name: context
                 type: ISContextMenu
@@ -821,6 +836,24 @@ languages:
             return:
               - type: number
               - type: number
+          - name: setWashClothingTooltip
+            parameters:
+              - name: soapRemaining
+                type: number
+              - name: waterRemaining
+                type: number
+              - name: washList
+                type: InventoryItem[]
+              - name: option
+                type: umbrella.ISContextMenu.Option
+          - name: doWashClothingMenu
+            parameters:
+              - name: sink
+                type: IsoObject
+              - name: player
+                type: integer
+              - name: context
+                type: ISContextMenu
           - name: onWashClothing
             parameters:
               - name: playerObj
@@ -834,6 +867,8 @@ languages:
               - name: singleClothing
                 type: InventoryItem
                 nullable: true
+              - name: noSoap
+                type: boolean
           - name: onWashYourself
             parameters:
               - name: playerObj
@@ -1067,17 +1102,6 @@ languages:
                 type: IsoBrokenGlass
               - name: player
                 type: integer
-          - name: onThrowCorpseOverFence
-            parameters:
-              - name: playerObj
-                type: IsoPlayer
-              - name: fence
-              - name: dir
-          - name: onThrowCorpseThroughWindow
-            parameters:
-              - name: playerObj
-                type: IsoPlayer
-              - name: window
           - name: onOpenCloseDoor
             parameters:
               - name: worldobjects
@@ -1303,12 +1327,6 @@ languages:
                 type: integer
               - name: object
                 type: IsoObject
-          - name: onRemoveGroundCoverItemStump
-            parameters:
-              - name: worldobjects
-                type: IsoObject[]
-              - name: player
-              - name: object
           - name: onRemoveGroundCoverItemPickAxe
             parameters:
               - name: worldobjects
@@ -1362,6 +1380,16 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: doFluidContainerMenu
+            parameters:
+              - name: context
+                type: ISContextMenu
+              - name: object
+                type: IsoObject
+              - name: player
+                type: integer
+            return:
+              - type: boolean
           - name: getUpAndThen
             parameters:
               - name: playerObj
@@ -1436,9 +1464,3 @@ languages:
                 type: string
               - name: playerObj
                 type: IsoPlayer
-          - name: addFluidDebug
-            parameters:
-              - name: playerObj
-                type: IsoPlayer
-              - name: fluidContainer
-              - name: fluid

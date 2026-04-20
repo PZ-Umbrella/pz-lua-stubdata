@@ -37,8 +37,6 @@ languages:
             type: ISMPScreenShading
           backButton:
             type: ISButton
-          showIPAddressesTickBox:
-            type: ISTickBox
           refreshBtn:
             type: ISButton
           connectBtn:
@@ -106,34 +104,33 @@ languages:
             type: boolean
           filterUpdateTimer:
             type: number
-          ui_mods: {}
-          ui_whitelist: {}
-          ui_passwordOn: {}
-          ui_passwordOff: {}
-          ui_emptyServer: {}
-          ui_fullServer: {}
-          ui_allVersions: {}
-          ui_ping: {}
-          ui_playerCount: {}
-          ui_filters_1: {}
-          ui_filters_2: {}
-          ui_filters_3: {}
-          ui_filters_4: {}
-          ui_filters_5: {}
-          ui_filters_6: {}
           ui_details_icon: {}
           ui_icon_bg: {}
+          ui_details_ping: {}
+          ui_details_players: {}
           ui_circle: {}
           default_banner: {}
           default_bottom_background: {}
+          ui_ping: {}
           ui_players: {}
+          ui_separator: {}
           ui_online: {}
           ui_offline: {}
           ui_subitem_first: {}
           ui_subitem_other: {}
           ui_add_icon: {}
+          ui_feature: {}
+          ui_feature_enabled: {}
           ui_open: {}
           ui_closed: {}
+          ui_filters_allversions: {}
+          ui_filters_haveplayers: {}
+          ui_filters_4: {}
+          ui_filters_closed: {}
+          ui_filters_feature: {}
+          ui_filters_mods: {}
+          ui_filters_mods_off: {}
+          ui_separator_filter: {}
           serverInfoBluePanelColor:
             type: table
           serverInfoBlueTextColor:
@@ -163,7 +160,6 @@ languages:
               - name: button
                 type: ISButton
           - name: onChangeFilter
-          - name: onToggleShowIPs
           - name: drawAccountListItem
             parameters:
               - name: y
@@ -224,6 +220,9 @@ languages:
           - name: analyzeServerData
             parameters:
               - name: server
+          - name: serverInfoBluePanelHeight
+            return:
+              - type: number
           - name: onResolutionChange
             parameters:
               - name: oldw
@@ -233,25 +232,8 @@ languages:
           - name: prerender
           - name: updateButtons
           - name: render
-          - name: drawTickboxIcons
-            parameters:
-              - name: texture
-              - name: x
-                type: number
-              - name: y
-                type: number
-              - name: scale
-            return:
-              - type: number
           - name: updateListSort
           - name: sortInternetList
-          - name: sortServerList
-            parameters:
-              - name: a
-              - name: b
-            return:
-              - type: boolean
-                nullable: true
           - name: renderSortButtons
           - name: onMouseDown_Tabs
             parameters:

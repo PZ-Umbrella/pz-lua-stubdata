@@ -37,3 +37,29 @@ languages:
             return:
               - type: umbrella.SpawnRegion[]
                 nullable: true
+      umbrella.SpawnPoint:
+        fields:
+          posX:
+            type: integer
+          posY:
+            type: integer
+          posZ:
+            type: integer
+          worldX:
+            type: integer
+            nullable: true
+          worldY:
+            type: integer
+            nullable: true
+      umbrella.SpawnRegion:
+        fields:
+          name:
+            type: string
+          points:
+            type: umbrella.SpawnPoint
+      umbrella.FileSpawnRegion:
+        fields:
+          name:
+            type: string
+          file:
+            type: string

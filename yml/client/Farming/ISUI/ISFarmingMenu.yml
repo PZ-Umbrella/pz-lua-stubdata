@@ -359,3 +359,18 @@ languages:
                 type: CPlantGlobalObject
               - name: args
                 type: umbrella.ISFarmingMenu.CheatArgs
+      umbrella.ISFarmingMenu.CheatArgs:
+        fields:
+          var:
+            type: string
+          count:
+            type: integer
+          x:
+            type: number
+            nullable: true
+          y:
+            type: number
+            nullable: true
+          z:
+            type: number
+            nullable: true

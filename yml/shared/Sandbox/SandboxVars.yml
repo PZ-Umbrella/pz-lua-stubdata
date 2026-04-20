@@ -364,6 +364,186 @@ languages:
             type: number
           ClayRiverChance:
             type: number
+      umbrella.SandboxVars.Basement:
+        fields:
+          SpawnFrequency:
+            type: integer
+      umbrella.SandboxVars.Map:
+        fields:
+          AllowMiniMap:
+            type: boolean
+          AllowWorldMap:
+            type: boolean
+          MapAllKnown:
+            type: boolean
+          MapNeedsLight:
+            type: boolean
+      umbrella.SandboxVars.MultiplierConfig:
+        fields:
+          Global:
+            type: number
+          GlobalToggle:
+            type: boolean
+          Fitness:
+            type: number
+          Strength:
+            type: number
+          Sprinting:
+            type: number
+          Lightfoot:
+            type: number
+          Nimble:
+            type: number
+          Sneak:
+            type: number
+          Axe:
+            type: number
+          Blunt:
+            type: number
+          SmallBlunt:
+            type: number
+          LongBlade:
+            type: number
+          SmallBlade:
+            type: number
+          Spear:
+            type: number
+          Maintenance:
+            type: number
+          Woodwork:
+            type: number
+          Carving:
+            type: number
+          Cooking:
+            type: number
+          Farming:
+            type: number
+          Electricity:
+            type: number
+          Doctor:
+            type: number
+          MetalWelding:
+            type: number
+          Masonry:
+            type: number
+          Mechanics:
+            type: number
+          Pottery:
+            type: number
+          Tailoring:
+            type: number
+          Aiming:
+            type: number
+          Reloading:
+            type: number
+          Fishing:
+            type: number
+          Trapping:
+            type: number
+          PlantScavenging:
+            type: number
+          FlintKnapping:
+            type: number
+          Husbandry:
+            type: number
+          Tracking:
+            type: number
+          Blacksmith:
+            type: number
+          Butchering:
+            type: number
+          Glassmaking:
+            type: number
+      umbrella.SandboxVars.ZombieConfig:
+        fields:
+          PopulationMultiplier:
+            type: number
+          PopulationStartMultiplier:
+            type: number
+          PopulationPeakMultiplier:
+            type: number
+          PopulationPeakDay:
+            type: integer
+          RespawnHours:
+            type: number
+          RespawnUnseenHours:
+            type: number
+          RespawnMultiplier:
+            type: number
+          RedistributeHours:
+            type: number
+          FollowSoundDistance:
+            type: integer
+          RallyGroupSize:
+            type: integer
+          RallyGroupSizeVariance:
+            type: integer
+          RallyTravelDistance:
+            type: integer
+          RallyGroupSeparation:
+            type: integer
+          RallyGroupRadius:
+            type: integer
+          ZombiesCountBeforeDelete:
+            type: integer
+      umbrella.SandboxVars.ZombieLore:
+        fields:
+          Speed:
+            type: integer
+          SprinterPercentage:
+            type: integer
+          Strength:
+            type: integer
+          Toughness:
+            type: integer
+          Transmission:
+            type: integer
+          Mortality:
+            type: integer
+          Reanimate:
+            type: integer
+          Cognition:
+            type: integer
+          CrawlUnderVehicle:
+            type: integer
+          Memory:
+            type: integer
+          Sight:
+            type: integer
+          Hearing:
+            type: integer
+          SpottedLogic:
+            type: boolean
+          ThumpNoChasing:
+            type: boolean
+          ThumpOnConstruction:
+            type: boolean
+          ActiveOnly:
+            type: integer
+          TriggerHouseAlarm:
+            type: boolean
+          ZombiesDragDown:
+            type: boolean
+          ZombiesCrawlersDragDown:
+            type: boolean
+          ZombiesFenceLunge:
+            type: boolean
+          DisableFakeDead:
+            type: integer
+          ZombiesArmorFactor:
+            type: number
+          ZombiesMaxDefense:
+            type: integer
+          ChanceOfAttachedWeapon:
+            type: integer
+          ZombiesFallDamage:
+            type: number
+          PlayerSpawnZombieRemoval:
+            type: integer
+          FenceThumpersRequired:
+            type: integer
+          FenceDamageMultiplier:
+            type: number
     fields:
       SandboxVars:
-        defaultValue: require("Sandbox/Apocalypse")
+        defaultValue: require("Sandbox/Survival")

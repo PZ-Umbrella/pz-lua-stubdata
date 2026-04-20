@@ -199,3 +199,65 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+      umbrella.ISItemEditPanel.BaseElement:
+        fields:
+          type:
+            type: integer
+          text:
+            type: string
+          funcGet:
+            type: false | string
+          funcSet:
+            type: false | string
+          funcOnSave:
+            type: "false | fun(panel: ISItemEditPanel)"
+          funcValidate:
+            type: "false | fun(panel: ISItemEditPanel): boolean"
+          editable:
+            type: boolean
+          isAttribute:
+            type: boolean
+            nullable: true
+          attributeType:
+            type: AttributeType
+            nullable: true
+          attribute:
+            type: AttributeInstance
+            nullable: true
+      umbrella.ISItemEditPanel.BooleanElement:
+        extends: umbrella.ISItemEditPanel.BaseElement
+        fields:
+          type:
+            type: "4"
+      umbrella.ISItemEditPanel.ColorElement:
+        extends: umbrella.ISItemEditPanel.BaseElement
+        fields:
+          type:
+            type: "3"
+      umbrella.ISItemEditPanel.NumberElement:
+        extends: umbrella.ISItemEditPanel.BaseElement
+        fields:
+          type:
+            type: "1"
+          boxWidth:
+            type: number
+          funcMin:
+            type: false | string
+          funcMax:
+            type: false | string
+          min:
+            type: false | number
+            nullable: true
+          max:
+            type: false | number
+            nullable: true
+          round:
+            type: false | number
+            nullable: true
+      umbrella.ISItemEditPanel.StringElement:
+        extends: umbrella.ISItemEditPanel.BaseElement
+        fields:
+          type:
+            type: "2"
+          boxWidth:
+            type: number

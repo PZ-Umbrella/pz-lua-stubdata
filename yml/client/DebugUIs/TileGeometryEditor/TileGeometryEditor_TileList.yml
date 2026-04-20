@@ -20,8 +20,6 @@ languages:
           Type:
             defaultValue: '"TileGeometryEditor_TileList"'
         fields:
-          selected:
-            type: number
           tileset:
             type: string
             nullable: true
@@ -101,7 +99,6 @@ languages:
               - type: boolean
           - name: onClearDepthOfSelectedTiles
           - name: onClearAssignedDepthTextures
-          - name: onRemoveGeometryOfSelectedTiles
           - name: selectionAdd
             parameters:
               - name: col

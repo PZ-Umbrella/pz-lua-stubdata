@@ -297,10 +297,8 @@ languages:
                 type: number
               - name: a
                 type: number
-          - name: restoreDefaultColors
           - name: enableAcceptColor
           - name: enableCancelColor
-          - name: enableDisabledColor
           - name: toggleAcceptCancel
             parameters:
               - name: bEnabled

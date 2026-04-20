@@ -156,8 +156,6 @@ languages:
             parameters:
               - name: params
                 type: umbrella.BuildRecipeCode.OnCreateParams
-            return:
-              - type: table
       BuildRecipeCode.woodLampPillar:
         local: true
         staticMethods:
@@ -174,3 +172,41 @@ languages:
                 type: umbrella.BuildRecipeCode.OnCreateParams
             return:
               - type: umbrella.BuildRecipeCode.OnCreateResult
+      umbrella.BuildRecipeCode.TimedActionIsValidParams:
+        fields:
+          square:
+            type: IsoGridSquare
+          facing:
+            type: string
+      umbrella.BuildRecipeCode.IsValidParams:
+        fields:
+          square:
+            type: IsoGridSquare
+          tileInfo:
+            type: SpriteConfigManager.TileInfo
+          facing:
+            type: string
+          north:
+            type: boolean
+          canBuildOverWater:
+            type: boolean
+          testCollisions:
+            type: boolean
+      umbrella.BuildRecipeCode.OnCreateParams:
+        fields:
+          thumpable:
+            type: IsoThumpable
+          craftRecipeData:
+            type: CraftRecipeData
+          character:
+            type: IsoPlayer
+          facing:
+            type: string
+      umbrella.BuildRecipeCode.OnCreateResult:
+        fields:
+          replaceObject:
+            type: boolean
+            nullable: true
+          object:
+            type: IsoObject
+            nullable: true

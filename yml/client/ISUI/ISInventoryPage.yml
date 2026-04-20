@@ -104,8 +104,6 @@ languages:
             type: boolean
           selectedContainerForSound:
             nullable: true
-          mouseOverColoredContainer:
-            nullable: true
           title:
             type: string
             nullable: true
@@ -166,7 +164,6 @@ languages:
           mouseOverButton:
             type: ISButton
             nullable: true
-          mouseOverColoredContainerInv: {}
           render3DItemXOffset:
             type: number
             nullable: true
@@ -477,9 +474,6 @@ languages:
                 type: number
               - name: y
                 type: number
-          - name: stopHighlightContainer
-            parameters:
-              - name: container
           - name: canPutIn
             return:
               - type: boolean

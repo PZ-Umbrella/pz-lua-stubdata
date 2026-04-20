@@ -24,6 +24,8 @@ languages:
             type: boolean
           noNeedHammer:
             type: boolean
+          skipWalk:
+            type: boolean
           renderFloorHelper:
             type: boolean
           scythe:
@@ -108,9 +110,6 @@ languages:
           - name: getAPrompt
             return:
               - type: string
-          - name: getYPrompt
-            return:
-              - type: string
           - name: getLBPrompt
             return:
               - type: string
@@ -136,6 +135,12 @@ languages:
             return:
               - type: IsoGridSquare
                 nullable: true
+          - name: getGrassObject
+            parameters:
+              - name: square
+                type: IsoGridSquare
+            return:
+              - type: IsoFire[]
           - name: rotateKey
             parameters:
               - name: key

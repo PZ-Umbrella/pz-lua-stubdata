@@ -133,3 +133,32 @@ languages:
         staticFields:
           Model:
             type: ModSelector.Model
+      umbrella.ModSelector.RequirementsTable:
+        fields:
+          dependsOn:
+            type: table<string, boolean>
+          neededFor:
+            type: table<string, boolean>
+      umbrella.ModSelector.FinalizedData:
+        fields:
+          modID:
+            type: string
+          modInfo:
+            type: ChooseGameInfo.Mod
+      umbrella.ModSelector.ModData:
+        fields:
+          modId:
+            type: string
+          modInfo:
+            type: ChooseGameInfo.Mod
+          name:
+            type: string
+          icon:
+            type: string
+          category:
+            type: string
+          defaultActive:
+            type: boolean
+          defaultFav:
+            type: boolean
+            nullable: true

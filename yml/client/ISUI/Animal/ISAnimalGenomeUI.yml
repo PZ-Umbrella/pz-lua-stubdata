@@ -71,3 +71,40 @@ languages:
                 type: ISButton
               - name: allele
                 type: AnimalAllele
+      umbrella.ISAnimalGenomeUI.AlleleData:
+        fields:
+          allele:
+            type: AnimalAllele
+          value:
+            type: integer
+          childValue:
+            type: integer
+            nullable: true
+          used:
+            type: boolean
+          dominant:
+            type: '"true" | "false"'
+          geneticDisorder:
+            type: string
+      umbrella.ISAnimalGenomeUI.GeneData:
+        fields:
+          name:
+            type: string
+          allele1:
+            type: umbrella.ISAnimalGenomeUI.AlleleData
+          allele2:
+            type: umbrella.ISAnimalGenomeUI.AlleleData
+          currentValue1Btn:
+            type: ISButton
+          currentValue2Btn:
+            type: ISButton
+          dominant1Btn:
+            type: ISButton
+          dominant2Btn:
+            type: ISButton
+          used1Btn:
+            type: ISButton
+          gd1Btn:
+            type: ISButton
+          gd2Btn:
+            type: ISButton

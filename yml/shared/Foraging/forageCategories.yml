@@ -9,3 +9,43 @@ languages:
       forageSystem:
         staticFields:
           categoryDefinitions: {}
+      umbrella.Foraging.CategoryDefinition:
+        fields:
+          name:
+            type: string
+          chance:
+            type: number
+          typeCategory:
+            type: string
+          identifyCategoryPerk:
+            type: string
+          identifyCategoryLevel:
+            type: number
+          categoryHidden:
+            type: boolean
+          validFloors:
+            type: string[]
+          validFunc:
+            type: umbrella.Foraging.ValidateFunction
+          rainChance:
+            type: number
+          hasRainedChance:
+            type: number
+          snowChance:
+            type: number
+          dayChance:
+            type: number
+          nightChance:
+            type: number
+          zoneChance:
+            type: table<string, integer>
+          spriteAffinities:
+            type: table<string, string[]>
+          chanceToMoveIcon:
+            type: number
+          chanceToCreateIcon:
+            type: number
+          focusChanceMin:
+            type: number
+          focusChanceMax:
+            type: number

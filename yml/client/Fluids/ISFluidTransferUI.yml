@@ -131,7 +131,6 @@ languages:
                 type: InventoryItem
               - name: _panel
                 type: ISFluidContainerPanel
-          - name: resetSlider
           - name: onContainerVerify
             parameters:
               - name: _item
@@ -201,3 +200,17 @@ languages:
                 type: ISFluidContainer
               - name: _source
                 type: boolean
+      umbrella.ISFluidTransferUI.InfoTable:
+        fields:
+          maxTransfer:
+            type: number
+          transferring:
+            type: number
+      umbrella.ISFluidTransferUI.PlayerTableItem:
+        fields:
+          instance:
+            type: ISFluidTransferUI
+          x:
+            type: number
+          y:
+            type: number

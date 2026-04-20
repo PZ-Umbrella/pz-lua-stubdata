@@ -36,7 +36,6 @@ languages:
           Type:
             defaultValue: '"ISTickBox"'
         fields:
-          joypadFocused: {}
           joypadIndex:
             type: integer
           selected:

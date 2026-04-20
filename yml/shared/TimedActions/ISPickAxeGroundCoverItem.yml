@@ -27,11 +27,6 @@ languages:
           cornerCounter:
             type: number
         methods:
-          - name: predicatePickAxe
-            parameters:
-              - name: item
-            return:
-              - type: boolean
           - name: isValid
             return:
               - type: boolean

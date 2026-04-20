@@ -241,3 +241,17 @@ languages:
           - name: prerender
           - name: render
           - name: close
+      umbrella.MapUI.WithMapItem:
+        extends: ISUIElement
+        fields:
+          javaObject:
+            type: UIWorldMap
+          mapItem:
+            type: MapItem
+      umbrella.MapUI.WithMapObj:
+        extends: ISUIElement
+        fields:
+          javaObject:
+            type: UIWorldMap
+          mapObj:
+            type: MapItem

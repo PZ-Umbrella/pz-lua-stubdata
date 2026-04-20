@@ -19,10 +19,10 @@ languages:
           psiSent:
             type: number
             nullable: true
-          part:
-            type: VehiclePart
           vehicle:
             type: BaseVehicle
+          part:
+            type: VehiclePart
           psiStart:
             type: number
           psiTarget:

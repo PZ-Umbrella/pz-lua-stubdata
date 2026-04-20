@@ -63,11 +63,11 @@ languages:
           Type:
             defaultValue: '"ISWorldMapSharing_CheckList"'
         fields:
-          boxSize:
-            type: number
           selected:
             type: number
           leftMargin:
+            type: number
+          boxSize:
             type: number
           textGap:
             type: number
@@ -131,15 +131,12 @@ languages:
                 type: number
               - name: height
                 type: number
-              - name: mapUI
         staticFields:
           Type:
             defaultValue: '"ISWorldMapSharing_PanelMain"'
         fields:
           labelAuthor:
             type: ISLabel
-          hideAuthorTickBox:
-            type: ISTickBox
           radioBtns:
             type: ISRadioButtons
           tickBox:
@@ -147,7 +144,6 @@ languages:
           buttonPlayers:
             type: ISButton
           currentSymbol: {}
-          mapUI: {}
         methods:
           - name: createChildren
           - name: becomeCurrent
@@ -155,10 +151,6 @@ languages:
               - name: joypadData
                 type: JoypadData
           - name: prerender
-          - name: onTickBoxHideAuthor
-            parameters:
-              - name: index
-              - name: selected
           - name: onRadioButton
             parameters:
               - name: buttons

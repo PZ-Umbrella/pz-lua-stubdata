@@ -27,10 +27,10 @@ languages:
             type: ISButton
           bannedIPs:
             type: ISButton
-          close:
-            type: ISButton
           searchEntry:
             type: ISTextEntryBox
+          close:
+            type: ISButton
           datas:
             type: ISScrollingListBox
           player:

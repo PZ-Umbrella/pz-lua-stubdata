@@ -25,6 +25,8 @@ languages:
             type: InventoryItem
           campfire:
             type: SCampfireGlobalObject
+          isOutdoorsMan:
+            type: boolean
         methods:
           - name: isValid
             return:

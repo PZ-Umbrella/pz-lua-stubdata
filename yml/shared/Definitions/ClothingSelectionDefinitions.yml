@@ -29,3 +29,9 @@ languages:
           metalworker: {}
           engineer: {}
           mechanics: {}
+      umbrella.ClothingSelectionDefinitionTable:
+        fields:
+          chance:
+            type: integer
+          items:
+            type: string[]

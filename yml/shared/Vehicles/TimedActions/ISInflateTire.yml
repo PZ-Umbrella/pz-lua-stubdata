@@ -23,14 +23,14 @@ languages:
           psiSent:
             type: number
             nullable: true
-          part:
-            type: VehiclePart
           vehicle:
             type: BaseVehicle
-          psiStart:
-            type: number
+          part:
+            type: VehiclePart
           item:
             type: InventoryItem
+          psiStart:
+            type: number
           psiTarget:
             type: number
           jobType:

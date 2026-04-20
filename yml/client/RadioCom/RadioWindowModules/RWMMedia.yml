@@ -106,3 +106,9 @@ languages:
             return:
               - type: string
                 nullable: true
+      umbrella.RWMMedia.ColorContainer:
+        fields:
+          text:
+            type: umbrella.RGBA
+          back:
+            type: umbrella.RGBA

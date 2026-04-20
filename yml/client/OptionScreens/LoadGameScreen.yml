@@ -316,5 +316,31 @@ languages:
                 type: number
             return:
               - type: boolean
+      umbrella.LoadGameScreen.SaveInfo:
+        fields:
+          lastPlayed:
+            type: string
+          worldVersion:
+            type: integer | "unknown"
+          mapName:
+            type: string
+          activeMods:
+            type: ActiveMods
+          saveName:
+            type: string
+          gameMode:
+            type: string
+          playerAlive:
+            type: boolean
+          players:
+            type: umbrella.LoadGameScreen.SavePlayer[]
+      umbrella.LoadGameScreen.SavePlayer:
+        fields:
+          sqlID:
+            type: number
+          name:
+            type: string
+          isDead:
+            type: boolean
     functions:
       - name: LoadGameScreen_onModsModified

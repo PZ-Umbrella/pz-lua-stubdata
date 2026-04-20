@@ -334,3 +334,9 @@ languages:
             parameters:
               - name: comboBox
                 type: ISComboBox
+      umbrella.ISComboBox.Option:
+        fields:
+          text:
+            type: string
+          data:
+            type: unknown

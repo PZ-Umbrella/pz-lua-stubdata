@@ -58,3 +58,9 @@ languages:
           - name: update
           - name: prerender
           - name: render
+      umbrella.RWMGeneral.InfoLine:
+        fields:
+          prefix:
+            type: string
+          line:
+            type: string

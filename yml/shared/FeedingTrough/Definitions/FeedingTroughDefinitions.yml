@@ -9,3 +9,32 @@ languages:
           quadmetal: {}
           double: {}
           simple: {}
+      umbrella.FeedingTroughDefinition:
+        fields:
+          spriteW:
+            type: string[]
+          spriteN:
+            type: string[]
+          spriteNorth1:
+            type: string
+          spriteNorth2:
+            type: string
+            nullable: true
+          spriteFoodOverlay1:
+            type: table<string, string>
+          spriteFoodOverlay2:
+            type: table<string, string>
+          spriteWaterOverlay1:
+            type: table<string, string>
+          spriteWaterOverlay2:
+            type: table<string, string>
+          planks:
+            type: integer
+          nails:
+            type: integer
+          skill:
+            type: integer
+          maxFeed:
+            type: integer
+          maxWater:
+            type: integer

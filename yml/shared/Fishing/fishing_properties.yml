@@ -140,3 +140,17 @@ languages:
             return:
               - type: number
                 nullable: true
+      umbrella.FishSizeData:
+        fields:
+          size:
+            type: '"Small" | "Medium" | "Big"'
+          length:
+            type: integer
+          weight:
+            type: integer
+      umbrella.FishLureTable:
+        fields:
+          chanceModifier:
+            type: number
+          amountOfFoodHunger:
+            type: integer

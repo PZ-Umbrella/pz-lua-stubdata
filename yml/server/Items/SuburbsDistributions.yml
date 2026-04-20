@@ -28,10 +28,6 @@ languages:
           Pistol: {}
           Pistol2: {}
           Pistol3: {}
-          JS14_Rifle: {}
-          JS3T_Shotgun: {}
-          MSR7T_Rifle: {}
-          TrapperCarbine: {}
     functions:
       - name: ClearAllDistributionItems
         parameters:

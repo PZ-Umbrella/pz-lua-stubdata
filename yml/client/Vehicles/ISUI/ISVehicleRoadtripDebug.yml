@@ -60,3 +60,11 @@ languages:
             return:
               - type: number
               - type: number
+      umbrella.ISVehicleRoadtripDebug.ConditionInfo:
+        fields:
+          id:
+            type: string
+          item:
+            type: InventoryItem
+          condition:
+            type: integer

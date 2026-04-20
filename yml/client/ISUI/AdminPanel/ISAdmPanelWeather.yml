@@ -64,3 +64,23 @@ languages:
             parameters:
               - name: _button
                 type: ISButton
+      umbrella.ISAdmPanelWeather.Bar:
+        fields:
+          x:
+            type: number
+          y:
+            type: number
+          w:
+            type: number
+          h:
+            type: number
+          progress:
+            type: number
+          text:
+            type: string
+          back:
+            type: umbrella.RGBA
+          fill:
+            type: umbrella.RGBA
+          border:
+            type: umbrella.RGBA

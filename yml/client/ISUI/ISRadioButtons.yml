@@ -238,3 +238,15 @@ languages:
               - name: joypadData
                 type: JoypadData
           - name: forceClick
+      umbrella.ISRadioButtons.Option:
+        fields:
+          text:
+            type: string
+          enabled:
+            type: boolean
+          data:
+            type: unknown
+            nullable: true
+          texture:
+            type: Texture
+            nullable: true

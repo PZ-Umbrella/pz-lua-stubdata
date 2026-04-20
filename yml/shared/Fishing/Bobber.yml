@@ -89,3 +89,32 @@ languages:
           - name: onFishingActionMPUpdate
             parameters:
               - name: data
+      umbrella.FishingActionUpdateData:
+        fields:
+          player:
+            type: IsoPlayer
+          Reject:
+            type: boolean
+          UpdateFish:
+            type: boolean
+          UpdateBobberParameters:
+            type: boolean
+          CreateBobber:
+            type: boolean
+          DestroyBobber:
+            type: boolean
+          fish:
+            type: Fishing.Fish
+            nullable: true
+          fishItem:
+            type: InventoryItem
+            nullable: true
+          bobberItem:
+            type: InventoryItem
+            nullable: true
+          bobberX:
+            type: string
+            nullable: true
+          bobberY:
+            type: string
+            nullable: true

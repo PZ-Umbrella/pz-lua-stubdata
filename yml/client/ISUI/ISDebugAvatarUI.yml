@@ -12,8 +12,6 @@ languages:
           Type:
             defaultValue: '"ISDebugAvatarUI"'
         fields:
-          direction:
-            type: IsoDirections
           avatarPanel:
             type: ISCharacterScreenAvatar
           animalList:
@@ -48,6 +46,8 @@ languages:
           avatarWidth:
             type: number
             nullable: true
+          direction:
+            type: IsoDirections
           yoffset:
             type: number
             nullable: true

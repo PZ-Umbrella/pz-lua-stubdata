@@ -269,3 +269,12 @@ languages:
               - name: _joyPadTriggered
                 type: boolean
           - name: clearCacheForAllPlayers
+      umbrella.ISMoveableCursor.ObjectInfo:
+        fields:
+          object:
+            type: IsoObject
+          moveProps:
+            type: ISMoveableSpriteProps
+          isWall:
+            type: boolean
+            nullable: true

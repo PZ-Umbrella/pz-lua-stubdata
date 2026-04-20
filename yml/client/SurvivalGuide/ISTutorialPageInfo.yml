@@ -1,0 +1,79 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISTutorialPageInfo:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: title
+                type: string
+              - name: text
+                type: string
+              - name: moreTextInfo
+                type: string
+              - name: nextcondition
+                type: "fun(): boolean"
+                nullable: true
+        staticFields:
+          Type:
+            defaultValue: '"ISTutorialPageInfo"'
+        fields:
+          data:
+            type: table
+          title:
+            type: string
+          text:
+            type: string
+          nextcondition:
+            type: "fun(): boolean"
+            nullable: true
+          moreTextInfo:
+            type: string
+        methods:
+          - name: initialise
+      ISTutorialSetInfo:
+        extends: ISBaseObject
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"ISTutorialSetInfo"'
+        fields:
+          pageCount:
+            type: integer
+          currentPage:
+            type: integer
+          pages:
+            type: ISTutorialPageInfo[]
+        methods:
+          - name: initialise
+          - name: addPage
+            parameters:
+              - name: pagetitle
+                type: string
+              - name: pagetext
+                type: string
+              - name: moreTextInfo
+                type: string
+              - name: pagenextcondition
+                type: "fun(): boolean"
+                nullable: true
+          - name: getCurrent
+            return:
+              - type: ISTutorialPageInfo
+                nullable: true
+          - name: applyPageToRichTextPanel
+            parameters:
+              - name: tutorialPanel
+                type: ISRichTextPanel
+          - name: hasNext
+            return:
+              - type: boolean
+          - name: hasPrevious
+            return:
+              - type: boolean
+          - name: update
+            parameters:
+              - name: tutorialPanel
+                type: ISRichTextPanel

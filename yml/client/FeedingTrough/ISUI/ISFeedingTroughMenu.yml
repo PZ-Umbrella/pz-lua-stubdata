@@ -26,12 +26,6 @@ languages:
                 type: IsoPlayer
               - name: isoObject
                 type: IsoObject
-              - name: fluid
-          - name: onRemoveWaterDebug
-            parameters:
-              - name: playerObj
-                type: IsoPlayer
-              - name: isoObject
           - name: onRemoveFoodDebug
             parameters:
               - name: playerObj

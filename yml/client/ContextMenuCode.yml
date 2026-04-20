@@ -131,3 +131,14 @@ languages:
                 type: IsoPlayer
               - name: param
                 type: umbrella.ContextMenuCode.Param
+      umbrella.ContextMenuCode.Param:
+        fields:
+          option:
+            type: umbrella.ISContextMenu.Option
+          entity:
+            type: GameEntity
+          playerObj:
+            type: IsoPlayer
+          extraParam:
+            type: string
+            nullable: true

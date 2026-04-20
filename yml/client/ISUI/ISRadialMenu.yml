@@ -35,8 +35,6 @@ languages:
             type: table<string, string>
           disableJoypadNavigation:
             type: boolean
-          ignoreAim:
-            type: boolean
           javaObject:
             type: RadialMenu
             tags:
@@ -131,3 +129,14 @@ languages:
               - name: joypadData
                 type: JoypadData
           - name: undisplay
+      umbrella.ISRadialMenu.Slice:
+        fields:
+          text:
+            type: string
+            nullable: true
+          texture:
+            type: Texture
+            nullable: true
+          command:
+            type: table
+            nullable: true

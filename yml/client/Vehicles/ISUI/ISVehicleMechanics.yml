@@ -390,3 +390,17 @@ languages:
                 type: IsoPlayer
               - name: success
                 type: boolean
+      umbrella.ISVehicleMechanics.CategoryTable:
+        fields:
+          name:
+            type: string
+          category:
+            type: string
+          parts:
+            type: umbrella.ISVehicleMechanics.PartTable[]
+      umbrella.ISVehicleMechanics.PartTable:
+        fields:
+          name:
+            type: string
+          part:
+            type: VehiclePart

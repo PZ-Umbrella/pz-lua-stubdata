@@ -236,3 +236,13 @@ languages:
             parameters:
               - name: self
                 type: ISTabPanel
+      umbrella.ISTabPanel.View:
+        fields:
+          name:
+            type: string
+          view:
+            type: ISUIElement
+          tabWidth:
+            type: number
+          fade:
+            type: UITransition

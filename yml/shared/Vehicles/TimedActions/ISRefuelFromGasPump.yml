@@ -33,10 +33,10 @@ languages:
           pumpTarget:
             type: number
             nullable: true
-          part:
-            type: VehiclePart
           vehicle:
             type: BaseVehicle
+          part:
+            type: VehiclePart
           fuelStation:
             type: IsoObject
         methods:

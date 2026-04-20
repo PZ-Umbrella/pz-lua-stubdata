@@ -67,3 +67,23 @@ languages:
                 type: ItemContainer
               - name: player
                 type: IsoPlayer
+      umbrella.LootZedTool.SpawnItemChecker:
+        fields:
+          forceForRooms:
+            type: string
+            nullable: true
+          forceForTiles:
+            type: string
+            nullable: true
+          forceForZones:
+            type: string
+            nullable: true
+          forceForItems:
+            type: string
+            nullable: true
+          containerType:
+            type: string
+            nullable: true
+          roomName:
+            type: string
+            nullable: true

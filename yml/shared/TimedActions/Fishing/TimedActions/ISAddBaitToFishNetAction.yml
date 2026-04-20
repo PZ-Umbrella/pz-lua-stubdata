@@ -24,9 +24,6 @@ languages:
           - name: isValid
             return:
               - type: boolean
-          - name: waitToStart
-            return:
-              - type: unknown
           - name: update
           - name: start
           - name: stop

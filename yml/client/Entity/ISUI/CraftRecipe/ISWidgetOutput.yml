@@ -57,6 +57,8 @@ languages:
             nullable: true
           iconSize:
             type: number
+          iconMargin:
+            type: number
           labelIconSize:
             type: number
           normalBorderColor:
@@ -75,6 +77,8 @@ languages:
             type: Texture
           textureCreate:
             type: Texture
+          margin:
+            type: number
           doToolTip:
             type: boolean
           autoFillContents:

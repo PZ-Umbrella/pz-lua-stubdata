@@ -176,3 +176,13 @@ languages:
                 type: IsoPlayer
               - name: state
                 type: integer
+      umbrella.ISTradingUI.HistoryMessage:
+        fields:
+          message:
+            type: string
+          add:
+            type: boolean
+            nullable: true
+          remove:
+            type: boolean
+            nullable: true

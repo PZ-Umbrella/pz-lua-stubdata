@@ -835,3 +835,18 @@ languages:
                 type: boolean
               - name: joypadData
                 type: JoypadData
+      umbrella.ISWorldMapSymbols.Tools:
+        fields:
+          AddSymbol:
+            type: ISWorldMapSymbolTool_AddSymbol
+          AddNote:
+            type: ISWorldMapSymbolTool_AddNote
+          EditNote:
+            type: ISWorldMapSymbolTool_EditNote
+          MoveAnnotation:
+            type: ISWorldMapSymbolTool_MoveAnnotation
+          RemoveAnnotation:
+            type: ISWorldMapSymbolTool_RemoveAnnotation
+          Sharing:
+            type: ISWorldMapSymbolTool_Sharing
+            nullable: true

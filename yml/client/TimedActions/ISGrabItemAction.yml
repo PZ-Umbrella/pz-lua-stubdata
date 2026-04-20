@@ -46,3 +46,11 @@ languages:
               - name: item
                 type: IsoWorldInventoryObject
           - name: checkQueueList
+      umbrella.ISGrabItemAction.QueueItem:
+        fields:
+          items:
+            type: IsoWorldInventoryObject[]
+          time:
+            type: number
+          type:
+            type: string

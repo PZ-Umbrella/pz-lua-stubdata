@@ -94,8 +94,6 @@ languages:
           - name: onSelectMakeUp
           - name: onSelectLocation
           - name: updateAvatar
-            parameters:
-              - name: noTriggerEvent
           - name: prerender
           - name: update
           - name: onGainJoypadFocus
@@ -113,10 +111,6 @@ languages:
                 type: umbrella.MakeUpDefinitions.Category
         staticMethods:
           - name: OnPlayerDeath
-            parameters:
-              - name: playerObj
-                type: IsoPlayer
-          - name: OnClothingUpdated
             parameters:
               - name: playerObj
                 type: IsoPlayer
