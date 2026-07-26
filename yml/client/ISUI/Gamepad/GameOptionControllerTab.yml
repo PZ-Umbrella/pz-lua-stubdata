@@ -33,15 +33,17 @@ languages:
         methods:
           - name: getStyle
             return:
-              - type: unknown
+              - type: ISStyle
           - name: addContent
           - name: onContentChanged
           - name: addControllerPanelMidPanel
             parameters:
               - name: contentPanel
+                type: ISUIElement
           - name: addControllerPanelRightPanel
             parameters:
               - name: contentPanel
+                type: ISUIElement
           - name: setJoypadSelected
             parameters:
               - name: isSelected

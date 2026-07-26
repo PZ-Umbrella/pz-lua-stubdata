@@ -16,7 +16,10 @@ languages:
               - name: height
                 type: number
               - name: target
+                type: unknown
+                nullable: true
               - name: callback
+                type: "fun(target: unknown?, parent: ISUIElement, x: number, y: number)"
         staticFields:
           Type:
             defaultValue: '"ModePanel"'
@@ -24,8 +27,10 @@ languages:
           richText:
             type: ISRichTextPanel
           data:
+            type: umbrella.NewGameScreen.GameModeData
             nullable: true
           texture:
+            type: Texture
             nullable: true
           title:
             type: string
@@ -34,7 +39,8 @@ languages:
             type: boolean
           centerThumbnail:
             type: boolean
-          mode: {}
+          mode:
+            type: string
           textureHeight:
             type: number
           textureWidth:
@@ -45,12 +51,14 @@ languages:
             type: table
           borderColorInactive:
             type: table
-          callback: {}
+          callback:
+            type: "fun(target: unknown?, parent: ISUIElement, x: number, y: number)"
         methods:
           - name: createChildren
           - name: setData
             parameters:
               - name: data
+                type: umbrella.NewGameScreen.GameModeData
           - name: updateView
           - name: render
           - name: onMouseMove
@@ -86,6 +94,7 @@ languages:
           - name: setSelected
             parameters:
               - name: val
+                type: boolean
       NewGameScreen:
         extends: ISPanelJoypad
         constructors:
@@ -107,7 +116,7 @@ languages:
             nullable: true
         fields:
           gameModeData:
-            type: table
+            type: umbrella.NewGameScreen.GameModeData[]
           dataShift:
             type: number
           inChallengesView:
@@ -123,7 +132,7 @@ languages:
           richText:
             type: ISRichTextPanel
           panels:
-            type: table
+            type: NewGameScreen.ModePanel[]
           selectedItem:
             type: ISLabel
           viewDimensions:
@@ -137,9 +146,9 @@ languages:
           mediumResolution:
             type: boolean
           nextData:
-            type: table
+            type: umbrella.NewGameScreen.GameModeData
           prevData:
-            type: table
+            type: umbrella.NewGameScreen.GameModeData
         methods:
           - name: clickChallenges
           - name: create
@@ -198,6 +207,7 @@ languages:
           - name: selectNewPanel
             parameters:
               - name: index
+                type: integer
           - name: findLastPanel
             return:
               - type: number
@@ -214,3 +224,27 @@ languages:
             parameters:
               - name: key
                 type: integer
+      umbrella.NewGameScreen.GameModeData:
+        fields:
+          mode:
+            type: string
+          title:
+            type: string
+          desc:
+            type: string
+          thumb:
+            type: string
+          video:
+            type: string
+          centerThumbnail:
+            type: boolean
+            nullable: true
+          arrowButton:
+            type: boolean
+            nullable: true
+          internal:
+            type: string
+            nullable: true
+          challenge:
+            type: umbrella.LastStandChallenge.Challenge
+            nullable: true

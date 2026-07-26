@@ -323,15 +323,21 @@ languages:
           - name: onWalkNextToWaterComplete
             parameters:
               - name: callback
+                type: "fun(args: table)"
               - name: args
+                type: table
           - name: onWalkNextToWaterFail
             parameters:
               - name: playerObj
                 type: IsoPlayer
               - name: waterSquare
+                type: IsoGridSquare
               - name: range
+                type: number
               - name: callback
+                type: "fun(args: table)"
               - name: args
+                type: table
           - name: onCheckFishingNet
             parameters:
               - name: worldobjects
@@ -429,7 +435,9 @@ languages:
               - name: worldobjects
                 type: IsoObject[]
               - name: requester
+                type: IsoPlayer
               - name: target
+                type: IsoPlayer
           - name: onWakeOther
             parameters:
               - name: worldobjects
@@ -1070,12 +1078,15 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: fence
+                type: IsoObject
               - name: dir
+                type: IsoDirections
           - name: onThrowCorpseThroughWindow
             parameters:
               - name: playerObj
                 type: IsoPlayer
               - name: window
+                type: IsoWindow
           - name: onOpenCloseDoor
             parameters:
               - name: worldobjects
@@ -1306,7 +1317,9 @@ languages:
               - name: worldobjects
                 type: IsoObject[]
               - name: player
+                type: integer
               - name: object
+                type: IsoObject
           - name: onRemoveGroundCoverItemPickAxe
             parameters:
               - name: worldobjects
@@ -1439,4 +1452,6 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: fluidContainer
+                type: FluidContainer
               - name: fluid
+                type: Fluid

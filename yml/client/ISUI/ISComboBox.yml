@@ -168,6 +168,8 @@ languages:
                 type: unknown
                 nullable: true
               - name: tooltip
+                type: string
+                nullable: true
           - name: getOptionCount
             return:
               - type: integer
@@ -261,9 +263,17 @@ languages:
           - name: setOnChange
             parameters:
               - name: target
+                type: unknown
+                nullable: true
               - name: onChange
+                type: umbrella.ISComboBox.OnChange
+                nullable: true
               - name: onChangeArg1
+                type: unknown
+                nullable: true
               - name: onChangeArg2
+                type: unknown
+                nullable: true
       ISComboBoxEditor:
         extends: ISTextEntryBox
         constructors:
@@ -355,3 +365,6 @@ languages:
             type: string
           data:
             type: unknown
+          tooltip:
+            type: string
+            nullable: true

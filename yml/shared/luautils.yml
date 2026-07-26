@@ -37,7 +37,7 @@ languages:
           - name: indexOf
             parameters:
               - name: table1
-                type: string
+                type: table
               - name: value
                 type: unknown
             return:
@@ -45,13 +45,15 @@ languages:
           - name: remove
             parameters:
               - name: table1
+                type: table
               - name: value
+                type: unknown
             return:
               - type: number
           - name: tableContains
             parameters:
               - name: table2
-                type: string
+                type: table
               - name: value
                 type: unknown
             return:
@@ -59,7 +61,9 @@ languages:
           - name: concatenateArrays
             parameters:
               - name: table1
+                type: table
               - name: table2
+                type: table
             return:
               - type: table
           - name: getNextTiles
@@ -180,8 +184,13 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: object
+                type: IsoObject
               - name: allowDiagonal
+                type: boolean
+                nullable: true
               - name: keepActions
+                type: boolean
+                nullable: true
             return:
               - type: boolean
           - name: walkAdjSquares
@@ -189,8 +198,13 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: squares
+                type: IsoGridSquare[]
               - name: allowDiagonal
+                type: boolean
+                nullable: true
               - name: keepActions
+                type: boolean
+                nullable: true
             return:
               - type: boolean
           - name: walkAdjSquaresExcluded
@@ -198,9 +212,15 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: squares
+                type: IsoGridSquare[]
               - name: squaresExcluded
+                type: IsoGridSquare[]
               - name: allowDiagonal
+                type: boolean
+                nullable: true
               - name: keepActions
+                type: boolean
+                nullable: true
             return:
               - type: boolean
           - name: haveToBeTransfered

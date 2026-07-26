@@ -21,7 +21,7 @@ languages:
             defaultValue: '"TileGeometryEditor_TileList"'
         fields:
           selected:
-            type: number
+            type: integer
           tileset:
             type: string
             nullable: true

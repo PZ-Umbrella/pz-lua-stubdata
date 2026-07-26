@@ -9,38 +9,46 @@ languages:
               - name: characterJoypadBindingUI
                 type: CharacterJoypadBindingUI
               - name: containerPanel
+                type: ISUIElement
               - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
         staticFields:
           Type:
             defaultValue: '"CharacterJoypadBindingUIEntry"'
         fields:
-          bindingKey: {}
+          bindingKey:
+            type: umbrella.PhysicalJoypadElement
           characterJoypadBindingUI:
             type: CharacterJoypadBindingUI
           initialBevelDirection:
             type: string
           containerPanel:
+            type: ISUIElement
             nullable: true
-          bindingRowPanel: {}
+          bindingRowPanel:
+            type: CharacterJoypadBindingUIRow
         methods:
           - name: tostring
             return:
               - type: string
           - name: getStyle
             return:
-              - type: unknown
+              - type: ISStyle
           - name: getBindingRowPanel
             return:
-              - type: unknown
+              - type: CharacterJoypadBindingUIRow
           - name: onBindingRowPanelLayoutChanged
           - name: onJoypadButtonBindingEdited
           - name: onJoypadAxisBindingValueEdited
             parameters:
               - name: sender
+                type: CharacterJoypadBindingUIRow
               - name: charBinding
+                type: umbrella.PhysicalJoypadElement
           - name: onBindingRowPanelEditingActivated
             parameters:
               - name: rowPanel
+                type: CharacterJoypadBindingUIRow
           - name: initBindingRowPanel
           - name: setEditSelected
             parameters:
@@ -49,6 +57,7 @@ languages:
           - name: setContainerPanel
             parameters:
               - name: containerPanel
+                type: ISUIElement
           - name: getLineToRowAbsolute
             return:
               - type: ISLine

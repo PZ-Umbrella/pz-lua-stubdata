@@ -106,54 +106,84 @@ languages:
             type: boolean
           filterUpdateTimer:
             type: number
-          ui_mods: {}
-          ui_whitelist: {}
-          ui_passwordOn: {}
-          ui_passwordOff: {}
-          ui_emptyServer: {}
-          ui_fullServer: {}
-          ui_allVersions: {}
-          ui_ping: {}
-          ui_playerCount: {}
-          ui_filters_1: {}
-          ui_filters_2: {}
-          ui_filters_3: {}
-          ui_filters_4: {}
-          ui_filters_5: {}
-          ui_filters_6: {}
-          ui_details_icon: {}
-          ui_icon_bg: {}
-          ui_circle: {}
-          default_banner: {}
-          default_bottom_background: {}
-          ui_players: {}
-          ui_online: {}
-          ui_offline: {}
-          ui_subitem_first: {}
-          ui_subitem_other: {}
-          ui_add_icon: {}
-          ui_open: {}
-          ui_closed: {}
+          ui_mods:
+            type: Texture
+          ui_whitelist:
+            type: Texture
+          ui_passwordOn:
+            type: Texture
+          ui_passwordOff:
+            type: Texture
+          ui_emptyServer:
+            type: Texture
+          ui_fullServer:
+            type: Texture
+          ui_allVersions:
+            type: Texture
+          ui_ping:
+            type: Texture
+          ui_playerCount:
+            type: Texture
+          ui_filters_1:
+            type: Texture
+          ui_filters_2:
+            type: Texture
+          ui_filters_3:
+            type: Texture
+          ui_filters_4:
+            type: Texture
+          ui_filters_5:
+            type: Texture
+          ui_filters_6:
+            type: Texture
+          ui_details_icon:
+            type: Texture
+          ui_icon_bg:
+            type: Texture
+          ui_circle:
+            type: Texture
+          default_banner:
+            type: Texture
+          default_bottom_background:
+            type: Texture
+          ui_players:
+            type: Texture
+          ui_online:
+            type: Texture
+          ui_offline:
+            type: Texture
+          ui_subitem_first:
+            type: Texture
+          ui_subitem_other:
+            type: Texture
+          ui_add_icon:
+            type: Texture
+          ui_open:
+            type: Texture
+          ui_closed:
+            type: Texture
           serverInfoBluePanelColor:
-            type: table
+            type: umbrella.RGBA
           serverInfoBlueTextColor:
-            type: table
+            type: umbrella.RGBA
           serverInfoGrayTextColor:
-            type: table
+            type: umbrella.RGBA
           serverListSelected:
-            type: table
+            type: umbrella.RGBA
           serverListItem:
-            type: table
+            type: umbrella.RGBA
           progressBarColor:
-            type: table
+            type: umbrella.RGBA
           rightPanelMargin:
             type: number
-          arrowUp: {}
-          arrowDown: {}
+          arrowUp:
+            type: Texture
+          arrowDown:
+            type: Texture
           sortListUpdateTicks:
             type: number
           serverList:
-            type: table
+            type: Server[]
         methods:
           - name: initialise
           - name: instantiate
@@ -167,46 +197,58 @@ languages:
           - name: drawAccountListItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: drawInternetListItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: getServerFeatured
             parameters:
               - name: server
+                type: Server
             return:
-              - type: unknown
+              - type: umbrella.MultiplayerUI.AccountListItem
                 nullable: true
           - name: onSelectInternetServer
             parameters:
               - name: server
+                type: Server
           - name: selectInternetServer
             parameters:
               - name: server
+                type: Server
           - name: onDoubleClickInternetList
             parameters:
               - name: server
+                type: Server
           - name: onSelectAccount
             parameters:
               - name: _item
-                nullable: true
+                type: umbrella.MultiplayerUI.AccountListItem
           - name: onDeleteAccount
             parameters:
               - name: button
                 type: ISButton
               - name: account
+                type: Account
           - name: onDeleteServer
             parameters:
               - name: button
                 type: ISButton
               - name: server
+                type: Server
           - name: onPressButtonOnAccountList
             parameters:
               - name: button
@@ -218,29 +260,38 @@ languages:
           - name: connectToServer
             parameters:
               - name: server
+                type: Server
               - name: account
+                type: Account
           - name: refreshList
           - name: requestServerList
           - name: analyzeServerData
             parameters:
               - name: server
+                type: Server
           - name: onResolutionChange
             parameters:
               - name: oldw
+                type: number
               - name: oldh
+                type: number
               - name: neww
+                type: number
               - name: newh
+                type: number
           - name: prerender
           - name: updateButtons
           - name: render
           - name: drawTickboxIcons
             parameters:
               - name: texture
+                type: Texture
               - name: x
                 type: number
               - name: y
                 type: number
               - name: scale
+                type: number
             return:
               - type: number
           - name: updateListSort
@@ -248,7 +299,9 @@ languages:
           - name: sortServerList
             parameters:
               - name: a
+                type: umbrella.ISScrollingListBox.Item
               - name: b
+                type: umbrella.ISScrollingListBox.Item
             return:
               - type: boolean
                 nullable: true
@@ -270,11 +323,15 @@ languages:
           - name: connectFromBrowser
             parameters:
               - name: server
+                type: Server
           - name: checkServerIsPwdProtected
             parameters:
               - name: server
+                type: Server
               - name: connectAfter
+                type: boolean
               - name: addToFavAfter
+                type: boolean
             return:
               - type: boolean
                 nullable: true
@@ -282,9 +339,11 @@ languages:
           - name: onTextFilterChange
             parameters:
               - name: box
+                type: ISTextEntryBox
           - name: onDoubleClickAccount
             parameters:
               - name: accountList
+                type: ISScrollingListBox
               - name: x
                 type: number
               - name: y
@@ -292,25 +351,59 @@ languages:
           - name: ServerPinged
             parameters:
               - name: ip
+                type: string
               - name: users
+                type: string
           - name: OnSteamServerResponded
             parameters:
               - name: serverIndex
+                type: integer
           - name: OnSteamServerResponded2
             parameters:
               - name: host
+                type: string
               - name: port
+                type: number
               - name: server2
+                type: Server
           - name: OnSteamServerFailedToRespond2
             parameters:
               - name: host
+                type: string
               - name: port
+                type: number
           - name: OnSteamRulesRefreshComplete
             parameters:
               - name: host
+                type: string
               - name: port
+                type: number
               - name: rules
+                type: umbrella.ServerProperties
           - name: OnSteamRefreshInternetServers
           - name: onResetLua
             parameters:
               - name: reason
+                type: string
+      umbrella.MultiplayerUI.AccountListItem:
+        fields:
+          type:
+            type: "'account' | 'server' | 'new_account' | 'new_server'"
+          first:
+            type: boolean
+            nullable: true
+          server:
+            type: Server
+            nullable: true
+          account:
+            type: Account
+            nullable: true
+          deleteButton:
+            type: ISButton
+            nullable: true
+          editButton:
+            type: ISButton
+            nullable: true
+          connectButton:
+            type: ISButton
+            nullable: true

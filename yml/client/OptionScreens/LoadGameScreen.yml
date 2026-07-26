@@ -126,8 +126,9 @@ languages:
           - name: onJoypadDown_Descendant
             parameters:
               - name: descendant
+                type: ISUIElement
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDown_listbox
@@ -141,7 +142,7 @@ languages:
               - name: descendant
                 type: ISUIElement
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getChallenge

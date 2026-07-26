@@ -4,6 +4,8 @@ languages:
     aliases:
       umbrella.ISScrollingListBox.MouseCallback:
         - type: "fun(target: unknown, item: unknown)"
+      umbrella.ISScrollingListBox.OverrideAButtonCallback:
+        - type: "fun(target: unknown, item: unknown)"
     classes:
       ISScrollingListBox:
         extends: ISPanelJoypad
@@ -44,9 +46,13 @@ languages:
             type: umbrella.RGBA
           onmousedown:
             type: umbrella.ISScrollingListBox.MouseCallback
-          overrideAButtonFunction: {}
+            nullable: true
+          overrideAButtonFunction:
+            type: umbrella.ISScrollingListBox.OverrideAButtonCallback
+            nullable: true
           onmousedblclick:
             type: umbrella.ISScrollingListBox.MouseCallback
+            nullable: true
           items:
             type: umbrella.ISScrollingListBox.Item[]
           itemheightoverride:
@@ -278,7 +284,11 @@ languages:
           - name: setOverrideAButtonFunction
             parameters:
               - name: target
+                type: unknown
+                nullable: true
               - name: fct
+                type: umbrella.ISScrollingListBox.OverrideAButtonCallback
+                nullable: true
           - name: invokeOnMouseDownFunction
           - name: setOnMouseDoubleClick
             parameters:

@@ -94,7 +94,7 @@ languages:
           tooltipColor:
             type: umbrella.RGB
           joypadNavigate:
-            type: table
+            type: umbrella.JoypadNavigate
           itemheightoverride:
             type: table<string, number>
           whiteBar:

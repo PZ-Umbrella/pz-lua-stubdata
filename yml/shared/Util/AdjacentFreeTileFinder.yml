@@ -97,8 +97,11 @@ languages:
           - name: tryDirection
             parameters:
               - name: directions
+                type: IsoDirections[]
               - name: gridSquare
+                type: IsoGridSquare
               - name: choices
+                type: IsoGridSquare[]
             return:
               - type: boolean
                 nullable: true

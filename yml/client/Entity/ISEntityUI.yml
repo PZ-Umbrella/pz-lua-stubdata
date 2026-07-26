@@ -82,12 +82,21 @@ languages:
           - name: GenericCraftTransferAndStart
             parameters:
               - name: _player
+                type: IsoPlayer
               - name: _entity
+                type: IsoObject
               - name: _component
+                type: Component
               - name: _funcCanStart
+                type: umbrella.ISEntityUI.CraftCanStart
               - name: _funcStart
+                type: umbrella.ISEntityUI.CraftStart
               - name: _itemsToTransfer
+                type: InventoryItem[]
+                nullable: true
               - name: _itemSlot
+                type: ISItemSlot
+                nullable: true
             return:
               - type: boolean
                 nullable: true

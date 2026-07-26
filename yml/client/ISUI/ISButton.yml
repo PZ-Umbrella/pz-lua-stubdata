@@ -219,7 +219,7 @@ languages:
               - type: boolean
           - name: getBackgroundColor
             return:
-              - type: table
+              - type: umbrella.RGBA
           - name: prerender
           - name: setImage
             parameters:

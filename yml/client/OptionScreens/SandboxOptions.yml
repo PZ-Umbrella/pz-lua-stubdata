@@ -57,7 +57,8 @@ languages:
           hadJoypadFocus:
             type: boolean
           joypadNavigate:
-            type: table
+            type: umbrella.JoypadNavigate
+            nullable: true
           nonDefaultOptions:
             type: SandboxOptions
         methods:
@@ -73,9 +74,12 @@ languages:
           - name: createControlForSetting
             parameters:
               - name: setting
+                type: umbrella.ServerSettingsScreen.Setting
               - name: tooltip
+                type: string
+                nullable: true
             return:
-              - type: table
+              - type: ISUIElement
           - name: createPanel
             parameters:
               - name: page
@@ -132,8 +136,9 @@ languages:
           - name: getSandboxPreset
             parameters:
               - name: preset
+                type: string
             return:
-              - type: table
+              - type: umbrella.SandboxOptionsScreen.Preset
           - name: prerender
           - name: render
           - name: setSandboxVars

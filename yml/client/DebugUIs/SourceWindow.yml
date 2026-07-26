@@ -86,4 +86,5 @@ languages:
           - name: onFunctionCombo
             parameters:
               - name: combo
+                type: ISComboBox
           - name: onResize

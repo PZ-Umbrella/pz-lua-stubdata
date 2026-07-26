@@ -19,9 +19,12 @@ languages:
             type: table<integer, string>
           cacheMode:
             type: table<integer, string>
-          normalColor: {}
-          validColor: {}
-          invalidColor: {}
+          normalColor:
+            type: umbrella.RGB
+          validColor:
+            type: umbrella.RGB
+          invalidColor:
+            type: umbrella.RGB
           DEBUG_RENDER:
             defaultValue: getDebug() and false
         fields:
@@ -38,6 +41,7 @@ languages:
             type: InventoryItem
             nullable: true
           pathfindAction:
+            type: ISPathFindAction
             nullable: true
           cursorFacing:
             type: integer
@@ -84,6 +88,7 @@ languages:
             type: string
             nullable: true
           objectHiddenDuringRotate:
+            type: IsoObject
             nullable: true
           xJoypad:
             type: number
@@ -264,6 +269,7 @@ languages:
           - name: setObjectHiddenDuringRotate
             parameters:
               - name: object
+                type: IsoObject
           - name: resetObjectHiddenDuringRotate
           - name: setCursorFacing
             parameters:

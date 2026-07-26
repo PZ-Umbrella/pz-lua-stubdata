@@ -96,6 +96,8 @@ languages:
           - name: updateAvatar
             parameters:
               - name: noTriggerEvent
+                type: boolean
+                nullable: true
           - name: prerender
           - name: update
           - name: onGainJoypadFocus

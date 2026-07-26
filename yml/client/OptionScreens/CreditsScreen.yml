@@ -35,7 +35,8 @@ languages:
             type: number
           escapeText:
             type: string
-          escapeTextWidth: {}
+          escapeTextWidth:
+            type: number
         methods:
           - name: create
           - name: changeSpeed
@@ -55,7 +56,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onGainJoypadFocus
@@ -72,9 +73,11 @@ languages:
           - name: addToMap
             parameters:
               - name: key
-                type: integer
+                type: string
               - name: searchKey
+                type: string
               - name: map
+                type: string[]
               - name: name
                 type: string
           - name: doCreditTable
@@ -82,6 +85,7 @@ languages:
               - name: title
                 type: string
               - name: creditTable
+                type: string[]
             return:
               - type: string
           - name: prerender

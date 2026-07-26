@@ -103,8 +103,10 @@ languages:
           blinkAlphaIncrease:
             type: boolean
           selectedContainerForSound:
+            type: ItemContainer
             nullable: true
           mouseOverColoredContainer:
+            type: ItemContainer
             nullable: true
           title:
             type: string
@@ -166,7 +168,9 @@ languages:
           mouseOverButton:
             type: ISButton
             nullable: true
-          mouseOverColoredContainerInv: {}
+          mouseOverColoredContainerInv:
+            type: ItemContainer
+            nullable: true
           render3DItemXOffset:
             type: number
             nullable: true
@@ -480,6 +484,7 @@ languages:
           - name: stopHighlightContainer
             parameters:
               - name: container
+                type: ItemContainer
           - name: canPutIn
             return:
               - type: boolean

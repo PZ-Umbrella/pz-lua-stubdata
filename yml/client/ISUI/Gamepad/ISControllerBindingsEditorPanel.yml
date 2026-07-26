@@ -9,6 +9,7 @@ languages:
               - name: gameOptionControllerTab
                 type: GameOptionControllerTab
               - name: containerPanel
+                type: ISUIElement
               - name: x
                 type: number
               - name: y
@@ -21,30 +22,37 @@ languages:
           Type:
             defaultValue: '"ISControllerBindingsEditorPanel"'
           spriteBoundsRepo: {}
-          onOptionControllerButtonStyleChanged: {}
-          onOptionGamepadBindingPresetChanged: {}
+          onOptionControllerButtonStyleChanged:
+            type: umbrella.ISControllerBindingsEditorPanel.Listener[]
+          onOptionGamepadBindingPresetChanged:
+            type: umbrella.ISControllerBindingsEditorPanel.Listener[]
         fields:
           SuperType:
             type: ISPanel
-          parentContainerPanel: {}
+          parentContainerPanel:
+            type: ISUIElement
           gameOptionControllerTab:
             type: GameOptionControllerTab
           content:
             type: table
           layoutOrderings:
+            type: table<string, JoypadButton[]>
             nullable: true
-          unusedBindingsPanel: {}
+          unusedBindingsPanel:
+            type: ISUIElement
           uiBindings:
             type: CharacterJoypadBindingUI
-          lineOverlayPanel: {}
-          editedUIBinding: {}
+          lineOverlayPanel:
+            type: ISUIElement
+          editedUIBinding:
+            type: CharacterJoypadBindingUIEntry
         methods:
           - name: initContent
             return:
-              - type: ISControllerBindingsEditorPanel
+              - type: self
           - name: getStyle
             return:
-              - type: unknown
+              - type: ISStyle
           - name: populateAllBindingBoxes
           - name: createMainSprite
           - name: createSubSprites
@@ -52,7 +60,7 @@ languages:
           - name: createBindingGroupPanels
           - name: createLineOverlayPanel
             return:
-              - type: unknown
+              - type: ISPanel
           - name: onResize
           - name: onBindingUILayoutChanged
           - name: onControllerButtonStyleChanged
@@ -66,9 +74,11 @@ languages:
           - name: onBindingUIPanelEditingActivated
             parameters:
               - name: uiBinding
+                type: CharacterJoypadBindingUIEntry
           - name: setActiveEditingBindingUI
             parameters:
               - name: uiBinding
+                type: CharacterJoypadBindingUIEntry
           - name: doLayout
           - name: onScrollPosChanged
           - name: updateCornerPanelsToScroll
@@ -85,7 +95,10 @@ languages:
           - name: addOnOptionControllerButtonStyleChanged
             parameters:
               - name: target
+                type: unknown
+                nullable: true
               - name: callbackFunc
+                type: umbrella.ISControllerBindingsEditorPanel.Listener
           - name: optionGamepadBindingPresetChanged
             parameters:
               - name: optionStr
@@ -93,9 +106,14 @@ languages:
           - name: addOnOptionGamepadBindingPresetChanged
             parameters:
               - name: target
+                type: unknown
+                nullable: true
               - name: callbackFunc
+                type: umbrella.ISControllerBindingsEditorPanel.Listener
       self.content.bindingGroupPanels:
         local: true
+        tags:
+          - StubGen_Hidden
         staticFields:
           parentContainer:
             type: ISControllerBindingsEditorPanel
@@ -121,13 +139,13 @@ languages:
               - type: ISBounds
           - name: getAllPanels
             return:
-              - type: table
+              - type: ISUIElement[]
           - name: getLeftPanels
             return:
-              - type: table
+              - type: ISUIElement[]
           - name: getRightPanels
             return:
-              - type: table
+              - type: ISUIElement[]
           - name: clearAllPanelsContent
           - name: addPanel
             parameters:
@@ -137,3 +155,10 @@ languages:
                 type: string
               - name: contentHorizontalAlignment
                 type: number
+      umbrella.ISControllerBindingsEditorPanel.Listener:
+        fields:
+          target:
+            type: unknown
+            nullable: true
+          callback:
+            type: "fun(target: unknown?, optionStr: string)"

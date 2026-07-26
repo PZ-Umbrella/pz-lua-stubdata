@@ -24,8 +24,11 @@ languages:
           closeButton:
             type: ISButton
           previousJoypadFocus:
+            type: ISUIElement
             nullable: true
-          selectedItem: {}
+          selectedItem:
+            type: umbrella.SurvivalGuide.Entry
+            nullable: true
           smallResolution:
             type: boolean
           mediumResolution:
@@ -38,11 +41,13 @@ languages:
               - name: name
                 type: string
               - name: layout
+                type: umbrella.ISLayoutManager.Layout
           - name: SaveLayout
             parameters:
               - name: name
                 type: string
               - name: layout
+                type: umbrella.ISLayoutManager.Layout
           - name: initialise
           - name: createChildren
           - name: onClose
@@ -55,21 +60,26 @@ languages:
           - name: onClickShowSurvivalGuide
             parameters:
               - name: index
+                type: integer
               - name: selected
+                type: boolean
           - name: onClickList
           - name: prerender
           - name: populateList
           - name: getKeyName
             parameters:
               - name: key
-                type: integer
+                type: string
             return:
               - type: string
           - name: doDrawItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: restorePosition
@@ -95,10 +105,32 @@ languages:
           - name: openEntry
             parameters:
               - name: entry
+                type: SurvivalGuideEntry
           - name: onKeyPressed
             parameters:
               - name: key
                 type: integer
           - name: OnGameStart
+      umbrella.SurvivalGuide.Entry:
+        fields:
+          id:
+            type: string
+          title:
+            type: string
+          description:
+            type: string
+            nullable: true
+          spiffo:
+            type: string
+            nullable: true
+          video:
+            type: string
+            nullable: true
+          category_image:
+            type: string
+            nullable: true
+          subCategory:
+            type: boolean
+            nullable: true
     functions:
       - name: createSurvivalGuide

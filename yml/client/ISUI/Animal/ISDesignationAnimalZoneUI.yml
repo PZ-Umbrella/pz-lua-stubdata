@@ -42,10 +42,11 @@ languages:
           infoBtn:
             type: ISButton
           nbOfAnimals:
-            type: number
-          nbOfCorpses: {}
+            type: integer
+          nbOfCorpses:
+            type: integer
           updateTick:
-            type: number
+            type: integer
           animalbuttons:
             type: ISButton[]
           animalLabels:
@@ -65,7 +66,9 @@ languages:
           - name: onTicked
             parameters:
               - name: index
+                type: integer
               - name: selected
+                type: boolean
           - name: checkExist
             return:
               - type: boolean

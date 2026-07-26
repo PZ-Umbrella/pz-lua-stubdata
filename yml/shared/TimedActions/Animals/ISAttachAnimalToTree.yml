@@ -45,13 +45,13 @@ languages:
           - name: attachRope
           - name: getRopeToRemoveFromInventory
             return:
-              - type: unknown
+              - type: InventoryItem
                 nullable: true
           - name: getRopeNotInHand
             parameters:
               - name: ropes
             return:
-              - type: unknown
+              - type: InventoryItem
                 nullable: true
           - name: getDuration
             return:

@@ -108,8 +108,10 @@ languages:
             type: Texture
           debugIconOff:
             type: Texture
-          arfIconOn: {}
-          arfIconOff: {}
+          arfIconOn:
+            type: Texture
+          arfIconOff:
+            type: Texture
           clientIconOn:
             type: Texture
           clientIconOff:

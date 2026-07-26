@@ -857,11 +857,15 @@ languages:
           - name: actionComplete
             parameters:
               - name: _character
+                type: IsoPlayer
               - name: _iconID
+                type: string
           - name: forageAction
             parameters:
               - name: _character
+                type: IsoPlayer
               - name: _forageIcon
+                type: ISForageIcon
       umbrella.Foraging.ItemDefinition:
         fields:
           type:

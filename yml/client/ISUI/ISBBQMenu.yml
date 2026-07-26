@@ -7,11 +7,13 @@ languages:
           - name: OnFillWorldObjectContextMenu
             parameters:
               - name: player
+                type: integer
               - name: context
                 type: ISContextMenu
               - name: worldobjects
                 type: IsoObject[]
               - name: test
+                type: boolean
             return:
               - type: boolean
                 nullable: true

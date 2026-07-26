@@ -246,7 +246,8 @@ languages:
             type: Texture
           texViewOrthographic:
             type: Texture
-          texViewTerrainImage: {}
+          texViewTerrainImage:
+            type: Texture
           activeWhilePaused:
             type: boolean
         methods:
@@ -498,7 +499,8 @@ languages:
           Type:
             defaultValue: '"AnnotatedMapOverlay"'
         fields:
-          mapAPI: {}
+          mapAPI:
+            type: UIWorldMapV3
         methods:
           - name: instantiate
           - name: prerender

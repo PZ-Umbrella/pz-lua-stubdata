@@ -7,9 +7,10 @@ languages:
         constructors:
           - parameters:
               - name: elements
+                type: ISUIElement[]
         fields:
           elements:
-            type: table
+            type: ISUIElement[]
           above:
             type: rowTree
             nullable: true
@@ -29,30 +30,35 @@ languages:
           - name: getSplitElements
             parameters:
               - name: y
+                type: number
             return:
-              - type: table
-              - type: table
-              - type: table
+              - type: ISUIElement[]
+              - type: ISUIElement[]
+              - type: ISUIElement[]
           - name: findHorizontallyOverlappingElement
             parameters:
               - name: left
+                type: number
               - name: right
+                type: number
               - name: vsElementIdx
+                type: integer
             return:
               - type: number
                 nullable: true
           - name: getAllRows
             parameters:
               - name: result
-                type: table
+                type: ISUIElement[]
                 nullable: true
             return:
-              - type: table
+              - type: ISUIElement[]
                 nullable: true
         staticMethods:
           - name: rowToString
             parameters:
               - name: row
+                type: ISUIElement[]
             return:
               - type: string
       ISPanelJoypad:
@@ -96,9 +102,10 @@ languages:
             type: ISButton
             nullable: true
           lastProjectedBounds:
+            type: ISBounds
             nullable: true
           lastIntercepts:
-            type: table
+            type: ISBounds[]
             nullable: true
           moving:
             type: boolean
@@ -164,19 +171,22 @@ languages:
           - name: removeListOfButtons
             parameters:
               - name: list
+                type: ISButton[]
             return:
               - type: boolean
           - name: addJoypadButtonRows
             parameters:
               - name: rows
+                type: ISButton[][]
           - name: removeJoypadButtonRows
             parameters:
               - name: rows
+                type: ISButton[][]
           - name: autoGenerateJoypadButtonsLists
           - name: clearJoypadButtonsList
           - name: noBackground
             return:
-              - type: ISPanelJoypad | table
+              - type: self
           - name: close
           - name: setISButtonForA
             parameters:
@@ -209,19 +219,21 @@ languages:
           - name: getChildJoypadIndexY
             parameters:
               - name: child
+                type: ISButton
             return:
-              - type: number
+              - type: integer
           - name: getChildJoypadIndex
             parameters:
               - name: child
+                type: ISButton
             return:
-              - type: number
+              - type: integer
           - name: getVisibleChildren
             parameters:
               - name: joypadIndexY
                 type: integer
             return:
-              - type: ISUIElement[]
+              - type: ISButton[]
           - name: getMinVisibleRow
             return:
               - type: integer
@@ -267,27 +279,37 @@ languages:
           - name: findNextNavigableChildY
             parameters:
               - name: fromChild
+                type: ISUIElement
               - name: yDir
+                type: number
             return:
-              - type: unknown
+              - type: ISUIElement
                 nullable: true
           - name: findNextNavigableChildX
             parameters:
               - name: fromChild
+                type: ISUIElement
               - name: xDir
+                type: number
             return:
-              - type: unknown
+              - type: ISUIElement
                 nullable: true
           - name: findClosestNavigableChildAlongBounds
             parameters:
               - name: fromChild
+                type: ISUIElement
               - name: fromChildBounds
+                type: ISBounds
               - name: projectedBounds
+                type: ISBounds
               - name: minDistance
+                type: number
               - name: distanceToFunc
+                type: "fun(boundsA: ISBounds, boundsB: ISBounds): number"
               - name: results
+                type: "{ foundChild: ISUIElement, foundChildDistance: number }[]"
             return:
-              - type: unknown
+              - type: ISUIElement
                 nullable: true
           - name: getJoypadFocus
             return:
@@ -360,17 +382,21 @@ languages:
           - name: rowListToDebugString
             parameters:
               - name: list
+                type: ISUIElement[]
             return:
               - type: string
           - name: autoGenerateJoypadButtonRowsFromUIElement
             parameters:
               - name: uiRootElement
+                type: ISUIElement
             return:
-              - type: table
+              - type: ISUIElement[]
           - name: autoAddUIElementToJoypadButtons
             parameters:
               - name: allJoypadButtons
+                type: ISUIElement[]
               - name: uiElement
+                type: ISUIElement
             return:
               - type: boolean
                 nullable: true

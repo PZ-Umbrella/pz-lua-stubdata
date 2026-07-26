@@ -32,7 +32,7 @@ languages:
           rodItemTypeBend:
             type: string
           bobber:
-            type: Fishing.Bobber
+            type: Bobber
             nullable: true
           spawnBobberDelayTimer:
             type: number

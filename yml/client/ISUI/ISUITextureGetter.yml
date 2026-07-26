@@ -13,20 +13,21 @@ languages:
             defaultValue: '"ISUITextureGetter"'
         fields:
           texture:
+            type: Texture
             nullable: true
           textureFilePath:
             type: string
         methods:
           - name: getTexture
             return:
-              - type: unknown
+              - type: Texture
                 nullable: true
           - name: getHeight
             return:
-              - type: unknown
+              - type: number
           - name: getWidth
             return:
-              - type: unknown
+              - type: number
           - name: getTextureFilePath
             return:
               - type: string
@@ -35,5 +36,7 @@ languages:
           - name: checkGetTexture
             parameters:
               - name: texture
+                type: Texture | ISUITextureGetter
             return:
-              - type: unknown
+              - type: Texture
+                nullable: true

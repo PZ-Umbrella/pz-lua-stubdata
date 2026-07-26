@@ -36,6 +36,7 @@ languages:
           close:
             type: ISButton
           currentButton:
+            type: ISButton
             nullable: true
           selectByClick:
             type: boolean

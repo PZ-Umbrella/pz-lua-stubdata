@@ -7,12 +7,15 @@ languages:
         constructors:
           - parameters:
               - name: character
+                type: IsoPlayer
               - name: window
+                type: IsoWindow
         staticFields:
           Type:
             defaultValue: '"ISThrowCorpseThroughWindow"'
         fields:
-          window: {}
+          window:
+            type: IsoWindow
           allowedWhileDraggingCorpses:
             type: boolean
         methods:
@@ -21,7 +24,7 @@ languages:
               - type: boolean
           - name: waitToStart
             return:
-              - type: unknown
+              - type: boolean
           - name: update
           - name: start
           - name: stop

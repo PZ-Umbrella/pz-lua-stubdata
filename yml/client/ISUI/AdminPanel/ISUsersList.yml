@@ -33,10 +33,14 @@ languages:
             type: ISButton
           searchEntry:
             type: ISTextEntryBox
-          sortByNameButton: {}
-          sortByRoleButton: {}
-          sortByLastConnectionButton: {}
-          sortByWarningsButton: {}
+          sortByNameButton:
+            type: ISButton
+          sortByRoleButton:
+            type: ISButton
+          sortByLastConnectionButton:
+            type: ISButton
+          sortByWarningsButton:
+            type: ISButton
           datas:
             type: ISScrollingListBox
           warningsColumnX:
@@ -53,8 +57,10 @@ languages:
             type: string
           player:
             type: IsoPlayer
-          arrowUp: {}
-          arrowDown: {}
+          arrowUp:
+            type: Texture
+          arrowDown:
+            type: Texture
         methods:
           - name: initialise
           - name: refresh
@@ -64,6 +70,7 @@ languages:
               - name: name
                 type: string
               - name: sortType
+                type: string
               - name: x
                 type: number
               - name: width
@@ -141,7 +148,9 @@ languages:
           - name: comparator
             parameters:
               - name: user1
+                type: umbrella.ISScrollingListBox.Item
               - name: user2
+                type: umbrella.ISScrollingListBox.Item
             return:
               - type: boolean
                 nullable: true

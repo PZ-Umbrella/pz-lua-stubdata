@@ -11,6 +11,8 @@ languages:
               - name: body
                 type: IsoDeadBody
               - name: bodyItemToRemove
+                type: InventoryItem
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISButcherAnimal"'
@@ -22,7 +24,7 @@ languages:
           perkLevel:
             type: integer
           bodyItemToRemove:
-            type: boolean
+            type: InventoryItem | false
         methods:
           - name: isValid
             return:

@@ -29,10 +29,10 @@ languages:
           selectEnd:
             type: boolean
           startPos:
-            type: table
+            type: "{ x: integer, y: integer }"
             nullable: true
           endPos:
-            type: table
+            type: "{ x: integer, y: integer }"
             nullable: true
           zPos:
             type: number

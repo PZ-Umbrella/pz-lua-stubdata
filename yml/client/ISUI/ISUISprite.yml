@@ -7,21 +7,21 @@ languages:
         constructors:
           - parameters:
               - name: texture
-                type: ISUITextureGetter
+                type: Texture | ISUITextureGetter
               - name: textureSize
-                type: table
+                type: "{ width: number, height: number }"
               - name: subTextureBounds
-                type: table
+                type: umbrella.XYWH
         staticFields:
           Type:
             defaultValue: '"ISUISpriteBounds"'
         fields:
           texture:
-            type: ISUITextureGetter
+            type: Texture | ISUITextureGetter
           textureSize:
-            type: table
+            type: "{ width: number, height: number }"
           subTextureBounds:
-            type: table
+            type: umbrella.XYWH
       ISUISpriteBoundsGetter:
         extends: ISBaseObject
         constructors:
@@ -31,25 +31,27 @@ languages:
             defaultValue: '"ISUISpriteBoundsGetter"'
         fields:
           spriteBounds:
+            type: ISUISpriteBounds
             nullable: true
         methods:
           - name: getSpriteBounds
             return:
-              - type: unknown
-                nullable: true
+              - type: ISUISpriteBounds
           - name: invalidate
           - name: loadSpriteBounds
         staticMethods:
           - name: checkGetSpriteBounds
             parameters:
               - name: spriteBounds
+                type: ISUISpriteBoundsGetter | ISUISpriteBounds
             return:
-              - type: unknown
+              - type: ISUISpriteBounds
       ISUISprite:
         extends: ISUIElement
         constructors:
           - parameters:
               - name: texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -59,20 +61,22 @@ languages:
               - name: height
                 type: number
               - name: textureWidth
+                type: number
               - name: textureHeight
+                type: number
         staticFields:
           Type:
             defaultValue: '"ISUISprite"'
         fields:
           spriteBounds:
-            type: ISUISpriteBoundsGetter
+            type: ISUISpriteBoundsGetter | ISUISpriteBounds
           color:
-            type: table
+            type: umbrella.RGBA
         methods:
           - name: newFromBounds
             parameters:
               - name: spriteBounds
-                type: ISUISpriteBoundsGetter
+                type: ISUISpriteBoundsGetter | ISUISpriteBounds
               - name: x
                 type: number
               - name: y
@@ -86,9 +90,10 @@ languages:
           - name: setSpriteBounds
             parameters:
               - name: spriteBounds
+                type: ISUISpriteBoundsGetter | ISUISpriteBounds
           - name: getSpriteBounds
             return:
-              - type: unknown
+              - type: ISUISpriteBounds
           - name: invalidateSpriteBounds
           - name: getSpriteAspectRatio
             return:

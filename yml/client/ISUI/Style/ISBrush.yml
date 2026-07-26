@@ -17,4 +17,4 @@ languages:
           type:
             type: string
           color:
-            type: table
+            type: umbrella.RGBA

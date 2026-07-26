@@ -101,8 +101,11 @@ languages:
           - name: doDrawItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: onMouseDownListbox
@@ -159,8 +162,10 @@ languages:
             type: ISButton
           nextButton:
             type: ISButton
-          item: {}
-          preview: {}
+          item:
+            type: SteamWorkshopItem
+          preview:
+            type: Texture
         methods:
           - name: create
           - name: aboutToShow
@@ -172,6 +177,7 @@ languages:
           - name: setWorkshopItem
             parameters:
               - name: item
+                type: SteamWorkshopItem
           - name: validate
             return:
               - type: boolean
@@ -179,6 +185,7 @@ languages:
           - name: onTextChanged
             parameters:
               - name: text
+                type: string
           - name: onButtonOverlay
           - name: onButtonBack
           - name: onButtonNext
@@ -334,7 +341,8 @@ languages:
             type: number
           backButton:
             type: ISButton
-          prevPage: {}
+          prevPage:
+            type: ISUIElement
         methods:
           - name: create
           - name: render
@@ -345,6 +353,7 @@ languages:
           - name: setFields
             parameters:
               - name: prevPage
+                type: ISUIElement
           - name: onMouseDownLegal
             parameters:
               - name: x
@@ -355,6 +364,7 @@ languages:
           - name: onTextChanged
             parameters:
               - name: text
+                type: string
           - name: onButtonPublish
           - name: onButtonBack
           - name: onGainJoypadFocus
@@ -364,7 +374,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp
@@ -400,7 +410,8 @@ languages:
             type: ISButton
           title:
             type: string
-          prevPage: {}
+          prevPage:
+            type: ISUIElement
         methods:
           - name: create
           - name: render
@@ -409,7 +420,9 @@ languages:
               - name: title
                 type: string
               - name: text
+                type: string
               - name: prevPage
+                type: ISUIElement
           - name: onButtonAccept
           - name: onButtonCancel
           - name: onGainJoypadFocus
@@ -419,7 +432,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp
@@ -460,7 +473,8 @@ languages:
             type: number
           updateTimeMax:
             type: number
-          item: {}
+          item:
+            type: SteamWorkshopItem
         methods:
           - name: create
           - name: updateWhenVisible
@@ -473,16 +487,21 @@ languages:
           - name: OnSteamWorkshopItemCreated
             parameters:
               - name: itemID
+                type: string
               - name: bUserNeedsToAcceptWorkshopLegalAgreement
+                type: boolean
           - name: OnSteamWorkshopItemNotCreated
             parameters:
               - name: result
+                type: integer
           - name: OnSteamWorkshopItemUpdated
             parameters:
               - name: bUserNeedsToAcceptWorkshopLegalAgreement
+                type: boolean
           - name: OnSteamWorkshopItemNotUpdated
             parameters:
               - name: result
+                type: integer
           - name: onButtonOverlay
           - name: onButtonClose
           - name: onGainJoypadFocus
@@ -508,15 +527,19 @@ languages:
         fields:
           backButton:
             type: ISButton
-          error: {}
-          prevPage: {}
+          error:
+            type: string
+          prevPage:
+            type: ISUIElement
         methods:
           - name: create
           - name: render
           - name: setFields
             parameters:
               - name: err
+                type: string
               - name: prevPage
+                type: ISUIElement
           - name: onButtonBack
           - name: onGainJoypadFocus
             parameters:
@@ -610,16 +633,18 @@ languages:
           enabled:
             type: boolean
           selectedBeforeReset:
+            type: integer
             nullable: true
           checked:
-            type: table
+            type: table<string, boolean>
           leftMargin:
             type: number
           boxSize:
             type: number
           textGap:
             type: number
-          tickTexture: {}
+          tickTexture:
+            type: Texture
         methods:
           - name: onMouseDown
             parameters:
@@ -640,32 +665,40 @@ languages:
           - name: doDrawItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: setTags
             parameters:
               - name: tags
+                type: ArrayList<string>
           - name: setChecked
             parameters:
               - name: tag
+                type: string
               - name: checked
                 type: boolean
           - name: isChecked
             parameters:
               - name: tag
+                type: string
             return:
               - type: boolean
           - name: setCheckedTags
             parameters:
               - name: tags
+                type: ArrayList<string>
           - name: getCheckedTags
             return:
-              - type: unknown
+              - type: ArrayList<string>
           - name: setEnabled
             parameters:
               - name: enabled
+                type: boolean
           - name: setJoypadFocused
             parameters:
               - name: focused
@@ -675,13 +708,13 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDownInParent
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
             return:

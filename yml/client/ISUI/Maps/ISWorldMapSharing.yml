@@ -71,15 +71,19 @@ languages:
             type: number
           textGap:
             type: number
-          tickTexture: {}
+          tickTexture:
+            type: Texture
           joypadParent:
             type: ISWorldMapSharing_PanelPlayers
         methods:
           - name: doDrawItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: onMouseDown
@@ -146,8 +150,10 @@ languages:
             type: ISTickBox
           buttonPlayers:
             type: ISButton
-          currentSymbol: {}
-          mapUI: {}
+          currentSymbol:
+            type: WorldMapBaseSymbol
+          mapUI:
+            type: umbrella.MapUI
         methods:
           - name: createChildren
           - name: becomeCurrent
@@ -158,7 +164,9 @@ languages:
           - name: onTickBoxHideAuthor
             parameters:
               - name: index
+                type: integer
               - name: selected
+                type: boolean
           - name: onRadioButton
             parameters:
               - name: buttons
@@ -169,6 +177,7 @@ languages:
           - name: setCurrentSymbol
             parameters:
               - name: symbol
+                type: WorldMapBaseSymbol
           - name: setJoypadButtons
           - name: onGainJoypadFocus
             parameters:

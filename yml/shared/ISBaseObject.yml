@@ -25,6 +25,7 @@ languages:
           - name: instanceof
             parameters:
               - name: object
+                type: unknown
               - name: type
                 type: string
             return:

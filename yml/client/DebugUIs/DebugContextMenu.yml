@@ -9,13 +9,16 @@ languages:
           stagTime:
             defaultValue: "0"
           player:
+            type: integer
             nullable: true
           pickedCharacters:
-            type: table
+            type: IsoGameCharacter[]
             nullable: true
           highlightedCharacter:
+            type: IsoGameCharacter
             nullable: true
           selectedZombie:
+            type: IsoZombie
             nullable: true
         staticMethods:
           - name: doDebugMenu
@@ -35,14 +38,19 @@ languages:
           - name: onHighlightWorldCharacter
             parameters:
               - name: _option
+                type: umbrella.ISContextMenu.Option
               - name: _menu
+                type: ISContextMenu
               - name: _isHighlighted
                 type: boolean
               - name: _object
+                type: IsoGameCharacter
           - name: initWorldCharacterHighlightOption
             parameters:
               - name: option
+                type: umbrella.ISContextMenu.Option
               - name: object
+                type: IsoGameCharacter
           - name: onFilmingToolsUI
             parameters:
               - name: playerObj
@@ -338,7 +346,7 @@ languages:
               - name: square
                 type: IsoGridSquare
             return:
-              - type: table
+              - type: IsoGameCharacter[]
           - name: OnBendFence
             parameters:
               - name: worldobjects

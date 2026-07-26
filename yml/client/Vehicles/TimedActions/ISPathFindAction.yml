@@ -97,10 +97,11 @@ languages:
           - name: pathToNearestPreferred
             parameters:
               - name: character
+                type: IsoPlayer
               - name: locations
-                type: table
+                type: number[]
               - name: locationsAlt
-                type: table
+                type: number[]
             return:
               - type: ISPathFindAction
           - name: pathToSitOnFurniture
@@ -152,17 +153,22 @@ languages:
           - name: pathAdjacentToSquares
             parameters:
               - name: character
+                type: IsoPlayer
               - name: squares
-                type: table
+                type: IsoGridSquare[]
               - name: allowDiagonal
+                type: boolean
             return:
               - type: ISPathFindAction
                 nullable: true
           - name: pathAdjacentToSquaresPredicate
             parameters:
               - name: character
+                type: IsoPlayer
               - name: squares
+                type: IsoGridSquare[]
               - name: allowDiagonal
+                type: boolean
               - name: predicate
                 type: function
               - name: predicateArg
@@ -173,8 +179,11 @@ languages:
           - name: pathAdjacentToMultiTileObject
             parameters:
               - name: character
+                type: IsoPlayer
               - name: object
+                type: IsoObject
               - name: allowDiagonal
+                type: boolean
             return:
               - type: ISPathFindAction
                 nullable: true

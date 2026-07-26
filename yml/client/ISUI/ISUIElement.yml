@@ -32,7 +32,7 @@ languages:
           children:
             type: table<integer, ISUIElement>
           childrenInOrder:
-            type: table
+            type: ISUIElement[]
           ID:
             type: integer
           controller:
@@ -66,10 +66,10 @@ languages:
           joypadFocused:
             type: boolean
           joypadNavigatePrevRect:
-            type: table
+            type: umbrella.XYWH
             nullable: true
           joypadNavigateTransition:
-            type: table
+            type: umbrella.ISUIElement.JoypadNavigateTransition
             nullable: true
           javaObject:
             type: UIElement
@@ -101,22 +101,33 @@ languages:
             type: boolean
             nullable: true
           name:
+            type: string
             nullable: true
-          creationCallStack: {}
+          creationCallStack:
+            type: string
+            nullable: true
           dock:
             type: string
           onDoLayout:
+            type: function
             nullable: true
           gameOption:
+            type: GameOption
             nullable: true
           contentHorizontalAlignment:
             type: number
           style:
+            type: ISStyle
             nullable: true
           autoAddJoypadButton:
             type: boolean
           joypadNavigate:
-            type: table
+            type: umbrella.JoypadNavigate
+            nullable: true
+            tags:
+              - StubGen_Extra
+          ignoreAim:
+            type: boolean
             nullable: true
             tags:
               - StubGen_Extra
@@ -193,14 +204,16 @@ languages:
           - name: toLocalBounds
             parameters:
               - name: absoluteBounds
+                type: ISBounds
             return:
-              - type: unknown
+              - type: ISBounds
           - name: getScrollableBounds
             return:
               - type: ISBounds
           - name: setBounds
             parameters:
               - name: bounds
+                type: ISBounds
           - name: setAnchorBottom
             parameters:
               - name: bAnchor
@@ -221,12 +234,16 @@ languages:
             parameters:
               - name: bAnchorT
                 type: boolean
+                nullable: true
               - name: bAnchorB
                 type: boolean
+                nullable: true
               - name: bAnchorL
                 type: boolean
+                nullable: true
               - name: bAnchorR
                 type: boolean
+                nullable: true
           - name: setAnchors
             parameters:
               - name: bAnchor
@@ -245,9 +262,11 @@ languages:
           - name: setCenterY
             parameters:
               - name: y
+                type: number
           - name: setCenterX
             parameters:
               - name: x
+                type: number
           - name: setWidth
             parameters:
               - name: w
@@ -264,7 +283,7 @@ languages:
               - type: number
           - name: getLeft
             return:
-              - type: unknown
+              - type: number
           - name: getRight
             return:
               - type: number
@@ -273,7 +292,7 @@ languages:
               - type: number
           - name: getTop
             return:
-              - type: unknown
+              - type: number
           - name: getBottom
             return:
               - type: number
@@ -376,7 +395,7 @@ languages:
               - name: h
                 type: number
             return:
-              - type: unknown
+              - type: nil
           - name: clearStencilRect
             return:
               - type: nil
@@ -656,7 +675,7 @@ languages:
           - name: drawTextureAllPoint
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: tlx
                 type: number
               - name: tly
@@ -699,7 +718,7 @@ languages:
           - name: drawTextureScaled
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -722,10 +741,15 @@ languages:
           - name: drawSubTexture
             parameters:
               - name: texture
+                type: Texture | ISUITextureGetter
               - name: subX
+                type: number
               - name: subY
+                type: number
               - name: subW
+                type: number
               - name: subH
+                type: number
               - name: x
                 type: number
               - name: y
@@ -738,14 +762,17 @@ languages:
                 type: number
               - name: r
                 type: number
+                nullable: true
               - name: g
                 type: number
+                nullable: true
               - name: b
                 type: number
+                nullable: true
           - name: drawTextureScaledUniform
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -765,7 +792,7 @@ languages:
           - name: drawTextureScaledAspect
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -788,7 +815,7 @@ languages:
           - name: drawTextureScaledAspect2
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -811,7 +838,7 @@ languages:
           - name: drawTextureScaledAspect3
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -834,7 +861,7 @@ languages:
           - name: drawTexture
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -853,7 +880,7 @@ languages:
           - name: drawTextureTiled
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -877,7 +904,7 @@ languages:
           - name: drawTextureTiledX
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -901,7 +928,7 @@ languages:
           - name: drawTextureTiledY
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -925,7 +952,7 @@ languages:
           - name: drawTextureTiledYOffset
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -949,6 +976,7 @@ languages:
           - name: DrawTextureAngle
             parameters:
               - name: texture
+                type: Texture | ISUITextureGetter
               - name: centerX
                 type: number
               - name: centerY
@@ -958,7 +986,7 @@ languages:
           - name: drawTextureScaledStatic
             parameters:
               - name: texture
-                type: Texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -1046,6 +1074,7 @@ languages:
           - name: drawRectBounds
             parameters:
               - name: bounds
+                type: ISBounds
               - name: a
                 type: number
               - name: r
@@ -1129,6 +1158,7 @@ languages:
           - name: drawLine
             parameters:
               - name: texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
@@ -1138,6 +1168,7 @@ languages:
               - name: y2
                 type: number
               - name: thickness
+                type: number
               - name: a
                 type: number
               - name: r
@@ -1149,13 +1180,17 @@ languages:
           - name: drawLineAbsolute
             parameters:
               - name: texture
+                type: Texture | ISUITextureGetter
               - name: x
                 type: number
               - name: y
                 type: number
               - name: x2
+                type: number
               - name: y2
+                type: number
               - name: thickness
+                type: number
               - name: a
                 type: number
               - name: r
@@ -1371,28 +1406,36 @@ languages:
               - type: table<integer, ISUIElement>
           - name: getChildrenInOrder
             return:
-              - type: table
+              - type: ISUIElement[]
           - name: numChildren
             return:
-              - type: number
+              - type: integer
           - name: visitAndAllDescendants
             parameters:
               - name: param0
+                type: unknown
+                nullable: true
               - name: visitor
+                type: "fun(target: unknown?, element: ISUIElement)"
             return:
               - type: unknown
+                nullable: true
           - name: visitAllDescendants
             parameters:
               - name: param0
+                type: unknown
+                nullable: true
               - name: visitor
+                type: "fun(target: unknown?, element: ISUIElement)"
             return:
               - type: unknown
+                nullable: true
           - name: addChild
             parameters:
               - name: otherElement
                 type: ISUIElement
             return:
-              - type: unknown
+              - type: ISUIElement
           - name: removeChild
             parameters:
               - name: otherElement
@@ -1606,6 +1649,7 @@ languages:
           - name: setWantMouseEvents
             parameters:
               - name: want
+                type: boolean
           - name: isWantMouseEvents
             return:
               - type: boolean
@@ -1621,11 +1665,13 @@ languages:
           - name: getMaxWidthOfElements
             parameters:
               - name: ...
+                type: ISUIElement
             return:
               - type: number
           - name: setElementWidthToMaxOf
             parameters:
               - name: ...
+                type: ISUIElement
             return:
               - type: number
           - name: shrinkWrap
@@ -1653,7 +1699,29 @@ languages:
           - name: debugPrintTree
             parameters:
               - name: indent
+                type: string
+                nullable: true
           - name: getStyle
             return:
-              - type: unknown
+              - type: ISStyle
                 nullable: true
+      umbrella.ISUIElement.JoypadNavigateTransition:
+        fields:
+          x1:
+            type: number
+          y1:
+            type: number
+          w1:
+            type: number
+          h1:
+            type: number
+          x2:
+            type: number
+          y2:
+            type: number
+          w2:
+            type: number
+          h2:
+            type: number
+          elapsed:
+            type: number

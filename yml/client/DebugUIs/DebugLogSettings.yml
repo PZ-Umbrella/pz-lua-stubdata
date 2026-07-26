@@ -32,6 +32,7 @@ languages:
           - name: onSetProfile
             parameters:
               - name: comboBox
+                type: ISComboBox
           - name: onSetAll
             parameters:
               - name: comboBox

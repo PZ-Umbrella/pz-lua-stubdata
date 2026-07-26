@@ -164,7 +164,7 @@ languages:
           skinColor:
             type: integer
           joypadNavigate:
-            type: table
+            type: umbrella.JoypadNavigate
           itemheightoverride:
             type: table
           colorPanel:
@@ -489,7 +489,7 @@ languages:
           dividerResizeTable:
             type: ISRect[]
           joypadNavigate:
-            type: table
+            type: umbrella.JoypadNavigate
         methods:
           - name: prerender
           - name: render
@@ -568,7 +568,7 @@ languages:
           prevJoypadIndexY:
             type: number
           joypadNavigate:
-            type: table
+            type: umbrella.JoypadNavigate
         methods:
           - name: prerender
           - name: render

@@ -33,7 +33,8 @@ languages:
             type: string
           urlLen:
             type: number
-          pathLen: {}
+          pathLen:
+            type: number
           type:
             type: string
           name:

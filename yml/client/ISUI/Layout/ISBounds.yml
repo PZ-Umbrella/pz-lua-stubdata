@@ -105,23 +105,29 @@ languages:
           - name: scaleFromCenter
             parameters:
               - name: scaleX
+                type: number
               - name: scaleY
+                type: number
             return:
               - type: ISBounds
           - name: scaleXFromCenter
             parameters:
               - name: scale
+                type: number
             return:
               - type: ISBounds
           - name: scaleYFromCenter
             parameters:
               - name: scale
+                type: number
             return:
               - type: ISBounds
           - name: getScaledFromCenter
             parameters:
               - name: scaleX
+                type: number
               - name: scaleY
+                type: number
             return:
               - type: ISBounds
           - name: tostring
@@ -131,36 +137,48 @@ languages:
           - name: intersection
             parameters:
               - name: a
+                type: ISBounds
               - name: b
+                type: ISBounds
             return:
               - type: ISBounds
           - name: intersects
             parameters:
               - name: a
+                type: ISBounds
               - name: b
+                type: ISBounds
             return:
               - type: boolean
           - name: getProjectedAlongY
             parameters:
               - name: bounds
+                type: ISBounds
               - name: yDistance
+                type: number
             return:
               - type: ISBounds
           - name: getProjectedAlongX
             parameters:
               - name: bounds
+                type: ISBounds
               - name: yDistance
+                type: number
             return:
               - type: ISBounds
           - name: getYDistanceTo
             parameters:
               - name: boundsA
+                type: ISBounds
               - name: boundsB
+                type: ISBounds
             return:
               - type: number
           - name: getXDistanceTo
             parameters:
               - name: boundsA
+                type: ISBounds
               - name: boundsB
+                type: ISBounds
             return:
               - type: number

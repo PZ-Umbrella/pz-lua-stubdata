@@ -228,42 +228,55 @@ languages:
           - name: getBestButtonBindingAction
             parameters:
               - name: buttonBinding
+                type: CharacterJoypadButtonBinding
               - name: dir
+                type: IsoDirections
           - name: getBestInteractButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: testInteractButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: doInteractButtonDoorOrWindowOrWindowFrame
             parameters:
               - name: dir
+                type: IsoDirections
               - name: obj
                 type: IsoObject
           - name: getBestCancelButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: getBestClimbThroughButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: getBestSmashWindowButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: getBestApplyBrakesButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: getBestSprintButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: testClimbThroughButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: testSmashWindowButtonAction
             parameters:
               - name: dir
+                type: IsoDirections
           - name: doClimbThroughButtonDoorOrWindowOrWindowFrame
             parameters:
               - name: dir
+                type: IsoDirections
               - name: obj
                 type: IsoObject
           - name: getBestYButtonAction
@@ -277,6 +290,7 @@ languages:
           - name: getInteractOptionsButtonObjects
             parameters:
               - name: dir
+                type: IsoDirections
             return:
               - type: LuaList
                 nullable: true
@@ -297,13 +311,24 @@ languages:
           - name: setButtonBindingPrompt
             parameters:
               - name: buttonBinding
+                type: CharacterJoypadButtonBinding
               - name: str
                 type: string
               - name: func
+                type: function
+                nullable: true
               - name: param1
+                type: unknown
+                nullable: true
               - name: param2
+                type: unknown
+                nullable: true
               - name: param3
+                type: unknown
+                nullable: true
               - name: param4
+                type: unknown
+                nullable: true
           - name: setButtonPrompt
             parameters:
               - name: button
@@ -311,10 +336,20 @@ languages:
               - name: str
                 type: string
               - name: func
+                type: function
+                nullable: true
               - name: param1
+                type: unknown
+                nullable: true
               - name: param2
+                type: unknown
+                nullable: true
               - name: param3
+                type: unknown
+                nullable: true
               - name: param4
+                type: unknown
+                nullable: true
           - name: setAPrompt
             parameters:
               - name: str

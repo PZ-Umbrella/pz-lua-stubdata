@@ -30,6 +30,7 @@ languages:
           - name: predicatePickAxe
             parameters:
               - name: item
+                type: InventoryItem
             return:
               - type: boolean
           - name: isValid

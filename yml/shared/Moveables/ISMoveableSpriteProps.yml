@@ -531,6 +531,7 @@ languages:
           - name: restoreThumpableParameters
             parameters:
               - name: modData
+                type: table
               - name: obj
                 type: IsoObject
           - name: pickUpMoveableInternal
@@ -783,6 +784,7 @@ languages:
               - name: keepActions
                 type: boolean
               - name: directionNew
+                type: '"N" | "E" | "S" | "W"'
             return:
               - type: boolean
                 nullable: true
@@ -804,11 +806,12 @@ languages:
               - name: _z
                 type: number
             return:
-              - type: table
+              - type: IsoGridSquare[]
                 nullable: true
           - name: walkAdjMultiTile
             parameters:
               - name: _character
+                type: IsoPlayer
               - name: _x
                 type: number
               - name: _y
@@ -816,7 +819,9 @@ languages:
               - name: _z
                 type: number
               - name: _keepActions
+                type: boolean
               - name: _directionRotated
+                type: '"N" | "E" | "S" | "W"'
             return:
               - type: boolean
           - name: walkToAndEquip
@@ -900,6 +905,7 @@ languages:
           - name: transmitPlaySound
             parameters:
               - name: _character
+                type: IsoPlayer
               - name: _sound
                 type: string
           - name: scrapObject
@@ -1037,6 +1043,7 @@ languages:
           - name: playScrapSuccessSound
             parameters:
               - name: _character
+                type: IsoPlayer
           - name: scrapObjectViaCursor
             parameters:
               - name: _character
@@ -1144,6 +1151,7 @@ languages:
           - name: isBasementWallAdjacentToTheVoid
             parameters:
               - name: object
+                type: IsoPlayer
             return:
               - type: boolean
         staticMethods:

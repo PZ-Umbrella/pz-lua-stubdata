@@ -5,13 +5,14 @@ languages:
       Fishing:
         staticFields:
           Bobber:
-            type: Fishing.Bobber
+            type: Bobber
           ServerBobberManager:
-            type: table<integer, Fishing.Bobber>
+            type: table<integer, Bobber>
       Bobber:
         constructors:
           - parameters:
               - name: player
+                type: IsoPlayer
               - name: fishingRod
                 type: Fishing.FishingRod
               - name: x
@@ -19,7 +20,8 @@ languages:
               - name: y
                 type: number
         fields:
-          player: {}
+          player:
+            type: IsoPlayer
           fishingRod:
             type: Fishing.FishingRod
           catchFishStarted:
@@ -32,15 +34,19 @@ languages:
             type: number
           z:
             type: number
-          id: {}
+          id:
+            type: integer
+            nullable: true
           renderFunc:
             type: function
           attractTimer:
             type: number
           nibbleTimer:
             type: number
-          lure: {}
-          fishingLvl: {}
+          lure:
+            type: string
+          fishingLvl:
+            type: integer
           fish:
             type: Fishing.Fish
             nullable: true
@@ -73,7 +79,7 @@ languages:
               - type: boolean
           - name: grabFish
             return:
-              - type: unknown
+              - type: InventoryItem
                 nullable: true
           - name: isOnGround
             return:
@@ -83,11 +89,13 @@ languages:
           - name: onFishingActionMPUpdate
             parameters:
               - name: data
+                type: umbrella.FishingActionUpdateData
           - name: getBobber
             parameters:
               - name: player
+                type: IsoPlayer
             return:
-              - type: unknown
+              - type: Bobber
                 nullable: true
       umbrella.FishingActionUpdateData:
         fields:

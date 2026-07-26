@@ -17,6 +17,7 @@ languages:
               - name: uiBinding
                 type: CharacterJoypadBindingUIEntry
               - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
         staticFields:
           Type:
             defaultValue: '"CharacterJoypadBindingUIRow"'
@@ -25,19 +26,22 @@ languages:
             type: ISPanel
           uiBinding:
             type: CharacterJoypadBindingUIEntry
-          bindingKey: {}
+          bindingKey:
+            type: umbrella.PhysicalJoypadElement
           name:
             type: string
           isEditSelected:
             type: boolean
-          selectButton: {}
+          selectButton:
+            type: ISButton
           spinBoxOptionsZeroToOne:
-            type: table
+            type: string[]
           bindingLabel:
             type: ISLabel
           entries:
-            type: table
-          borderSpacing: {}
+            type: table[]
+          borderSpacing:
+            type: number
           indentWidth:
             type: number
         methods:
@@ -47,25 +51,37 @@ languages:
           - name: onJoypadButtonBindingChanged
             parameters:
               - name: senderBox
+                type: ISComboBox
               - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
               - name: charBinding
+                type: CharacterJoypadButtonBinding
           - name: onAddNewJoypadBindingChanged
             parameters:
               - name: senderBox
+                type: ISComboBox
               - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
           - name: onJoypadButtonAxis1dBindingChanged
             parameters:
               - name: senderBox
+                type: ISComboBox
               - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
               - name: charBinding
+                type: CharacterJoypadButtonBinding
           - name: onJoypadButtonAxis2dBindingChanged
             parameters:
               - name: senderBox
+                type: ISComboBox
               - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
               - name: charBinding
+                type: CharacterJoypadButtonBinding
           - name: onJoypadAxisMinThresholdEdited
             parameters:
               - name: sender
+                type: ISSpinBox
           - name: populateWithReadOnlyLabels
           - name: onDoLayout
           - name: setEditSelected
@@ -76,8 +92,11 @@ languages:
           - name: createJoypadButtonBindingCBox
             parameters:
               - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
               - name: selectedCharBinding
+                type: CharacterJoypadButtonBinding | string
               - name: excludingCharBindings
+                type: CharacterJoypadButtonBinding[]
               - name: x
                 type: number
               - name: y

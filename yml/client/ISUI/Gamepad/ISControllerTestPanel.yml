@@ -21,8 +21,11 @@ languages:
             defaultValue: '"ControllerTest"'
         fields:
           selectedController:
+            type: integer
             nullable: true
-          axisLabelWid: {}
+          axisLabelWid:
+            type: number
+            nullable: true
           buttonX:
             type: number
           label:
@@ -33,7 +36,8 @@ languages:
             type: table
           controllerTab:
             type: GameOptionControllerTab
-          smallFontHgt: {}
+          smallFontHgt:
+            type: number
         methods:
           - name: onControllerSelected
           - name: joypadSensitivityM
@@ -44,7 +48,9 @@ languages:
           - name: OnGamepadConnect
             parameters:
               - name: index
+                type: integer
           - name: OnGamepadDisconnect
             parameters:
               - name: index
+                type: integer
           - name: doLayout

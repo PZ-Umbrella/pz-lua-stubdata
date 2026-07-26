@@ -176,19 +176,23 @@ languages:
           - name: checkNorthWestCorner
             parameters:
               - name: object
+                type: IsoObject
           - name: isBasementWallAdjacentToTheVoid
             parameters:
               - name: object
+                type: IsoObject
             return:
               - type: boolean
           - name: canDestroyWall_North
             parameters:
               - name: object
+                type: IsoObject
             return:
               - type: boolean
           - name: canDestroyWall_West
             parameters:
               - name: object
+                type: IsoObject
             return:
               - type: boolean
           - name: getObjectList

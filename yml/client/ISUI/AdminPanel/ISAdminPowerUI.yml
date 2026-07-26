@@ -2,8 +2,10 @@ version: "1.1"
 languages:
   lua:
     aliases:
+      umbrella.ISAdminPowerUI.GetFunction:
+        - type: "fun(self: umbrella.ISAdminPowerUI.Option): boolean"
       umbrella.ISAdminPowerUI.SetFunction:
-        - type: "fun(self: ISAdminPowerUI, selected: boolean)"
+        - type: "fun(self: umbrella.ISAdminPowerUI.Option, selected: boolean)"
     classes:
       ISAdminPowerUI:
         extends: ISPanel
@@ -23,8 +25,10 @@ languages:
           Type:
             defaultValue: '"ISAdminPowerUI"'
           messages: {}
-          OptionList: {}
-          OptionById: {}
+          OptionList:
+            type: umbrella.ISAdminPowerUI.Option[]
+          OptionById:
+            type: table<string, umbrella.ISAdminPowerUI.Option>
           instance:
             type: ISAdminPowerUI
             nullable: true
@@ -40,23 +44,26 @@ languages:
           cancel:
             type: ISButton
           optionsLeft:
-            type: table
+            type: table<integer, umbrella.ISAdminPowerUI.Option>
           cheatTooltipsLeft:
-            type: table
+            type: table<string, string>
           optionsRight:
-            type: table
+            type: table<integer, umbrella.ISAdminPowerUI.Option>
           cheatTooltipsRight:
-            type: table
+            type: table<string, string>
           player:
             type: IsoPlayer
+            nullable: true
         methods:
           - name: initialise
           - name: addOptionLeft
             parameters:
               - name: option
+                type: umbrella.ISAdminPowerUI.Option
           - name: addOptionRight
             parameters:
               - name: option
+                type: umbrella.ISAdminPowerUI.Option
           - name: updateAdminPower
           - name: addAdminPowerOptionsLeft
           - name: addAdminPowerOptionsRight
@@ -71,7 +78,7 @@ languages:
               - name: tickBox
                 type: ISTickBox
               - name: tooltips
-                type: table
+                type: table<string, sring>
           - name: render
           - name: prerender
           - name: onClick
@@ -87,13 +94,31 @@ languages:
               - name: side
                 type: string
               - name: capability
+                type: Capability
               - name: functionGet
-                type: function
+                type: umbrella.ISAdminPowerUI.GetFunction
               - name: functionSet
-                type: function
+                type: umbrella.ISAdminPowerUI.SetFunction
             return:
-              - type: table
+              - type: umbrella.ISAdminPowerUI.Option
           - name: OnOpenPanel
             return:
               - type: ISAdminPowerUI
           - name: onGameStart
+      umbrella.ISAdminPowerUI.Option:
+        fields:
+          id:
+            type: string
+          side:
+            type: string
+          capability:
+            type: Capability
+          tooltip:
+            type: string
+          getValue:
+            type: umbrella.ISAdminPowerUI.GetFunction
+          setValue:
+            type: umbrella.ISAdminPowerUI.SetFunction
+          player:
+            type: IsoPlayer
+            nullable: true

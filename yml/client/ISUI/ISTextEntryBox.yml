@@ -106,7 +106,7 @@ languages:
                 type: boolean
           - name: hasClearButton
             return:
-              - type: unknown
+              - type: boolean
           - name: setText
             parameters:
               - name: str

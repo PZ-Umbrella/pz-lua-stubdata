@@ -66,15 +66,16 @@ languages:
               - name: character
                 type: IsoPlayer
             return:
-              - type: number
+              - type: integer
           - name: GetSoapRemaining
             parameters:
               - name: soaps
+                type: ArrayList<InventoryItem>
             return:
-              - type: number
+              - type: integer
           - name: GetRequiredWater
             parameters:
               - name: character
                 type: IsoPlayer
             return:
-              - type: number
+              - type: integer

@@ -34,8 +34,12 @@ languages:
           indent:
             type: number
             nullable: true
-          onmousedown: {}
-          onmouseup: {}
+          onmousedown:
+            type: "fun(target: unknown?)"
+            nullable: true
+          onmouseup:
+            type: "fun(target: unknown?)"
+            nullable: true
           textDirty:
             type: boolean
           fonts:
@@ -149,11 +153,19 @@ languages:
           - name: setOnMouseDownFunction
             parameters:
               - name: target
+                type: unknown
+                nullable: true
               - name: onmousedown
+                type: function
+                nullable: true
           - name: setOnMouseUpFunction
             parameters:
               - name: target
+                type: unknown
+                nullable: true
               - name: onmouseup
+                type: function
+                nullable: true
           - name: onMouseDown
             parameters:
               - name: x

@@ -7,25 +7,30 @@ languages:
         constructors:
           - parameters:
               - name: character
+                type: IsoPlayer
               - name: item
+                type: InventoryItem
               - name: square
                 type: IsoGridSquare
               - name: sprite
+                type: IsoSprite
         staticFields:
           Type:
             defaultValue: '"ISPlaceFishingNetAction"'
         fields:
-          item: {}
+          item:
+            type: InventoryItem
           square:
             type: IsoGridSquare
-          sprite: {}
+          sprite:
+            type: IsoSprite
         methods:
           - name: isValid
             return:
               - type: boolean
           - name: waitToStart
             return:
-              - type: unknown
+              - type: boolean
           - name: start
           - name: stop
           - name: perform

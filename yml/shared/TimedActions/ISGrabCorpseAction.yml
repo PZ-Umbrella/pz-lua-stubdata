@@ -49,6 +49,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: timePressedContext
+                type: integer
           - name: OnKeyPressed
             parameters:
               - name: key

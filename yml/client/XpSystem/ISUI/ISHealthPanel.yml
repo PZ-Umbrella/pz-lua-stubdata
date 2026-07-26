@@ -259,10 +259,13 @@ languages:
           - name: ReceiveMedicalCheckRequest
             parameters:
               - name: requester
+                type: IsoPlayer
           - name: AcceptedMedicalCheck
             parameters:
               - name: target
+                type: IsoPlayer
               - name: requester
+                type: IsoPlayer
           - name: onCheatHealthCommand
             parameters:
               - name: module
@@ -274,7 +277,9 @@ languages:
           - name: canPerformMedicalCheck
             parameters:
               - name: target
+                type: IsoPlayer
               - name: requester
+                type: IsoPlayer
             return:
               - type: boolean
       ISNewHealthPanel:

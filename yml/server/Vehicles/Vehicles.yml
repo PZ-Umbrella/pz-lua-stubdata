@@ -510,8 +510,9 @@ languages:
           - name: getInventoryContainersRecurse
             parameters:
               - name: containers
-                type: table
+                type: ItemContainer[]
               - name: container
+                type: ItemContainer
           - name: getContainers
             parameters:
               - name: playerNum

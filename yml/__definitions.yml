@@ -12,6 +12,23 @@ languages:
             type: number
           b:
             type: number
+      umbrella.JoypadNavigate:
+        fields:
+          up:
+            type: ISUIElement
+            nullable: true
+          down:
+            type: ISUIElement
+            nullable: true
+          left:
+            type: ISUIElement
+            nullable: true
+          right:
+            type: ISUIElement
+            nullable: true
+          parent:
+            type: ISUIElement
+            nullable: true
       umbrella.Rect:
         fields:
           x:

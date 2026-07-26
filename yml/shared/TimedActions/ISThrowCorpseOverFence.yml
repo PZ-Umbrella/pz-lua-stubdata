@@ -7,14 +7,19 @@ languages:
         constructors:
           - parameters:
               - name: character
+                type: IsoPlayer
               - name: fence
+                type: IsoObject
               - name: dir
+                type: IsoDirections
         staticFields:
           Type:
             defaultValue: '"ISThrowCorpseOverFence"'
         fields:
-          fence: {}
-          dir: {}
+          fence:
+            type: IsoObject
+          dir:
+            type: IsoDirections
           allowedWhileDraggingCorpses:
             type: boolean
         methods:
@@ -23,7 +28,7 @@ languages:
               - type: boolean
           - name: waitToStart
             return:
-              - type: unknown
+              - type: boolean
           - name: update
           - name: start
           - name: stop
