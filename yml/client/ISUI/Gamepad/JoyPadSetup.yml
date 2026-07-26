@@ -4,17 +4,17 @@ languages:
     classes:
       JoypadState:
         staticFields:
-          controllers:
-            type: table<integer, JoypadControllerData>
-          players:
-            type: table<integer, JoypadData>
-          joypads:
-            type: table<integer, JoypadData>
+          controllers: {}
+          players: {}
+          joypads: {}
           forceActivate:
-            type: integer
             nullable: true
+          dbgDrawUINavigation:
+            defaultValue: "false"
+          dbgDrawUI:
+            defaultValue: "false"
           saveFocus:
-            type: table<integer, ISUIElement>
+            type: table
             nullable: true
           debugUI:
             type: ISJoypadDebugUI
@@ -23,15 +23,13 @@ languages:
           - name: onGamepadConnect
             parameters:
               - name: id
-                type: integer
           - name: onGamepadDisconnect
             parameters:
               - name: id
-                type: integer
           - name: useKeyboardMouse
           - name: getMainMenuJoypad
             return:
-              - type: JoypadData
+              - type: unknown
                 nullable: true
           - name: saveAllFocus
           - name: restoreAllFocus
@@ -44,40 +42,118 @@ languages:
               - name: playerNum
                 type: integer
           - name: onGameStart
+          - name: onJoypadDebugRenderUIOptionSet
+            parameters:
+              - name: isActive
+                type: boolean
+              - name: dbgDrawUINavigation
           - name: onRenderUI
+          - name: getDebugUI
+            parameters:
+              - name: autoCreate
+            return:
+              - type: ISJoypadDebugUI
+                nullable: true
       Joypad:
         staticFields:
           AButton:
-            defaultValue: "0"
+            defaultValue: JoypadButton.A
           BButton:
-            defaultValue: "1"
+            defaultValue: JoypadButton.B
           XButton:
-            defaultValue: "2"
+            defaultValue: JoypadButton.X
           YButton:
-            defaultValue: "3"
+            defaultValue: JoypadButton.Y
           LBumper:
-            defaultValue: "4"
+            defaultValue: JoypadButton.LeftBump
           RBumper:
-            defaultValue: "5"
+            defaultValue: JoypadButton.RightBump
           Back:
-            defaultValue: "6"
+            defaultValue: JoypadButton.Back
           Start:
-            defaultValue: "7"
+            defaultValue: JoypadButton.Start
           LStickButton:
-            defaultValue: "8"
+            defaultValue: JoypadButton.LeftStick
           RStickButton:
-            defaultValue: "9"
+            defaultValue: JoypadButton.RightStick
           Other:
-            defaultValue: "10"
+            defaultValue: JoypadButton.Guide
           DPadLeft:
-            defaultValue: "100"
+            defaultValue: JoypadButton.DPadLeft
           DPadRight:
-            defaultValue: "101"
+            defaultValue: JoypadButton.DPadRight
           DPadUp:
-            defaultValue: "102"
+            defaultValue: JoypadButton.DPadUp
           DPadDown:
-            defaultValue: "103"
-          Texture: {}
+            defaultValue: JoypadButton.DPadDown
+          ButtonTextures: {}
+          AxisTextures: {}
+          Texture:
+            type: Joypad.Texture
+        staticMethods:
+          - name: initControllerButtonStyle
+            parameters:
+              - name: optionStr
+                type: string
+          - name: optionControllerButtonStyleChanged
+            parameters:
+              - name: newOption
+      Joypad.Texture:
+        local: true
+        staticFields:
+          AButton:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.A]
+          BButton:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.B]
+          XButton:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.X]
+          YButton:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Y]
+          LBumper:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.LeftBump]
+          RBumper:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.RightBump]
+          Start:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Start]
+          Back:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Back]
+          Menu:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Start]
+          View:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.Back]
+          LStick:
+            defaultValue: Joypad.AxisTextures[JoypadAxis2d.LeftStick]
+          LStickLR:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.LeftStickX]
+          LStickUD:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.LeftStickY]
+          RStick:
+            defaultValue: Joypad.AxisTextures[JoypadAxis2d.RightStick]
+          RStickLR:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.RightStickX]
+          RStickUD:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.RightStickY]
+          DPad:
+            defaultValue: JoypadIconTextureGetter:new("DPad")
+          DPadUp:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.DPadUp]
+          DPadRight:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.DPadRight]
+          DPadDown:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.DPadDown]
+          DPadLeft:
+            defaultValue: Joypad.ButtonTextures[JoypadButton.DPadLeft]
+          LTrigger:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.LeftTrigger]
+          RTrigger:
+            defaultValue: Joypad.AxisTextures[JoypadAxis1d.RightTrigger]
+        staticMethods:
+          - name: fromCommand
+            parameters:
+              - name: command
+            return:
+              - type: unknown
+                nullable: true
       joypad:
         staticFields:
           wantNoise:
@@ -87,22 +163,20 @@ languages:
         constructors:
           - parameters:
               - name: id
-                type: integer
+                type: number
         staticFields:
           Type:
             defaultValue: '"JoypadControllerData"'
         fields:
           joypad:
-            type: JoypadData
             nullable: true
           id:
-            type: integer
+            type: number
           pressed:
-            type: table<integer, boolean>
+            type: table
           wasPressed:
-            type: table<integer, boolean>
-          connected:
-            type: boolean
+            type: table
+          connected: {}
           timedown:
             type: number
           down:
@@ -144,7 +218,7 @@ languages:
           dtprocright:
             type: number
           pressedTime:
-            type: table<integer, number>
+            type: table
         methods:
           - name: setJoypad
             parameters:
@@ -155,21 +229,21 @@ languages:
           - name: onPressButtonNoFocus
             parameters:
               - name: button
-                type: integer
+                type: ISButton
           - name: onPressButton
             parameters:
               - name: button
-                type: integer
+                type: ISButton
           - name: onHoldButton
             parameters:
               - name: button
-                type: integer
+                type: ISButton
               - name: time
                 type: number
           - name: onReleaseButton
             parameters:
               - name: button
-                type: integer
+                type: ISButton
           - name: onPressUp
           - name: onReleaseUp
           - name: onPressDown
@@ -181,7 +255,6 @@ languages:
           - name: update
             parameters:
               - name: time
-                type: number
       JoypadData:
         extends: ISBaseObject
         constructors:
@@ -191,46 +264,37 @@ languages:
             defaultValue: '"JoypadData"'
         fields:
           id:
-            type: integer
+            type: number
           controller:
-            type: JoypadControllerData
             nullable: true
           isActive:
             type: boolean
           isDoingNavigation:
             type: boolean
           currentNavigateUI:
-            type: ISUIElement
             nullable: true
           player:
-            type: integer
             nullable: true
           focus:
-            type: ISUIElement
             nullable: true
           lastfocus:
-            type: ISUIElement
             nullable: true
           prevfocus:
-            type: ISUIElement
             nullable: true
           prevprevfocus:
-            type: ISUIElement
             nullable: true
           inMainMenu:
             type: boolean
           listBox:
-            type: ISJoypadListBox
             nullable: true
         methods:
           - name: setController
             parameters:
               - name: controller
-                type: JoypadControllerData
           - name: clearController
           - name: isConnected
             return:
-              - type: boolean
+              - type: unknown
                 nullable: true
           - name: setActive
             parameters:
@@ -239,7 +303,6 @@ languages:
           - name: isFocusOnElementOrDescendant
             parameters:
               - name: ui
-                type: ISUIElement
             return:
               - type: boolean
           - name: startNavigation
@@ -250,36 +313,36 @@ languages:
           - name: playerNum
             type: integer
         return:
-          - type: ISUIElement
+          - type: unknown
             nullable: true
       - name: isJoypadFocusOnElementOrDescendant
         parameters:
           - name: playerNum
             type: integer
           - name: ui
-            type: ISUIElement
+            type: ISBaseEntityWindow
         return:
-          - type: boolean
+          - type: unknown
             nullable: true
       - name: getJoypadData
         parameters:
           - name: playerID
             type: integer
         return:
-          - type: JoypadData
+          - type: unknown
       - name: getJoypadFocus
         parameters:
           - name: playerID
             type: integer
         return:
-          - type: ISUIElement
+          - type: unknown
             nullable: true
       - name: setJoypadFocus
         parameters:
           - name: playerID
             type: integer
           - name: control
-            type: ISUIElement
+            type: table
             nullable: true
       - name: setPrevFocusForPlayer
         parameters:
@@ -289,6 +352,16 @@ languages:
         parameters:
           - name: playerID
             type: integer
+      - name: isIgnoreAim
+        parameters:
+          - name: uiElement
+        return:
+          - type: boolean
+      - name: isIgnoreButtons
+        parameters:
+          - name: uiElement
+        return:
+          - type: boolean
       - name: updateJoypadFocus
         parameters:
           - name: joypadData
@@ -297,11 +370,9 @@ languages:
       - name: onJoypadRenderTick
         parameters:
           - name: ticks
-            nullable: true
       - name: onJoypadActivate
         parameters:
           - name: id
-            type: integer
       - name: onJoypadActivateNotifyPlayer
         parameters:
           - name: joypadData
@@ -309,20 +380,15 @@ languages:
       - name: onJoypadActivateUI
         parameters:
           - name: id
-            type: integer
       - name: onJoypadBeforeDeactivate
         parameters:
           - name: id
-            type: integer
       - name: onJoypadDeactivate
         parameters:
           - name: id
-            type: integer
       - name: onJoypadBeforeReactivate
         parameters:
           - name: id
-            type: integer
       - name: onJoypadReactivate
         parameters:
           - name: id
-            type: integer

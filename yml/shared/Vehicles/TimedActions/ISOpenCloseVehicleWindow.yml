@@ -16,10 +16,10 @@ languages:
           Type:
             defaultValue: '"ISOpenCloseVehicleWindow"'
         fields:
-          vehicle:
-            type: BaseVehicle
           part:
             type: VehiclePart
+          vehicle:
+            type: BaseVehicle
           window:
             type: VehicleWindow
           open:

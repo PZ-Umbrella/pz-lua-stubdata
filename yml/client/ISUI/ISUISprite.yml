@@ -1,0 +1,97 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISUISpriteBounds:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: texture
+                type: ISUITextureGetter
+              - name: textureSize
+                type: table
+              - name: subTextureBounds
+                type: table
+        staticFields:
+          Type:
+            defaultValue: '"ISUISpriteBounds"'
+        fields:
+          texture:
+            type: ISUITextureGetter
+          textureSize:
+            type: table
+          subTextureBounds:
+            type: table
+      ISUISpriteBoundsGetter:
+        extends: ISBaseObject
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"ISUISpriteBoundsGetter"'
+        fields:
+          spriteBounds:
+            nullable: true
+        methods:
+          - name: getSpriteBounds
+            return:
+              - type: unknown
+                nullable: true
+          - name: invalidate
+          - name: loadSpriteBounds
+        staticMethods:
+          - name: checkGetSpriteBounds
+            parameters:
+              - name: spriteBounds
+            return:
+              - type: unknown
+      ISUISprite:
+        extends: ISUIElement
+        constructors:
+          - parameters:
+              - name: texture
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: textureWidth
+              - name: textureHeight
+        staticFields:
+          Type:
+            defaultValue: '"ISUISprite"'
+        fields:
+          spriteBounds:
+            type: ISUISpriteBoundsGetter
+          color:
+            type: table
+        methods:
+          - name: newFromBounds
+            parameters:
+              - name: spriteBounds
+                type: ISUISpriteBoundsGetter
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+            return:
+              - type: ISUISprite
+          - name: setSpriteBounds
+            parameters:
+              - name: spriteBounds
+          - name: getSpriteBounds
+            return:
+              - type: unknown
+          - name: invalidateSpriteBounds
+          - name: getSpriteAspectRatio
+            return:
+              - type: number
+          - name: setHeightToPreserveAspect
+          - name: prerender

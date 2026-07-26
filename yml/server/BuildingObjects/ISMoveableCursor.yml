@@ -22,6 +22,8 @@ languages:
           normalColor: {}
           validColor: {}
           invalidColor: {}
+          DEBUG_RENDER:
+            defaultValue: getDebug() and false
         fields:
           objectIndex:
             type: integer
@@ -34,6 +36,8 @@ languages:
             nullable: true
           tryInitialInvItem:
             type: InventoryItem
+            nullable: true
+          pathfindAction:
             nullable: true
           cursorFacing:
             type: integer
@@ -78,6 +82,8 @@ languages:
             nullable: true
           cacheInvObjectSprite:
             type: string
+            nullable: true
+          objectHiddenDuringRotate:
             nullable: true
           xJoypad:
             type: number
@@ -146,6 +152,16 @@ languages:
                 type: boolean
               - name: _sprite
                 type: string
+          - name: cannotCreate
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+            return:
+              - type: boolean
           - name: getInfoPanel
             return:
               - type: ISMoveableInfoWindow
@@ -166,6 +182,14 @@ languages:
             return:
               - type: ISMoveableInfoWindow
                 nullable: true
+          - name: beforeWorldRender
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
           - name: render
             parameters:
               - name: _x
@@ -176,6 +200,38 @@ languages:
                 type: number
               - name: _square
                 type: IsoGridSquare
+          - name: renderSpriteGrid
+            parameters:
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+              - name: _z
+                type: number
+              - name: color
+          - name: renderObjectThatCanRotate
+            parameters:
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+              - name: _z
+                type: number
+              - name: renderRotateIndicator
+            return:
+              - type: boolean
+          - name: renderRotateIndicator
+            parameters:
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+              - name: _z
+                type: number
+              - name: _dir
+          - name: isFacingOriginalDirection
+            return:
+              - type: boolean
           - name: isValid
             parameters:
               - name: _square
@@ -195,12 +251,20 @@ languages:
                 type: InventoryItem
             return:
               - type: IsoDirections
+          - name: getCenterOfRotation
+            return:
+              - type: number
+              - type: number
           - name: rotateMouse
             parameters:
               - name: x
                 type: number
               - name: y
                 type: number
+          - name: setObjectHiddenDuringRotate
+            parameters:
+              - name: object
+          - name: resetObjectHiddenDuringRotate
           - name: setCursorFacing
             parameters:
               - name: facing

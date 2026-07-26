@@ -189,8 +189,6 @@ languages:
             type: ISButton
           no:
             type: ISButton
-          name:
-            nullable: true
           onclick:
             type: umbrella.ISButton.OnClick
           player:

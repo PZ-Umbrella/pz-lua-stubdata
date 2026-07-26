@@ -100,6 +100,9 @@ languages:
             return:
               - type: string
                 nullable: true
+          - name: playTransferCompleteSound
+            parameters:
+              - name: item
           - name: stopLoopingSound
           - name: stop
           - name: forceComplete

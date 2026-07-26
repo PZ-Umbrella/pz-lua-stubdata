@@ -65,8 +65,6 @@ languages:
             type: integer
           currentPage:
             type: integer
-          name:
-            nullable: true
           target:
             type: unknown
             nullable: true

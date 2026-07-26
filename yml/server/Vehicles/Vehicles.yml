@@ -507,6 +507,11 @@ languages:
               - type: boolean
       VehicleUtils:
         staticMethods:
+          - name: getInventoryContainersRecurse
+            parameters:
+              - name: containers
+                type: table
+              - name: container
           - name: getContainers
             parameters:
               - name: playerNum
@@ -670,8 +675,6 @@ languages:
                 type: IsoPlayer
               - name: vehicle
                 type: BaseVehicle
-              - name: pressedNotTapped
-                type: boolean
           - name: RemoveTire
             parameters:
               - name: part

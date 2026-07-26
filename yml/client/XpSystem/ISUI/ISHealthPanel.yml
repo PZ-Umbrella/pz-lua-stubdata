@@ -86,6 +86,7 @@ languages:
               - name: bodyPart
                 type: BodyPart
           - name: update
+          - name: tryStopReceivingBodyDamageUpdates
           - name: prerender
           - name: render
           - name: getDoctor
@@ -174,6 +175,10 @@ languages:
                 type: BodyPart
               - name: items
                 type: InventoryItem[]
+          - name: onAnswerMedicalCheckRequest
+            parameters:
+              - name: button
+                type: ISButton
         staticMethods:
           - name: onCheatCurrentPlayer
             parameters:
@@ -251,6 +256,13 @@ languages:
             return:
               - type: string
                 nullable: true
+          - name: ReceiveMedicalCheckRequest
+            parameters:
+              - name: requester
+          - name: AcceptedMedicalCheck
+            parameters:
+              - name: target
+              - name: requester
           - name: onCheatHealthCommand
             parameters:
               - name: module
@@ -259,6 +271,12 @@ languages:
                 type: string
               - name: args
                 type: table
+          - name: canPerformMedicalCheck
+            parameters:
+              - name: target
+              - name: requester
+            return:
+              - type: boolean
       ISNewHealthPanel:
         extends: ISUIElement
         constructors:

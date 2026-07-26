@@ -73,6 +73,8 @@ languages:
           onclick: {}
           onClickArgs:
             type: table
+          SuperType:
+            type: ISPanel
           backgroundColorMouseOver:
             type: table
           textureColor:

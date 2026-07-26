@@ -23,44 +23,77 @@ languages:
           Type:
             defaultValue: '"ISAdminPowerUI"'
           messages: {}
-          cheatTooltips:
-            type: table<string, string>
+          OptionList: {}
+          OptionById: {}
           instance:
             type: ISAdminPowerUI
             nullable: true
         fields:
-          ok:
-            type: ISButton
-          tickBox:
+          tickBoxLeft:
+            type: ISTickBox
+          tickBoxRight:
             type: ISTickBox
           richText:
             type: ISRichTextLayout
-          setFunction:
-            type: table<integer, umbrella.ISAdminPowerUI.SetFunction>
+          ok:
+            type: ISButton
+          cancel:
+            type: ISButton
+          optionsLeft:
+            type: table
+          cheatTooltipsLeft:
+            type: table
+          optionsRight:
+            type: table
+          cheatTooltipsRight:
+            type: table
           player:
             type: IsoPlayer
         methods:
           - name: initialise
-          - name: addAdminPowerOptions
-          - name: addOption
+          - name: addOptionLeft
             parameters:
-              - name: text
-                type: string
-              - name: selected
-                type: boolean
-              - name: setFunction
-                type: umbrella.ISAdminPowerUI.SetFunction
+              - name: option
+          - name: addOptionRight
+            parameters:
+              - name: option
+          - name: updateAdminPower
+          - name: addAdminPowerOptionsLeft
+          - name: addAdminPowerOptionsRight
           - name: onTicked
             parameters:
               - name: index
                 type: integer
               - name: selected
                 type: boolean
+          - name: renderTickBox
+            parameters:
+              - name: tickBox
+                type: ISTickBox
+              - name: tooltips
+                type: table
           - name: render
           - name: prerender
           - name: onClick
             parameters:
               - name: button
                 type: ISButton
+          - name: saveOptions
         staticMethods:
+          - name: AddOption
+            parameters:
+              - name: id
+                type: string
+              - name: side
+                type: string
+              - name: capability
+              - name: functionGet
+                type: function
+              - name: functionSet
+                type: function
+            return:
+              - type: table
+          - name: OnOpenPanel
+            return:
+              - type: ISAdminPowerUI
           - name: onGameStart

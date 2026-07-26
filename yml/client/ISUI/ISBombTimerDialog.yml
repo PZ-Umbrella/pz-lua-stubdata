@@ -67,8 +67,6 @@ languages:
             type: number
           playerY:
             type: number
-          name:
-            nullable: true
           prompt:
             type: string
           time:

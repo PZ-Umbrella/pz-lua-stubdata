@@ -123,6 +123,13 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: onJoypadDown_Descendant
+            parameters:
+              - name: descendant
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
           - name: onJoypadDown_listbox
             parameters:
               - name: button

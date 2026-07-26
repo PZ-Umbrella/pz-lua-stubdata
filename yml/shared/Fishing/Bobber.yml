@@ -8,12 +8,10 @@ languages:
             type: Fishing.Bobber
           ServerBobberManager:
             type: table<integer, Fishing.Bobber>
-      Fishing.Bobber:
-        local: true
+      Bobber:
         constructors:
           - parameters:
               - name: player
-                type: IsoPlayer
               - name: fishingRod
                 type: Fishing.FishingRod
               - name: x
@@ -21,8 +19,7 @@ languages:
               - name: y
                 type: number
         fields:
-          player:
-            type: IsoPlayer
+          player: {}
           fishingRod:
             type: Fishing.FishingRod
           catchFishStarted:
@@ -35,18 +32,15 @@ languages:
             type: number
           z:
             type: number
-          id:
-            type: integer
+          id: {}
           renderFunc:
             type: function
           attractTimer:
-            type: integer
+            type: number
           nibbleTimer:
-            type: integer
-          lure:
-            type: string
-          fishingLvl:
-            type: integer
+            type: number
+          lure: {}
+          fishingLvl: {}
           fish:
             type: Fishing.Fish
             nullable: true
@@ -62,7 +56,7 @@ languages:
               - type: number
           - name: getNibbleTime
             return:
-              - type: integer
+              - type: number
           - name: update
           - name: getFreeWaterDirection
             return:
@@ -79,7 +73,7 @@ languages:
               - type: boolean
           - name: grabFish
             return:
-              - type: InventoryItem
+              - type: unknown
                 nullable: true
           - name: isOnGround
             return:
@@ -89,6 +83,12 @@ languages:
           - name: onFishingActionMPUpdate
             parameters:
               - name: data
+          - name: getBobber
+            parameters:
+              - name: player
+            return:
+              - type: unknown
+                nullable: true
       umbrella.FishingActionUpdateData:
         fields:
           player:

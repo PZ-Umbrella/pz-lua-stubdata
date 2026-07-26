@@ -54,8 +54,6 @@ languages:
           rotation: {}
           character:
             nullable: true
-          name:
-            nullable: true
           text:
             type: string
           mapUI: {}

@@ -79,6 +79,18 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: GenericCraftTransferAndStart
+            parameters:
+              - name: _player
+              - name: _entity
+              - name: _component
+              - name: _funcCanStart
+              - name: _funcStart
+              - name: _itemsToTransfer
+              - name: _itemSlot
+            return:
+              - type: boolean
+                nullable: true
           - name: HandcraftStart
             parameters:
               - name: _player

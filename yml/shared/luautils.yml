@@ -42,6 +42,12 @@ languages:
                 type: unknown
             return:
               - type: integer
+          - name: remove
+            parameters:
+              - name: table1
+              - name: value
+            return:
+              - type: number
           - name: tableContains
             parameters:
               - name: table2
@@ -50,6 +56,12 @@ languages:
                 type: unknown
             return:
               - type: boolean
+          - name: concatenateArrays
+            parameters:
+              - name: table1
+              - name: table2
+            return:
+              - type: table
           - name: getNextTiles
             parameters:
               - name: cell
@@ -161,6 +173,34 @@ languages:
                 type: ItemContainer
               - name: playerNum
                 type: integer
+            return:
+              - type: boolean
+          - name: walkAdjObject
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: object
+              - name: allowDiagonal
+              - name: keepActions
+            return:
+              - type: boolean
+          - name: walkAdjSquares
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: squares
+              - name: allowDiagonal
+              - name: keepActions
+            return:
+              - type: boolean
+          - name: walkAdjSquaresExcluded
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: squares
+              - name: squaresExcluded
+              - name: allowDiagonal
+              - name: keepActions
             return:
               - type: boolean
           - name: haveToBeTransfered

@@ -1,0 +1,90 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      CharacterJoypadBindingUIRow:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: uiBinding
+                type: CharacterJoypadBindingUIEntry
+              - name: bindingKey
+        staticFields:
+          Type:
+            defaultValue: '"CharacterJoypadBindingUIRow"'
+        fields:
+          SuperType:
+            type: ISPanel
+          uiBinding:
+            type: CharacterJoypadBindingUIEntry
+          bindingKey: {}
+          name:
+            type: string
+          isEditSelected:
+            type: boolean
+          selectButton: {}
+          spinBoxOptionsZeroToOne:
+            type: table
+          bindingLabel:
+            type: ISLabel
+          entries:
+            type: table
+          borderSpacing: {}
+          indentWidth:
+            type: number
+        methods:
+          - name: populate
+          - name: rePopulate
+          - name: populateWithEditableElements
+          - name: onJoypadButtonBindingChanged
+            parameters:
+              - name: senderBox
+              - name: bindingKey
+              - name: charBinding
+          - name: onAddNewJoypadBindingChanged
+            parameters:
+              - name: senderBox
+              - name: bindingKey
+          - name: onJoypadButtonAxis1dBindingChanged
+            parameters:
+              - name: senderBox
+              - name: bindingKey
+              - name: charBinding
+          - name: onJoypadButtonAxis2dBindingChanged
+            parameters:
+              - name: senderBox
+              - name: bindingKey
+              - name: charBinding
+          - name: onJoypadAxisMinThresholdEdited
+            parameters:
+              - name: sender
+          - name: populateWithReadOnlyLabels
+          - name: onDoLayout
+          - name: setEditSelected
+            parameters:
+              - name: isSelected
+                type: boolean
+          - name: onSelectButtonClicked
+          - name: createJoypadButtonBindingCBox
+            parameters:
+              - name: bindingKey
+              - name: selectedCharBinding
+              - name: excludingCharBindings
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+            return:
+              - type: ISComboBox

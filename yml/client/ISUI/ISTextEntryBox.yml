@@ -32,6 +32,8 @@ languages:
           tooltip:
             nullable: true
           joypadFocused: {}
+          SuperType:
+            type: ISPanelJoypad
           keeplog:
             type: boolean
           logIndex:
@@ -102,6 +104,9 @@ languages:
             parameters:
               - name: hasButton
                 type: boolean
+          - name: hasClearButton
+            return:
+              - type: unknown
           - name: setText
             parameters:
               - name: str

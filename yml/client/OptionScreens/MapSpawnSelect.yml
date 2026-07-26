@@ -39,6 +39,10 @@ languages:
             type: boolean
           selectedMapIndex:
             type: integer
+          smallResolution:
+            type: boolean
+          mediumResolution:
+            type: boolean
           mapPanel:
             type: MapSpawnSelectImage
           textEntryLabel:
@@ -126,6 +130,17 @@ languages:
               - type: number
           - name: onGainJoypadFocus
             parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown_Descendant
+            parameters:
+              - name: descendant
+              - name: button
+                type: integer
               - name: joypadData
                 type: JoypadData
           - name: onJoypadBeforeDeactivate_child
@@ -365,6 +380,7 @@ languages:
             type: ISButton
         methods:
           - name: createChildren
+          - name: onResolutionChange
           - name: render
           - name: generateNewSeed
           - name: onGainJoypadFocus
@@ -373,6 +389,12 @@ languages:
                 type: JoypadData
           - name: onLoseJoypadFocus
             parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
               - name: joypadData
                 type: JoypadData
       umbrella.MapSpawnSelect.Item:

@@ -34,8 +34,6 @@ languages:
             type: ISButton
           vehicle:
             type: BaseVehicle
-          name:
-            nullable: true
           player:
             type: IsoPlayer
           titlebarbkg:

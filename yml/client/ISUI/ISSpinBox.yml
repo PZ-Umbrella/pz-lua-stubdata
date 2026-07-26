@@ -50,6 +50,13 @@ languages:
             parameters:
               - name: option
                 type: string
+          - name: addOptions
+            parameters:
+              - name: options
+                type: table
+          - name: setSelectedOption
+            parameters:
+              - name: option
           - name: createChildren
           - name: onButton
             parameters:

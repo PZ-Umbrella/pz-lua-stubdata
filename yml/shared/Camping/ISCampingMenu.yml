@@ -114,6 +114,17 @@ languages:
                 type: ISBBQLightFromLiterature | ISLightFromLiterature
               - name: kindleAction
                 type: ISBBQLightFromKindle | ISLightFromKindle
+          - name: doCampingMenu
+            parameters:
+              - name: player
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
+              - name: test
+            return:
+              - type: boolean
+                nullable: true
           - name: toPlayerInventory
             parameters:
               - name: playerObj

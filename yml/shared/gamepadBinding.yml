@@ -1,0 +1,40 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      gamepadBinding:
+        fields:
+          presets:
+            type: table
+          currentPreset: {}
+        methods:
+          - name: set
+            parameters:
+              - name: presetKey
+                type: string
+          - name: saveAll
+          - name: setCurrentPresetToConfigOption
+          - name: resetCurrentToDefault
+          - name: isCurrentBinding
+            parameters:
+              - name: presetKey
+            return:
+              - type: boolean
+          - name: getCurrentActivePresetName
+            return:
+              - type: string
+          - name: isCurrentPresetEditable
+            return:
+              - type: boolean
+          - name: onCurrentSetEdited
+          - name: populateFromLoadedSets
+          - name: addInputSet
+            parameters:
+              - name: inputSet
+            return:
+              - type: table
+          - name: createNewFromCurrent
+            return:
+              - type: table
+        staticMethods:
+          - name: optionGamepadBindingPresetChanged

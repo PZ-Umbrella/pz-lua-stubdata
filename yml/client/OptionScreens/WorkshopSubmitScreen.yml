@@ -328,6 +328,10 @@ languages:
             type: ISButton
           button2:
             type: ISButton
+          tipLabel:
+            type: ISLabel
+          tipLabelVal:
+            type: number
           backButton:
             type: ISButton
           prevPage: {}

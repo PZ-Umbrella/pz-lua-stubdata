@@ -42,8 +42,6 @@ languages:
             type: ISButton
           no:
             type: ISButton
-          name:
-            nullable: true
           target:
             type: unknown
             nullable: true

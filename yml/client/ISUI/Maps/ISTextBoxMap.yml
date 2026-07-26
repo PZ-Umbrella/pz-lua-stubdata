@@ -95,10 +95,10 @@ languages:
             type: number
           rotation:
             type: number
+          joypadIndex:
+            type: integer
           character:
             type: IsoPlayer
-            nullable: true
-          name:
             nullable: true
           text:
             type: string

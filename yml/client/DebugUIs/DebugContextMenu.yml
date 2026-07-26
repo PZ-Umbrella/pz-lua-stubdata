@@ -8,8 +8,13 @@ languages:
             defaultValue: "false"
           stagTime:
             defaultValue: "0"
-          ticked:
-            defaultValue: "false"
+          player:
+            nullable: true
+          pickedCharacters:
+            type: table
+            nullable: true
+          highlightedCharacter:
+            nullable: true
           selectedZombie:
             nullable: true
         staticMethods:
@@ -27,6 +32,17 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: onHighlightWorldCharacter
+            parameters:
+              - name: _option
+              - name: _menu
+              - name: _isHighlighted
+                type: boolean
+              - name: _object
+          - name: initWorldCharacterHighlightOption
+            parameters:
+              - name: option
+              - name: object
           - name: onFilmingToolsUI
             parameters:
               - name: playerObj
@@ -317,6 +333,12 @@ languages:
               - type: number
               - type: number
               - type: number
+          - name: findIsoGameCharactersInSquare
+            parameters:
+              - name: square
+                type: IsoGridSquare
+            return:
+              - type: table
           - name: OnBendFence
             parameters:
               - name: worldobjects
@@ -585,3 +607,5 @@ languages:
                 type: IsoPlayer
           - name: doCSV
           - name: doFluidContainerCSV
+          - name: doFirearmsCSV
+          - name: doCSVMoveableTiles

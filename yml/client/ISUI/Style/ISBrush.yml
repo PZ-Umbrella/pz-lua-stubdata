@@ -1,0 +1,20 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISBrush:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: type
+                type: string
+        staticFields:
+          Type:
+            defaultValue: '"ISBrush"'
+          Solid:
+            defaultValue: ISBrush:new("Solid")
+        fields:
+          type:
+            type: string
+          color:
+            type: table

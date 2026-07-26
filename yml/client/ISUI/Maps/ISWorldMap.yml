@@ -247,6 +247,8 @@ languages:
           texViewOrthographic:
             type: Texture
           texViewTerrainImage: {}
+          activeWhilePaused:
+            type: boolean
         methods:
           - name: instantiate
           - name: createChildren
@@ -428,6 +430,9 @@ languages:
           - name: restoreSettings
           - name: initDataAndStyle
         staticMethods:
+          - name: shouldPause
+            return:
+              - type: boolean
           - name: IsAllowed
             return:
               - type: boolean

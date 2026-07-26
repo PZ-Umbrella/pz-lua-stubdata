@@ -30,6 +30,8 @@ languages:
             nullable: true
           keyBindingLength:
             defaultValue: "0"
+          style:
+            defaultValue: ISStyle:new()
           translatorPane:
             type: ISRichTextPanel
             nullable: true
@@ -81,16 +83,8 @@ languages:
             type: ISButton
           colorPicker4:
             type: ISColorPicker
-          stuffBelowControllerTickbox:
-            type: ISPanel
-          btnJoypadSensitivityM:
-            type: ISButton
-          labelJoypadSensitivity:
-            type: ISLabel
-          btnJoypadSensitivityP:
-            type: ISButton
-          controllerTestPanel:
-            type: ISControllerTestPanel
+          controllerTab:
+            type: GameOptionControllerTab
           mpColor:
             type: ISButton
           colorPicker:
@@ -116,18 +110,6 @@ languages:
           - name: initialise
           - name: instantiate
           - name: setResolutionAndFullScreen
-          - name: ControllerReload
-            parameters:
-              - name: button
-                type: ISButton
-          - name: joypadSensitivityM
-            parameters:
-              - name: button
-                type: ISButton
-          - name: joypadSensitivityP
-            parameters:
-              - name: button
-                type: ISButton
           - name: addTextPane
             parameters:
               - name: x
@@ -332,6 +314,8 @@ languages:
             parameters:
               - name: name
                 type: string
+            return:
+              - type: ISPanelJoypad
           - name: subPanelPreRender
           - name: subPanelRender
           - name: addHorizontalLine
@@ -530,6 +514,7 @@ languages:
                 type: number
               - name: newh
                 type: number
+          - name: doLayout
           - name: centerKeybindings
           - name: centerTabChildrenX
             parameters:
@@ -665,107 +650,6 @@ languages:
             parameters:
               - name: index
                 type: integer
-      MainOptions.GameOption:
-        extends: ISBaseObject
-        local: true
-        constructors:
-          - parameters:
-              - name: name
-                type: string
-              - name: control
-                type: ISUIElement
-                nullable: true
-              - name: arg1
-                nullable: true
-              - name: arg2
-                nullable: true
-        staticFields:
-          Type:
-            defaultValue: '"GameOption"'
-        fields:
-          name:
-            type: string
-          control:
-            type: ISUIElement
-            nullable: true
-          arg1:
-            nullable: true
-          arg2:
-            nullable: true
-          onChange:
-            type: function
-            nullable: true
-          tableContains:
-            type: function
-            nullable: true
-        methods:
-          - name: storeCurrentValue
-          - name: restoreOriginalValue
-          - name: toUI
-          - name: apply
-          - name: resetLua
-          - name: restartRequired
-            parameters:
-              - name: oldValue
-                type: unknown
-              - name: newValue
-                type: unknown
-          - name: onChangeComboBox
-            parameters:
-              - name: box
-                type: ISComboBox
-          - name: onChangeSlider
-            parameters:
-              - name: value
-                type: number
-              - name: control
-                type: ISSliderPanel
-          - name: onChangeTickBox
-            parameters:
-              - name: index
-                type: integer
-              - name: selected
-                type: boolean
-          - name: onChangeVolumeControl
-            parameters:
-              - name: control
-                type: ISVolumeControl
-              - name: volume
-                type: number
-      MainOptions.GameOptions:
-        extends: ISBaseObject
-        local: true
-        constructors:
-          - {}
-        staticFields:
-          Type:
-            defaultValue: '"GameOptions"'
-        fields:
-          changed:
-            type: boolean
-          options:
-            type: table
-        methods:
-          - name: add
-            parameters:
-              - name: option
-                type: MainOptions.GameOption
-          - name: get
-            parameters:
-              - name: optionName
-                type: string
-            return:
-              - type: MainOptions.GameOption
-                nullable: true
-          - name: apply
-          - name: storeCurrentValues
-          - name: restoreOriginalValues
-          - name: toUI
-          - name: onChange
-            parameters:
-              - name: option
-                type: MainOptions.GameOption
-                nullable: true
       MainOptions.HorizontalLine:
         extends: ISPanel
         local: true
@@ -783,6 +667,20 @@ languages:
         methods:
           - name: prerender
           - name: render
+      ISStyle:
+        fields:
+          buttonHeight:
+            type: number
+          labelHeight:
+            type: number
+          borderSpacing:
+            type: number
+          joypadTexSize:
+            type: number
+          buttonPadding:
+            type: number
+          initialY:
+            type: number
       umbrella.MainOptions.KeyTextElement:
         fields:
           txt:

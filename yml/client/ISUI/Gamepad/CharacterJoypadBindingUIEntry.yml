@@ -1,0 +1,55 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      CharacterJoypadBindingUIEntry:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: characterJoypadBindingUI
+                type: CharacterJoypadBindingUI
+              - name: containerPanel
+              - name: bindingKey
+        staticFields:
+          Type:
+            defaultValue: '"CharacterJoypadBindingUIEntry"'
+        fields:
+          bindingKey: {}
+          characterJoypadBindingUI:
+            type: CharacterJoypadBindingUI
+          initialBevelDirection:
+            type: string
+          containerPanel:
+            nullable: true
+          bindingRowPanel: {}
+        methods:
+          - name: tostring
+            return:
+              - type: string
+          - name: getStyle
+            return:
+              - type: unknown
+          - name: getBindingRowPanel
+            return:
+              - type: unknown
+          - name: onBindingRowPanelLayoutChanged
+          - name: onJoypadButtonBindingEdited
+          - name: onJoypadAxisBindingValueEdited
+            parameters:
+              - name: sender
+              - name: charBinding
+          - name: onBindingRowPanelEditingActivated
+            parameters:
+              - name: rowPanel
+          - name: initBindingRowPanel
+          - name: setEditSelected
+            parameters:
+              - name: isEditing
+                type: boolean
+          - name: setContainerPanel
+            parameters:
+              - name: containerPanel
+          - name: getLineToRowAbsolute
+            return:
+              - type: ISLine
+                nullable: true

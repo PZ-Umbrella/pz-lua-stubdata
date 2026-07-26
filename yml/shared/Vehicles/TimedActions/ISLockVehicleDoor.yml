@@ -14,10 +14,10 @@ languages:
           Type:
             defaultValue: '"ISLockVehicleDoor"'
         fields:
-          vehicle:
-            type: BaseVehicle
           part:
             type: VehiclePart
+          vehicle:
+            type: BaseVehicle
         methods:
           - name: isValid
             return:

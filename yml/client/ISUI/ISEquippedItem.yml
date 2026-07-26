@@ -108,6 +108,8 @@ languages:
             type: Texture
           debugIconOff:
             type: Texture
+          arfIconOn: {}
+          arfIconOff: {}
           clientIconOn:
             type: Texture
           clientIconOff:
@@ -175,6 +177,8 @@ languages:
           mapPopup:
             type: ISMapPopup
           debugBtn:
+            type: ISButton
+          arfBtn:
             type: ISButton
           safetyBtn:
             type: ISButton

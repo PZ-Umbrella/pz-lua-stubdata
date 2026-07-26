@@ -36,6 +36,7 @@ languages:
           Type:
             defaultValue: '"ISTickBox"'
         fields:
+          joypadFocused: {}
           joypadIndex:
             type: integer
           selected:
@@ -67,6 +68,8 @@ languages:
             type: UIFont
           fontHgt:
             type: number
+          SuperType:
+            type: ISPanel
           tickTexture:
             type: Texture
           choicesColor:

@@ -546,4 +546,4 @@ languages:
             type: number
     fields:
       SandboxVars:
-        defaultValue: require("Sandbox/Survival")
+        defaultValue: require("Sandbox/Apocalypse")

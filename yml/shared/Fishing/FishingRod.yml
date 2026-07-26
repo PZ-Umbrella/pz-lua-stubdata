@@ -116,6 +116,7 @@ languages:
           - name: damageLine
           - name: brokeLine
           - name: missFish
+          - name: removeLure
           - name: consumeLure
             parameters:
               - name: isTrash

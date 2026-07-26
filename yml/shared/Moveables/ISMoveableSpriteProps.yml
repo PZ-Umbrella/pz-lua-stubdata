@@ -109,6 +109,12 @@ languages:
           removePropane:
             type: boolean
             nullable: true
+          basementWallAdjacentToTheVoid:
+            type: boolean
+            nullable: true
+          isSatChair:
+            type: boolean
+            nullable: true
       SpriteGridCache:
         fields:
           "[integer]":
@@ -522,6 +528,11 @@ languages:
                 type: table
               - name: _object
                 type: IsoThumpable
+          - name: restoreThumpableParameters
+            parameters:
+              - name: modData
+              - name: obj
+                type: IsoObject
           - name: pickUpMoveableInternal
             parameters:
               - name: _character
@@ -771,9 +782,43 @@ languages:
                 type: IsoGridSquare
               - name: keepActions
                 type: boolean
+              - name: directionNew
             return:
               - type: boolean
                 nullable: true
+          - name: getSpriteGridTopLeft
+            parameters:
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+            return:
+              - type: number
+              - type: number
+          - name: getMultiTileSquares
+            parameters:
+              - name: _left
+                type: number
+              - name: _top
+                type: number
+              - name: _z
+                type: number
+            return:
+              - type: table
+                nullable: true
+          - name: walkAdjMultiTile
+            parameters:
+              - name: _character
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+              - name: _z
+                type: number
+              - name: _keepActions
+              - name: _directionRotated
+            return:
+              - type: boolean
           - name: walkToAndEquip
             parameters:
               - name: _character
@@ -781,6 +826,8 @@ languages:
               - name: _square
                 type: IsoGridSquare
               - name: _mode
+                type: string
+              - name: _origSpriteName
                 type: string
             return:
               - type: boolean
@@ -850,6 +897,11 @@ languages:
                 type: umbrella.ISMoveableSpriteProps.ScrapItemLists
             return:
               - type: number
+          - name: transmitPlaySound
+            parameters:
+              - name: _character
+              - name: _sound
+                type: string
           - name: scrapObject
             parameters:
               - name: _character
@@ -982,6 +1034,9 @@ languages:
             return:
               - type: integer
                 nullable: true
+          - name: playScrapSuccessSound
+            parameters:
+              - name: _character
           - name: scrapObjectViaCursor
             parameters:
               - name: _character
@@ -1084,6 +1139,11 @@ languages:
             parameters:
               - name: _object
                 type: IsoObject
+            return:
+              - type: boolean
+          - name: isBasementWallAdjacentToTheVoid
+            parameters:
+              - name: object
             return:
               - type: boolean
         staticMethods:
@@ -1212,6 +1272,8 @@ languages:
               - name: _square
                 type: IsoGridSquare
               - name: _mode
+                type: string
+              - name: _origSpriteName
                 type: string
             return:
               - type: boolean

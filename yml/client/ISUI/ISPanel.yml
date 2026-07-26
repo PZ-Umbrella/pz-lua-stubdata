@@ -28,6 +28,8 @@ languages:
             type: number
           mouseOver:
             type: boolean
+          SuperType:
+            type: ISUIElement
           backgroundColor:
             type: umbrella.RGBA
           borderColor:
@@ -37,6 +39,8 @@ languages:
         methods:
           - name: initialise
           - name: noBackground
+            return:
+              - type: ISPanel
           - name: close
           - name: prerender
           - name: onMouseUp

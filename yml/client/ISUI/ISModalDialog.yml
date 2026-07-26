@@ -46,8 +46,6 @@ languages:
           no:
             type: ISButton
             nullable: true
-          name:
-            nullable: true
           text:
             type: string
           yesno:

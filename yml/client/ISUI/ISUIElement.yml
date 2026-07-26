@@ -31,6 +31,8 @@ languages:
         fields:
           children:
             type: table<integer, ISUIElement>
+          childrenInOrder:
+            type: table
           ID:
             type: integer
           controller:
@@ -89,14 +91,30 @@ languages:
           wantKeyEvents:
             type: boolean
             nullable: true
+          wantMouseEvents:
+            type: boolean
+            nullable: true
           wantExtraMouseEvents:
             type: boolean
             nullable: true
           forceCursorVisible:
             type: boolean
             nullable: true
+          name:
+            nullable: true
+          creationCallStack: {}
           dock:
             type: string
+          onDoLayout:
+            nullable: true
+          gameOption:
+            nullable: true
+          contentHorizontalAlignment:
+            type: number
+          style:
+            nullable: true
+          autoAddJoypadButton:
+            type: boolean
           joypadNavigate:
             type: table
             nullable: true
@@ -154,6 +172,7 @@ languages:
               - StubGen_Extra
         methods:
           - name: initialise
+          - name: doLayout
           - name: setController
             parameters:
               - name: c
@@ -162,6 +181,26 @@ languages:
             return:
               - type: integer
                 nullable: true
+          - name: getBounds
+            return:
+              - type: ISBounds
+          - name: getLocalBounds
+            return:
+              - type: ISBounds
+          - name: getAbsoluteBounds
+            return:
+              - type: ISBounds
+          - name: toLocalBounds
+            parameters:
+              - name: absoluteBounds
+            return:
+              - type: unknown
+          - name: getScrollableBounds
+            return:
+              - type: ISBounds
+          - name: setBounds
+            parameters:
+              - name: bounds
           - name: setAnchorBottom
             parameters:
               - name: bAnchor
@@ -203,6 +242,12 @@ languages:
             parameters:
               - name: y
                 type: number
+          - name: setCenterY
+            parameters:
+              - name: y
+          - name: setCenterX
+            parameters:
+              - name: x
           - name: setWidth
             parameters:
               - name: w
@@ -217,10 +262,22 @@ languages:
           - name: getHeight
             return:
               - type: number
+          - name: getLeft
+            return:
+              - type: unknown
           - name: getRight
             return:
               - type: number
+          - name: getAbsoluteRight
+            return:
+              - type: number
+          - name: getTop
+            return:
+              - type: unknown
           - name: getBottom
+            return:
+              - type: number
+          - name: getAbsoluteBottom
             return:
               - type: number
           - name: getXScroll
@@ -243,10 +300,19 @@ languages:
           - name: getMouseY
             return:
               - type: number
-          - name: getCentreX
+          - name: getSelfCenterX
             return:
               - type: number
-          - name: getCentreY
+          - name: getCenterX
+            return:
+              - type: number
+          - name: getCenterY
+            return:
+              - type: number
+          - name: getAbsoluteCenterX
+            return:
+              - type: number
+          - name: getAbsoluteCenterY
             return:
               - type: number
           - name: getX
@@ -653,6 +719,29 @@ languages:
               - name: b
                 type: number
                 nullable: true
+          - name: drawSubTexture
+            parameters:
+              - name: texture
+              - name: subX
+              - name: subY
+              - name: subW
+              - name: subH
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: w
+                type: number
+              - name: h
+                type: number
+              - name: a
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
           - name: drawTextureScaledUniform
             parameters:
               - name: texture
@@ -859,8 +948,7 @@ languages:
                 nullable: true
           - name: DrawTextureAngle
             parameters:
-              - name: tex
-                type: Texture
+              - name: texture
               - name: centerX
                 type: number
               - name: centerY
@@ -955,6 +1043,17 @@ languages:
                 type: number
               - name: b
                 type: number
+          - name: drawRectBounds
+            parameters:
+              - name: bounds
+              - name: a
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
           - name: drawRectStatic
             parameters:
               - name: x
@@ -1019,6 +1118,44 @@ languages:
                 type: number
               - name: y2
                 type: number
+              - name: a
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+          - name: drawLine
+            parameters:
+              - name: texture
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: x2
+                type: number
+              - name: y2
+                type: number
+              - name: thickness
+              - name: a
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+          - name: drawLineAbsolute
+            parameters:
+              - name: texture
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: x2
+              - name: y2
+              - name: thickness
               - name: a
                 type: number
               - name: r
@@ -1221,6 +1358,7 @@ languages:
               - name: addHorizontal
                 type: boolean
                 nullable: true
+          - name: removeScrollBars
           - name: isVScrollBarVisible
             return:
               - type: boolean
@@ -1231,15 +1369,36 @@ languages:
           - name: getChildren
             return:
               - type: table<integer, ISUIElement>
+          - name: getChildrenInOrder
+            return:
+              - type: table
+          - name: numChildren
+            return:
+              - type: number
+          - name: visitAndAllDescendants
+            parameters:
+              - name: param0
+              - name: visitor
+            return:
+              - type: unknown
+          - name: visitAllDescendants
+            parameters:
+              - name: param0
+              - name: visitor
+            return:
+              - type: unknown
           - name: addChild
             parameters:
               - name: otherElement
                 type: ISUIElement
+            return:
+              - type: unknown
           - name: removeChild
             parameters:
               - name: otherElement
                 type: ISUIElement
           - name: clearChildren
+          - name: detachFromParent
           - name: onMouseWheel
             parameters:
               - name: del
@@ -1419,6 +1578,9 @@ languages:
           - name: toString
             return:
               - type: string
+          - name: tostring
+            return:
+              - type: string
           - name: drawProgressBar
             parameters:
               - name: x
@@ -1441,6 +1603,13 @@ languages:
             parameters:
               - name: want
                 type: boolean
+          - name: setWantMouseEvents
+            parameters:
+              - name: want
+          - name: isWantMouseEvents
+            return:
+              - type: boolean
+                nullable: true
           - name: setWantExtraMouseEvents
             parameters:
               - name: want
@@ -1449,6 +1618,16 @@ languages:
             parameters:
               - name: force
                 type: boolean
+          - name: getMaxWidthOfElements
+            parameters:
+              - name: ...
+            return:
+              - type: number
+          - name: setElementWidthToMaxOf
+            parameters:
+              - name: ...
+            return:
+              - type: number
           - name: shrinkWrap
             parameters:
               - name: padRight
@@ -1462,3 +1641,19 @@ languages:
             parameters:
               - name: playerNum
                 type: integer
+          - name: toDebugString
+            return:
+              - type: string
+          - name: toTypeNameString
+            return:
+              - type: string
+          - name: toPathString
+            return:
+              - type: string
+          - name: debugPrintTree
+            parameters:
+              - name: indent
+          - name: getStyle
+            return:
+              - type: unknown
+                nullable: true

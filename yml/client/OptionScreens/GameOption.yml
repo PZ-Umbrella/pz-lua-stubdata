@@ -1,0 +1,120 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      GameOption:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: name
+                type: string
+              - name: control
+                type: table
+                nullable: true
+              - name: arg1
+                nullable: true
+              - name: arg2
+                nullable: true
+        staticFields:
+          Type:
+            defaultValue: '"GameOption"'
+        fields:
+          name:
+            type: string
+          control:
+            type: table
+            nullable: true
+          arg1:
+            nullable: true
+          arg2:
+            nullable: true
+        methods:
+          - name: storeCurrentValue
+          - name: restoreOriginalValue
+          - name: toUI
+          - name: apply
+          - name: resetLua
+          - name: restartRequired
+            parameters:
+              - name: oldValue
+              - name: newValue
+          - name: invokeOnChangeEvent
+          - name: onChangeComboBox
+            parameters:
+              - name: box
+          - name: onChangeSlider
+            parameters:
+              - name: value
+              - name: control
+          - name: onChangeTickBox
+            parameters:
+              - name: index
+              - name: selected
+          - name: onChangeVolumeControl
+            parameters:
+              - name: control
+              - name: volume
+      GameOptions:
+        extends: ISBaseObject
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"GameOptions"'
+        fields:
+          changed:
+            type: boolean
+          options:
+            type: table
+        methods:
+          - name: add
+            parameters:
+              - name: option
+            return:
+              - type: boolean
+          - name: tryAdd
+            parameters:
+              - name: option
+            return:
+              - type: boolean
+          - name: containsOption
+            parameters:
+              - name: option
+            return:
+              - type: boolean
+          - name: remove
+            parameters:
+              - name: option
+            return:
+              - type: boolean
+          - name: tryRemove
+            parameters:
+              - name: option
+            return:
+              - type: boolean
+          - name: addAllFromUIElement
+            parameters:
+              - name: uiRootElement
+          - name: addFromUIElement
+            parameters:
+              - name: uiElement
+          - name: removeAllFromUIElement
+            parameters:
+              - name: uiRootElement
+          - name: removeFromUIElement
+            parameters:
+              - name: uiElement
+          - name: get
+            parameters:
+              - name: optionName
+                type: string
+            return:
+              - type: unknown
+                nullable: true
+          - name: apply
+          - name: storeCurrentValues
+          - name: restoreOriginalValues
+          - name: toUI
+          - name: onChange
+            parameters:
+              - name: option

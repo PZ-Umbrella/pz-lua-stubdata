@@ -8,6 +8,9 @@ languages:
         fields:
           Type:
             type: string
+          SuperType:
+            type: ISBaseObject
+            nullable: true
           __eventListeners:
             type: table<string, table<function, unknown>>
             nullable: true
@@ -19,6 +22,13 @@ languages:
                 type: string
             return:
               - type: ISBaseObject
+          - name: instanceof
+            parameters:
+              - name: object
+              - name: type
+                type: string
+            return:
+              - type: boolean
           - name: addEventListener
             parameters:
               - name: _event

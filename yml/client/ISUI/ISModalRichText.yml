@@ -48,8 +48,6 @@ languages:
             nullable: true
           chatText:
             type: ISRichTextPanel
-          name:
-            nullable: true
           text:
             type: string
           yesno:

@@ -27,12 +27,13 @@ languages:
             type: string
           workshopID:
             type: string
-          modLink:
+          source:
+            type: string
+          path:
             type: string
           urlLen:
             type: number
-          modLinkLen:
-            type: number
+          pathLen: {}
           type:
             type: string
           name:

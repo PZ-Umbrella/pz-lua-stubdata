@@ -33,8 +33,6 @@ languages:
             type: ISButton
           buttonQuit:
             type: ISButton
-          name:
-            nullable: true
           ok:
             nullable: true
           destroyOnClick:

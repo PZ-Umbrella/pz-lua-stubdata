@@ -6,6 +6,8 @@ languages:
         extends: ISPanel
         constructors:
           - parameters:
+              - name: controllerTab
+                type: GameOptionControllerTab
               - name: x
                 type: number
               - name: y
@@ -20,9 +22,7 @@ languages:
         fields:
           selectedController:
             nullable: true
-          axisLabelWid:
-            type: number
-            nullable: true
+          axisLabelWid: {}
           buttonX:
             type: number
           label:
@@ -31,8 +31,9 @@ languages:
             type: ISComboBox
           axisY:
             type: table
-          smallFontHgt:
-            type: number
+          controllerTab:
+            type: GameOptionControllerTab
+          smallFontHgt: {}
         methods:
           - name: onControllerSelected
           - name: joypadSensitivityM
@@ -46,13 +47,4 @@ languages:
           - name: OnGamepadDisconnect
             parameters:
               - name: index
-          - name: onResolutionChange
-            parameters:
-              - name: oldw
-                type: number
-              - name: oldh
-                type: number
-              - name: neww
-                type: number
-              - name: newh
-                type: number
+          - name: doLayout

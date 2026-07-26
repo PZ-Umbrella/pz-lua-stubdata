@@ -47,3 +47,8 @@ languages:
             parameters:
               - name: player
                 type: IsoPlayer
+        staticMethods:
+          - name: destroyPlant
+            parameters:
+              - name: square
+                type: IsoGridSquare

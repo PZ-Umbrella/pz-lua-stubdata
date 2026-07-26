@@ -99,6 +99,10 @@ languages:
           - name: nextSearchFocus
           - name: updateSearchFocusCategories
           - name: initialise
+          - name: onInfo
+            parameters:
+              - name: button
+                type: ISButton
         staticMethods:
           - name: toggleWindow
             parameters:

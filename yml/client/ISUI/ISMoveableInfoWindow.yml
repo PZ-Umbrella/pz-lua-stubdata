@@ -50,8 +50,6 @@ languages:
             type: IsoPlayer
           playerNum:
             type: integer
-          name:
-            nullable: true
           description:
             type: string
           header:

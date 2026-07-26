@@ -156,6 +156,8 @@ languages:
             parameters:
               - name: params
                 type: umbrella.BuildRecipeCode.OnCreateParams
+            return:
+              - type: table
       BuildRecipeCode.woodLampPillar:
         local: true
         staticMethods:

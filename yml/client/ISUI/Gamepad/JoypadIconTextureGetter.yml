@@ -1,0 +1,31 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      JoypadIconTextureGetter:
+        extends: ISUITextureGetter
+        constructors:
+          - parameters:
+              - name: suffix
+                type: string
+        staticFields:
+          Type:
+            defaultValue: '"JoypadIconTextureGetter"'
+        fields:
+          SuperType:
+            type: ISUITextureGetter
+          suffix:
+            type: string
+          fileNamePrefix:
+            type: string
+        methods:
+          - name: getFileNamePrefix
+            return:
+              - type: string
+          - name: setFileNamePrefix
+            parameters:
+              - name: newPrefix
+                type: string
+          - name: getTextureFilePath
+            return:
+              - type: string

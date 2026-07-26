@@ -105,10 +105,18 @@ languages:
             nullable: true
           onClickArgs:
             type: unknown[]
+          SuperType:
+            type: ISPanel
           backgroundColorMouseOver:
             type: umbrella.RGBA
           textColor:
             type: umbrella.RGBA
+          isBaseBackgroundVisible:
+            type: boolean
+          isHighlightedBackgroundVisible:
+            type: boolean
+          isBorderVisible:
+            type: boolean
           target:
             type: unknown
             nullable: true
@@ -203,6 +211,15 @@ languages:
               - name: texture
                 type: Texture
           - name: clearJoypadButton
+          - name: shouldDrawBackground
+            return:
+              - type: boolean
+          - name: shouldDrawBorder
+            return:
+              - type: boolean
+          - name: getBackgroundColor
+            return:
+              - type: table
           - name: prerender
           - name: setImage
             parameters:
@@ -297,8 +314,10 @@ languages:
                 type: number
               - name: a
                 type: number
+          - name: restoreDefaultColors
           - name: enableAcceptColor
           - name: enableCancelColor
+          - name: enableDisabledColor
           - name: toggleAcceptCancel
             parameters:
               - name: bEnabled

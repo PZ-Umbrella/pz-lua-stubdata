@@ -73,6 +73,7 @@ languages:
             parameters:
               - name: b
                 type: boolean
+          - name: debugRender
           - name: pathToLocationF
             parameters:
               - name: character
@@ -91,6 +92,15 @@ languages:
                 type: IsoPlayer
               - name: locations
                 type: number[]
+            return:
+              - type: ISPathFindAction
+          - name: pathToNearestPreferred
+            parameters:
+              - name: character
+              - name: locations
+                type: table
+              - name: locationsAlt
+                type: table
             return:
               - type: ISPathFindAction
           - name: pathToSitOnFurniture
@@ -139,6 +149,35 @@ languages:
                 type: IsoDeadBody
             return:
               - type: ISPathFindAction
+          - name: pathAdjacentToSquares
+            parameters:
+              - name: character
+              - name: squares
+                type: table
+              - name: allowDiagonal
+            return:
+              - type: ISPathFindAction
+                nullable: true
+          - name: pathAdjacentToSquaresPredicate
+            parameters:
+              - name: character
+              - name: squares
+              - name: allowDiagonal
+              - name: predicate
+                type: function
+              - name: predicateArg
+                type: table
+            return:
+              - type: ISPathFindAction
+                nullable: true
+          - name: pathAdjacentToMultiTileObject
+            parameters:
+              - name: character
+              - name: object
+              - name: allowDiagonal
+            return:
+              - type: ISPathFindAction
+                nullable: true
     functions:
       - name: ISPathFindAction_pathToLocationF
         parameters:

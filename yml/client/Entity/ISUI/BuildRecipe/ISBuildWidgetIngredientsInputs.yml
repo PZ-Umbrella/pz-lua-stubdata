@@ -35,12 +35,6 @@ languages:
             type: boolean
           textureLink:
             type: Texture
-          margin:
-            type: number
-          itemSpacing:
-            type: number
-          itemMargin:
-            type: number
           itemNameMaxLines:
             type: number
           doToolTip:
@@ -82,6 +76,12 @@ languages:
                 type: JoypadData
           - name: onLoseJoypadFocus
             parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: integer
               - name: joypadData
                 type: JoypadData
           - name: onManualSelectChanged

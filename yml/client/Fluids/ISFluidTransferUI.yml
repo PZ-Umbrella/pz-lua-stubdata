@@ -131,6 +131,7 @@ languages:
                 type: InventoryItem
               - name: _panel
                 type: ISFluidContainerPanel
+          - name: resetSlider
           - name: onContainerVerify
             parameters:
               - name: _item

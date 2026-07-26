@@ -38,8 +38,6 @@ languages:
             type: number
           playerY:
             type: number
-          name:
-            nullable: true
           text:
             type: string
         methods:

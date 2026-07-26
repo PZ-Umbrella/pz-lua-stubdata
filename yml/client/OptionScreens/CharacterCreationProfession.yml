@@ -177,6 +177,7 @@ languages:
             parameters:
               - name: index
                 type: number
+          - name: removeAllTraits
           - name: update
           - name: prerender
           - name: render

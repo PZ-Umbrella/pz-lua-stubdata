@@ -27,16 +27,49 @@ languages:
             type: ISButton
           bannedIPs:
             type: ISButton
-          searchEntry:
-            type: ISTextEntryBox
+          refresh:
+            type: ISButton
           close:
             type: ISButton
+          searchEntry:
+            type: ISTextEntryBox
+          sortByNameButton: {}
+          sortByRoleButton: {}
+          sortByLastConnectionButton: {}
+          sortByWarningsButton: {}
           datas:
             type: ISScrollingListBox
+          warningsColumnX:
+            type: number
+          lastConnectionColumnX:
+            type: number
+          roleColumnX:
+            type: number
+          showOnlineOnly:
+            type: boolean
+          sortDown:
+            type: boolean
+          sortType:
+            type: string
           player:
             type: IsoPlayer
+          arrowUp: {}
+          arrowDown: {}
         methods:
           - name: initialise
+          - name: refresh
+          - name: calculateColumnPositions
+          - name: createColumnHeader
+            parameters:
+              - name: name
+                type: string
+              - name: sortType
+              - name: x
+                type: number
+              - name: width
+                type: number
+            return:
+              - type: ISButton
           - name: populateList
           - name: drawDatas
             parameters:
@@ -53,6 +86,11 @@ languages:
               - name: _item
                 type: IsoPlayer
           - name: doSearch
+          - name: toggleShowOnlineOnly
+          - name: onClickSort
+            parameters:
+              - name: button
+                type: ISButton
           - name: prerender
           - name: onClick
             parameters:
@@ -100,6 +138,13 @@ languages:
                 type: number
           - name: closeModal
         staticMethods:
+          - name: comparator
+            parameters:
+              - name: user1
+              - name: user2
+            return:
+              - type: boolean
+                nullable: true
           - name: onAddWarningPoint
             parameters:
               - name: username

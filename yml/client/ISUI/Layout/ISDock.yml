@@ -1,0 +1,26 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISDock:
+        staticFields:
+          None:
+            defaultValue: '"none"'
+          Fill:
+            defaultValue: '"Fill"'
+          Left:
+            defaultValue: '"Left"'
+          TopLeft:
+            defaultValue: '"TopLeft"'
+          Top:
+            defaultValue: '"Top"'
+          TopRight:
+            defaultValue: '"TopRight"'
+          Right:
+            defaultValue: '"Right"'
+          BottomRight:
+            defaultValue: '"BottomRight"'
+          Bottom:
+            defaultValue: '"Bottom"'
+          BottomLeft:
+            defaultValue: '"BottomLeft"'

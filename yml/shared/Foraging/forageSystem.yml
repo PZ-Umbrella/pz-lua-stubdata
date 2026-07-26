@@ -854,6 +854,14 @@ languages:
                 type: ArrayList<InventoryItem>
             return:
               - type: ArrayList<InventoryItem>
+          - name: actionComplete
+            parameters:
+              - name: _character
+              - name: _iconID
+          - name: forageAction
+            parameters:
+              - name: _character
+              - name: _forageIcon
       umbrella.Foraging.ItemDefinition:
         fields:
           type:

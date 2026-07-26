@@ -4,6 +4,17 @@ languages:
     classes:
       ISBBQMenu:
         staticMethods:
+          - name: OnFillWorldObjectContextMenu
+            parameters:
+              - name: player
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
+              - name: test
+            return:
+              - type: boolean
+                nullable: true
           - name: onDisplayInfo
             parameters:
               - name: worldobjects

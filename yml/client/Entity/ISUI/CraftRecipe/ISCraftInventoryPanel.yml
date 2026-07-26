@@ -54,8 +54,6 @@ languages:
             type: boolean
           showCurrentContents:
             type: boolean
-          margin:
-            type: number
           autoFillContents:
             type: boolean
           isAutoFill:

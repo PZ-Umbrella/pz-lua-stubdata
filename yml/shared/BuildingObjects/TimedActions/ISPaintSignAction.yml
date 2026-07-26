@@ -41,6 +41,8 @@ languages:
             type: number
           b:
             type: number
+          isBuildCheat:
+            type: boolean
         methods:
           - name: isValid
             return:

@@ -37,6 +37,8 @@ languages:
             type: number
           joypadFocused:
             type: boolean
+          SuperType:
+            type: ISPanel
           targetFunc:
             type: umbrella.ISVolumeControl.TargetFunction
             nullable: true

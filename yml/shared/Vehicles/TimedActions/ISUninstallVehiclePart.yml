@@ -16,14 +16,14 @@ languages:
           Type:
             defaultValue: '"ISUninstallVehiclePart"'
         fields:
-          vehicle:
-            type: BaseVehicle
           part:
             type: VehiclePart
-          workTime:
-            type: number
+          vehicle:
+            type: BaseVehicle
           jobType:
             type: string
+          workTime:
+            type: number
         methods:
           - name: isValid
             return:

@@ -29,8 +29,6 @@ languages:
             type: ISButton
           richText:
             type: ISRichTextPanel
-          name:
-            nullable: true
           text:
             type: string
           fontHgt:

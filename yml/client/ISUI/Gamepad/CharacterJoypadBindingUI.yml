@@ -1,0 +1,51 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      CharacterJoypadBindingUI:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: controllerBindingsEditorPanel
+                type: ISControllerBindingsEditorPanel
+        staticFields:
+          Type:
+            defaultValue: '"CharacterJoypadBindingUI"'
+          BevelDirection: {}
+          BindingPanel: {}
+        fields:
+          bindingKeys:
+            type: table
+          controllerBindingsEditorPanel:
+            type: ISControllerBindingsEditorPanel
+        methods:
+          - name: getStyle
+            return:
+              - type: unknown
+          - name: createGamepadUIBinding
+            parameters:
+              - name: containerPanel
+              - name: bindingKey
+          - name: onBindingEntryLayoutChanged
+          - name: onJoypadButtonBindingEdited
+          - name: onJoypadAxisBindingValueEdited
+            parameters:
+              - name: uiBinding
+              - name: uiRow
+              - name: charBinding
+          - name: onBindingUIPanelEditingActivated
+            parameters:
+              - name: uiBinding
+          - name: getAllEntries
+            return:
+              - type: table
+          - name: getSprite
+            return:
+              - type: ISUISprite
+        staticMethods:
+          - name: getAllPhysicalJoypadElements
+            return:
+              - type: table
+          - name: performLayoutRows
+            parameters:
+              - name: containerPanel

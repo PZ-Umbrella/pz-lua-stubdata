@@ -1,0 +1,80 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISLine:
+        constructors:
+          - parameters:
+              - name: startX
+              - name: startY
+              - name: endX
+                type: number
+              - name: endY
+                type: number
+        fields:
+          segments:
+            type: table
+          startX: {}
+          startY: {}
+          endX:
+            type: number
+          endY:
+            type: number
+          color:
+            type: table
+          thickness:
+            type: number
+        methods:
+          - name: numSegments
+            return:
+              - type: number
+          - name: getSegmentAt
+            parameters:
+              - name: i
+                type: number
+            return:
+              - type: unknown
+          - name: getAllPoints
+            return:
+              - type: table
+          - name: addSegment
+            parameters:
+              - name: x1
+              - name: y1
+              - name: x2
+              - name: y2
+            return:
+              - type: table
+          - name: getLastSegment
+            return:
+              - type: unknown
+                nullable: true
+          - name: getLastPoint
+            return:
+              - type: table
+          - name: appendPoint
+            parameters:
+              - name: newPoint
+                type: table
+          - name: appendBevelPoint
+            parameters:
+              - name: bevelCenter
+              - name: next
+              - name: bevelRadius
+              - name: includeNext
+                type: boolean
+          - name: bevelAllJoints
+            parameters:
+              - name: bevelRadius
+                type: number
+          - name: render
+            parameters:
+              - name: drawer
+              - name: a
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number

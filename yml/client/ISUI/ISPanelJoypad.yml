@@ -2,6 +2,59 @@ version: "1.1"
 languages:
   lua:
     classes:
+      rowTree:
+        local: true
+        constructors:
+          - parameters:
+              - name: elements
+        fields:
+          elements:
+            type: table
+          above:
+            type: rowTree
+            nullable: true
+          below:
+            type: rowTree
+            nullable: true
+        methods:
+          - name: splitOverlappingColumns
+          - name: getBottomMostBranch
+            return:
+              - type: rowTree
+                nullable: true
+          - name: getTopMostBranch
+            return:
+              - type: rowTree
+                nullable: true
+          - name: getSplitElements
+            parameters:
+              - name: y
+            return:
+              - type: table
+              - type: table
+              - type: table
+          - name: findHorizontallyOverlappingElement
+            parameters:
+              - name: left
+              - name: right
+              - name: vsElementIdx
+            return:
+              - type: number
+                nullable: true
+          - name: getAllRows
+            parameters:
+              - name: result
+                type: table
+                nullable: true
+            return:
+              - type: table
+                nullable: true
+        staticMethods:
+          - name: rowToString
+            parameters:
+              - name: row
+            return:
+              - type: string
       ISPanelJoypad:
         extends: ISUIElement
         constructors:
@@ -20,6 +73,14 @@ languages:
         fields:
           joypadButtons:
             type: ISButton[]
+          joypadIndexY:
+            type: integer
+          joypadIndex:
+            type: integer
+          joypadButtonsY:
+            type: ISButton[][]
+          allJoypadButtons:
+            type: table
           background:
             type: boolean
           ISButtonA:
@@ -34,10 +95,11 @@ languages:
           ISButtonX:
             type: ISButton
             nullable: true
-          joypadIndex:
-            type: integer
-          joypadIndexY:
-            type: integer
+          lastProjectedBounds:
+            nullable: true
+          lastIntercepts:
+            type: table
+            nullable: true
           moving:
             type: boolean
           downX:
@@ -50,8 +112,6 @@ languages:
             type: umbrella.RGBA
           borderColor:
             type: umbrella.RGBA
-          joypadButtonsY:
-            type: ISButton[][]
           moveWithMouse:
             type: boolean
         methods:
@@ -101,11 +161,22 @@ languages:
             parameters:
               - name: list
                 type: ISButton[]
-          - name: insertNewListOfButtonsList
+          - name: removeListOfButtons
             parameters:
               - name: list
-                type: ISButton[]
+            return:
+              - type: boolean
+          - name: addJoypadButtonRows
+            parameters:
+              - name: rows
+          - name: removeJoypadButtonRows
+            parameters:
+              - name: rows
+          - name: autoGenerateJoypadButtonsLists
+          - name: clearJoypadButtonsList
           - name: noBackground
+            return:
+              - type: ISPanelJoypad | table
           - name: close
           - name: setISButtonForA
             parameters:
@@ -135,6 +206,16 @@ languages:
               - name: joypadData
                 type: JoypadData
                 nullable: true
+          - name: getChildJoypadIndexY
+            parameters:
+              - name: child
+            return:
+              - type: number
+          - name: getChildJoypadIndex
+            parameters:
+              - name: child
+            return:
+              - type: number
           - name: getVisibleChildren
             parameters:
               - name: joypadIndexY
@@ -183,6 +264,31 @@ languages:
             parameters:
               - name: joypadData
                 type: JoypadData
+          - name: findNextNavigableChildY
+            parameters:
+              - name: fromChild
+              - name: yDir
+            return:
+              - type: unknown
+                nullable: true
+          - name: findNextNavigableChildX
+            parameters:
+              - name: fromChild
+              - name: xDir
+            return:
+              - type: unknown
+                nullable: true
+          - name: findClosestNavigableChildAlongBounds
+            parameters:
+              - name: fromChild
+              - name: fromChildBounds
+              - name: projectedBounds
+              - name: minDistance
+              - name: distanceToFunc
+              - name: results
+            return:
+              - type: unknown
+                nullable: true
           - name: getJoypadFocus
             return:
               - type: ISUIElement
@@ -248,3 +354,23 @@ languages:
               - name: dy
                 type: number
           - name: prerender
+          - name: render
+          - name: renderDebugUINavigation
+        staticMethods:
+          - name: rowListToDebugString
+            parameters:
+              - name: list
+            return:
+              - type: string
+          - name: autoGenerateJoypadButtonRowsFromUIElement
+            parameters:
+              - name: uiRootElement
+            return:
+              - type: table
+          - name: autoAddUIElementToJoypadButtons
+            parameters:
+              - name: allJoypadButtons
+              - name: uiElement
+            return:
+              - type: boolean
+                nullable: true

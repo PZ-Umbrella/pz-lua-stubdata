@@ -1,0 +1,139 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISControllerBindingsEditorPanel:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: gameOptionControllerTab
+                type: GameOptionControllerTab
+              - name: containerPanel
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISControllerBindingsEditorPanel"'
+          spriteBoundsRepo: {}
+          onOptionControllerButtonStyleChanged: {}
+          onOptionGamepadBindingPresetChanged: {}
+        fields:
+          SuperType:
+            type: ISPanel
+          parentContainerPanel: {}
+          gameOptionControllerTab:
+            type: GameOptionControllerTab
+          content:
+            type: table
+          layoutOrderings:
+            nullable: true
+          unusedBindingsPanel: {}
+          uiBindings:
+            type: CharacterJoypadBindingUI
+          lineOverlayPanel: {}
+          editedUIBinding: {}
+        methods:
+          - name: initContent
+            return:
+              - type: ISControllerBindingsEditorPanel
+          - name: getStyle
+            return:
+              - type: unknown
+          - name: populateAllBindingBoxes
+          - name: createMainSprite
+          - name: createSubSprites
+          - name: invalidateSprites
+          - name: createBindingGroupPanels
+          - name: createLineOverlayPanel
+            return:
+              - type: unknown
+          - name: onResize
+          - name: onBindingUILayoutChanged
+          - name: onControllerButtonStyleChanged
+          - name: onGamepadBindingPresetsChanged
+          - name: onJoypadButtonBindingEdited
+          - name: onJoypadAxisBindingValueEdited
+            parameters:
+              - name: uiBinding
+              - name: uiRow
+              - name: charBinding
+          - name: onBindingUIPanelEditingActivated
+            parameters:
+              - name: uiBinding
+          - name: setActiveEditingBindingUI
+            parameters:
+              - name: uiBinding
+          - name: doLayout
+          - name: onScrollPosChanged
+          - name: updateCornerPanelsToScroll
+          - name: onMouseWheel
+            parameters:
+              - name: del
+                type: number
+          - name: updateCenterSpriteBounds
+        staticMethods:
+          - name: optionControllerButtonStyleChanged
+            parameters:
+              - name: optionStr
+                type: string
+          - name: addOnOptionControllerButtonStyleChanged
+            parameters:
+              - name: target
+              - name: callbackFunc
+          - name: optionGamepadBindingPresetChanged
+            parameters:
+              - name: optionStr
+                type: string
+          - name: addOnOptionGamepadBindingPresetChanged
+            parameters:
+              - name: target
+              - name: callbackFunc
+      self.content.bindingGroupPanels:
+        local: true
+        staticFields:
+          parentContainer:
+            type: ISControllerBindingsEditorPanel
+            nullable: true
+            defaultValue: self
+          inputBlockerPanel:
+            nullable: true
+        methods:
+          - name: getCenterBoundsWidth
+            return:
+              - type: unknown
+          - name: getMinHeight
+            return:
+              - type: unknown
+          - name: getMinHeightLeft
+            return:
+              - type: number
+          - name: getMinHeightRight
+            return:
+              - type: number
+          - name: getCenterBounds
+            return:
+              - type: ISBounds
+          - name: getAllPanels
+            return:
+              - type: table
+          - name: getLeftPanels
+            return:
+              - type: table
+          - name: getRightPanels
+            return:
+              - type: table
+          - name: clearAllPanelsContent
+          - name: addPanel
+            parameters:
+              - name: bindingPanelKey
+                type: string
+              - name: dock
+                type: string
+              - name: contentHorizontalAlignment
+                type: number

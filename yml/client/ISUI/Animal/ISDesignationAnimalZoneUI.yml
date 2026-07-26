@@ -21,6 +21,9 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISDesignationZoneAnimalZoneUI"'
+          showZone:
+            type: boolean
+            nullable: true
         fields:
           itemPadY:
             type: number
@@ -28,6 +31,8 @@ languages:
             type: number
           animalPanel:
             type: ISDesignationZoneAnimalZoneUI_AnimalsPanel
+          showZoneTickBox:
+            type: ISTickBox
           ok:
             type: ISButton
           reloadBtn:
@@ -57,6 +62,10 @@ languages:
             type: boolean
         methods:
           - name: initialise
+          - name: onTicked
+            parameters:
+              - name: index
+              - name: selected
           - name: checkExist
             return:
               - type: boolean

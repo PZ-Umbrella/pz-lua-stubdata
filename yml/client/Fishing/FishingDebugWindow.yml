@@ -12,8 +12,6 @@ languages:
           Type:
             defaultValue: '"FishingDebugWindow"'
         fields:
-          name:
-            nullable: true
           player:
             type: IsoPlayer
           titlebarbkg:

@@ -846,8 +846,6 @@ languages:
             defaultValue: '"ServerSettingsScreenModsPanel"'
         fields:
           listbox: {}
-          button:
-            type: ISButton
           settings:
             type: umbrella.ServerSettingsScreen.Setting[]
           modInfoByID:
