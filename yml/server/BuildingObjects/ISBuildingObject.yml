@@ -216,7 +216,7 @@ languages:
               - name: joypadData
                 type: JoypadData
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirDown
             parameters:
               - name: joypadData

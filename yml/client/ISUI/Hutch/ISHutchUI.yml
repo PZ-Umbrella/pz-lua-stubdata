@@ -130,7 +130,7 @@ languages:
           - name: onJoypadDownInParent
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISHutchNestParentPanel:
@@ -244,7 +244,7 @@ languages:
           - name: onJoypadDownInParent
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISHutchRoostParentPanel:
@@ -397,7 +397,9 @@ languages:
                 type: number
               - name: SHELF_HEIGHT
                 type: number
+                nullable: true
               - name: btnGrabOffset
+                nullable: true
           - name: onTabsActivateView
           - name: showRoosts
           - name: showNestBoxes
@@ -423,7 +425,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDown_Descendant
@@ -431,7 +433,7 @@ languages:
               - name: descendant
                 type: ISUIElement
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
         staticMethods:

@@ -164,11 +164,15 @@ languages:
           - name: onScaleChange
             parameters:
               - name: value
+                type: number
               - name: slider
+                type: ISSliderPanel
           - name: onRotationChange
             parameters:
               - name: value
+                type: number
               - name: slider
+                type: ISSliderPanel
           - name: onClick
             parameters:
               - name: button
@@ -195,6 +199,7 @@ languages:
           - name: showFontPicker
             parameters:
               - name: layerID
+                type: string
           - name: showTranslationTickBox
             parameters:
               - name: isTranslation
@@ -202,6 +207,7 @@ languages:
           - name: showMatchPerspectiveTickBox
             parameters:
               - name: matchPerspective
+                type: boolean
           - name: showScaleSlider
             parameters:
               - name: scale
@@ -213,7 +219,9 @@ languages:
           - name: showZoomPanel
             parameters:
               - name: minZoomF
+                type: number
               - name: maxZoomF
+                type: number
           - name: layoutWidgets
           - name: isTranslation
             return:
@@ -229,7 +237,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirDown

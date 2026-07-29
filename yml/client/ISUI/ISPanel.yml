@@ -40,7 +40,7 @@ languages:
           - name: initialise
           - name: noBackground
             return:
-              - type: self
+              - type: ISPanel
           - name: close
           - name: prerender
           - name: onMouseUp

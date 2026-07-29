@@ -7,13 +7,15 @@ languages:
         constructors:
           - parameters:
               - name: ui
-                type: MultiplayerUI
+                type: ISUIElement
               - name: server
+                type: Server
         staticFields:
           Type:
             defaultValue: '"ISMPSelectAccount"'
         fields:
           server:
+            type: Server
             nullable: true
           connectBtn:
             type: ISButton
@@ -28,8 +30,9 @@ languages:
           modal:
             type: ISMPEditAccount
           ui:
-            type: MultiplayerUI
-          ui_droplist: {}
+            type: ISUIElement
+          ui_droplist:
+            type: Texture
         methods:
           - name: initialise
           - name: destroy
@@ -40,9 +43,13 @@ languages:
           - name: onResolutionChange
             parameters:
               - name: oldw
+                type: number
               - name: oldh
+                type: number
               - name: neww
+                type: number
               - name: newh
+                type: number
           - name: prerender
           - name: render
           - name: updateButtons
@@ -91,4 +98,4 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton

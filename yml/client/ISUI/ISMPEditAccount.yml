@@ -7,9 +7,11 @@ languages:
         constructors:
           - parameters:
               - name: ui
-                type: ISMPSelectAccount | MultiplayerUI
+                type: ISUIElement
               - name: server
+                type: Server
               - name: account
+                type: Account
                 nullable: true
         staticFields:
           Type:
@@ -46,17 +48,23 @@ languages:
             type: ISButton
           isPasswordModified:
             type: boolean
-          servers_serveripmessage_lines: {}
-          servers_serveripwarning_lines: {}
-          ui_password_eye: {}
-          ui_droplist: {}
+          servers_serveripmessage_lines:
+            type: string[]
+          servers_serveripwarning_lines:
+            type: string[]
+          ui_password_eye:
+            type: Texture
+          ui_droplist:
+            type: Texture
           ui:
-            type: ISMPSelectAccount | MultiplayerUI
-          server: {}
+            type: ISUIElement
+          server:
+            type: Server
           account:
+            type: Account
             nullable: true
           accountLoginList:
-            type: table
+            type: table<string, boolean>
         methods:
           - name: initialise
           - name: onComboAuthType
@@ -68,9 +76,13 @@ languages:
           - name: onResolutionChange
             parameters:
               - name: oldw
+                type: number
               - name: oldh
+                type: number
               - name: neww
+                type: number
               - name: newh
+                type: number
           - name: prerender
           - name: render
           - name: onOtherKey
@@ -123,16 +135,21 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
         staticMethods:
           - name: onLoginTextChange
             parameters:
               - name: txtEntry
+                type: ISTextEntryBox
           - name: OnConnectFailed
             parameters:
               - name: message
+                type: string
               - name: detail
+                type: string
+                nullable: true
           - name: OnConnected
           - name: OnQRReceived
             parameters:
               - name: message
+                type: string

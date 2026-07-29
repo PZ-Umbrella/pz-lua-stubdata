@@ -27,16 +27,21 @@ languages:
           - name: initSpinBox
             parameters:
               - name: spinBox
+                type: ISSpinBox
           - name: onChangeMinZoom
           - name: onChangeMaxZoom
           - name: setMinMaxZoom
             parameters:
               - name: minZoomF
+                type: number
               - name: maxZoomF
+                type: number
           - name: findClosestZoom
             parameters:
               - name: spinBox
+                type: ISSpinBox
               - name: zoomF
+                type: number
             return:
               - type: number
           - name: getZoom

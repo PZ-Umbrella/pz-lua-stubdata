@@ -134,7 +134,7 @@ languages:
           - name: onJoypadDown_listbox
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadNavigateStart_Descendant

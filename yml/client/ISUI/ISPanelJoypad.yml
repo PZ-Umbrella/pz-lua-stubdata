@@ -186,7 +186,7 @@ languages:
           - name: clearJoypadButtonsList
           - name: noBackground
             return:
-              - type: self
+              - type: ISPanelJoypad
           - name: close
           - name: setISButtonForA
             parameters:
@@ -212,7 +212,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
                 nullable: true
@@ -331,10 +331,11 @@ languages:
                 type: JoypadData
           - name: recordJoypadState
             return:
-              - type: table
+              - type: umbrella.ISPanelJoypad.JoypadState
           - name: restoreJoypadState
             parameters:
               - name: state
+                type: umbrella.ISPanelJoypad.JoypadState
           - name: doRightJoystickScrolling
             parameters:
               - name: dx
@@ -400,3 +401,9 @@ languages:
             return:
               - type: boolean
                 nullable: true
+      umbrella.ISPanelJoypad.JoypadState:
+        fields:
+          index:
+            type: number
+          indexY:
+            type: number

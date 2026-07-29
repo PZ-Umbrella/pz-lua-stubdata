@@ -104,6 +104,7 @@ languages:
           - name: pointOnItem
             parameters:
               - name: index
+                type: integer
           - name: forceClick
           - name: prerender
           - name: onMouseDown
@@ -229,6 +230,7 @@ languages:
           - name: setSelectedData
             parameters:
               - name: data
+                type: unknown
           - name: setWidthToOptions
             parameters:
               - name: minWidth

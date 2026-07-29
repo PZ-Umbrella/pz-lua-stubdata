@@ -86,7 +86,7 @@ languages:
               - name: fuelInfo
                 type: umbrella.ISCampingMenu.NearbyFuelInfo
               - name: target
-                type: unknown
+                type: IsoObject
               - name: timedAction
                 type: ISBBQAddFuel | ISAddFuelAction
               - name: playerObj
@@ -168,7 +168,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: target
-                nullable: true
+                type: IsoObject
               - name: fuelType
                 type: string
               - name: timedAction
@@ -180,7 +180,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: target
-                nullable: true
+                type: IsoObject
               - name: timedAction
                 type: ISBaseTimedAction
               - name: currentFuel
@@ -190,7 +190,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: target
-                nullable: true
+                type: IsoObject
               - name: fuelType
                 type: string
               - name: timedAction
@@ -225,7 +225,7 @@ languages:
               - name: lighter
                 type: InventoryItem
               - name: target
-                nullable: true
+                type: IsoObject
               - name: timedAction
                 type: ISBaseTimedAction
           - name: onLightFromKindle
@@ -237,7 +237,7 @@ languages:
               - name: stickOrBranch
                 type: InventoryItem
               - name: target
-                nullable: true
+                type: IsoObject
               - name: timedAction
                 type: ISBaseTimedAction
           - name: onLightFromPetrol
@@ -249,7 +249,7 @@ languages:
               - name: petrol
                 type: InventoryItem
               - name: target
-                nullable: true
+                type: IsoObject
               - name: timedAction
                 type: ISBaseTimedAction
       umbrella.ISCampingMenu.NearbyFuelInfo:

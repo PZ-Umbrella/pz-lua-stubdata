@@ -143,13 +143,15 @@ languages:
           - name: setToolTip
             parameters:
               - name: _b
+                type: boolean
               - name: _text
+                type: string
           - name: activateToolTip
           - name: deactivateToolTip
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: setEnableSelectLines
             parameters:
               - name: _b

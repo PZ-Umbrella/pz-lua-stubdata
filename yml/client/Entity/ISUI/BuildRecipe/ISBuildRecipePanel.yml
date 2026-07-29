@@ -89,6 +89,7 @@ languages:
           - name: onRebuildItemNodes
             parameters:
               - name: _inputItems
+                nullable: true
           - name: updateTitleWidget
           - name: onManualSelectChanged
             parameters:

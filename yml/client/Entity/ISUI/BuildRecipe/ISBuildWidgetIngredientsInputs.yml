@@ -69,6 +69,7 @@ languages:
           - name: onRebuildItemNodes
             parameters:
               - name: _inputItems
+                nullable: true
           - name: onRecipeChanged
           - name: onGainJoypadFocus
             parameters:
@@ -81,7 +82,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onManualSelectChanged

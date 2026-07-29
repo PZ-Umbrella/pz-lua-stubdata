@@ -158,6 +158,7 @@ languages:
           - name: onItemDblClick
             parameters:
               - name: item
+                type: NewGameScreen.ModePanel
               - name: x
                 type: number
               - name: y
@@ -165,6 +166,7 @@ languages:
           - name: onItemClick
             parameters:
               - name: item
+                type: NewGameScreen.ModePanel
               - name: x
                 type: number
               - name: y

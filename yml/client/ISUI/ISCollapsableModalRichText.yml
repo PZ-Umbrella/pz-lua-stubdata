@@ -80,7 +80,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirRight
           - name: onJoypadDirLeft
           - name: update

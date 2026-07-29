@@ -170,6 +170,7 @@ languages:
                 type: unknown
                 nullable: true
               - name: tooltip
+                type: string
                 nullable: true
             return:
               - type: umbrella.ISScrollingListBox.Item
@@ -248,6 +249,7 @@ languages:
           - name: setItemTextColorRGBA
             parameters:
               - name: index
+                type: integer
               - name: r
                 type: number
               - name: g
@@ -259,6 +261,7 @@ languages:
           - name: setItemSelectedTextColorRGBA
             parameters:
               - name: index
+                type: integer
               - name: r
                 type: number
               - name: g
@@ -270,9 +273,11 @@ languages:
           - name: setItemTextColorToDefault
             parameters:
               - name: index
+                type: integer
           - name: setItemSelectedTextColorToDefault
             parameters:
               - name: index
+                type: integer
           - name: setOnMouseDownFunction
             parameters:
               - name: target
@@ -340,6 +345,8 @@ languages:
           - name: sort
             parameters:
               - name: comparator
+                type: "fun(a: umbrella.ISScrollingListBox.Item, b:
+                  umbrella.ISScrollingListBox.Item): boolean"
           - name: updateTooltip
           - name: updateSmoothScrolling
           - name: parentsHaveScrollChildren
@@ -371,7 +378,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onLoseJoypadFocus

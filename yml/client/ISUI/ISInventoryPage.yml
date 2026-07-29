@@ -217,6 +217,7 @@ languages:
           - name: getContainerParent
             parameters:
               - name: container
+                type: ItemContainer
                 nullable: true
             return:
               - type: unknown
@@ -308,7 +309,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirUp
             parameters:
               - name: joypadData
@@ -343,6 +344,7 @@ languages:
           - name: playContainerCloseSound
             parameters:
               - name: container
+                type: ItemContainer
                 nullable: true
             return:
               - type: boolean
@@ -528,7 +530,9 @@ languages:
           - name: onRenameContainer
             parameters:
               - name: container
+                type: ItemContainer
               - name: player
+                type: integer
           - name: onKeyPressed
             parameters:
               - name: key
@@ -539,6 +543,7 @@ languages:
           - name: OnContainerUpdate
             parameters:
               - name: object
+                type: IsoObject | InventoryItem | IsoGridSquare
                 nullable: true
           - name: ongamestart
       ISInventoryPageContainerButtonPanel:

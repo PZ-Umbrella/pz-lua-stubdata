@@ -7,15 +7,17 @@ languages:
         constructors:
           - parameters:
               - name: ui
-                type: MultiplayerUI
+                type: ISUIElement
         staticFields:
           Type:
             defaultValue: '"ISMPScreenShading"'
         fields:
-          width: {}
-          height: {}
+          width:
+            type: number
+          height:
+            type: number
           ui:
-            type: MultiplayerUI
+            type: ISUIElement
         methods:
           - name: initialise
           - name: destroy
@@ -29,6 +31,10 @@ languages:
           - name: onResolutionChange
             parameters:
               - name: oldw
+                type: number
               - name: oldh
+                type: number
               - name: neww
+                type: number
               - name: newh
+                type: number

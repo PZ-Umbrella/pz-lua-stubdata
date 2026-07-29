@@ -49,7 +49,7 @@ languages:
         methods:
           - name: initContent
             return:
-              - type: self
+              - type: ISControllerBindingsEditorPanel
           - name: getStyle
             return:
               - type: ISStyle
@@ -69,8 +69,11 @@ languages:
           - name: onJoypadAxisBindingValueEdited
             parameters:
               - name: uiBinding
+                nullable: true
               - name: uiRow
+                nullable: true
               - name: charBinding
+                nullable: true
           - name: onBindingUIPanelEditingActivated
             parameters:
               - name: uiBinding

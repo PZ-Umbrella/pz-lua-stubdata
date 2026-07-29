@@ -131,8 +131,11 @@ languages:
               - name: face
                 type: string
               - name: extentX
+                type: number
               - name: extentY
+                type: number
               - name: extentZ
+                type: number
       TileGeometryEditor_CylinderPanel:
         extends: ISPanel
         constructors:

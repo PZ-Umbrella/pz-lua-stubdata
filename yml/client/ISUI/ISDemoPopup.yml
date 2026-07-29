@@ -46,7 +46,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: removeSelf
@@ -54,6 +54,7 @@ languages:
           - name: OnJoypadActivate
             parameters:
               - name: id
+                type: integer
           - name: getInstance
             return:
               - type: ISDemoPopup

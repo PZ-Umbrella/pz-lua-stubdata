@@ -18,6 +18,7 @@ languages:
           - name: removeZone
             parameters:
               - name: _zoneData
+                type: umbrella.Foraging.ZoneData
           - name: updateZone
             parameters:
               - name: _zoneData

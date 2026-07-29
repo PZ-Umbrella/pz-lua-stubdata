@@ -17,26 +17,37 @@ languages:
               - name: title
                 type: string
               - name: target
+                type: umbrella.ISTextBoxMap.Target
               - name: onclick
+                type: umbrella.ISButton.OnClick
+                nullable: true
               - name: player
+                type: integer
                 nullable: true
               - name: param1
+                type: unknown
+                nullable: true
               - name: param2
+                type: unknown
                 nullable: true
               - name: param3
+                type: unknown
                 nullable: true
               - name: param4
+                type: unknown
                 nullable: true
         staticFields:
           Type:
             defaultValue: '"ISMapSymbolDialog"'
         fields:
           colorButtonInfo:
-            type: table
+            type: umbrella.ISTextBoxMap.ColorButtonInfo[]
           colorButtons:
-            type: table
-          blackColor: {}
-          currentColor: {}
+            type: ISButton[]
+          blackColor:
+            type: ColorInfo
+          currentColor:
+            type: ColorInfo
           tickBoxPerspective:
             type: ISTickBox
           sliderScale:
@@ -51,17 +62,25 @@ languages:
             type: ISButton
           scale:
             type: number
-          rotation: {}
+          rotation:
+            type: number
+            nullable: true
           character:
             nullable: true
           text:
             type: string
-          mapUI: {}
-          symbolsUI: {}
-          onclick: {}
-          player:
+          mapUI:
+            type: umbrella.MapUI
+          symbolsUI:
+            type: ISWorldMapSymbols
+          onclick:
+            type: umbrella.ISButton.OnClick
             nullable: true
-          param1: {}
+          player:
+            type: integer
+            nullable: true
+          param1:
+            nullable: true
           param2:
             nullable: true
           param3:
@@ -74,11 +93,15 @@ languages:
           - name: onScaleChange
             parameters:
               - name: value
+                type: number
               - name: slider
+                type: ISSliderPanel
           - name: onRotationChange
             parameters:
               - name: value
+                type: number
               - name: slider
+                type: ISSliderPanel
           - name: onClick
             parameters:
               - name: button
@@ -96,16 +119,21 @@ languages:
           - name: showMatchPerspectiveTickBox
             parameters:
               - name: matchPerspective
+                type: boolean
           - name: showScaleSlider
             parameters:
               - name: scale
+                type: number
           - name: showRotationSlider
             parameters:
               - name: degrees
+                type: number
           - name: showZoomPanel
             parameters:
               - name: minZoomF
+                type: number
               - name: maxZoomF
+                type: number
           - name: layoutWidgets
           - name: isMatchPerspective
             return:
@@ -118,7 +146,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirDown

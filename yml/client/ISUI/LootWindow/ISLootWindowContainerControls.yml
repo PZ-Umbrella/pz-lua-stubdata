@@ -31,7 +31,7 @@ languages:
                 type: ItemContainer
                 nullable: true
             return:
-              - type: unknown
+              - type: ISLootWindowObjectControlHandler
           - name: arrange
           - name: getDisplayedContainer
             return:

@@ -97,6 +97,6 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: update
           - name: setHeightToContents

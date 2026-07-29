@@ -51,12 +51,14 @@ languages:
           - name: setLeft
             parameters:
               - name: left
+                type: number
           - name: getRight
             return:
               - type: number
           - name: setRight
             parameters:
               - name: right
+                type: number
           - name: getCenterX
             return:
               - type: number
@@ -66,12 +68,14 @@ languages:
           - name: setTop
             parameters:
               - name: top
+                type: number
           - name: getBottom
             return:
               - type: number
           - name: setBottom
             parameters:
               - name: bottom
+                type: number
           - name: getCenterY
             return:
               - type: number

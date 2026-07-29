@@ -54,7 +54,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: centerOnScreen
           - name: setVehicle
             parameters:

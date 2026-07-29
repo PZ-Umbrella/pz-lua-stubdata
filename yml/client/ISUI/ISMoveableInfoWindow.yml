@@ -167,7 +167,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: close
           - name: setDrag
             parameters:

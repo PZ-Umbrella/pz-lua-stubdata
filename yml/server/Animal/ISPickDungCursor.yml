@@ -101,7 +101,7 @@ languages:
               - name: joypadData
                 type: JoypadData
               - name: button
-                type: integer
+                type: JoypadButton
             return:
               - type: string
                 nullable: true

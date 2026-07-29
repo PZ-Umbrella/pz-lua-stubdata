@@ -7,7 +7,7 @@ languages:
         constructors:
           - parameters:
               - name: editor
-                type: ISBuildingRoomsEditor
+                type: unknown
         staticFields:
           Type:
             defaultValue: '"ISBuildingRoomsEditor_ToolAddRoom"'

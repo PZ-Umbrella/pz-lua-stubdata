@@ -651,6 +651,7 @@ languages:
           - name: setSelectedAttachment
             parameters:
               - name: attach
+                type: ModelAttachment
           - name: getSelectedAttachments
             return:
               - type: ModelAttachment[]
@@ -1001,6 +1002,7 @@ languages:
               - name: offset
                 type: Vector3f
               - name: radius
+                type: number
               - name: r
                 type: number
               - name: g
@@ -1012,8 +1014,11 @@ languages:
               - name: offset
                 type: Vector3f
               - name: rotate
+                type: Vector3f
               - name: scale
+                type: number
               - name: physicsShapeScript
+                type: string
               - name: r
                 type: number
               - name: g

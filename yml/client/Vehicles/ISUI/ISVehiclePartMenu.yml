@@ -143,6 +143,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: vehicle
+                type: BaseVehicle
               - name: lock
                 type: boolean
           - name: onSmashWindow

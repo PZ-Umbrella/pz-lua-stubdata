@@ -9,6 +9,7 @@ languages:
               - name: character
                 type: IsoPlayer
               - name: targetSquare
+                type: IsoGridSquare
                 nullable: true
         staticFields:
           Type:

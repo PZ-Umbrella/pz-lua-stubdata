@@ -15,12 +15,6 @@ languages:
             type: table<any, ISBrush>
           default:
             type: ISStyle
-        fields:
-          "[string]":
-            type: unknown
-            nullable: true
-            tags:
-              - StubGen_Extra
         methods:
           - name: getFont
             parameters:

@@ -238,7 +238,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirUp
           - name: onJoypadDirDown
           - name: onJoypadDirLeft
@@ -314,7 +314,9 @@ languages:
               - name: vehicle
                 type: BaseVehicle
               - name: hotwired
+                type: boolean
               - name: broken
+                type: boolean
           - name: onCheatRepair
             parameters:
               - name: playerObj
@@ -342,6 +344,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: part
+                type: VehiclePart
           - name: onCheatSetConditionAux
             parameters:
               - name: target

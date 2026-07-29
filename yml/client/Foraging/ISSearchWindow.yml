@@ -69,7 +69,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: _button
-                type: ISButton
+                type: JoypadButton
           - name: getAPrompt
             return:
               - type: string

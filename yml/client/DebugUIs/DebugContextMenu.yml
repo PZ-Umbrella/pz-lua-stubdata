@@ -113,6 +113,7 @@ languages:
           - name: doDebugObjectMenu
             parameters:
               - name: player
+                type: integer
               - name: context
                 type: ISContextMenu
               - name: worldobjects
@@ -484,6 +485,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: vehicle
+                type: BaseVehicle
           - name: onAddVehicle
             parameters:
               - name: playerObj

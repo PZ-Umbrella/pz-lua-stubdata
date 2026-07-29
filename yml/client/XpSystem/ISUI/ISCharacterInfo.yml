@@ -87,6 +87,7 @@ languages:
           - name: setVisible
             parameters:
               - name: visible
+                type: boolean
           - name: prerender
           - name: render
           - name: onMouseWheel
@@ -112,7 +113,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirUp
           - name: onJoypadDirDown
           - name: onJoypadDirLeft

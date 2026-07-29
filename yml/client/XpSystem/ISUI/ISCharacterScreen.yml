@@ -119,7 +119,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
         staticMethods:
           - name: onTrimBeard
             parameters:

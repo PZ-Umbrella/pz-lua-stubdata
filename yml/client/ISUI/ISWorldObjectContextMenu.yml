@@ -128,14 +128,19 @@ languages:
           - name: addGrabCorpseSubmenuOption
             parameters:
               - name: player
+                type: integer
               - name: worldobjects
                 type: IsoObject[]
               - name: subMenuGrab
+                type: ISContextMenu
               - name: corpse
+                type: IsoDeadBody
           - name: initWorldItemHighlightOption
             parameters:
               - name: option
+                type: umbrella.ISContextMenu.Option
               - name: object
+                type: IsoObject
           - name: handleGrabCorpseSubmenu
             parameters:
               - name: playerObj
@@ -143,6 +148,7 @@ languages:
               - name: worldobjects
                 type: IsoObject[]
               - name: subMenuGrab
+                type: ISContextMenu
             return:
               - type: boolean
           - name: onExtendedPlacement
@@ -244,6 +250,7 @@ languages:
               - name: safehouse
                 type: SafeHouse
               - name: player
+                type: IsoPlayer
           - name: onInfoGenerator
             parameters:
               - name: worldobjects
@@ -312,6 +319,7 @@ languages:
               - name: generator
                 type: IsoGenerator
               - name: player
+                type: integer
           - name: onFishingNet
             parameters:
               - name: _
@@ -903,7 +911,9 @@ languages:
               - name: worldobjects
                 type: IsoObject[]
               - name: fluidObject
+                type: IsoObject
               - name: fluidItem
+                type: InventoryItem
               - name: playerObj
                 type: IsoPlayer
           - name: onUnbarricade

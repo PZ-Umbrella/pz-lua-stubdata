@@ -91,6 +91,7 @@ languages:
           - name: setInfo
             parameters:
               - name: text
+                type: string
                 nullable: true
           - name: onInfo
           - name: close

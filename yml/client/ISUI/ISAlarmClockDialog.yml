@@ -84,7 +84,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: getCode
             return:
               - type: number

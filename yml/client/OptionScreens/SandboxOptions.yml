@@ -197,7 +197,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadNavigateStart
@@ -238,7 +238,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       SandboxOptions.SandboxOptionsScreenPanel:
@@ -281,7 +281,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       SandboxOptions.SandboxOptionsScreenPresetPanel:
@@ -303,7 +303,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       SandboxOptions.SandboxAdvancedControl:
@@ -320,7 +320,10 @@ languages:
               - name: height
                 type: number
               - name: setting
+                type: umbrella.ServerSettingsScreen.Setting
               - name: tooltip
+                type: string
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"SandboxAdvancedControl"'
@@ -358,7 +361,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp

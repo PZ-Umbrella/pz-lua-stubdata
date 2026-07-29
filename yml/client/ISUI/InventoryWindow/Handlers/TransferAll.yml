@@ -10,12 +10,14 @@ languages:
           Type:
             defaultValue: '"ISInventoryWindowControlHandler_TransferAll"'
         fields:
-          control: {}
+          control:
+            type: ISUIElement
+            nullable: true
         methods:
           - name: shouldBeVisible
             return:
               - type: boolean
           - name: getControl
             return:
-              - type: unknown
+              - type: ISUIElement
           - name: perform

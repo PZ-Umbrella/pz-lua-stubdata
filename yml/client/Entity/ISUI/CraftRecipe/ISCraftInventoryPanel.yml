@@ -145,9 +145,11 @@ languages:
           - name: onListItemClicked
             parameters:
               - name: _item
+                type: unknown
           - name: onRebuildItemNodes
             parameters:
               - name: _inputItems
+                nullable: true
           - name: updateContainers
             parameters:
               - name: _containers

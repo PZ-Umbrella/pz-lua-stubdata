@@ -64,6 +64,7 @@ languages:
           - name: getReloadTime
             parameters:
               - name: character
+                type: IsoPlayer
               - name: baseTime
                 type: number
             return:
@@ -99,6 +100,8 @@ languages:
               - name: gun
                 type: HandWeapon
               - name: shift
+                type: boolean
+                nullable: true
           - name: canShoot
             parameters:
               - name: player
@@ -118,6 +121,7 @@ languages:
           - name: onShoot
             parameters:
               - name: player
+                type: IsoPlayer
               - name: weapon
                 type: HandWeapon
           - name: OnPlayerAttackFinished

@@ -214,6 +214,7 @@ languages:
               - name: _z
                 type: number
               - name: color
+                type: umbrella.RGB
           - name: renderObjectThatCanRotate
             parameters:
               - name: _x
@@ -234,6 +235,7 @@ languages:
               - name: _z
                 type: number
               - name: _dir
+                type: IsoDirections
           - name: isFacingOriginalDirection
             return:
               - type: boolean
@@ -309,7 +311,7 @@ languages:
               - name: joypadData
                 type: JoypadData
               - name: button
-                type: integer
+                type: JoypadButton
           - name: getAPrompt
             return:
               - type: string

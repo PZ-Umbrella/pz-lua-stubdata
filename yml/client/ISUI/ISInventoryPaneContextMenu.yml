@@ -118,8 +118,11 @@ languages:
               - name: context
                 type: ISContextMenu
               - name: items
+                type: (InventoryItem | umbrella.ISInventoryPane.ItemRecord)[]
               - name: player
+                type: integer
               - name: cmd
+                type: string
           - name: showGrowingSeasons
             parameters:
               - name: playerObj
@@ -129,8 +132,11 @@ languages:
               - name: context
                 type: ISContextMenu
               - name: text
+                type: string
               - name: recipeItem
+                type: InventoryItem
               - name: recipes
+                type: List<String>
               - name: playerObj
                 type: IsoPlayer
               - name: isLiterature
@@ -194,6 +200,7 @@ languages:
               - name: fishingRod
                 type: InventoryItem
               - name: lure
+                type: InventoryItem
           - name: changeHook
             parameters:
               - name: player
@@ -553,6 +560,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: openingRecipe
+                type: CraftRecipe
               - name: realItem
                 type: InventoryItem
           - name: doDrinkFluidMenu
@@ -580,6 +588,7 @@ languages:
               - name: percent
                 type: number
               - name: openingRecipe
+                type: CraftRecipe
           - name: onAddItemInEvoRecipe
             parameters:
               - name: recipe
@@ -937,7 +946,9 @@ languages:
               - name: player
                 type: integer
               - name: openingRecipe
+                type: CraftRecipe
               - name: eatPercentage
+                type: integer
           - name: OnPrimaryWeapon
             parameters:
               - name: items
@@ -1005,7 +1016,9 @@ languages:
               - name: player
                 type: integer
               - name: openingRecipe
+                type: CraftRecipe
               - name: eatPercentage
+                type: integer
           - name: onPlaceTrap
             parameters:
               - name: weapon
@@ -1055,8 +1068,12 @@ languages:
           - name: transferItemToPlayer
             parameters:
               - name: item
+                type: InventoryItem
               - name: player
+                type: integer
               - name: dontWalk
+                type: boolean
+                nullable: true
           - name: onGrabItems
             parameters:
               - name: items
@@ -1167,6 +1184,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: item
+                type: InventoryItem
           - name: onMakeUp
             parameters:
               - name: makeup
@@ -1288,6 +1306,7 @@ languages:
               - name: context
                 type: ISContextMenu
               - name: item
+                type: InventoryItem
               - name: playerObj
                 type: IsoPlayer
             return:
@@ -1296,16 +1315,25 @@ languages:
           - name: onCustomFunction
             parameters:
               - name: customFunction
+                type: string
               - name: item
+                type: InventoryItem
               - name: playerObj
                 type: IsoPlayer
               - name: param
+                type: string
+                nullable: true
           - name: onNoRecipes
             parameters:
               - name: items
+                type: InventoryItem[]
               - name: item2
+                type: unknown
+                nullable: true
               - name: boolean
+                type: boolean
               - name: player
+                type: IsoPlayer
           - name: onWanted
             parameters:
               - name: items

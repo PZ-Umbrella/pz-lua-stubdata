@@ -367,7 +367,9 @@ languages:
           - name: isPointOverChild
             parameters:
               - name: screenX
+                type: number
               - name: screenY
+                type: number
             return:
               - type: boolean
           - name: suspendStencil
@@ -511,7 +513,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadButtonReleased
@@ -541,7 +543,7 @@ languages:
               - name: descendant
                 type: ISUIElement
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDown_Descendant
@@ -549,7 +551,7 @@ languages:
               - name: descendant
                 type: ISUIElement
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp_Descendant
@@ -778,6 +780,7 @@ languages:
               - name: y
                 type: number
               - name: scale
+                type: number
               - name: a
                 type: number
               - name: r

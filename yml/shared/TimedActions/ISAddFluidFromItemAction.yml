@@ -7,7 +7,7 @@ languages:
         constructors:
           - parameters:
               - name: character
-                nullable: true
+                type: IsoPlayer
               - name: itemFrom
                 type: InventoryItem
               - name: objectTo

@@ -106,9 +106,11 @@ languages:
               - name: character
                 type: IsoPlayer
               - name: isoAnimal
+                type: IsoAnimal
           - name: removeAnimalItem
             parameters:
               - name: character
+                type: IsoPlayer
           - name: testForAnimal
             parameters:
               - name: zoneType
@@ -128,6 +130,7 @@ languages:
               - name: bait
                 type: string
               - name: age
+                type: number
               - name: baitAmountMulti
                 type: number
               - name: player
@@ -180,6 +183,7 @@ languages:
           - name: SpawnDestroyItems
             parameters:
               - name: trapType
+                type: string
               - name: square
                 type: IsoGridSquare
               - name: object

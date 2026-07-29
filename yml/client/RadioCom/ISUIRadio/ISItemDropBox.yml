@@ -154,6 +154,7 @@ languages:
           - name: onDropItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: onRightMouseUp
             parameters:
               - name: x

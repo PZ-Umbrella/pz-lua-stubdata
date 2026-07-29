@@ -93,7 +93,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp
@@ -295,6 +295,7 @@ languages:
           - name: onMouseDownListBox
             parameters:
               - name: item
+                type: table
           - name: onPanelChange
           - name: onComboBoxSelected
             parameters:
@@ -335,9 +336,11 @@ languages:
           - name: settingValueChanged
             parameters:
               - name: category
+                type: unknown
               - name: settingName
                 type: string
               - name: newValue
+                type: unknown
           - name: notify
             parameters:
               - name: message
@@ -609,6 +612,7 @@ languages:
           - name: onMouseDownProfession
             parameters:
               - name: data
+                nullable: true
           - name: onAddProfession
           - name: onAddOtherProfession
           - name: onRemoveProfession
@@ -931,7 +935,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -1284,6 +1288,7 @@ languages:
           - name: setJoypadFocused
             parameters:
               - name: focused
+                type: boolean
               - name: joypadData
                 type: JoypadData
           - name: onGainJoypadFocus
