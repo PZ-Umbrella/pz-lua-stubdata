@@ -396,7 +396,7 @@ languages:
           - name: onJoypadDownInParent
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
             return:
@@ -419,6 +419,7 @@ languages:
               - name: size
                 type: number
               - name: id
+                type: string
           - name: getItem
             parameters:
               - name: index
@@ -444,6 +445,8 @@ languages:
             type: string
           size:
             type: number
+          id:
+            type: string
       umbrella.ISScrollingListBox.Item:
         fields:
           text:

@@ -160,6 +160,7 @@ languages:
           - name: activateViewById
             parameters:
               - name: id
+                type: integer
             return:
               - type: boolean
           - name: activateView
@@ -243,6 +244,8 @@ languages:
                 type: ISTabPanel
       umbrella.ISTabPanel.View:
         fields:
+          id:
+            type: integer
           name:
             type: string
           view:

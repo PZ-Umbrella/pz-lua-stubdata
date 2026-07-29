@@ -7,5 +7,6 @@ languages:
           - name: run
             parameters:
               - name: player
+                type: IsoPlayer
               - name: args
                 type: table

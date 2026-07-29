@@ -5,8 +5,10 @@ languages:
       gamepadBinding:
         fields:
           presets:
-            type: table
-          currentPreset: {}
+            type: table<string, umbrella.gamepadBinding.Preset>
+          currentPreset:
+            type: umbrella.gamepadBinding.Preset
+            nullable: true
         methods:
           - name: set
             parameters:
@@ -18,6 +20,7 @@ languages:
           - name: isCurrentBinding
             parameters:
               - name: presetKey
+                type: string
             return:
               - type: boolean
           - name: getCurrentActivePresetName
@@ -31,10 +34,21 @@ languages:
           - name: addInputSet
             parameters:
               - name: inputSet
+                type: CharacterInputBindingSet
             return:
-              - type: table
+              - type: umbrella.gamepadBinding.Preset
           - name: createNewFromCurrent
             return:
-              - type: table
+              - type: umbrella.gamepadBinding.Preset
         staticMethods:
           - name: optionGamepadBindingPresetChanged
+      umbrella.gamepadBinding.Preset:
+        fields:
+          key:
+            type: string
+          labelText:
+            type: string
+          descriptionText:
+            type: string
+          perform:
+            type: "fun(self: umbrella.gamepadBinding.Preset)"

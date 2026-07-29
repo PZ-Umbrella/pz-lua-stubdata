@@ -72,10 +72,15 @@ languages:
           - name: addFilterCombo
             parameters:
               - name: column
+                type: umbrella.ISScrollingListBox.Column
               - name: x
+                type: number
               - name: entryY
+                type: number
               - name: size
+                type: number
               - name: filterFunction
+                type: "fun(widget: ISComboBox, scriptItem: Item): boolean"
           - name: addItem
             parameters:
               - name: item
@@ -126,9 +131,11 @@ languages:
           - name: filterWeaponType
             parameters:
               - name: widget
+                type: ISTextEntryBox
               - name: scriptItem
+                type: Item
             return:
-              - type: unknown
+              - type: boolean
           - name: filterLootCategory
             parameters:
               - name: widget
@@ -178,10 +185,15 @@ languages:
           - name: drawTrueOrFalseColumn
             parameters:
               - name: columnIndex
+                type: integer
               - name: testBool
+                type: boolean
               - name: xoffset
+                type: number
               - name: y
+                type: number
               - name: a
+                type: number
         staticMethods:
           - name: onFilterChange
             parameters:

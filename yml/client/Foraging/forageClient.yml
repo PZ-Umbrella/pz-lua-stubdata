@@ -32,10 +32,13 @@ languages:
           - name: requestZone
             parameters:
               - name: _character
+                type: IsoPlayer
           - name: showForageHalo
             parameters:
               - name: _character
+                type: IsoPlayer
               - name: _itemList
+                type: ArrayList<InventoryItem>
       forageData:
         fields:
           "[string]":

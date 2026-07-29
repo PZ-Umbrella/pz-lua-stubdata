@@ -416,7 +416,9 @@ languages:
           - name: applyServerPool
             parameters:
               - name: _zoneId
+                type: string
               - name: _icons
+                type: table<string, umbrella.Foraging.PoolRecord>
           - name: doChangeZone
             parameters:
               - name: _zoneData

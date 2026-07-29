@@ -260,6 +260,7 @@ languages:
           - name: ReceiveMedicalCheckRequest
             parameters:
               - name: target
+                type: IsoPlayer
               - name: requester
                 type: IsoPlayer
           - name: AcceptedMedicalCheck

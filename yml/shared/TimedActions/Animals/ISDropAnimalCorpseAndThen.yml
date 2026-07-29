@@ -7,15 +7,19 @@ languages:
         constructors:
           - parameters:
               - name: character
+                type: IsoPlayer
               - name: item
+                type: InventoryItem
               - name: andThen
                 type: string
         staticFields:
           Type:
             defaultValue: '"ISDropAnimalCorpseAndThen"'
         fields:
-          item: {}
-          sound: {}
+          item:
+            type: InventoryItem
+          sound:
+            type: integer
           andThen:
             type: string
         methods:

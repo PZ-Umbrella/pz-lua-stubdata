@@ -148,6 +148,7 @@ languages:
           - name: ReceiveFactionInvite
             parameters:
               - name: faction
+                type: Faction
               - name: host
                 type: string
               - name: username

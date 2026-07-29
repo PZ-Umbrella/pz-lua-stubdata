@@ -21,7 +21,8 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISTradingUI"'
-          windows: {}
+          windows:
+            type: table<integer, ISTradingUI>
           CoolDownMessage:
             defaultValue: "300"
           States: {}
@@ -91,7 +92,9 @@ languages:
             nullable: true
           historical:
             type: umbrella.ISTradingUI.HistoryMessage[]
-          prevFocus: {}
+          prevFocus:
+            type: ISUIElement
+            nullable: true
         methods:
           - name: initialise
           - name: onSealOffer
@@ -110,6 +113,7 @@ languages:
           - name: isItemOffered
             parameters:
               - name: item
+                type: InventoryItem
             return:
               - type: boolean
           - name: update
@@ -120,9 +124,11 @@ languages:
           - name: onInvokeListItem_Inventory
             parameters:
               - name: data
+                type: table
           - name: onInvokeListItem_YourOffer
             parameters:
               - name: data
+                type: table
           - name: drawOffer
             parameters:
               - name: y
@@ -136,7 +142,7 @@ languages:
           - name: prerender
           - name: getTooltipItem
             return:
-              - type: unknown
+              - type: InventoryItem
                 nullable: true
           - name: updateTooltip
           - name: updateButtons
@@ -160,14 +166,14 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDown_Descendant
             parameters:
               - name: descendant
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: isInputBlocked
@@ -203,21 +209,26 @@ languages:
               - name: playerObj
                 type: IsoPlayer
             return:
-              - type: unknown
+              - type: ISTradingUI
                 nullable: true
           - name: ReceiveTradeRequest
             parameters:
               - name: otherPlayer
+                type: IsoPlayer
               - name: player
+                type: IsoPlayer
           - name: AcceptedTrade
             parameters:
               - name: otherPlayer
+                type: IsoPlayer
               - name: player
+                type: IsoPlayer
               - name: accepted
                 type: boolean
           - name: OtherAddNewItem
             parameters:
               - name: otherPlayer
+                type: IsoPlayer
               - name: player
                 type: IsoPlayer
               - name: item
@@ -225,6 +236,7 @@ languages:
           - name: RemoveItem
             parameters:
               - name: otherPlayer
+                type: IsoPlayer
               - name: player
                 type: IsoPlayer
               - name: itemId
@@ -232,6 +244,7 @@ languages:
           - name: UpdateState
             parameters:
               - name: otherPlayer
+                type: IsoPlayer
               - name: player
                 type: IsoPlayer
               - name: state
@@ -255,7 +268,8 @@ languages:
           Type:
             defaultValue: '"ISTradingUI_InventoryList"'
         fields:
-          selected: {}
+          selected: 
+            type: integer
           inventoryContainerCount:
             type: number
           itemTables:
@@ -264,13 +278,17 @@ languages:
             type: table
           tradingUI:
             type: ISTradingUI
-          treeExpIcon: {}
-          treeColIcon: {}
+          treeExpIcon:
+            type: Texture
+          treeColIcon:
+            type: Texture
           collapsed:
             type: table
           joypadParent:
             type: ISTradingUI
-          joyfocus: {}
+          joyfocus:
+            type: JoypadData
+            nullable: true
         methods:
           - name: onMouseUp
             parameters:
@@ -280,15 +298,18 @@ languages:
                 type: number
           - name: expandCollapseSize
             return:
-              - type: unknown
+              - type: number
           - name: iconSize
             return:
               - type: number
           - name: doDrawItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: updateYourInventory
@@ -306,6 +327,7 @@ languages:
           - name: addInventoryItemToGroup
             parameters:
               - name: item
+                type: InventoryItem
               - name: isEquipped
                 type: boolean
               - name: isInHotbar
@@ -318,7 +340,9 @@ languages:
           - name: itemSortByNameInc
             parameters:
               - name: a
+                type: table
               - name: b
+                type: table
             return:
               - type: boolean
       umbrella.ISTradingUI.HistoryMessage:

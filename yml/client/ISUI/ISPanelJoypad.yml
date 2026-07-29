@@ -257,13 +257,18 @@ languages:
               - name: rowIndex
                 type: number
               - name: fromChild
+                type: ISUIElement
+                nullable: true
             return:
-              - type: unknown
+              - type: ISUIElement
+                nullable: true
           - name: getClosestChild
             parameters:
               - name: children
                 type: ISUIElement[]
               - name: fromChild
+                type: ISUIElement
+                nullable: true
             return:
               - type: integer
           - name: onJoypadDirLeft
@@ -418,8 +423,9 @@ languages:
           - name: getVisibleElements
             parameters:
               - name: uiElements
+                type: ISUIElement[]
             return:
-              - type: table
+              - type: ISUIElement[]
       umbrella.ISPanelJoypad.JoypadState:
         fields:
           index:

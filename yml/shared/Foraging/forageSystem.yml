@@ -370,17 +370,19 @@ languages:
           - name: getAffinitySpriteNames
             parameters:
               - name: _object
+                type: IsoObject
             return:
-              - type: table
+              - type: string[]
           - name: resolveSpriteAffinity
             parameters:
               - name: _spriteName
                 type: string
               - name: _focusCategory
+                type: string
             return:
-              - type: unknown
+              - type: string
                 nullable: true
-              - type: unknown
+              - type: umbrella.Foraging.CategoryDefinition
                 nullable: true
           - name: populateCatDefs
             parameters:

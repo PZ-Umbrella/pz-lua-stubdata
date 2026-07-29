@@ -60,7 +60,7 @@ languages:
             type: number
             nullable: true
           viewList:
-            type: table
+            type: umbrella.ISMPTabPanel.View[]
           activeView:
             type: table
             nullable: true
@@ -161,8 +161,7 @@ languages:
           - name: activateViewIndex
             parameters:
               - name: viewIndex
-                type: number
-                nullable: true
+                type: integer
           - name: activateView
             parameters:
               - name: viewName
@@ -179,7 +178,7 @@ languages:
                 nullable: true
           - name: getNumViews
             return:
-              - type: number
+              - type: integer
           - name: addView
             parameters:
               - name: name

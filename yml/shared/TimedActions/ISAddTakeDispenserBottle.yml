@@ -16,7 +16,8 @@ languages:
           Type:
             defaultValue: '"ISAddTakeDispenserBottle"'
         fields:
-          sound: {}
+          sound:
+            type: integer
           waterdispenser:
             type: IsoObject
           square:

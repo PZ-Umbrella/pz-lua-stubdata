@@ -150,7 +150,8 @@ languages:
             type: boolean
           isStackable:
             type: boolean
-          fitsBeneathCountertop: {}
+          fitsBeneathCountertop:
+            type: boolean
           isWaterCollector:
             type: boolean
           material:

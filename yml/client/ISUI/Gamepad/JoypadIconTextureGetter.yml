@@ -31,7 +31,7 @@ languages:
               - type: string
           - name: getWidthOrig
             return:
-              - type: unknown
+              - type: number
           - name: getHeightOrig
             return:
-              - type: unknown
+              - type: number

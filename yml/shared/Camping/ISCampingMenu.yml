@@ -119,15 +119,16 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: campfires
-                type: table
+                type: CCampfireGlobalObject[]
             return:
-              - type: unknown
+              - type: CCampfireGlobalObject
                 nullable: true
           - name: selectCampfireInLootWindow
             parameters:
               - name: playerNum
                 type: integer
               - name: isoCampfireObject
+                type: IsoObject
           - name: doCampingMenu
             parameters:
               - name: player

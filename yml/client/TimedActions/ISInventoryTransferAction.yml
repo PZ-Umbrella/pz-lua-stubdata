@@ -73,7 +73,8 @@ languages:
             type: ItemContainer
           destContainer:
             type: ItemContainer
-          startTime: {}
+          startTime:
+            type: integer
           loopedAction:
             type: boolean
           isTransferIntoVehicleSeatFromOutside:
