@@ -367,6 +367,21 @@ languages:
               - name: _overwrite
                 type: boolean
                 nullable: true
+          - name: getAffinitySpriteNames
+            parameters:
+              - name: _object
+            return:
+              - type: table
+          - name: resolveSpriteAffinity
+            parameters:
+              - name: _spriteName
+                type: string
+              - name: _focusCategory
+            return:
+              - type: unknown
+                nullable: true
+              - type: unknown
+                nullable: true
           - name: populateCatDefs
             parameters:
               - name: _catDefs

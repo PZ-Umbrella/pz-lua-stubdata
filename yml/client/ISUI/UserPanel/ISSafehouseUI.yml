@@ -141,6 +141,8 @@ languages:
                 type: string
               - name: host
                 type: string
+              - name: username
+                type: string
           - name: AcceptedSafehouseInvite
             parameters:
               - name: safehouseName

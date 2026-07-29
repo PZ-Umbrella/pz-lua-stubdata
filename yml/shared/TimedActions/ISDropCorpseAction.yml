@@ -17,6 +17,8 @@ languages:
         fields:
           forceProgressBar:
             type: boolean
+          allowedWhileDraggingCorpses:
+            type: boolean
         methods:
           - name: isValid
             return:

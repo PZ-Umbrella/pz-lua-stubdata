@@ -89,6 +89,10 @@ languages:
             type: ISLabel
           resetLua:
             type: ISButton
+          hasSaveFiles:
+            type: boolean
+          continueDisabled:
+            type: boolean
           latestSaveOption:
             type: ISLabel
           loadOption:
@@ -109,7 +113,7 @@ languages:
             type: ISLabel
           exitOption:
             type: ISLabel
-          quitToDesktop:
+          quitToDesktopOption:
             type: ISLabel
           maxMenuItemWidth:
             type: number
@@ -125,8 +129,6 @@ languages:
             type: ISLabel
           desc:
             type: SurvivorDesc
-          animPopup:
-            type: ISModalRichText
           threeD:
             type: ISUI3DModel
           firstFrame:
@@ -183,6 +185,7 @@ languages:
               - name: visible
                 type: boolean
           - name: instantiate
+          - name: startNormalMainScreen
           - name: copyRev
           - name: render
           - name: calcLogoHeight
@@ -211,6 +214,7 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+          - name: quitToDesktop
           - name: onClickTermsOfService
             parameters:
               - name: button

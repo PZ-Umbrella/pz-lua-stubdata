@@ -86,6 +86,8 @@ languages:
             type: number
           updateTick:
             type: number
+          isValidSquare:
+            type: boolean
           pinOffset:
             type: number
           textureCenter:

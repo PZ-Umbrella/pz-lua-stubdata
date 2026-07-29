@@ -158,6 +158,11 @@ languages:
             parameters:
               - name: h
                 type: number
+          - name: activateViewIndex
+            parameters:
+              - name: viewIndex
+                type: number
+                nullable: true
           - name: activateView
             parameters:
               - name: viewName
@@ -172,6 +177,9 @@ languages:
             return:
               - type: integer
                 nullable: true
+          - name: getNumViews
+            return:
+              - type: number
           - name: addView
             parameters:
               - name: name

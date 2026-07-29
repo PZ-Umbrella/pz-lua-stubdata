@@ -4,4 +4,4 @@ languages:
     classes:
       worldgen:
         staticFields:
-          features.PLANT.bush_dry: {}
+          features.TREE.holly_jumbo_xxl: {}

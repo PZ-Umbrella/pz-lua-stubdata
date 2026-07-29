@@ -92,6 +92,8 @@ languages:
             type: boolean
           columns:
             type: umbrella.ISScrollingListBox.Column[]
+          stealJoypadFocusFromParent:
+            type: boolean
         methods:
           - name: initialise
           - name: setJoypadFocused
@@ -375,12 +377,30 @@ languages:
               - name: index
                 type: integer
           - name: render
+          - name: renderJoypadFocus
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: w
+                type: number
+              - name: h
+                type: number
           - name: onJoypadDown
             parameters:
               - name: button
                 type: JoypadButton
               - name: joypadData
                 type: JoypadData
+          - name: onJoypadDownInParent
+            parameters:
+              - name: button
+                type: integer
+              - name: joypadData
+                type: JoypadData
+            return:
+              - type: boolean
           - name: onLoseJoypadFocus
             parameters:
               - name: joypadData
@@ -398,6 +418,7 @@ languages:
                 type: string
               - name: size
                 type: number
+              - name: id
           - name: getItem
             parameters:
               - name: index

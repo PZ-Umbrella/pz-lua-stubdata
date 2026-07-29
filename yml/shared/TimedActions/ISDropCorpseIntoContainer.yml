@@ -20,6 +20,8 @@ languages:
             type: ItemContainer
           grappledChar:
             type: IGrappleable
+          allowedWhileDraggingCorpses:
+            type: boolean
         methods:
           - name: isValid
             return:

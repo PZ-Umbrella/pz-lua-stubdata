@@ -40,8 +40,6 @@ languages:
             type: ISButton
           tagColor:
             type: ISButton
-          tagColorBtn:
-            type: ISButton
           colorPicker:
             type: ISColorPicker
           playerList:
@@ -137,6 +135,11 @@ languages:
                 type: ISButton
               - name: player
                 nullable: true
+          - name: onDisbandFaction
+            parameters:
+              - name: button
+                type: ISButton
+              - name: player
           - name: onAnswerFactionInvite
             parameters:
               - name: button
@@ -144,9 +147,10 @@ languages:
         staticMethods:
           - name: ReceiveFactionInvite
             parameters:
-              - name: factionName
-                type: string
+              - name: faction
               - name: host
+                type: string
+              - name: username
                 type: string
           - name: AcceptedFactionInvite
             parameters:

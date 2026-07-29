@@ -5,9 +5,6 @@ languages:
       forageClient:
         staticMethods:
           - name: init
-          - name: getZones
-            return:
-              - type: forageData
           - name: updateData
           - name: clearData
           - name: syncForageData
@@ -32,6 +29,13 @@ languages:
               - name: _icon
                 type: umbrella.Foraging.ZoneIconData
                 nullable: true
+          - name: requestZone
+            parameters:
+              - name: _character
+          - name: showForageHalo
+            parameters:
+              - name: _character
+              - name: _itemList
       forageData:
         fields:
           "[string]":

@@ -1,0 +1,36 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      TwentyEightMinutesLater:
+        staticFields:
+          id:
+            defaultValue: '"TwentyEightMinutesLater"'
+          image:
+            defaultValue: '"media/lua/client/LastStand/28_minutes_later.png"'
+          video:
+            defaultValue: '"28_minutes_later.bik"'
+          gameMode:
+            defaultValue: '"28 Minutes Later"'
+          world:
+            defaultValue: '"Muldraugh, KY"'
+          x:
+            defaultValue: "10863"
+          y:
+            defaultValue: "10042"
+          z:
+            defaultValue: "0"
+        staticMethods:
+          - name: Add
+          - name: OnGameStart
+          - name: OnInitWorld
+          - name: RemovePlayer
+            parameters:
+              - name: p
+          - name: AddPlayer
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: playerObj
+                type: IsoPlayer
+          - name: Render

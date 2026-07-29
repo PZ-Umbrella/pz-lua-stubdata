@@ -26,6 +26,8 @@ languages:
             nullable: true
           bodySquare:
             type: IsoGridSquare
+          allowedWhileDraggingCorpses:
+            type: boolean
         methods:
           - name: isValidStart
             return:

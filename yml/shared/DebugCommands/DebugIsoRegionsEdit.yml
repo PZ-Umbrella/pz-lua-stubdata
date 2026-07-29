@@ -1,0 +1,11 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      DebugIsoRegionsEdit:
+        staticMethods:
+          - name: run
+            parameters:
+              - name: player
+              - name: args
+                type: table

@@ -120,6 +120,23 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: getBestPlantFromTable
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: worldobjects
+                type: IsoObject[]
+            return:
+              - type: unknown
+                nullable: true
+          - name: pickBestPlantForJoypadPlayer
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: plants
+            return:
+              - type: unknown
+                nullable: true
           - name: doFarmingMenu2
             parameters:
               - name: player

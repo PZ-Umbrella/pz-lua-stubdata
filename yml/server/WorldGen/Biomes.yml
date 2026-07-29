@@ -6,3 +6,4 @@ languages:
         staticFields:
           biomes: {}
           biomes_map: {}
+          subbiomes: {}

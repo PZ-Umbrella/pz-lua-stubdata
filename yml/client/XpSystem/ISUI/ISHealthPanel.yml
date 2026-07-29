@@ -259,6 +259,7 @@ languages:
                 nullable: true
           - name: ReceiveMedicalCheckRequest
             parameters:
+              - name: target
               - name: requester
                 type: IsoPlayer
           - name: AcceptedMedicalCheck

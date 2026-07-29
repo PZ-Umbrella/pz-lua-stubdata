@@ -114,6 +114,20 @@ languages:
                 type: ISBBQLightFromLiterature | ISLightFromLiterature
               - name: kindleAction
                 type: ISBBQLightFromKindle | ISLightFromKindle
+          - name: pickBestCampfire
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: campfires
+                type: table
+            return:
+              - type: unknown
+                nullable: true
+          - name: selectCampfireInLootWindow
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: isoCampfireObject
           - name: doCampingMenu
             parameters:
               - name: player

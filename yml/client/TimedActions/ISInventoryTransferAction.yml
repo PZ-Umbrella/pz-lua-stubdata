@@ -73,9 +73,10 @@ languages:
             type: ItemContainer
           destContainer:
             type: ItemContainer
-          transactions:
-            type: umbrella.ISInventoryTransferAction.Transaction
+          startTime: {}
           loopedAction:
+            type: boolean
+          isTransferIntoVehicleSeatFromOutside:
             type: boolean
         methods:
           - name: isValid
@@ -87,6 +88,9 @@ languages:
               - name: cont
                 type: ItemContainer
           - name: startActionAnim
+          - name: waitToStart
+            return:
+              - type: boolean
           - name: start
           - name: playSourceContainerOpenSound
           - name: playSourceContainerCloseSound

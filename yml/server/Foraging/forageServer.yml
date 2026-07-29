@@ -3,6 +3,30 @@ languages:
   lua:
     classes:
       forageServer:
+        staticFields:
+          pools: {}
+          byId: {}
+          lastFind: {}
+          focus: {}
+          lastReqMs: {}
+          minReqMs:
+            defaultValue: "250"
+          maxPickupDistance:
+            defaultValue: "30"
+          maxXPDistance:
+            defaultValue: "20"
+          nearMargin:
+            defaultValue: "25"
+          poolGraceMs:
+            defaultValue: "60000"
+          relevanceMs:
+            defaultValue: "2000"
+          _nextRelevanceMs:
+            defaultValue: "0"
+          affinityRadius:
+            defaultValue: "8"
+          affinityRolled: {}
+          affinityChunks: {}
         staticMethods:
           - name: updateData
           - name: clearData
@@ -42,3 +66,67 @@ languages:
               - name: _clientID
                 type: unknown
                 nullable: true
+          - name: generatePool
+            parameters:
+              - name: _player
+              - name: _zoneData
+              - name: _focus
+            return:
+              - type: table
+          - name: ensurePool
+            parameters:
+              - name: _player
+              - name: _zoneData
+              - name: _focus
+            return:
+              - type: table
+                nullable: true
+              - type: boolean
+                nullable: true
+          - name: scanAffinity
+            parameters:
+              - name: _player
+              - name: _zoneData
+              - name: _entry
+                type: table
+                nullable: true
+          - name: onRequestZone
+            parameters:
+              - name: _player
+              - name: _focus
+          - name: onSpot
+            parameters:
+              - name: _player
+              - name: _iconID
+          - name: buildItems
+            parameters:
+              - name: _player
+              - name: _rec
+              - name: _itemDef
+            return:
+              - type: unknown
+          - name: onPickup
+            parameters:
+              - name: _player
+              - name: _iconID
+              - name: _container
+            return:
+              - type: boolean
+          - name: dropZonePool
+            parameters:
+              - name: _user
+              - name: _zoneId
+          - name: dropPlayer
+            parameters:
+              - name: _user
+          - name: playerNearZone
+            parameters:
+              - name: _px
+              - name: _py
+              - name: _zoneId
+            return:
+              - type: boolean
+          - name: relevanceTick
+    fields:
+      forageClient:
+        type: forageServer

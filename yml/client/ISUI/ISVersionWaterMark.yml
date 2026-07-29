@@ -21,12 +21,12 @@ languages:
           Type:
             defaultValue: '"WaterMarkUI"'
         fields:
+          chr:
+            type: IsoPlayer
           revButton:
             type: ISButton
           refreshNeeded:
             type: boolean
-          chr:
-            type: IsoPlayer
           version:
             type: string
         methods:

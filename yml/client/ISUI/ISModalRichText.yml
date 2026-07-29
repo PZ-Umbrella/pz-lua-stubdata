@@ -69,6 +69,10 @@ languages:
             nullable: true
           destroyOnClick:
             type: boolean
+          yesText:
+            type: string
+          noText:
+            type: string
         methods:
           - name: initialise
           - name: updateButtons

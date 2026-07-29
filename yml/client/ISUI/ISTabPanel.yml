@@ -157,6 +157,11 @@ languages:
             return:
               - type: ISUIElement
                 nullable: true
+          - name: activateViewById
+            parameters:
+              - name: id
+            return:
+              - type: boolean
           - name: activateView
             parameters:
               - name: viewName

@@ -92,6 +92,8 @@ languages:
             type: number
           disableTick:
             type: number
+          _nextForageReq:
+            type: number
           isSpotting:
             type: boolean
           baseWidth:
@@ -411,6 +413,10 @@ languages:
               - name: _recreate
                 type: boolean
                 nullable: true
+          - name: applyServerPool
+            parameters:
+              - name: _zoneId
+              - name: _icons
           - name: doChangeZone
             parameters:
               - name: _zoneData

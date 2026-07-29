@@ -4,4 +4,4 @@ languages:
     classes:
       worldgen:
         staticFields:
-          features.TREE.grass_medium: {}
+          subbiomes.grass: {}

@@ -72,6 +72,7 @@ languages:
                 type: ArrayList<string>
               - name: steamIDs
                 type: ArrayList<string>
+              - name: pingValues
           - name: onOptionMouseDown
             parameters:
               - name: button
@@ -118,4 +119,5 @@ languages:
                 type: ArrayList<string>
               - name: steamIDs
                 type: ArrayList<string>
+              - name: pingValues
           - name: recreate

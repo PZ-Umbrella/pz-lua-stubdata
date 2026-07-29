@@ -9,17 +9,17 @@ languages:
           completionText:
             defaultValue: '"Survive a night to unlock next challenge."'
           image:
-            defaultValue: '"media/lua/client/LastStand/AReallyCDDAy.png"'
+            defaultValue: '"media/lua/client/LastStand/a_really_cdday.png"'
           video:
-            defaultValue: '"CDDA.bik"'
+            defaultValue: '"a_really_cdday.bik"'
           gameMode:
             defaultValue: '"A Really CD DA"'
           world:
             defaultValue: '"Muldraugh, KY"'
           x:
-            defaultValue: (36 * 300) + 21
+            defaultValue: "10816"
           y:
-            defaultValue: (31 * 300) + 111
+            defaultValue: "9413"
           z:
             defaultValue: "0"
           spawns: {}

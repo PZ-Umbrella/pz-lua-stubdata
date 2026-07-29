@@ -44,6 +44,8 @@ languages:
           additionalContext:
             type: unknown
             nullable: true
+          allowedWhileDraggingCorpses:
+            type: boolean
         methods:
           - name: isValid
             return:

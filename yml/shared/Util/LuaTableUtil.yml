@@ -11,6 +11,11 @@ languages:
               - name: element
             return:
               - type: table
+          - name: insertAllUniqueElementsFromJavaList
+            parameters:
+              - name: list
+                type: table
+              - name: elements
           - name: contains
             parameters:
               - name: list
