@@ -97,6 +97,7 @@ languages:
           - name: onAnnotationListItemSelected
             parameters:
               - name: symbol
+                type: WorldMapBaseSymbol
           - name: onLoadMap
           - name: onSaveMap
           - name: generateLuaScript

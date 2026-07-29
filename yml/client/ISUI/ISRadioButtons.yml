@@ -59,6 +59,8 @@ languages:
           joypadFocused:
             type: boolean
             nullable: true
+          SuperType:
+            type: ISPanel
           textureCircle:
             type: Texture
           textureIndicator:

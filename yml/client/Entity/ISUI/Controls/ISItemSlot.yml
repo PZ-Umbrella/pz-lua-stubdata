@@ -318,4 +318,6 @@ languages:
           - name: drawTooltip
             parameters:
               - name: _itemSlot
+                type: ISItemSlot
               - name: _tooltip
+                type: ObjectTooltip

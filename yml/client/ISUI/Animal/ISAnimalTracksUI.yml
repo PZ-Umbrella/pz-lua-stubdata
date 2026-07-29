@@ -63,6 +63,7 @@ languages:
               - name: a
                 type: number
               - name: font
+                type: UIFont
           - name: getAnimalType
             return:
               - type: string

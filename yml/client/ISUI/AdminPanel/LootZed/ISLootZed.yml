@@ -29,8 +29,6 @@ languages:
             type: ISTextEntryBox
           playerSelect:
             type: ISComboBox
-          name:
-            nullable: true
           player:
             type: IsoPlayer
           titlebarbkg:

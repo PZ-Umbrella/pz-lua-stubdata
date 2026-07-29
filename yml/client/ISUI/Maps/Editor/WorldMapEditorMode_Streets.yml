@@ -7,6 +7,7 @@ languages:
         constructors:
           - parameters:
               - name: editor
+                type: WorldMapEditor
         staticFields:
           Type:
             defaultValue: '"WorldMapEditorMode_Streets"'
@@ -46,22 +47,33 @@ languages:
             type: number
           mode:
             type: string
-          editorAPI: {}
+          editorAPI:
+            type: EditStreetsV1
+          streetsAPI:
+            type: WorldMapStreetsV1
+            tags:
+              - StubGen_Extra
         methods:
           - name: createChildren
           - name: render
           - name: renderStreetPoints
             parameters:
               - name: street
+                type: EditStreetV1
           - name: renderStreetLines
             parameters:
               - name: street
+                type: EditStreetV1
           - name: renderStreetLine
             parameters:
               - name: worldX1
+                type: number
               - name: worldY1
+                type: number
               - name: worldX2
+                type: number
               - name: worldY2
+                type: number
               - name: r
                 type: number
               - name: g
@@ -129,19 +141,21 @@ languages:
               - name: y
                 type: number
             return:
-              - type: unknown
+              - type: EditStreetV1
           - name: pickStreetPoint
             parameters:
               - name: street
+                type: EditStreetV1
               - name: x
                 type: number
               - name: y
                 type: number
             return:
-              - type: unknown
+              - type: integer
           - name: streetContainsPoint
             parameters:
               - name: street
+                type: EditStreetV1
               - name: x
                 type: number
               - name: y

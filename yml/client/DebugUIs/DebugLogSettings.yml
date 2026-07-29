@@ -18,6 +18,8 @@ languages:
           Type:
             defaultValue: '"DebugLogSettings"'
         fields:
+          comboSetAll:
+            type: ISComboBox
           comboLookup:
             type: table<DebugType, ISComboBox>
         methods:
@@ -27,10 +29,18 @@ languages:
                 type: ISComboBox
               - name: debugType
                 type: DebugType
+          - name: onSetProfile
+            parameters:
+              - name: comboBox
+                type: ISComboBox
           - name: onSetAll
             parameters:
               - name: comboBox
                 type: ISComboBox
+          - name: onSave
+            parameters:
+              - name: button
+                type: ISButton
           - name: createChildren
           - name: setVisible
             parameters:

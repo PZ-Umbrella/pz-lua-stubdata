@@ -18,10 +18,10 @@ languages:
           Type:
             defaultValue: '"ISRepairEngine"'
         fields:
-          vehicle:
-            type: BaseVehicle
           part:
             type: VehiclePart
+          vehicle:
+            type: BaseVehicle
           item:
             type: InventoryItem
           maxTimeInit:

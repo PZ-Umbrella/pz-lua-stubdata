@@ -19,7 +19,8 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISExtendedPlacementUI"'
-          windows: {}
+          windows:
+            type: table<integer, ISExtendedPlacementUI>
         fields:
           labelmov:
             type: ISLabel
@@ -83,7 +84,8 @@ languages:
             type: InventoryItem
           font:
             type: UIFont
-          fontsmall: {}
+          fontsmall:
+            type: UIFont
           pressedTime:
             type: number
           pressedMaxTime:
@@ -136,7 +138,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: setObject
             parameters:
               - name: item
@@ -147,9 +149,11 @@ languages:
           - name: onRotateGizmo
             parameters:
               - name: vector3
+                type: Vector3f
           - name: onTranslateGizmo
             parameters:
               - name: vector3
+                type: Vector3f
           - name: close
           - name: isKeyConsumed
             parameters:
@@ -165,5 +169,7 @@ languages:
           - name: GetWindowForPlayer
             parameters:
               - name: playerIndex
+                type: integer
             return:
-              - type: unknown
+              - type: ISExtendedPlacementUI
+                nullable: true

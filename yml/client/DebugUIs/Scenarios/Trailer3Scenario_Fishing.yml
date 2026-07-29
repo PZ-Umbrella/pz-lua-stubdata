@@ -24,6 +24,7 @@ languages:
               - name: z
                 type: number
               - name: tile
+                type: string
           - name: getSQ
             parameters:
               - name: x

@@ -1,0 +1,12 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      UIHorizontalAlignment:
+        staticFields:
+          Left:
+            defaultValue: "1"
+          Center:
+            defaultValue: "2"
+          Right:
+            defaultValue: "3"

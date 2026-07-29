@@ -10,7 +10,9 @@ languages:
           Type:
             defaultValue: '"ISInventoryWindowControlHandler_TransferSameTypeMultiContainer"'
         fields:
-          control: {}
+          control:
+            type: ISUIElement
+            nullable: true
           isMouseOver:
             type: boolean
           itemsToTransferMap:
@@ -25,23 +27,26 @@ languages:
               - type: boolean
           - name: getControl
             return:
-              - type: unknown
+              - type: ISUIElement
           - name: perform
           - name: consumeItems
             parameters:
               - name: lootContainer
+                type: ItemContainer
               - name: allItemsMap
+                type: table<string, InventoryItem[]>
             return:
-              - type: table
+              - type: InventoryItem[]
           - name: getItemsTable
             parameters:
               - name: container
+                type: ItemContainer
             return:
-              - type: table
+              - type: table<string, InventoryItem[]>
           - name: getItemsToTransfer
             return:
-              - type: table
-              - type: table
+              - type: InventoryItem[]
+              - type: table<InventoryItem, boolean>
           - name: onMouseOverButton
             parameters:
               - name: button

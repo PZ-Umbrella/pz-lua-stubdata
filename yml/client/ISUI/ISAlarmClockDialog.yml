@@ -43,8 +43,6 @@ languages:
           character:
             type: IsoPlayer
             nullable: true
-          name:
-            nullable: true
           player:
             type: integer
           playerX:
@@ -86,7 +84,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: getCode
             return:
               - type: number

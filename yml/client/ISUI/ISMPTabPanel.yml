@@ -1,6 +1,10 @@
 version: "1.1"
 languages:
   lua:
+    aliases:
+      umbrella.ISMPTabPanel.TabTornOff:
+        - type: "fun(target: unknown, tornOff: umbrella.ISMPTabPanel.View, newWindow:
+            ISCollapsableWindow)"
     classes:
       ISMPTabPanel:
         extends: ISPanel
@@ -24,6 +28,7 @@ languages:
           mouseOut:
             defaultValue: "false"
           viewDragging:
+            type: umbrella.ISMPTabPanel.View
             nullable: true
           viewDraggin:
             type: table
@@ -66,13 +71,15 @@ languages:
           centerTabs:
             type: boolean
           tabTornOffTarget:
+            type: unknown
             nullable: true
           tabTornOff:
+            type: umbrella.ISMPTabPanel.TabTornOff
             nullable: true
           backgroundColorPanel:
-            type: table
+            type: umbrella.RGBA
           backgroundColorSelected:
-            type: table
+            type: umbrella.RGBA
           blinkTabs:
             type: table
           tabHeight:
@@ -89,12 +96,15 @@ languages:
           - name: ensureVisible
             parameters:
               - name: index
+                type: integer
           - name: setTabsTransparency
             parameters:
               - name: alpha
+                type: number
           - name: setTextTransparency
             parameters:
               - name: alpha
+                type: number
           - name: prerender2
           - name: prerender
           - name: onMouseDown
@@ -138,7 +148,7 @@ languages:
               - name: viewName
                 type: string
             return:
-              - type: unknown
+              - type: ISUIElement
                 nullable: true
           - name: setWidth
             parameters:
@@ -156,62 +166,85 @@ languages:
               - type: boolean
           - name: getActiveView
             return:
-              - type: unknown
+              - type: ISUIElement
                 nullable: true
           - name: getActiveViewIndex
             return:
-              - type: unknown
+              - type: integer
                 nullable: true
           - name: addView
             parameters:
               - name: name
                 type: string
               - name: iconEnabled
+                type: Texture
               - name: iconDisabled
+                type: Texture
               - name: view
+                type: ISUIElement
           - name: removeView
             parameters:
               - name: view
+                type: ISUIElement
           - name: replaceView
             parameters:
               - name: view
+                type: ISUIElement
               - name: panel
+                type: ISUIElement
             return:
-              - type: unknown
+              - type: ISUIElement
                 nullable: true
           - name: setEqualTabWidth
             parameters:
               - name: equal
+                type: boolean
           - name: setCenterTabs
             parameters:
               - name: center
+                type: boolean
           - name: getWidthOfAllTabs
             return:
               - type: number
           - name: getTabX
             parameters:
               - name: tabIndex
+                type: integer
               - name: scrollX
+                type: number
             return:
               - type: number
           - name: getTabIndexAtX
             parameters:
               - name: x
+                type: number
               - name: scrollX
+                type: number
             return:
               - type: number
           - name: getScrollButtonAtX
             parameters:
               - name: x
+                type: number
             return:
               - type: string
                 nullable: true
           - name: setOnTabTornOff
             parameters:
               - name: target
+                type: unknown
+                nullable: true
               - name: method
+                type: umbrella.ISMPTabPanel.TabTornOff
         staticMethods:
           - name: redoTab
             parameters:
               - name: self
                 type: ISMPTabPanel
+      umbrella.ISMPTabPanel.View:
+        extends: umbrella.ISTabPanel.View
+        fields:
+          iconEnabled:
+            type: Texture
+          iconDisabled:
+            type: Texture

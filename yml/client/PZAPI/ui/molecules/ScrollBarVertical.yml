@@ -35,9 +35,11 @@ languages:
           - name: setBarSize
             parameters:
               - name: sizeCoeff
+                type: number
           - name: updateBar
             parameters:
               - name: percent
+                type: number
       PZAPI.UI:
         local: true
         staticFields:

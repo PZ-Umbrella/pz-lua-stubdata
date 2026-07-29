@@ -1,0 +1,37 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      SpriteBounds_PlayStation:
+        extends: ISBaseObject
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"SpriteBounds_PlayStation"'
+        fields:
+          spriteSheetTexture:
+            type: ISUITextureGetter
+          spriteSheetTextureSize:
+            type: "{ width: number, height: number }"
+          layoutOrderings:
+            type: table<string, JoypadButton[]>
+        methods:
+          - name: createSpriteBoundsGeneric
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: subX
+                type: number
+              - name: subY
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: initialBevelDirection
+                type: string
+            return:
+              - type: ISUISpriteBounds

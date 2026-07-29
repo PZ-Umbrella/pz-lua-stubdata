@@ -17,24 +17,27 @@ languages:
           - name: initDirectoryStreetData
             parameters:
               - name: mapUI
+                type: umbrella.MapUI
               - name: directory
                 type: string
           - name: initDefaultStreetData
             parameters:
               - name: mapUI
-                type: ISWorldMap
+                type: umbrella.MapUI
           - name: initDirectoryAnnotations
             parameters:
               - name: mapUI
+                type: umbrella.MapUI
               - name: directory
                 type: string
           - name: initDefaultAnnotations
             parameters:
               - name: mapUI
+                type: umbrella.MapUI
           - name: initDefaultTextLayersV3
             parameters:
               - name: mapUI
-                type: ISMiniMapInner | ISWorldMap
+                type: umbrella.MapUI
           - name: initDefaultStyleV1
             parameters:
               - name: mapUI
@@ -54,7 +57,7 @@ languages:
           - name: renderDarkModeOverlay
             parameters:
               - name: mapUI
-                type: table
+                type: umbrella.MapUI
       LootMaps:
         staticFields:
           Init:

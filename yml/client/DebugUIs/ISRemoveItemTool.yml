@@ -29,22 +29,17 @@ languages:
           selectEnd:
             type: boolean
           startPos:
-            type: table
+            type: "{ x: integer, y: integer }"
             nullable: true
           endPos:
-            type: table
+            type: "{ x: integer, y: integer }"
             nullable: true
           zPos:
             type: number
           highlightSquares:
             type: IsoObject[]
-          marker:
-            type: WorldMarkers.GridSquareMarker
-            nullable: true
           OnRenderTick:
             type: function
-            nullable: true
-          name:
             nullable: true
           player:
             type: IsoPlayer
@@ -58,12 +53,6 @@ languages:
             type: boolean
         methods:
           - name: initialise
-          - name: onItemType
-            parameters:
-              - name: buttons
-                type: ISRadioButtons
-              - name: index
-                type: integer
           - name: destroy
           - name: onClick
             parameters:

@@ -69,7 +69,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: _button
-                type: ISButton
+                type: JoypadButton
           - name: getAPrompt
             return:
               - type: string
@@ -99,6 +99,10 @@ languages:
           - name: nextSearchFocus
           - name: updateSearchFocusCategories
           - name: initialise
+          - name: onInfo
+            parameters:
+              - name: button
+                type: ISButton
         staticMethods:
           - name: toggleWindow
             parameters:

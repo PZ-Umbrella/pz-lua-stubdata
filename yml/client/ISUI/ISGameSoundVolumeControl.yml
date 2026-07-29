@@ -41,6 +41,8 @@ languages:
           joypadFocused:
             type: boolean
             nullable: true
+          SuperType:
+            type: ISPanel
           targetFunc:
             type: umbrella.ISGameSoundVolumeControl.TargetFunction
             nullable: true

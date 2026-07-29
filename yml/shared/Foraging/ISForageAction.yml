@@ -20,16 +20,12 @@ languages:
           Type:
             defaultValue: '"ISForageAction"'
         fields:
-          itemCount:
-            type: integer
           targetContainer:
             type: ItemContainer
           itemType:
             type: string
           itemDataList:
             type: table[]
-          iconID:
-            type: string
           manager:
             type: ISSearchManager
           forageIcon:
@@ -37,6 +33,8 @@ languages:
           zoneData:
             type: umbrella.Foraging.ZoneData
             nullable: true
+          iconID:
+            type: string
           itemDef:
             type: umbrella.Foraging.ItemDefinition
           currentTime:
@@ -54,7 +52,6 @@ languages:
           - name: stop
           - name: start
           - name: perform
-          - name: forage
           - name: complete
             return:
               - type: boolean

@@ -94,7 +94,7 @@ languages:
           tooltipColor:
             type: umbrella.RGB
           joypadNavigate:
-            type: table
+            type: umbrella.JoypadNavigate
           itemheightoverride:
             type: table<string, number>
           whiteBar:
@@ -177,6 +177,7 @@ languages:
             parameters:
               - name: index
                 type: number
+          - name: removeAllTraits
           - name: update
           - name: prerender
           - name: render
@@ -342,7 +343,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadBeforeDeactivate
@@ -368,7 +369,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp

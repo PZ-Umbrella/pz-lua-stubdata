@@ -42,3 +42,15 @@ languages:
             return:
               - type: number
           - name: stopSound
+        staticMethods:
+          - name: PerformGrabCorpse
+          - name: OnContextKey
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: timePressedContext
+                type: integer
+          - name: OnKeyPressed
+            parameters:
+              - name: key
+                type: integer

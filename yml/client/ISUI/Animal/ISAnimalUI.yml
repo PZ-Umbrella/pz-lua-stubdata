@@ -81,6 +81,7 @@ languages:
               - name: button
                 type: ISButton
               - name: animal
+                nullable: true
           - name: maxTextWidth
             parameters:
               - name: font
@@ -112,7 +113,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISAnimalAvatar:

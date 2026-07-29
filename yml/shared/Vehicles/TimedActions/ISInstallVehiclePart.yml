@@ -20,10 +20,10 @@ languages:
         fields:
           item:
             type: InventoryItem
-          vehicle:
-            type: BaseVehicle
           part:
             type: VehiclePart
+          vehicle:
+            type: BaseVehicle
           maxTimeInit:
             type: number
           jobType:

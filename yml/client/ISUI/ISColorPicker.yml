@@ -116,7 +116,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: removeSelf
           - name: picked
             parameters:

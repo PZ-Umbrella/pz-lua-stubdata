@@ -138,6 +138,7 @@ languages:
               - name: scale
                 type: number
               - name: bMatchPerspective
+                type: boolean
               - name: bApplyZoom
                 type: boolean
           - name: renderNoteBeingAddedOrEdited
@@ -247,13 +248,13 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -362,7 +363,7 @@ languages:
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -393,7 +394,7 @@ languages:
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -446,7 +447,7 @@ languages:
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -502,11 +503,13 @@ languages:
               - name: button
                 type: ISButton
               - name: symbol
+                type: WorldMapBaseSymbol
           - name: onSymbolEdited
             parameters:
               - name: button
                 type: ISButton
               - name: symbol
+                type: WorldMapBaseSymbol
           - name: onJoypadDownInMap
             parameters:
               - name: button
@@ -597,7 +600,7 @@ languages:
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -661,7 +664,9 @@ languages:
           - name: getAngleTo
             parameters:
               - name: mx
+                type: number
               - name: my
+                type: number
             return:
               - type: number
           - name: onRightMouseDown
@@ -695,7 +700,7 @@ languages:
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -738,7 +743,7 @@ languages:
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -750,6 +755,7 @@ languages:
               - name: button
                 type: ISButton
               - name: symbolIndex
+                type: integer
           - name: removeAnnotation
             return:
               - type: boolean
@@ -791,7 +797,7 @@ languages:
           - name: onJoypadDownInMap
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: getJoypadAButtonText
@@ -826,7 +832,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: setJoypadFocused

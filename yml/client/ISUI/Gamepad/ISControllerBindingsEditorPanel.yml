@@ -1,0 +1,167 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISControllerBindingsEditorPanel:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: gameOptionControllerTab
+                type: GameOptionControllerTab
+              - name: containerPanel
+                type: ISUIElement
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ISControllerBindingsEditorPanel"'
+          spriteBoundsRepo: {}
+          onOptionControllerButtonStyleChanged:
+            type: umbrella.ISControllerBindingsEditorPanel.Listener[]
+          onOptionGamepadBindingPresetChanged:
+            type: umbrella.ISControllerBindingsEditorPanel.Listener[]
+        fields:
+          SuperType:
+            type: ISPanel
+          parentContainerPanel:
+            type: ISUIElement
+          gameOptionControllerTab:
+            type: GameOptionControllerTab
+          content:
+            type: table
+          layoutOrderings:
+            type: table<string, JoypadButton[]>
+            nullable: true
+          unusedBindingsPanel:
+            type: ISUIElement
+          uiBindings:
+            type: CharacterJoypadBindingUI
+          lineOverlayPanel:
+            type: ISUIElement
+          editedUIBinding:
+            type: CharacterJoypadBindingUIEntry
+        methods:
+          - name: initContent
+            return:
+              - type: ISControllerBindingsEditorPanel
+          - name: getStyle
+            return:
+              - type: ISStyle
+          - name: populateAllBindingBoxes
+          - name: createMainSprite
+          - name: createSubSprites
+          - name: invalidateSprites
+          - name: createBindingGroupPanels
+          - name: createLineOverlayPanel
+            return:
+              - type: ISPanel
+          - name: onResize
+          - name: onBindingUILayoutChanged
+          - name: onControllerButtonStyleChanged
+          - name: onGamepadBindingPresetsChanged
+          - name: onJoypadButtonBindingEdited
+          - name: onJoypadAxisBindingValueEdited
+            parameters:
+              - name: uiBinding
+                nullable: true
+              - name: uiRow
+                nullable: true
+              - name: charBinding
+                nullable: true
+          - name: onBindingUIPanelEditingActivated
+            parameters:
+              - name: uiBinding
+                type: CharacterJoypadBindingUIEntry
+          - name: setActiveEditingBindingUI
+            parameters:
+              - name: uiBinding
+                type: CharacterJoypadBindingUIEntry
+          - name: doLayout
+          - name: onScrollPosChanged
+          - name: updateCornerPanelsToScroll
+          - name: onMouseWheel
+            parameters:
+              - name: del
+                type: number
+          - name: updateCenterSpriteBounds
+        staticMethods:
+          - name: optionControllerButtonStyleChanged
+            parameters:
+              - name: optionStr
+                type: string
+          - name: addOnOptionControllerButtonStyleChanged
+            parameters:
+              - name: target
+                type: unknown
+                nullable: true
+              - name: callbackFunc
+                type: umbrella.ISControllerBindingsEditorPanel.Listener
+          - name: optionGamepadBindingPresetChanged
+            parameters:
+              - name: optionStr
+                type: string
+          - name: addOnOptionGamepadBindingPresetChanged
+            parameters:
+              - name: target
+                type: unknown
+                nullable: true
+              - name: callbackFunc
+                type: umbrella.ISControllerBindingsEditorPanel.Listener
+      self.content.bindingGroupPanels:
+        local: true
+        tags:
+          - StubGen_Hidden
+        staticFields:
+          parentContainer:
+            type: ISControllerBindingsEditorPanel
+            nullable: true
+            defaultValue: self
+          inputBlockerPanel:
+            nullable: true
+        methods:
+          - name: getCenterBoundsWidth
+            return:
+              - type: unknown
+          - name: getMinHeight
+            return:
+              - type: unknown
+          - name: getMinHeightLeft
+            return:
+              - type: number
+          - name: getMinHeightRight
+            return:
+              - type: number
+          - name: getCenterBounds
+            return:
+              - type: ISBounds
+          - name: getAllPanels
+            return:
+              - type: ISUIElement[]
+          - name: getLeftPanels
+            return:
+              - type: ISUIElement[]
+          - name: getRightPanels
+            return:
+              - type: ISUIElement[]
+          - name: clearAllPanelsContent
+          - name: addPanel
+            parameters:
+              - name: bindingPanelKey
+                type: string
+              - name: dock
+                type: string
+              - name: contentHorizontalAlignment
+                type: number
+      umbrella.ISControllerBindingsEditorPanel.Listener:
+        fields:
+          target:
+            type: unknown
+            nullable: true
+          callback:
+            type: "fun(target: unknown?, optionStr: string)"

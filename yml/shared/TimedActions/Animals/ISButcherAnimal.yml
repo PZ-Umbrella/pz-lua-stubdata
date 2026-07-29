@@ -10,6 +10,9 @@ languages:
                 type: IsoPlayer
               - name: body
                 type: IsoDeadBody
+              - name: bodyItemToRemove
+                type: InventoryItem
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISButcherAnimal"'
@@ -20,6 +23,8 @@ languages:
             type: IsoDeadBody
           perkLevel:
             type: integer
+          bodyItemToRemove:
+            type: InventoryItem | false
         methods:
           - name: isValid
             return:
@@ -28,6 +33,7 @@ languages:
             return:
               - type: boolean
           - name: update
+          - name: serverStart
           - name: start
           - name: stop
           - name: perform

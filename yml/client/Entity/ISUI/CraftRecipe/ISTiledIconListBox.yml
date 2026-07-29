@@ -139,6 +139,7 @@ languages:
           - name: renderTile
             parameters:
               - name: _tileData
+                type: unknown
               - name: _x
                 type: number
               - name: _y

@@ -7,7 +7,7 @@ languages:
         constructors:
           - parameters:
               - name: editor
-                type: ISBuildingRoomsEditor
+                type: unknown
         staticFields:
           Type:
             defaultValue: '"ISBuildingRoomsEditor_ToolAddRect"'
@@ -29,7 +29,7 @@ languages:
           skipWalk:
             type: boolean
           editor:
-            type: ISBuildingRoomsEditor
+            type: unknown
           javaEditor:
             type: BuildingRoomsEditor
           playerNum:
@@ -48,7 +48,9 @@ languages:
               - name: z
                 type: number
               - name: north
+                nullable: true
               - name: sprite
+                nullable: true
           - name: isValid
             parameters:
               - name: square
@@ -81,7 +83,9 @@ languages:
           - name: pickSquare
             parameters:
               - name: screenX
+                type: number
               - name: screenY
+                type: number
             return:
               - type: IsoGridSquare
               - type: integer

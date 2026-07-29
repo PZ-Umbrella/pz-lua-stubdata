@@ -4,6 +4,19 @@ languages:
     classes:
       ISBBQMenu:
         staticMethods:
+          - name: OnFillWorldObjectContextMenu
+            parameters:
+              - name: player
+                type: integer
+              - name: context
+                type: ISContextMenu
+              - name: worldobjects
+                type: IsoObject[]
+              - name: test
+                type: boolean
+            return:
+              - type: boolean
+                nullable: true
           - name: onDisplayInfo
             parameters:
               - name: worldobjects
@@ -48,6 +61,7 @@ languages:
               - name: bbq
                 type: IsoBarbecue
               - name: tank
+                type: InventoryItem | IsoWorldInventoryObject
           - name: onToggle
             parameters:
               - name: worldobjects

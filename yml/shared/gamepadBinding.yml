@@ -1,0 +1,54 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      gamepadBinding:
+        fields:
+          presets:
+            type: table<string, umbrella.gamepadBinding.Preset>
+          currentPreset:
+            type: umbrella.gamepadBinding.Preset
+            nullable: true
+        methods:
+          - name: set
+            parameters:
+              - name: presetKey
+                type: string
+          - name: saveAll
+          - name: setCurrentPresetToConfigOption
+          - name: resetCurrentToDefault
+          - name: isCurrentBinding
+            parameters:
+              - name: presetKey
+                type: string
+            return:
+              - type: boolean
+          - name: getCurrentActivePresetName
+            return:
+              - type: string
+          - name: isCurrentPresetEditable
+            return:
+              - type: boolean
+          - name: onCurrentSetEdited
+          - name: populateFromLoadedSets
+          - name: addInputSet
+            parameters:
+              - name: inputSet
+                type: CharacterInputBindingSet
+            return:
+              - type: umbrella.gamepadBinding.Preset
+          - name: createNewFromCurrent
+            return:
+              - type: umbrella.gamepadBinding.Preset
+        staticMethods:
+          - name: optionGamepadBindingPresetChanged
+      umbrella.gamepadBinding.Preset:
+        fields:
+          key:
+            type: string
+          labelText:
+            type: string
+          descriptionText:
+            type: string
+          perform:
+            type: "fun(self: umbrella.gamepadBinding.Preset)"

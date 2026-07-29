@@ -35,6 +35,9 @@ languages:
             type: ISButton
           close:
             type: ISButton
+          currentButton:
+            type: ISButton
+            nullable: true
           selectByClick:
             type: boolean
           isAdd:
@@ -43,16 +46,18 @@ languages:
             type: boolean
           selectEnd:
             type: boolean
+          zPos:
+            type: number
           startPos:
             type: "{ x: integer, y: integer }"
             nullable: true
           endPos:
             type: "{ x: integer, y: integer }"
             nullable: true
-          zPos:
-            type: number
           player:
             type: IsoPlayer
+          playerNum:
+            type: integer
           titlebarbkg:
             type: Texture
         methods:
@@ -62,6 +67,7 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+          - name: disableCurrentButton
           - name: prerender
           - name: render
           - name: onMouseMove
@@ -94,6 +100,10 @@ languages:
                 type: number
               - name: y
                 type: number
+          - name: applyOnSquare
+            parameters:
+              - name: sq
+                type: IsoGridSquare
           - name: applyOnArea
           - name: addFire
             parameters:

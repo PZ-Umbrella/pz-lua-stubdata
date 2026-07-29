@@ -88,8 +88,11 @@ languages:
           - name: doDrawItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: onLoseJoypadFocus
@@ -99,7 +102,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -140,7 +143,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -162,7 +165,8 @@ languages:
             type: ISScrollingListBox
           buttonApplyPreset:
             type: ISButton
-          options: {}
+          options:
+            type: SandboxOptions
         methods:
           - name: createChildren
           - name: prerender
@@ -178,6 +182,7 @@ languages:
           - name: settingsToUI
             parameters:
               - name: options
+                type: SandboxOptions
       ISServerSandboxOptionsUI.SandboxOptionsScreenGroupBox:
         extends: ISServerSandboxOptionsUI.SandboxOptionsScreenPanel
         local: true
@@ -205,14 +210,16 @@ languages:
             type: ISTickBox
           cover:
             type: ISPanel
-          contents: {}
-          joypadButtons: {}
+          contents:
+            type: ISServerSandboxOptionsUI.SandboxOptionsScreenPanel
+          joypadButtons:
+            type: ISButtons[]
           settingNames:
-            type: table
+            type: string[]
           controls:
-            type: table
+            type: ISUIElement[]
           labels:
-            type: table
+            type: ISLabel[]
           MAX_WIDTH:
             type: number
         methods:
@@ -220,10 +227,13 @@ languages:
           - name: onTicked
             parameters:
               - name: index
+                type: integer
               - name: selected
+                type: boolean
           - name: settingsToUI
             parameters:
               - name: settings
+                type: SandboxOptions
           - name: setJoypadButtons
           - name: ensureVisible
       umbrella.ISServerSandboxOptionsUI.ListBoxItem:

@@ -108,6 +108,8 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: cycleToPreviousObject
+          - name: cycleToNextObject
           - name: rotateKey
             parameters:
               - name: key
@@ -135,7 +137,7 @@ languages:
               - name: joypadData
                 type: JoypadData
               - name: button
-                type: integer
+                type: JoypadButton
             return:
               - type: unknown
                 nullable: true
@@ -166,6 +168,28 @@ languages:
             return:
               - type: boolean
           - name: isFloorAtTopOfStairs
+            parameters:
+              - name: object
+                type: IsoObject
+            return:
+              - type: boolean
+          - name: checkNorthWestCorner
+            parameters:
+              - name: object
+                type: IsoObject
+          - name: isBasementWallAdjacentToTheVoid
+            parameters:
+              - name: object
+                type: IsoObject
+            return:
+              - type: boolean
+          - name: canDestroyWall_North
+            parameters:
+              - name: object
+                type: IsoObject
+            return:
+              - type: boolean
+          - name: canDestroyWall_West
             parameters:
               - name: object
                 type: IsoObject

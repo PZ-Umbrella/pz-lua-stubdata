@@ -23,9 +23,6 @@ languages:
           cursor:
             type: ISFarmingCursorMouse
             nullable: true
-          TEMP_PLANT:
-            type: table
-            nullable: true
         methods:
           - name: onHarvestSquareSelected
           - name: isHarvestValid

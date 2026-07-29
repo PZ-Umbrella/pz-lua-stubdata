@@ -21,8 +21,6 @@ languages:
         fields:
           chatText:
             type: ISRichTextPanel
-          name:
-            nullable: true
           destroyOnClick:
             type: boolean
         methods:

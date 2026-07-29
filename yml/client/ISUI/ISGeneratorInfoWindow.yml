@@ -48,7 +48,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: close
         staticMethods:
           - name: getRichText

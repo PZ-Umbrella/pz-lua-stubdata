@@ -47,6 +47,8 @@ languages:
             type: ServerWorkshopItemScreen
           mainOptions:
             type: MainOptions
+          creditsScreen:
+            type: CreditsScreen
           sandOptions:
             type: SandboxOptionsScreen
           worldSelect:
@@ -103,6 +105,8 @@ languages:
             type: ISLabel
           workshopOption:
             type: ISLabel
+          creditOption:
+            type: ISLabel
           exitOption:
             type: ISLabel
           quitToDesktop:
@@ -130,10 +134,6 @@ languages:
           delay:
             type: number
           time:
-            type: number
-          creditTime:
-            type: number
-          creditsIndex:
             type: number
           warningFade:
             type: number
@@ -163,10 +163,6 @@ languages:
             type: ISPauseModListUI
             nullable: true
           warningFadeMax:
-            type: number
-          credits:
-            type: LuaList
-          creditTimeMax:
             type: number
           inGame:
             type: boolean
@@ -231,24 +227,8 @@ languages:
             parameters:
               - name: preset
                 type: umbrella.SandboxOptionsScreen.Preset
-          - name: setBeginnerPreset
-          - name: setEasyPreset
-          - name: setNormalPreset
-          - name: setHardPreset
-          - name: setHardcorePreset
           - name: onEnterFromGame
           - name: onReturnToGame
-          - name: addCredit
-            parameters:
-              - name: credit
-                type: string
-              - name: number
-                type: number
-          - name: doArtCredits
-          - name: doCodeCredits
-          - name: doWritingCredits
-          - name: doScriptingCredits
-          - name: doCredits
           - name: onKeyRelease
             parameters:
               - name: key
@@ -264,7 +244,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp

@@ -68,6 +68,7 @@ languages:
               - name: tileName
                 type: string
               - name: tileNameRight
+                type: string
           - name: onClearAssignedDepthTextures
           - name: onSwapTilesets
             parameters:

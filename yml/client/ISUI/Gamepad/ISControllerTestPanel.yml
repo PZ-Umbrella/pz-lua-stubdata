@@ -6,6 +6,8 @@ languages:
         extends: ISPanel
         constructors:
           - parameters:
+              - name: controllerTab
+                type: GameOptionControllerTab
               - name: x
                 type: number
               - name: y
@@ -19,6 +21,7 @@ languages:
             defaultValue: '"ControllerTest"'
         fields:
           selectedController:
+            type: integer
             nullable: true
           axisLabelWid:
             type: number
@@ -31,6 +34,8 @@ languages:
             type: ISComboBox
           axisY:
             type: table
+          controllerTab:
+            type: GameOptionControllerTab
           smallFontHgt:
             type: number
         methods:
@@ -43,16 +48,9 @@ languages:
           - name: OnGamepadConnect
             parameters:
               - name: index
+                type: integer
           - name: OnGamepadDisconnect
             parameters:
               - name: index
-          - name: onResolutionChange
-            parameters:
-              - name: oldw
-                type: number
-              - name: oldh
-                type: number
-              - name: neww
-                type: number
-              - name: newh
-                type: number
+                type: integer
+          - name: doLayout

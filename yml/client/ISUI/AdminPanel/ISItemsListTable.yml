@@ -141,7 +141,9 @@ languages:
           - name: filterSpawned
             parameters:
               - name: widget
+                type: ISComboBox
               - name: scriptItem
+                type: Item
             return:
               - type: boolean
           - name: onOtherKey

@@ -31,6 +31,7 @@ languages:
               - name: worldobjects
                 type: IsoObject[]
               - name: bait
+                type: InventoryItem
               - name: trap
                 type: CTrapGlobalObject
               - name: player

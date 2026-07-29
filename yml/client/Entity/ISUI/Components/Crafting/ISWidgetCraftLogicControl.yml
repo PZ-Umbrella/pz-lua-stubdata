@@ -88,9 +88,6 @@ languages:
               - name: _button
                 type: ISButton
           - name: startCraft
-            parameters:
-              - name: force
-                type: boolean
           - name: cancelCraft
           - name: onInputsChanged
           - name: setCraftQuantity

@@ -206,7 +206,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
         staticMethods:
@@ -217,6 +217,7 @@ languages:
           - name: onHookReceivedNetUpdate
             parameters:
               - name: self
+                type: ISButcherHookUI
           - name: onReattachAnimal
             parameters:
               - name: hook

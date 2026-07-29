@@ -50,6 +50,7 @@ languages:
           - name: setVisible
             parameters:
               - name: visible
+                type: boolean
           - name: prerender
           - name: render
           - name: create
@@ -57,4 +58,4 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton

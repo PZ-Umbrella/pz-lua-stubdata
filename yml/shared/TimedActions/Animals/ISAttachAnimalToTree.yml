@@ -41,6 +41,18 @@ languages:
           - name: complete
             return:
               - type: boolean
+          - name: takeRope
+          - name: attachRope
+          - name: getRopeToRemoveFromInventory
+            return:
+              - type: InventoryItem
+                nullable: true
+          - name: getRopeNotInHand
+            parameters:
+              - name: ropes
+            return:
+              - type: InventoryItem
+                nullable: true
           - name: getDuration
             return:
               - type: number

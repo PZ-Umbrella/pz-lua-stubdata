@@ -1,0 +1,108 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISLine:
+        constructors:
+          - parameters:
+              - name: startX
+                type: number
+              - name: startY
+                type: number
+              - name: endX
+                type: number
+              - name: endY
+                type: number
+        fields:
+          segments:
+            type: umbrella.ISLine.LineSegment[]
+          startX:
+            type: number
+          startY:
+            type: number
+          endX:
+            type: number
+          endY:
+            type: number
+          color:
+            type: umbrella.RGBA
+          thickness:
+            type: number
+        methods:
+          - name: numSegments
+            return:
+              - type: integer
+          - name: getSegmentAt
+            parameters:
+              - name: i
+                type: integer
+            return:
+              - type: umbrella.ISLine.LineSegment
+                nullable: true
+          - name: getAllPoints
+            return:
+              - type: umbrella.XY[]
+          - name: addSegment
+            parameters:
+              - name: x1
+                type: number
+              - name: y1
+                type: number
+              - name: x2
+                type: number
+              - name: y2
+                type: number
+            return:
+              - type: umbrella.ISLine.LineSegment
+          - name: getLastSegment
+            return:
+              - type: umbrella.ISLine.LineSegment
+                nullable: true
+          - name: getLastPoint
+            return:
+              - type: umbrella.XY
+                nullable: true
+          - name: appendPoint
+            parameters:
+              - name: newPoint
+                type: umbrella.XY
+          - name: appendBevelPoint
+            parameters:
+              - name: bevelCenter
+                type: umbrella.XY
+              - name: next
+                type: umbrella.XY
+              - name: bevelRadius
+                type: number
+              - name: includeNext
+                type: boolean
+          - name: bevelAllJoints
+            parameters:
+              - name: bevelRadius
+                type: number
+          - name: render
+            parameters:
+              - name: drawer
+                type: ISUIElement
+              - name: a
+                type: number
+              - name: r
+                type: number
+              - name: g
+                type: number
+              - name: b
+                type: number
+      umbrella.ISLine.LineSegment:
+        fields:
+          x1:
+            type: number
+          y1:
+            type: number
+          x2:
+            type: number
+          y2:
+            type: number
+          getStartPoint:
+            type: "fun(): umbrella.XY"
+          getEndPoint:
+            type: "fun(): umbrella.XY"

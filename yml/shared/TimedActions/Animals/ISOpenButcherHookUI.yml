@@ -34,13 +34,11 @@ languages:
           - name: forceStop
           - name: stop
           - name: perform
-          - name: complete
             return:
               - type: boolean
           - name: getDuration
             return:
               - type: number
-          - name: serverStart
           - name: animEvent
             parameters:
               - name: event

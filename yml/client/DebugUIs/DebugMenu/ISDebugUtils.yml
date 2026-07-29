@@ -76,6 +76,7 @@ languages:
               - name: _w
                 type: number
               - name: _font
+                type: UIFont
               - name: _func
                 type: "fun(target: unknown, combo: ISComboBox, ...: unknown)"
                 nullable: true

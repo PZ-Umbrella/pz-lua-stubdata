@@ -1,0 +1,58 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISStyle:
+        extends: ISBaseObject
+        constructors:
+          - {}
+        staticFields:
+          Type:
+            defaultValue: '"ISStyle"'
+          fonts:
+            type: table<any, umbrella.ISStyle.FontEntry>
+          brushes:
+            type: table<any, ISBrush>
+          default:
+            type: ISStyle
+        methods:
+          - name: getFont
+            parameters:
+              - name: key
+                type: string
+            return:
+              - type: UIFont
+          - name: getFontHeight
+            parameters:
+              - name: key
+                type: string
+            return:
+              - type: number
+          - name: setFont
+            parameters:
+              - name: key
+                type: string
+              - name: font
+                type: UIFont
+          - name: getBrush
+            parameters:
+              - name: key
+                type: string
+            return:
+              - type: ISBrush
+        staticMethods:
+          - name: getDefault
+            return:
+              - type: ISStyle
+          - name: setDefault
+            parameters:
+              - name: style
+                type: ISStyle
+      umbrella.ISStyle.FontEntry:
+        fields:
+          key:
+            type: string
+          font:
+            type: UIFont
+          height:
+            type: number

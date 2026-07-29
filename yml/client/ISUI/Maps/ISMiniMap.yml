@@ -76,7 +76,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: RestoreLayout
@@ -310,16 +310,21 @@ languages:
           - name: onTickBox
             parameters:
               - name: index
+                type: integer
               - name: selected
+                type: boolean
               - name: option
+                type: ConfigOption
           - name: onCommandEntered
             parameters:
               - name: entry
+                type: ISTextEntryBox
               - name: option
+                type: ConfigOption
           - name: createChildren
           - name: getVisibleOptions
             return:
-              - type: table
+              - type: ConfigOption[]
           - name: isMultiplayerOption
             parameters:
               - name: optionName
@@ -340,7 +345,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISMiniMap:

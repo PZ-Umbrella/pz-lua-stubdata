@@ -12,6 +12,9 @@ languages:
                 type: InventoryItem
               - name: maxTimeInit
                 type: number
+              - name: reason
+                type: string
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISUnequipAction"'
@@ -25,6 +28,9 @@ languages:
             type: InventoryItem
           maxTimeInit:
             type: number
+          reason:
+            type: string
+            nullable: true
           ignoreHandsWounds:
             type: boolean
           clothingAction:

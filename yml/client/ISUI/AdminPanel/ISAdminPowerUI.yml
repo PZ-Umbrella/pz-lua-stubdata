@@ -2,8 +2,10 @@ version: "1.1"
 languages:
   lua:
     aliases:
+      umbrella.ISAdminPowerUI.GetFunction:
+        - type: "fun(self: umbrella.ISAdminPowerUI.Option): boolean"
       umbrella.ISAdminPowerUI.SetFunction:
-        - type: "fun(self: ISAdminPowerUI, selected: boolean)"
+        - type: "fun(self: umbrella.ISAdminPowerUI.Option, selected: boolean)"
     classes:
       ISAdminPowerUI:
         extends: ISPanel
@@ -23,44 +25,100 @@ languages:
           Type:
             defaultValue: '"ISAdminPowerUI"'
           messages: {}
-          cheatTooltips:
-            type: table<string, string>
+          OptionList:
+            type: umbrella.ISAdminPowerUI.Option[]
+          OptionById:
+            type: table<string, umbrella.ISAdminPowerUI.Option>
           instance:
             type: ISAdminPowerUI
             nullable: true
         fields:
-          ok:
-            type: ISButton
-          tickBox:
+          tickBoxLeft:
+            type: ISTickBox
+          tickBoxRight:
             type: ISTickBox
           richText:
             type: ISRichTextLayout
-          setFunction:
-            type: table<integer, umbrella.ISAdminPowerUI.SetFunction>
+          ok:
+            type: ISButton
+          cancel:
+            type: ISButton
+          optionsLeft:
+            type: table<integer, umbrella.ISAdminPowerUI.Option>
+          cheatTooltipsLeft:
+            type: table<string, string>
+          optionsRight:
+            type: table<integer, umbrella.ISAdminPowerUI.Option>
+          cheatTooltipsRight:
+            type: table<string, string>
           player:
             type: IsoPlayer
+            nullable: true
         methods:
           - name: initialise
-          - name: addAdminPowerOptions
-          - name: addOption
+          - name: addOptionLeft
             parameters:
-              - name: text
-                type: string
-              - name: selected
-                type: boolean
-              - name: setFunction
-                type: umbrella.ISAdminPowerUI.SetFunction
+              - name: option
+                type: umbrella.ISAdminPowerUI.Option
+          - name: addOptionRight
+            parameters:
+              - name: option
+                type: umbrella.ISAdminPowerUI.Option
+          - name: updateAdminPower
+          - name: addAdminPowerOptionsLeft
+          - name: addAdminPowerOptionsRight
           - name: onTicked
             parameters:
               - name: index
                 type: integer
               - name: selected
                 type: boolean
+          - name: renderTickBox
+            parameters:
+              - name: tickBox
+                type: ISTickBox
+              - name: tooltips
+                type: table<string, sring>
           - name: render
           - name: prerender
           - name: onClick
             parameters:
               - name: button
                 type: ISButton
+          - name: saveOptions
         staticMethods:
+          - name: AddOption
+            parameters:
+              - name: id
+                type: string
+              - name: side
+                type: string
+              - name: capability
+                type: Capability
+              - name: functionGet
+                type: umbrella.ISAdminPowerUI.GetFunction
+              - name: functionSet
+                type: umbrella.ISAdminPowerUI.SetFunction
+            return:
+              - type: umbrella.ISAdminPowerUI.Option
+          - name: OnOpenPanel
+            return:
+              - type: ISAdminPowerUI
           - name: onGameStart
+      umbrella.ISAdminPowerUI.Option:
+        fields:
+          id:
+            type: string
+          side:
+            type: string
+          capability:
+            type: Capability
+          tooltip:
+            type: string
+          getValue:
+            type: umbrella.ISAdminPowerUI.GetFunction
+          setValue:
+            type: umbrella.ISAdminPowerUI.SetFunction
+          player:
+            type: IsoPlayer
+            nullable: true

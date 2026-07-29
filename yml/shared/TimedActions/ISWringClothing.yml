@@ -19,8 +19,6 @@ languages:
             nullable: true
           item:
             type: InventoryItem
-          maxTime:
-            type: number
           forceProgressBar:
             type: boolean
         methods:

@@ -149,7 +149,9 @@ languages:
         constructors:
           - parameters:
               - name: width
+                type: number
               - name: editorMode
+                type: WorldMapEditorMode
         staticFields:
           Type:
             defaultValue: '"WorldMapStyleEditor_TabPanel"'
@@ -606,6 +608,7 @@ languages:
           - name: populateList
             parameters:
               - name: layer
+                type: WorldMapStyleV1.WorldMapStyleLayerV1
           - name: onFileEntered
       WorldMapStyleEditor_PyramidLayerPanel:
         extends: WorldMapStyleEditor
@@ -627,6 +630,7 @@ languages:
           - name: display
             parameters:
               - name: layer
+                type: WorldMapStyleV1.WorldMapStyleLayerV1
           - name: undisplay
           - name: render
           - name: onMouseDownMap
@@ -687,6 +691,7 @@ languages:
           - name: populateList
             parameters:
               - name: layer
+                type: WorldMapStyleV1.WorldMapStyleLayerV1
           - name: onFontSelected
       WorldMapStyleEditor_TextLayerPanel:
         extends: WorldMapStyleEditor
@@ -708,6 +713,7 @@ languages:
           - name: display
             parameters:
               - name: layer
+                type: WorldMapStyleV1.WorldMapStyleLayerV1
           - name: undisplay
           - name: render
           - name: onMouseDownMap
@@ -824,5 +830,5 @@ languages:
               - name: key
                 type: integer
             return:
-              - type: unknown
+              - type: boolean
                 nullable: true

@@ -1,0 +1,61 @@
+version: "1.1"
+languages:
+  lua:
+    aliases:
+      umbrella.PhysicalJoypadElement:
+        - type: JoypadButton | JoypadAxis1d | JoypadAxis2d
+    classes:
+      CharacterJoypadBindingUI:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: controllerBindingsEditorPanel
+                type: ISControllerBindingsEditorPanel
+        staticFields:
+          Type:
+            defaultValue: '"CharacterJoypadBindingUI"'
+          BevelDirection: {}
+          BindingPanel: {}
+        fields:
+          bindingKeys:
+            type: umbrella.PhysicalJoypadElement[]
+          controllerBindingsEditorPanel:
+            type: ISControllerBindingsEditorPanel
+        methods:
+          - name: getStyle
+            return:
+              - type: ISStyle
+          - name: createGamepadUIBinding
+            parameters:
+              - name: containerPanel
+                type: ISUIElement
+              - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
+          - name: onBindingEntryLayoutChanged
+          - name: onJoypadButtonBindingEdited
+          - name: onJoypadAxisBindingValueEdited
+            parameters:
+              - name: uiBinding
+                type: CharacterJoypadBindingUIEntry
+              - name: uiRow
+                type: CharacterJoypadBindingUIRow
+              - name: charBinding
+                type: umbrella.PhysicalJoypadElement
+          - name: onBindingUIPanelEditingActivated
+            parameters:
+              - name: uiBinding
+                type: CharacterJoypadBindingUIEntry
+          - name: getAllEntries
+            return:
+              - type: CharacterJoypadBindingUIEntry[]
+          - name: getSprite
+            return:
+              - type: ISUISprite
+        staticMethods:
+          - name: getAllPhysicalJoypadElements
+            return:
+              - type: umbrella.PhysicalJoypadElement[]
+          - name: performLayoutRows
+            parameters:
+              - name: containerPanel
+                type: ISUIElement

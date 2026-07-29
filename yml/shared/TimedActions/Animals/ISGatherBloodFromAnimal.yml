@@ -11,6 +11,7 @@ languages:
               - name: body
                 type: IsoAnimal
               - name: hook
+                type: IsoButcherHook
               - name: luaHookUI
                 type: ISButcherHookUI
               - name: bucket

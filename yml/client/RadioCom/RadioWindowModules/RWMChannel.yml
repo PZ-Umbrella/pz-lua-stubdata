@@ -127,7 +127,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
             return:
               - type: boolean
               - type: boolean

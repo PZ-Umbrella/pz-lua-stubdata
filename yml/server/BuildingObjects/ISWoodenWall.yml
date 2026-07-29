@@ -11,6 +11,7 @@ languages:
               - name: northSprite
                 type: string
               - name: corner
+                type: IsoSprite
                 nullable: true
         staticFields:
           Type:
@@ -22,6 +23,7 @@ languages:
             type: IsoThumpable
             nullable: true
           corner:
+            type: IsoSprite
             nullable: true
           name:
             type: string

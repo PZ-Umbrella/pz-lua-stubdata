@@ -60,14 +60,6 @@ languages:
             type: boolean
           editable:
             type: boolean
-          backgroundColorMouseOver:
-            type: umbrella.RGBA
-          font:
-            type: UIFont
-          textColor:
-            type: umbrella.RGBA
-          baseHeight:
-            type: number
           target:
             type: unknown
             nullable: true
@@ -76,6 +68,16 @@ languages:
             nullable: true
           onChangeArgs:
             type: unknown[]
+          SuperType:
+            type: ISPanel
+          backgroundColorMouseOver:
+            type: umbrella.RGBA
+          font:
+            type: UIFont
+          textColor:
+            type: umbrella.RGBA
+          baseHeight:
+            type: number
           isCombobox:
             type: boolean
           image:
@@ -102,6 +104,7 @@ languages:
           - name: pointOnItem
             parameters:
               - name: index
+                type: integer
           - name: forceClick
           - name: prerender
           - name: onMouseDown
@@ -165,6 +168,9 @@ languages:
               - name: data
                 type: unknown
                 nullable: true
+              - name: tooltip
+                type: string
+                nullable: true
           - name: getOptionCount
             return:
               - type: integer
@@ -214,10 +220,17 @@ languages:
           - name: getSelected
             return:
               - type: integer
+          - name: getSelectedData
+            return:
+              - type: unknown
           - name: setSelected
             parameters:
               - name: value
                 type: integer
+          - name: setSelectedData
+            parameters:
+              - name: data
+                type: unknown
           - name: setWidthToOptions
             parameters:
               - name: minWidth
@@ -249,6 +262,20 @@ languages:
           - name: hasFilterText
             return:
               - type: boolean
+          - name: setOnChange
+            parameters:
+              - name: target
+                type: unknown
+                nullable: true
+              - name: onChange
+                type: umbrella.ISComboBox.OnChange
+                nullable: true
+              - name: onChangeArg1
+                type: unknown
+                nullable: true
+              - name: onChangeArg2
+                type: unknown
+                nullable: true
       ISComboBoxEditor:
         extends: ISTextEntryBox
         constructors:
@@ -340,3 +367,6 @@ languages:
             type: string
           data:
             type: unknown
+          tooltip:
+            type: string
+            nullable: true

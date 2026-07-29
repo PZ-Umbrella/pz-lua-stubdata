@@ -37,6 +37,7 @@ languages:
           - name: complete
             return:
               - type: boolean
+          - name: takeRope
           - name: getDuration
             return:
               - type: number

@@ -19,6 +19,7 @@ languages:
           - name: logCreatePlayer
             parameters:
               - name: _player
+                type: integer
           - name: logLogin
             parameters:
               - name: _character

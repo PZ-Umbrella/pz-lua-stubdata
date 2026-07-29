@@ -18,6 +18,10 @@ languages:
         fields:
           ammoCountStart:
             type: integer
+          loadedThisLoop:
+            type: boolean
+          updateLoadBulletsTime:
+            type: number
           playedInsertAmmoStartSound:
             type: boolean
           loadFinished:
@@ -34,8 +38,12 @@ languages:
               - type: boolean
           - name: start
           - name: update
+          - name: updateLoadingTime
           - name: initVars
           - name: isLoadFinished
+            return:
+              - type: boolean
+          - name: isLocal
             return:
               - type: boolean
           - name: serverStart

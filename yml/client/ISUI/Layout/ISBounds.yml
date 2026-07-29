@@ -1,0 +1,188 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISBounds:
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        fields:
+          x:
+            type: number
+          y:
+            type: number
+          width:
+            type: number
+          height:
+            type: number
+        methods:
+          - name: setPosition
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: getWidth
+            return:
+              - type: number
+          - name: setWidth
+            parameters:
+              - name: width
+            return:
+              - type: ISBounds
+          - name: getHeight
+            return:
+              - type: number
+          - name: setHeight
+            parameters:
+              - name: height
+            return:
+              - type: ISBounds
+          - name: getLeft
+            return:
+              - type: number
+          - name: setLeft
+            parameters:
+              - name: left
+                type: number
+          - name: getRight
+            return:
+              - type: number
+          - name: setRight
+            parameters:
+              - name: right
+                type: number
+          - name: getCenterX
+            return:
+              - type: number
+          - name: getTop
+            return:
+              - type: number
+          - name: setTop
+            parameters:
+              - name: top
+                type: number
+          - name: getBottom
+            return:
+              - type: number
+          - name: setBottom
+            parameters:
+              - name: bottom
+                type: number
+          - name: getCenterY
+            return:
+              - type: number
+          - name: clone
+            return:
+              - type: ISBounds
+          - name: getMovedTo
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: ISBounds
+          - name: getMoved
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: ISBounds
+          - name: move
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: ISBounds
+          - name: scaleFromCenter
+            parameters:
+              - name: scaleX
+                type: number
+              - name: scaleY
+                type: number
+            return:
+              - type: ISBounds
+          - name: scaleXFromCenter
+            parameters:
+              - name: scale
+                type: number
+            return:
+              - type: ISBounds
+          - name: scaleYFromCenter
+            parameters:
+              - name: scale
+                type: number
+            return:
+              - type: ISBounds
+          - name: getScaledFromCenter
+            parameters:
+              - name: scaleX
+                type: number
+              - name: scaleY
+                type: number
+            return:
+              - type: ISBounds
+          - name: tostring
+            return:
+              - type: string
+        staticMethods:
+          - name: intersection
+            parameters:
+              - name: a
+                type: ISBounds
+              - name: b
+                type: ISBounds
+            return:
+              - type: ISBounds
+          - name: intersects
+            parameters:
+              - name: a
+                type: ISBounds
+              - name: b
+                type: ISBounds
+            return:
+              - type: boolean
+          - name: getProjectedAlongY
+            parameters:
+              - name: bounds
+                type: ISBounds
+              - name: yDistance
+                type: number
+            return:
+              - type: ISBounds
+          - name: getProjectedAlongX
+            parameters:
+              - name: bounds
+                type: ISBounds
+              - name: yDistance
+                type: number
+            return:
+              - type: ISBounds
+          - name: getYDistanceTo
+            parameters:
+              - name: boundsA
+                type: ISBounds
+              - name: boundsB
+                type: ISBounds
+            return:
+              - type: number
+          - name: getXDistanceTo
+            parameters:
+              - name: boundsA
+                type: ISBounds
+              - name: boundsB
+                type: ISBounds
+            return:
+              - type: number

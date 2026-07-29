@@ -63,15 +63,15 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirUp
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
           - name: onJoypadDirDown
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
           - name: onRecipeSelected
             parameters:
               - name: recipe

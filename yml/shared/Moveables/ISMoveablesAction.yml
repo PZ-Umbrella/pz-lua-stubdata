@@ -57,6 +57,8 @@ languages:
           deviceData:
             type: DeviceData
             nullable: true
+          origMoveProps:
+            type: ISMoveableSpriteProps
           moveCursor:
             type: ISMoveableCursor
             nullable: true
@@ -71,6 +73,15 @@ languages:
             return:
               - type: boolean
           - name: isValid
+            return:
+              - type: boolean
+          - name: isAdjacentToAnySquare
+            return:
+              - type: boolean
+          - name: isAdjacentToSquare
+            parameters:
+              - name: square
+                type: IsoGridSquare
             return:
               - type: boolean
           - name: waitToStart

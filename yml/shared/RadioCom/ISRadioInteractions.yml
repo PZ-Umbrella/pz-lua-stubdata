@@ -48,6 +48,7 @@ languages:
               - name: _line
                 type: string
               - name: _source
+                nullable: true
           - name: OnDeviceText
             parameters:
               - name: _guid

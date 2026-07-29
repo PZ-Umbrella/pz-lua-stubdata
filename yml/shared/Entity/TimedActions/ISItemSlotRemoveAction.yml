@@ -14,8 +14,8 @@ languages:
                 type: ResourceItem
               - name: internalItemSlot
                 type: ISItemSlot
-              - name: item
-                type: InventoryItem
+              - name: targetItem
+                type: InventoryItem | integer
                 nullable: true
         staticFields:
           Type:
@@ -34,6 +34,7 @@ languages:
             type: ISItemSlot
             nullable: true
           targetItem:
+            type: InventoryItem | integer
             nullable: true
           actionAnimVariables:
             type: table<string, string>

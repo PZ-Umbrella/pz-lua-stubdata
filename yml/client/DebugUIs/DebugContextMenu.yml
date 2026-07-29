@@ -8,9 +8,17 @@ languages:
             defaultValue: "false"
           stagTime:
             defaultValue: "0"
-          ticked:
-            defaultValue: "false"
+          player:
+            type: integer
+            nullable: true
+          pickedCharacters:
+            type: IsoGameCharacter[]
+            nullable: true
+          highlightedCharacter:
+            type: IsoGameCharacter
+            nullable: true
           selectedZombie:
+            type: IsoZombie
             nullable: true
         staticMethods:
           - name: doDebugMenu
@@ -27,6 +35,22 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: onHighlightWorldCharacter
+            parameters:
+              - name: _option
+                type: umbrella.ISContextMenu.Option
+              - name: _menu
+                type: ISContextMenu
+              - name: _isHighlighted
+                type: boolean
+              - name: _object
+                type: IsoGameCharacter
+          - name: initWorldCharacterHighlightOption
+            parameters:
+              - name: option
+                type: umbrella.ISContextMenu.Option
+              - name: object
+                type: IsoGameCharacter
           - name: onFilmingToolsUI
             parameters:
               - name: playerObj
@@ -89,6 +113,7 @@ languages:
           - name: doDebugObjectMenu
             parameters:
               - name: player
+                type: integer
               - name: context
                 type: ISContextMenu
               - name: worldobjects
@@ -317,6 +342,12 @@ languages:
               - type: number
               - type: number
               - type: number
+          - name: findIsoGameCharactersInSquare
+            parameters:
+              - name: square
+                type: IsoGridSquare
+            return:
+              - type: IsoGameCharacter[]
           - name: OnBendFence
             parameters:
               - name: worldobjects
@@ -454,6 +485,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: vehicle
+                type: BaseVehicle
           - name: onAddVehicle
             parameters:
               - name: playerObj
@@ -585,3 +617,5 @@ languages:
                 type: IsoPlayer
           - name: doCSV
           - name: doFluidContainerCSV
+          - name: doFirearmsCSV
+          - name: doCSVMoveableTiles

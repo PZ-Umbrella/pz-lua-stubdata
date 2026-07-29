@@ -105,5 +105,6 @@ languages:
               - name: _itemSlot
                 type: ISItemSlot
           - name: onResourceSlotContentsChanged
+          - name: updateInputItemsCount
           - name: updateOutputItems
           - name: onRecipeChanged

@@ -24,6 +24,8 @@ languages:
             type: integer
           ZombieRespawn:
             type: integer
+          ZombieVoronoiNoise:
+            type: boolean
           ZombieMigrate:
             type: boolean
           DayLength:
@@ -35,6 +37,12 @@ languages:
           StartDay:
             type: integer
           StartTime:
+            type: integer
+          DayNightCycle:
+            type: integer
+          ClimateCycle:
+            type: integer
+          FogCycle:
             type: integer
           WaterShut:
             type: integer
@@ -51,6 +59,10 @@ languages:
           FoodLootNew:
             type: number
           LiteratureLootNew:
+            type: number
+          SkillBookLoot:
+            type: number
+          RecipeResourceLoot:
             type: number
           MedicalLootNew:
             type: number
@@ -264,6 +276,10 @@ languages:
             type: boolean
           AnimalStatsModifier:
             type: integer
+          AnimalPathChance:
+            type: integer
+          AnimalTrackChance:
+            type: integer
           AnimalMetaStatsModifier:
             type: integer
           AnimalPregnancyTime:
@@ -364,6 +380,10 @@ languages:
             type: number
           ClayRiverChance:
             type: number
+          GeneratorTileRange:
+            type: integer
+          GeneratorVerticalPowerRange:
+            type: integer
       umbrella.SandboxVars.Basement:
         fields:
           SpawnFrequency:
@@ -544,6 +564,8 @@ languages:
             type: integer
           FenceDamageMultiplier:
             type: number
+          DoorOpeningPercentage:
+            type: number
     fields:
       SandboxVars:
-        defaultValue: require("Sandbox/Survival")
+        defaultValue: require("Sandbox/Apocalypse")

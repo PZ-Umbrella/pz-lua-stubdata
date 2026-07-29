@@ -45,8 +45,6 @@ languages:
             type: boolean
           allowBatchCraft:
             type: boolean
-          margin:
-            type: number
           autoFillContents:
             type: boolean
           isAutoFill:

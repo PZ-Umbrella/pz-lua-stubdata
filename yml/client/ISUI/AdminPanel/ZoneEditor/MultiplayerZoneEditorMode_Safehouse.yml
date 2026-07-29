@@ -189,8 +189,6 @@ languages:
             type: ISButton
           no:
             type: ISButton
-          name:
-            nullable: true
           onclick:
             type: umbrella.ISButton.OnClick
           player:
@@ -261,7 +259,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: close

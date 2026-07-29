@@ -73,6 +73,7 @@ languages:
             parameters:
               - name: b
                 type: boolean
+          - name: debugRender
           - name: pathToLocationF
             parameters:
               - name: character
@@ -90,6 +91,16 @@ languages:
               - name: character
                 type: IsoPlayer
               - name: locations
+                type: number[]
+            return:
+              - type: ISPathFindAction
+          - name: pathToNearestPreferred
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: locations
+                type: number[]
+              - name: locationsAlt
                 type: number[]
             return:
               - type: ISPathFindAction
@@ -139,6 +150,43 @@ languages:
                 type: IsoDeadBody
             return:
               - type: ISPathFindAction
+          - name: pathAdjacentToSquares
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: squares
+                type: IsoGridSquare[]
+              - name: allowDiagonal
+                type: boolean
+            return:
+              - type: ISPathFindAction
+                nullable: true
+          - name: pathAdjacentToSquaresPredicate
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: squares
+                type: IsoGridSquare[]
+              - name: allowDiagonal
+                type: boolean
+              - name: predicate
+                type: function
+              - name: predicateArg
+                type: table
+            return:
+              - type: ISPathFindAction
+                nullable: true
+          - name: pathAdjacentToMultiTileObject
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: object
+                type: IsoObject
+              - name: allowDiagonal
+                type: boolean
+            return:
+              - type: ISPathFindAction
+                nullable: true
     functions:
       - name: ISPathFindAction_pathToLocationF
         parameters:

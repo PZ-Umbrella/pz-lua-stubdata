@@ -96,7 +96,10 @@ languages:
           - name: onPickedTagColor
             parameters:
               - name: color
+                type: umbrella.RGB
               - name: mouseUp
+                type: boolean
+                nullable: true
           - name: populateList
           - name: drawPlayers
             parameters:

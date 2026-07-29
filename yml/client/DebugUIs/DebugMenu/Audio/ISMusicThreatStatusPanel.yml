@@ -56,8 +56,11 @@ languages:
               - name: _arg2
                 type: unknown
               - name: _tickbox
+                type: ISTickBox
           - name: onSliderChange
             parameters:
               - name: _newval
+                type: number
               - name: _slider
+                type: ISSliderPanel
           - name: onButtonReload

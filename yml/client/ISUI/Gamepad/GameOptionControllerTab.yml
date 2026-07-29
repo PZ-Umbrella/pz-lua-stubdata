@@ -1,0 +1,78 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      GameOptionControllerTab:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: mainOptions
+                type: MainOptions
+              - name: contentTab
+                type: ISPanelJoypad
+        staticFields:
+          Type:
+            defaultValue: '"GameOptionControllerTab"'
+        fields:
+          contentTab:
+            type: ISPanelJoypad
+          contentPanel:
+            type: ISPanelJoypad
+          mainOptions:
+            type: MainOptions
+          btnJoypadSensitivityM:
+            type: ISButton
+          labelJoypadSensitivity:
+            type: ISLabel
+          btnJoypadSensitivityP:
+            type: ISButton
+          controllerTestPanel:
+            type: ISControllerTestPanel
+          gamepadPresetsCBox:
+            type: ISComboBox
+        methods:
+          - name: getStyle
+            return:
+              - type: ISStyle
+          - name: addContent
+          - name: onContentChanged
+          - name: addControllerPanelMidPanel
+            parameters:
+              - name: contentPanel
+                type: ISUIElement
+          - name: addControllerPanelRightPanel
+            parameters:
+              - name: contentPanel
+                type: ISUIElement
+          - name: setJoypadSelected
+            parameters:
+              - name: isSelected
+                type: boolean
+          - name: setJoypadSensitivityName
+            parameters:
+              - name: joypadSensitivityName
+                type: string
+          - name: initControllerCustomizationPanel
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+            return:
+              - type: ISPanel
+          - name: createGamepadBindingPresetsCBox
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+            return:
+              - type: ISComboBox
+          - name: onJoypadButtonBindingEdited
+          - name: joypadSensitivityM
+          - name: joypadSensitivityP
+          - name: ControllerReload

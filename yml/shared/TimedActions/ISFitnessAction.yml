@@ -53,6 +53,7 @@ languages:
           - name: update
           - name: start
           - name: showHandModel
+          - name: forceStop
           - name: stop
           - name: complete
             return:

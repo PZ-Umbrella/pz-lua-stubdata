@@ -21,6 +21,8 @@ languages:
             type: ISPVPLogToolUI
             nullable: true
         fields:
+          pvpEvents:
+            type: ISScrollingListBox
           tickBox:
             type: ISTickBox
           close:
@@ -29,8 +31,6 @@ languages:
             type: ISButton
           teleport:
             type: ISButton
-          pvpEvents:
-            type: ISScrollingListBox
         methods:
           - name: initialise
           - name: onSelect

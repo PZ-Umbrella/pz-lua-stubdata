@@ -48,8 +48,6 @@ languages:
             nullable: true
           chatText:
             type: ISRichTextPanel
-          name:
-            nullable: true
           text:
             type: string
           yesno:
@@ -99,6 +97,6 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: update
           - name: setHeightToContents
