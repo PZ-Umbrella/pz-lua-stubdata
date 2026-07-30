@@ -4,4 +4,4 @@ languages:
     classes:
       worldgen:
         staticFields:
-          features.TREE.grass_birch: {}
+          features.TREE.redbud_jumbo_xxl: {}

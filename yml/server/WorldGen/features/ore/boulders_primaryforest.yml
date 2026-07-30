@@ -4,4 +4,4 @@ languages:
     classes:
       worldgen:
         staticFields:
-          features.TREE.boulders_light: {}
+          features.ORE.boulders_primaryforest: {}

@@ -27,10 +27,16 @@ languages:
             type: ISTabPanel
           listbox1:
             type: ISLiteratureList
+          listbox1Filter:
+            type: ISTextEntryBox
           listbox2:
             type: ISLiteratureList
-          listbox3:
-            type: ISLiteratureList
+          listbox2Filter:
+            type: ISTextEntryBox
+          recipeListBox:
+            type: ISScrollingListBox
+          recipeListFilter:
+            type: ISTextEntryBox
           listboxMedia:
             type: table
           listbox5:
@@ -83,7 +89,7 @@ languages:
               - name: hidden
                 type: boolean
       ISLiteratureList:
-        extends: ISScrollingListBox
+        extends: ISPanel
         constructors:
           - parameters:
               - name: x
@@ -96,10 +102,18 @@ languages:
                 type: number
               - name: character
                 type: IsoPlayer
+              - name: parent
+                type: ISLiteratureUI
         staticFields:
           Type:
             defaultValue: '"ISListeratureList"'
         fields:
+          filterBox:
+            type: ISTextEntryBox
+          list:
+            type: ISScrollingListBox
+          parent:
+            type: ISLiteratureUI
           character:
             type: IsoPlayer
         methods:
@@ -113,6 +127,7 @@ languages:
                 type: boolean
             return:
               - type: number
+          - name: createChildren
       ISLiteratureMediaList:
         extends: ISScrollingListBox
         constructors:

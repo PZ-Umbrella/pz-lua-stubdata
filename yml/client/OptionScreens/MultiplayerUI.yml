@@ -3,7 +3,7 @@ languages:
   lua:
     classes:
       MultiplayerUI:
-        extends: ISPanel
+        extends: ISPanelJoypad
         constructors:
           - parameters:
               - name: x
@@ -188,6 +188,30 @@ languages:
           - name: initialise
           - name: instantiate
           - name: create
+          - name: onTabViewActiveTabChanged
+            parameters:
+              - name: sender
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: JoypadButton
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown_Descendant
+            parameters:
+              - name: descendant
+              - name: button
+                type: JoypadButton
+              - name: joypadData
+                type: JoypadData
+          - name: handleTabNavigateButtonDown
+            parameters:
+              - name: button
+                type: JoypadButton
+              - name: joypadData
+                type: JoypadData
+            return:
+              - type: boolean
           - name: onClickSort
             parameters:
               - name: button

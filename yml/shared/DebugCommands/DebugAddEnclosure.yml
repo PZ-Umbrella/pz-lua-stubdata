@@ -1,0 +1,10 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      DebugAddEnclosure:
+        staticMethods:
+          - name: run
+            parameters:
+              - name: player
+                type: IsoPlayer

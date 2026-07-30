@@ -52,3 +52,5 @@ languages:
                 type: FluidContainer
               - name: fluid
                 type: string
+              - name: item
+                type: InventoryItem

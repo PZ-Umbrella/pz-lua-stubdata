@@ -16,6 +16,8 @@ languages:
           Type:
             defaultValue: '"ISAddTakeDispenserBottle"'
         fields:
+          sound:
+            type: integer
           waterdispenser:
             type: IsoObject
           square:
@@ -36,6 +38,7 @@ languages:
           - name: complete
             return:
               - type: boolean
+          - name: stopSound
           - name: getDuration
             return:
               - type: number

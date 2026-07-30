@@ -5,7 +5,7 @@ languages:
       umbrella.Foraging.SpawnFunction:
         - type: "fun(character: IsoPlayer, inventory: ItemContainer, itemDef:
             umbrella.Foraging.ItemDefinition, itemList:
-            ArrayList<InventoryItem>)"
+            ArrayList<InventoryItem>): ArrayList<InventoryItem>?"
     classes:
       forageSystem:
         staticFields:

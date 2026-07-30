@@ -157,6 +157,12 @@ languages:
             return:
               - type: ISUIElement
                 nullable: true
+          - name: activateViewById
+            parameters:
+              - name: id
+                type: integer
+            return:
+              - type: boolean
           - name: activateView
             parameters:
               - name: viewName
@@ -238,6 +244,8 @@ languages:
                 type: ISTabPanel
       umbrella.ISTabPanel.View:
         fields:
+          id:
+            type: integer
           name:
             type: string
           view:

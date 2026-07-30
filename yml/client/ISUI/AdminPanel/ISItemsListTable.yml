@@ -19,6 +19,24 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISItemsListTable"'
+          COLUMN_WEAPON_TYPE:
+            defaultValue: '"WeaponType"'
+          COLUMN_NAME:
+            defaultValue: '"Name"'
+          COLUMN_CATEGORY:
+            defaultValue: '"Category"'
+          COLUMN_DISPLAY_CATEGORY:
+            defaultValue: '"DisplayCategory"'
+          COLUMN_LOOT_CATEGORY:
+            defaultValue: '"LootCategory"'
+          COLUMN_CRAFT:
+            defaultValue: '"Craft"'
+          COLUMN_FORAGE:
+            defaultValue: '"Forage"'
+          COLUMN_LOOT:
+            defaultValue: '"Loot"'
+          COLUMN_SPAWN_NUMBER:
+            defaultValue: '"SpawnNumber"'
           instance:
             type: ISItemsListTable
             nullable: true
@@ -51,6 +69,18 @@ languages:
           - name: initialise
           - name: render
           - name: createChildren
+          - name: addFilterCombo
+            parameters:
+              - name: column
+                type: umbrella.ISScrollingListBox.Column
+              - name: x
+                type: number
+              - name: entryY
+                type: number
+              - name: size
+                type: number
+              - name: filterFunction
+                type: "fun(widget: ISComboBox, scriptItem: Item): boolean"
           - name: addItem
             parameters:
               - name: item
@@ -98,7 +128,7 @@ languages:
                 type: Item
             return:
               - type: boolean
-          - name: filterType
+          - name: filterWeaponType
             parameters:
               - name: widget
                 type: ISTextEntryBox
@@ -138,14 +168,6 @@ languages:
                 type: Item
             return:
               - type: boolean
-          - name: filterSpawned
-            parameters:
-              - name: widget
-                type: ISComboBox
-              - name: scriptItem
-                type: Item
-            return:
-              - type: boolean
           - name: onOtherKey
             parameters:
               - name: key
@@ -160,6 +182,18 @@ languages:
                 type: boolean
             return:
               - type: number
+          - name: drawTrueOrFalseColumn
+            parameters:
+              - name: columnIndex
+                type: integer
+              - name: testBool
+                type: boolean
+              - name: xoffset
+                type: number
+              - name: y
+                type: number
+              - name: a
+                type: number
         staticMethods:
           - name: onFilterChange
             parameters:

@@ -252,12 +252,23 @@ languages:
                 type: integer
             return:
               - type: integer
+          - name: getClosestChildOnRow
+            parameters:
+              - name: rowIndex
+                type: number
+              - name: fromChild
+                type: ISUIElement
+                nullable: true
+            return:
+              - type: ISUIElement
+                nullable: true
           - name: getClosestChild
             parameters:
               - name: children
                 type: ISUIElement[]
-              - name: x
-                type: number
+              - name: fromChild
+                type: ISUIElement
+                nullable: true
             return:
               - type: integer
           - name: onJoypadDirLeft
@@ -321,6 +332,14 @@ languages:
                 type: ISUIElement
               - name: joypadData
                 type: JoypadData
+            return:
+              - type: boolean
+          - name: setJoypadFocusTopLeft
+            parameters:
+              - name: joypadData
+                type: JoypadData
+            return:
+              - type: boolean
           - name: restoreJoypadFocus
             parameters:
               - name: joypadData
@@ -401,6 +420,12 @@ languages:
             return:
               - type: boolean
                 nullable: true
+          - name: getVisibleElements
+            parameters:
+              - name: uiElements
+                type: ISUIElement[]
+            return:
+              - type: ISUIElement[]
       umbrella.ISPanelJoypad.JoypadState:
         fields:
           index:

@@ -3,7 +3,7 @@ languages:
   lua:
     classes:
       ISTradingUI:
-        extends: ISPanel
+        extends: ISPanelJoypad
         constructors:
           - parameters:
               - name: x
@@ -21,22 +21,22 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISTradingUI"'
-          messages: {}
+          windows:
+            type: table<integer, ISTradingUI>
           CoolDownMessage:
             defaultValue: "300"
           States: {}
           MaxItems:
             defaultValue: "20"
-          instance:
-            type: ISTradingUI
-            nullable: true
           tradeQuestionUI:
             type: ISModalDialog
             nullable: true
         fields:
           infoBtn:
             type: ISButton
-          no:
+          inventoryList:
+            type: ISTradingUI.InventoryList
+          addBtn:
             type: ISButton
           yourOfferDatas:
             type: ISScrollingListBox
@@ -46,6 +46,8 @@ languages:
             type: ISScrollingListBox
           sealOffer:
             type: ISTickBox
+          no:
+            type: ISButton
           historic:
             type: ISButton
           acceptDeal:
@@ -62,10 +64,14 @@ languages:
             type: ISToolTipInv
           historyMessageCD:
             type: number
-          infoRichText:
-            type: ISModalRichText
           historicalUI:
             type: ISTradingUIHistorical
+          infoRichText:
+            type: ISModalRichText
+          joypadButtonsSealed:
+            type: boolean
+          joypadButtonsBlocked:
+            type: boolean
           listHeaderColor:
             type: umbrella.RGBA
           player:
@@ -86,6 +92,9 @@ languages:
             nullable: true
           historical:
             type: umbrella.ISTradingUI.HistoryMessage[]
+          prevFocus:
+            type: ISUIElement
+            nullable: true
         methods:
           - name: initialise
           - name: onSealOffer
@@ -94,22 +103,32 @@ languages:
                 type: integer
               - name: enabled
                 type: boolean
+          - name: isOfferSealed
+            return:
+              - type: boolean
           - name: addItemToYourOffer
             parameters:
               - name: item
                 type: InventoryItem
-          - name: yourOfferMouseUp
+          - name: isItemOffered
             parameters:
-              - name: x
-                type: number
-              - name: y
-                type: number
-          - name: populateList
+              - name: item
+                type: InventoryItem
+            return:
+              - type: boolean
           - name: update
           - name: removeItem
             parameters:
               - name: item
                 type: umbrella.ISScrollingListBox.Item
+          - name: onInvokeListItem_Inventory
+            parameters:
+              - name: data
+                type: table
+          - name: onInvokeListItem_YourOffer
+            parameters:
+              - name: data
+                type: table
           - name: drawOffer
             parameters:
               - name: y
@@ -121,6 +140,10 @@ languages:
             return:
               - type: number
           - name: prerender
+          - name: getTooltipItem
+            return:
+              - type: InventoryItem
+                nullable: true
           - name: updateTooltip
           - name: updateButtons
           - name: render
@@ -128,7 +151,38 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+          - name: showInfoWindow
+          - name: addSelectedInventoryItem
+          - name: close
           - name: finalizeDeal
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown
+            parameters:
+              - name: button
+                type: JoypadButton
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDown_Descendant
+            parameters:
+              - name: descendant
+              - name: button
+                type: JoypadButton
+              - name: joypadData
+                type: JoypadData
+          - name: isInputBlocked
+            return:
+              - type: boolean
+          - name: initJoypadButtons
+            parameters:
+              - name: joypadData
+                type: JoypadData
           - name: onAnswerTradeRequest
             parameters:
               - name: button
@@ -150,32 +204,147 @@ languages:
               - name: remove
                 type: boolean
         staticMethods:
+          - name: GetUIForPlayer
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+            return:
+              - type: ISTradingUI
+                nullable: true
           - name: ReceiveTradeRequest
             parameters:
-              - name: requester
+              - name: otherPlayer
+                type: IsoPlayer
+              - name: player
                 type: IsoPlayer
           - name: AcceptedTrade
             parameters:
+              - name: otherPlayer
+                type: IsoPlayer
+              - name: player
+                type: IsoPlayer
               - name: accepted
                 type: boolean
           - name: OtherAddNewItem
             parameters:
+              - name: otherPlayer
+                type: IsoPlayer
               - name: player
                 type: IsoPlayer
               - name: item
                 type: InventoryItem
           - name: RemoveItem
             parameters:
+              - name: otherPlayer
+                type: IsoPlayer
               - name: player
                 type: IsoPlayer
               - name: itemId
                 type: integer
           - name: UpdateState
             parameters:
+              - name: otherPlayer
+                type: IsoPlayer
               - name: player
                 type: IsoPlayer
               - name: state
                 type: integer
+      ISTradingUI.InventoryList:
+        extends: ISScrollingListBox
+        local: true
+        constructors:
+          - parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+              - name: tradingUI
+                type: ISTradingUI
+        staticFields:
+          Type:
+            defaultValue: '"ISTradingUI_InventoryList"'
+        fields:
+          selected: 
+            type: integer
+          inventoryContainerCount:
+            type: number
+          itemTables:
+            type: table
+          itemTableList:
+            type: table
+          tradingUI:
+            type: ISTradingUI
+          treeExpIcon:
+            type: Texture
+          treeColIcon:
+            type: Texture
+          collapsed:
+            type: table
+          joypadParent:
+            type: ISTradingUI
+          joyfocus:
+            type: JoypadData
+            nullable: true
+        methods:
+          - name: onMouseUp
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+          - name: expandCollapseSize
+            return:
+              - type: number
+          - name: iconSize
+            return:
+              - type: number
+          - name: doDrawItem
+            parameters:
+              - name: y
+                type: number
+              - name: item
+                type: umbrella.ISScrollingListBox.Item
+              - name: alt
+                type: boolean
+            return:
+              - type: number
+          - name: updateYourInventory
+          - name: updateLater
+          - name: wasInventoryUpdated
+            return:
+              - type: boolean
+          - name: groupInventoryItemsByName
+          - name: getEquippedAndHotbarItems
+            parameters:
+              - name: isEquipped
+                type: boolean
+              - name: isInHotbar
+                type: boolean
+          - name: addInventoryItemToGroup
+            parameters:
+              - name: item
+                type: InventoryItem
+              - name: isEquipped
+                type: boolean
+              - name: isInHotbar
+                type: boolean
+          - name: onJoypadDirRight
+            parameters:
+              - name: joypadData
+                type: JoypadData
+        staticMethods:
+          - name: itemSortByNameInc
+            parameters:
+              - name: a
+                type: table
+              - name: b
+                type: table
+            return:
+              - type: boolean
       umbrella.ISTradingUI.HistoryMessage:
         fields:
           message:

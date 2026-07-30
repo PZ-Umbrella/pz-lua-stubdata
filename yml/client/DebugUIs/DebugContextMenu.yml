@@ -424,6 +424,7 @@ languages:
                 type: IsoGridSquare
               - name: player
                 type: IsoPlayer
+          - name: onReloadTranslations
           - name: onSpawnPoints
             parameters:
               - name: square

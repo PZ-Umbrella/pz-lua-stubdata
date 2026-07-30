@@ -38,8 +38,6 @@ languages:
             type: Faction
           isOwner:
             type: boolean
-          scoreboard:
-            type: umbrella.ISMiniScoreboardUI.Scoreboard
         methods:
           - name: initialise
           - name: populateList

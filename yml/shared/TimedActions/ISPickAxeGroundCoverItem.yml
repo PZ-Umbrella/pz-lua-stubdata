@@ -19,6 +19,8 @@ languages:
           pickAxe:
             type: InventoryItem
             nullable: true
+          started:
+            type: boolean
           item:
             type: IsoObject | IsoWorldInventoryObject
           objectType:
@@ -43,6 +45,10 @@ languages:
           - name: start
           - name: stop
           - name: perform
+          - name: complete
+            return:
+              - type: boolean
+                nullable: true
           - name: animEvent
             parameters:
               - name: event

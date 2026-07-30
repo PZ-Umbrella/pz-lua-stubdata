@@ -4,4 +4,4 @@ languages:
     classes:
       worldgen:
         staticFields:
-          features.TREE.bush_phforest: {}
+          features.BUSH.bush_birchforest: {}

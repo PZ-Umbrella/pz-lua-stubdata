@@ -138,8 +138,10 @@ languages:
           - name: ReceiveSafehouseInvite
             parameters:
               - name: safehouse
-                type: string
+                type: SafeHouse
               - name: host
+                type: string
+              - name: username
                 type: string
           - name: AcceptedSafehouseInvite
             parameters:

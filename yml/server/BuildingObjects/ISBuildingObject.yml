@@ -34,8 +34,6 @@ languages:
             type: boolean
           isLeftDown:
             type: boolean
-          clickedUI:
-            type: boolean
           canBeBuild:
             type: boolean
           build:

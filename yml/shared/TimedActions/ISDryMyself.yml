@@ -14,22 +14,24 @@ languages:
           Type:
             defaultValue: '"ISDryMyself"'
         fields:
-          tick:
+          lastUse:
             type: number
           item:
             type: InventoryItem
             nullable: true
           started:
             type: boolean
-          serverStartTime:
-            type: number
-          timer:
+          useDelay:
             type: number
         methods:
           - name: isValid
             return:
               - type: boolean
           - name: update
+          - name: useAndDry
+            parameters:
+              - name: isSyncNeeded
+                type: boolean
           - name: start
           - name: stop
           - name: perform
@@ -37,8 +39,12 @@ languages:
             return:
               - type: boolean
           - name: serverStart
-          - name: serverStop
-          - name: syncItemUses
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
           - name: getDuration
             return:
               - type: number

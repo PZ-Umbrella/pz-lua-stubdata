@@ -16,8 +16,6 @@ languages:
         fields:
           onClickContext:
             type: function
-          isValidSquare:
-            type: boolean
           itemObjTable:
             type: table<InventoryItem, InventoryItem>
           container:

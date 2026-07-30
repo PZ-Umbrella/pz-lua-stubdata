@@ -467,6 +467,12 @@ languages:
                 type: IsoPlayer
               - name: container
                 type: ItemContainer
+          - name: shouldSetOutlineHighlight
+            parameters:
+              - name: button
+                type: ISButton
+            return:
+              - type: boolean
           - name: onMouseOverButton
             parameters:
               - name: button

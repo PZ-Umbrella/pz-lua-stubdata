@@ -4,4 +4,4 @@ languages:
     classes:
       worldgen:
         staticFields:
-          features.PLANT.boulderslow_prim: {}
+          features.TREE.redbud_jumbo_xl: {}

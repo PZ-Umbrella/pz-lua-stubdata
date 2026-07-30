@@ -29,3 +29,9 @@ languages:
           - name: getTextureFilePath
             return:
               - type: string
+          - name: getWidthOrig
+            return:
+              - type: number
+          - name: getHeightOrig
+            return:
+              - type: number

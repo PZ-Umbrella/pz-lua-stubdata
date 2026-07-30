@@ -4,4 +4,4 @@ languages:
     classes:
       worldgen:
         staticFields:
-          features.TREE.boulders_primaryforest: {}
+          features.TREE.hemlock_jumbo_xl: {}
