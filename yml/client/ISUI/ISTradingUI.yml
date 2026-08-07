@@ -268,7 +268,7 @@ languages:
           Type:
             defaultValue: '"ISTradingUI_InventoryList"'
         fields:
-          selected: 
+          selected:
             type: integer
           inventoryContainerCount:
             type: number
