@@ -19,9 +19,14 @@ languages:
             type: table<integer, string>
           cacheMode:
             type: table<integer, string>
-          normalColor: {}
-          validColor: {}
-          invalidColor: {}
+          normalColor:
+            type: umbrella.RGB
+          validColor:
+            type: umbrella.RGB
+          invalidColor:
+            type: umbrella.RGB
+          DEBUG_RENDER:
+            defaultValue: getDebug() and false
         fields:
           objectIndex:
             type: integer
@@ -33,7 +38,10 @@ languages:
             type: IsoObject
             nullable: true
           tryInitialInvItem:
-            type: boolean
+            type: InventoryItem
+            nullable: true
+          pathfindAction:
+            type: ISPathFindAction
             nullable: true
           cursorFacing:
             type: integer
@@ -78,6 +86,9 @@ languages:
             nullable: true
           cacheInvObjectSprite:
             type: string
+            nullable: true
+          objectHiddenDuringRotate:
+            type: IsoObject
             nullable: true
           xJoypad:
             type: number
@@ -128,7 +139,7 @@ languages:
           - name: tryInitialItem
             parameters:
               - name: _item
-                type: boolean
+                type: InventoryItem
           - name: setMoveableMode
             parameters:
               - name: _mode
@@ -146,6 +157,16 @@ languages:
                 type: boolean
               - name: _sprite
                 type: string
+          - name: cannotCreate
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
+            return:
+              - type: boolean
           - name: getInfoPanel
             return:
               - type: ISMoveableInfoWindow
@@ -166,6 +187,14 @@ languages:
             return:
               - type: ISMoveableInfoWindow
                 nullable: true
+          - name: beforeWorldRender
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
           - name: render
             parameters:
               - name: _x
@@ -176,6 +205,40 @@ languages:
                 type: number
               - name: _square
                 type: IsoGridSquare
+          - name: renderSpriteGrid
+            parameters:
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+              - name: _z
+                type: number
+              - name: color
+                type: umbrella.RGB
+          - name: renderObjectThatCanRotate
+            parameters:
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+              - name: _z
+                type: number
+              - name: renderRotateIndicator
+            return:
+              - type: boolean
+          - name: renderRotateIndicator
+            parameters:
+              - name: _x
+                type: number
+              - name: _y
+                type: number
+              - name: _z
+                type: number
+              - name: _dir
+                type: IsoDirections
+          - name: isFacingOriginalDirection
+            return:
+              - type: boolean
           - name: isValid
             parameters:
               - name: _square
@@ -195,12 +258,21 @@ languages:
                 type: InventoryItem
             return:
               - type: IsoDirections
+          - name: getCenterOfRotation
+            return:
+              - type: number
+              - type: number
           - name: rotateMouse
             parameters:
               - name: x
                 type: number
               - name: y
                 type: number
+          - name: setObjectHiddenDuringRotate
+            parameters:
+              - name: object
+                type: IsoObject
+          - name: resetObjectHiddenDuringRotate
           - name: setCursorFacing
             parameters:
               - name: facing
@@ -239,7 +311,7 @@ languages:
               - name: joypadData
                 type: JoypadData
               - name: button
-                type: integer
+                type: JoypadButton
           - name: getAPrompt
             return:
               - type: string

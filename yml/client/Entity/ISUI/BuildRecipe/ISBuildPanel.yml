@@ -137,6 +137,7 @@ languages:
           - name: setRecipes
             parameters:
               - name: _recipeQuery
+                type: List<CraftRecipe>
           - name: onRecipeChanged
             parameters:
               - name: _recipe
@@ -153,6 +154,7 @@ languages:
           - name: setSortMode
             parameters:
               - name: _sortMode
+                type: string
           - name: sortRecipeList
           - name: onCategoryChanged
             parameters:
@@ -171,6 +173,7 @@ languages:
           - name: onManualSelectChanged
             parameters:
               - name: _manualSelectInputs
+                type: boolean
           - name: onShowManualSelectChanged
             parameters:
               - name: _showManualSelectInputs

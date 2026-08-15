@@ -7,6 +7,7 @@ languages:
         constructors:
           - parameters:
               - name: character
+                type: IsoPlayer
               - name: drainable
                 type: DrainableComboItem
               - name: intoItem
@@ -38,6 +39,13 @@ languages:
             return:
               - type: boolean
           - name: update
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
+          - name: serverStart
           - name: start
           - name: stop
           - name: perform
@@ -51,7 +59,6 @@ languages:
             return:
               - type: DrainableComboItem
                 nullable: true
-          - name: serverStop
           - name: complete
             return:
               - type: boolean

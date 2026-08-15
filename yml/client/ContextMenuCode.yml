@@ -61,6 +61,7 @@ languages:
               - name: character
                 type: IsoPlayer
               - name: sprite
+                type: string
           - name: TakeDispenserBottle
             parameters:
               - name: context
@@ -88,6 +89,7 @@ languages:
               - name: entity
                 type: IsoObject
               - name: character
+                type: IsoPlayer
               - name: param
                 type: umbrella.ContextMenuCode.Param
           - name: TakeHayDouble

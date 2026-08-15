@@ -12,7 +12,7 @@ languages:
                 type: InventoryItem
               - name: plant
                 type: CPlantGlobalObject
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
         staticFields:
           Type:
@@ -27,6 +27,8 @@ languages:
             type: InventoryItem
           plant:
             type: CPlantGlobalObject
+          maxTimeInit:
+            type: number
         methods:
           - name: isValid
             return:

@@ -24,6 +24,7 @@ languages:
           - name: onClose
             parameters:
               - name: message
+                nullable: true
           - name: addMessage
             parameters:
               - name: text

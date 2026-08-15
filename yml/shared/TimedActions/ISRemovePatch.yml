@@ -18,6 +18,8 @@ languages:
           Type:
             defaultValue: '"ISRemovePatch"'
         fields:
+          patchExisted:
+            type: boolean
           clothing:
             type: Clothing
           needle:

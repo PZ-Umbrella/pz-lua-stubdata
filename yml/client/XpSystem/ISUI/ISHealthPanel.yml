@@ -36,9 +36,10 @@ languages:
           blockingAlpha:
             type: number
           otherPlayer:
+            type: IsoPlayer
             nullable: true
           actions:
-            type: table
+            type: table<ISBaseTimedAction, BodyPart>
           blockingMessage:
             type: string
             nullable: true
@@ -49,7 +50,7 @@ languages:
           allTextHeight:
             type: number
           bodyPartAction:
-            type: table
+            type: table<BodyPart, table>
           characterX:
             type: number
           characterY:
@@ -86,6 +87,7 @@ languages:
               - name: bodyPart
                 type: BodyPart
           - name: update
+          - name: tryStopReceivingBodyDamageUpdates
           - name: prerender
           - name: render
           - name: getDoctor
@@ -142,13 +144,13 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirUp
           - name: onJoypadDirDown
           - name: checkItems
             parameters:
               - name: handlers
-                type: umbrella.ISHealthPanel.BodyPartHandler[]
+                type: ISHealthPanel.BaseHandler[]
           - name: checkContainerItems
             parameters:
               - name: container
@@ -156,7 +158,7 @@ languages:
               - name: childContainers
                 type: ItemContainer[]
               - name: handlers
-                type: umbrella.ISHealthPanel.BodyPartHandler[]
+                type: ISHealthPanel.BaseHandler[]
           - name: doBodyPartContextMenu
             parameters:
               - name: bodyPart
@@ -165,12 +167,19 @@ languages:
                 type: number
               - name: y
                 type: number
+          - name: wasRemotePlayerRecreated
+            return:
+              - type: boolean
           - name: dropItemsOnBodyPart
             parameters:
               - name: bodyPart
                 type: BodyPart
               - name: items
                 type: InventoryItem[]
+          - name: onAnswerMedicalCheckRequest
+            parameters:
+              - name: button
+                type: ISButton
         staticMethods:
           - name: onCheatCurrentPlayer
             parameters:
@@ -248,6 +257,18 @@ languages:
             return:
               - type: string
                 nullable: true
+          - name: ReceiveMedicalCheckRequest
+            parameters:
+              - name: target
+                type: IsoPlayer
+              - name: requester
+                type: IsoPlayer
+          - name: AcceptedMedicalCheck
+            parameters:
+              - name: target
+                type: IsoPlayer
+              - name: requester
+                type: IsoPlayer
           - name: onCheatHealthCommand
             parameters:
               - name: module
@@ -256,6 +277,14 @@ languages:
                 type: string
               - name: args
                 type: table
+          - name: canPerformMedicalCheck
+            parameters:
+              - name: target
+                type: IsoPlayer
+              - name: requester
+                type: IsoPlayer
+            return:
+              - type: boolean
       ISNewHealthPanel:
         extends: ISUIElement
         constructors:
@@ -359,7 +388,7 @@ languages:
               - name: character
                 type: IsoPlayer
               - name: handler
-                type: umbrella.ISHealthPanel.BodyPartHandler
+                type: ISHealthPanel.BaseHandler
               - name: arg1
                 type: unknown
                 nullable: true
@@ -389,7 +418,7 @@ languages:
             defaultValue: '"HealthPanelAction"'
         fields:
           handler:
-            type: umbrella.ISHealthPanel.BodyPartHandler
+            type: ISHealthPanel.BaseHandler
           args:
             type: table
         methods:
@@ -406,13 +435,17 @@ languages:
         constructors:
           - parameters:
               - name: panel
+                type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"BaseHandler"'
         fields:
-          panel: {}
-          bodyPart: {}
+          panel:
+            type: ISHealthPanel
+          bodyPart:
+            type: BodyPart
           items:
             type: table
         methods:
@@ -423,63 +456,93 @@ languages:
           - name: checkContainerItems
             parameters:
               - name: container
+                type: ItemContainer
               - name: childContainers
+                type: ItemContainer[]
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: addItem
             parameters:
               - name: items
+                type: InventoryItem[]
               - name: item
+                type: InventoryItem
           - name: getAllItemTypes
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
-              - type: table
+              - type: string[]
           - name: getItemOfType
             parameters:
               - name: items
+                type: InventoryItem[]
               - name: type
+                type: string
             return:
-              - type: unknown
+              - type: InventoryItem
                 nullable: true
           - name: getItemOfTag
             parameters:
               - name: items
+                type: InventoryItem[]
               - name: type
+                type: string
             return:
-              - type: unknown
+              - type: InventoryItem
                 nullable: true
           - name: getAllItemsOfType
             parameters:
               - name: items
+                type: InventoryItem[]
               - name: type
+                type: string
             return:
-              - type: table
+              - type: InventoryItem[]
           - name: onMenuOptionSelected
             parameters:
               - name: arg1
+                type: unknown
+                nullable: true
               - name: arg2
+                type: unknown
+                nullable: true
               - name: arg3
+                type: unknown
+                nullable: true
               - name: arg4
+                type: unknown
+                nullable: true
               - name: arg5
+                type: unknown
+                nullable: true
               - name: arg6
+                type: unknown
+                nullable: true
               - name: arg7
+                type: unknown
+                nullable: true
               - name: arg8
+                type: unknown
+                nullable: true
           - name: toPlayerInventory
             parameters:
               - name: item
+                type: InventoryItem
               - name: previousAction
+                type: ISBaseTimedAction
             return:
               - type: ISGrabCorpseItem | ISInventoryTransferAction
           - name: getDoctor
             return:
-              - type: unknown
+              - type: IsoPlayer
           - name: getPatient
             return:
-              - type: unknown
+              - type: IsoPlayer
       ISHealthPanel.HApplyBandage:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -488,6 +551,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HApplyBandage"'
@@ -495,6 +559,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -502,17 +567,21 @@ languages:
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: isValid
             parameters:
               - name: itemType
+                type: string
             return:
-              - type: unknown
+              - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
               - name: itemType
+                type: string
       ISHealthPanel.HRemoveBandage:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -521,6 +590,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HRemoveBandage"'
@@ -528,23 +598,27 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
                 type: ISContextMenu
           - name: isValid
             return:
-              - type: unknown
+              - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
       ISHealthPanel.HApplyPoultice:
         extends: ISHealthPanel.BaseHandler
         local: true
         constructors:
           - parameters:
               - name: panel
+                type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
               - name: itemType
                 type: string
               - name: menuLabel
@@ -565,6 +639,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -572,17 +647,21 @@ languages:
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: isValid
             parameters:
               - name: itemType
+                type: string
             return:
               - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
               - name: itemType
+                type: string
       ISHealthPanel.HApplyComfrey:
         extends: ISHealthPanel.HApplyPoultice
         local: true
@@ -591,6 +670,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HApplyComfrey"'
@@ -602,6 +682,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HApplyGarlic"'
@@ -613,6 +694,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HApplyPlantain"'
@@ -624,6 +706,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HDisinfect"'
@@ -631,6 +714,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -638,17 +722,21 @@ languages:
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: isValid
             parameters:
               - name: itemType
+                type: string
             return:
-              - type: unknown
+              - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
               - name: itemType
+                type: string
       ISHealthPanel.HStitch:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -657,6 +745,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HStitch"'
@@ -664,6 +753,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -674,19 +764,25 @@ languages:
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: isValid
             parameters:
               - name: needleType
+                type: string
               - name: threadType
+                type: string
             return:
               - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
               - name: needleType
+                type: string
               - name: threadType
+                type: string
       ISHealthPanel.HRemoveStitch:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -695,6 +791,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HRemoveStitch"'
@@ -702,16 +799,18 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
                 type: ISContextMenu
           - name: isValid
             return:
-              - type: unknown
+              - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
       ISHealthPanel.HRemoveGlass:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -720,6 +819,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HRemoveGlass"'
@@ -727,6 +827,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -734,17 +835,21 @@ languages:
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: isValid
             parameters:
               - name: itemType
+                type: string
             return:
               - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
               - name: itemType
+                type: string
       ISHealthPanel.HSplint:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -753,6 +858,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HSplint"'
@@ -760,6 +866,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -770,6 +877,7 @@ languages:
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: isValid
@@ -781,8 +889,12 @@ languages:
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
               - name: rippedSheetType
+                type: string
               - name: plankType
+                type: string
+                nullable: true
       ISHealthPanel.HRemoveSplint:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -791,6 +903,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HRemoveSplint"'
@@ -798,6 +911,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -808,6 +922,7 @@ languages:
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
       ISHealthPanel.HRemoveBullet:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -816,6 +931,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HRemoveBullet"'
@@ -823,6 +939,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -830,17 +947,21 @@ languages:
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: isValid
             parameters:
               - name: itemType
+                type: string
             return:
-              - type: unknown
+              - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
               - name: itemType
+                type: string
       ISHealthPanel.HCleanBurn:
         extends: ISHealthPanel.BaseHandler
         local: true
@@ -849,6 +970,7 @@ languages:
               - name: panel
                 type: ISHealthPanel
               - name: bodyPart
+                type: BodyPart
         staticFields:
           Type:
             defaultValue: '"HCleanBurn"'
@@ -856,6 +978,7 @@ languages:
           - name: checkItem
             parameters:
               - name: item
+                type: InventoryItem
           - name: addToMenu
             parameters:
               - name: context
@@ -863,23 +986,18 @@ languages:
           - name: dropItems
             parameters:
               - name: items
+                type: InventoryItem[]
             return:
               - type: boolean
           - name: isValid
             parameters:
               - name: itemType
+                type: string
             return:
-              - type: unknown
+              - type: boolean
           - name: perform
             parameters:
               - name: previousAction
+                type: ISBaseTimedAction
               - name: itemType
-      umbrella.ISHealthPanel.BodyPartHandler:
-        extends: ISBaseObject
-        fields:
-          bodyPart:
-            type: BodyPart
-          panel:
-            type: ISHealthPanel
-          items:
-            type: table
+                type: string

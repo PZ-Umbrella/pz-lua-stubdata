@@ -1,0 +1,39 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      TopOfTheWorld:
+        staticFields:
+          id:
+            defaultValue: '"TopOfTheWorld"'
+          image:
+            defaultValue: '"media/lua/client/LastStand/top_of_the_world.png"'
+          video:
+            defaultValue: '"top_of_the_world.bik"'
+          gameMode:
+            defaultValue: '"Top Of The World"'
+          world:
+            defaultValue: '"Muldraugh, KY"'
+          x:
+            defaultValue: "12785"
+          y:
+            defaultValue: "1527"
+          z:
+            defaultValue: "26"
+          hourOfDay:
+            defaultValue: "7"
+        staticMethods:
+          - name: Add
+          - name: OnGameStart
+          - name: OnInitWorld
+          - name: RemovePlayer
+            parameters:
+              - name: p
+                type: IsoPlayer
+          - name: AddPlayer
+            parameters:
+              - name: playerNum
+                type: integer
+              - name: playerObj
+                type: IsoPlayer
+          - name: Render

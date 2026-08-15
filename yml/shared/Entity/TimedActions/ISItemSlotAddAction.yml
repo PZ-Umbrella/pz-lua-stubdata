@@ -12,7 +12,9 @@ languages:
                 type: IsoObject
               - name: item
                 type: InventoryItem
-              - name: itemSlot
+              - name: resource
+                type: Resource
+              - name: internalItemSlot
                 type: ISItemSlot
         staticFields:
           Type:

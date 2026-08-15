@@ -38,8 +38,6 @@ languages:
             type: number
           playerY:
             type: number
-          name:
-            nullable: true
           text:
             type: string
         methods:
@@ -57,5 +55,5 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: update

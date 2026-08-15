@@ -13,7 +13,7 @@ languages:
               - name: item
                 type: InventoryItem
                 nullable: true
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
         staticFields:
           Type:
@@ -27,6 +27,8 @@ languages:
           item:
             type: InventoryItem
             nullable: true
+          maxTimeInit:
+            type: number
           maxTime:
             type: number
         methods:

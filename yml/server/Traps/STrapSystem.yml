@@ -35,9 +35,11 @@ languages:
           - name: OnClientCommand
             parameters:
               - name: command
+                type: string
               - name: playerObj
                 type: IsoPlayer
               - name: args
+                type: table
           - name: OnObjectAboutToBeRemoved
             parameters:
               - name: isoObject

@@ -28,8 +28,6 @@ languages:
             type: ISBackButtonWheel
           playerHotbar:
             type: ISHotbar
-          craftingUI:
-            type: ISCraftingUI
           mechanicsUI:
             type: ISVehicleMechanics
           vehicleDashboard:

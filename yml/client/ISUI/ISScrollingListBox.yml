@@ -4,6 +4,8 @@ languages:
     aliases:
       umbrella.ISScrollingListBox.MouseCallback:
         - type: "fun(target: unknown, item: unknown)"
+      umbrella.ISScrollingListBox.OverrideAButtonCallback:
+        - type: "fun(target: unknown, item: unknown)"
     classes:
       ISScrollingListBox:
         extends: ISPanelJoypad
@@ -44,8 +46,13 @@ languages:
             type: umbrella.RGBA
           onmousedown:
             type: umbrella.ISScrollingListBox.MouseCallback
+            nullable: true
+          overrideAButtonFunction:
+            type: umbrella.ISScrollingListBox.OverrideAButtonCallback
+            nullable: true
           onmousedblclick:
             type: umbrella.ISScrollingListBox.MouseCallback
+            nullable: true
           items:
             type: umbrella.ISScrollingListBox.Item[]
           itemheightoverride:
@@ -68,6 +75,8 @@ languages:
             type: number
           itemheight:
             type: number
+          SuperType:
+            type: ISPanelJoypad
           altBgColor:
             type: umbrella.RGBA
             nullable: true
@@ -83,6 +92,8 @@ languages:
             type: boolean
           columns:
             type: umbrella.ISScrollingListBox.Column[]
+          stealJoypadFocusFromParent:
+            type: boolean
         methods:
           - name: initialise
           - name: setJoypadFocused
@@ -161,6 +172,7 @@ languages:
                 type: unknown
                 nullable: true
               - name: tooltip
+                type: string
                 nullable: true
             return:
               - type: umbrella.ISScrollingListBox.Item
@@ -239,6 +251,7 @@ languages:
           - name: setItemTextColorRGBA
             parameters:
               - name: index
+                type: integer
               - name: r
                 type: number
               - name: g
@@ -250,6 +263,7 @@ languages:
           - name: setItemSelectedTextColorRGBA
             parameters:
               - name: index
+                type: integer
               - name: r
                 type: number
               - name: g
@@ -261,9 +275,11 @@ languages:
           - name: setItemTextColorToDefault
             parameters:
               - name: index
+                type: integer
           - name: setItemSelectedTextColorToDefault
             parameters:
               - name: index
+                type: integer
           - name: setOnMouseDownFunction
             parameters:
               - name: target
@@ -271,6 +287,14 @@ languages:
                 nullable: true
               - name: onmousedown
                 type: umbrella.ISScrollingListBox.MouseCallback
+                nullable: true
+          - name: setOverrideAButtonFunction
+            parameters:
+              - name: target
+                type: unknown
+                nullable: true
+              - name: fct
+                type: umbrella.ISScrollingListBox.OverrideAButtonCallback
                 nullable: true
           - name: invokeOnMouseDownFunction
           - name: setOnMouseDoubleClick
@@ -323,6 +347,8 @@ languages:
           - name: sort
             parameters:
               - name: comparator
+                type: "fun(a: umbrella.ISScrollingListBox.Item, b:
+                  umbrella.ISScrollingListBox.Item): boolean"
           - name: updateTooltip
           - name: updateSmoothScrolling
           - name: parentsHaveScrollChildren
@@ -351,12 +377,30 @@ languages:
               - name: index
                 type: integer
           - name: render
+          - name: renderJoypadFocus
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: w
+                type: number
+              - name: h
+                type: number
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
+          - name: onJoypadDownInParent
+            parameters:
+              - name: button
+                type: JoypadButton
+              - name: joypadData
+                type: JoypadData
+            return:
+              - type: boolean
           - name: onLoseJoypadFocus
             parameters:
               - name: joypadData
@@ -374,6 +418,8 @@ languages:
                 type: string
               - name: size
                 type: number
+              - name: id
+                type: string
           - name: getItem
             parameters:
               - name: index
@@ -399,6 +445,8 @@ languages:
             type: string
           size:
             type: number
+          id:
+            type: string
       umbrella.ISScrollingListBox.Item:
         fields:
           text:

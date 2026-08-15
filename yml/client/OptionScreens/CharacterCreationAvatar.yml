@@ -62,7 +62,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joyadData
                 type: JoypadData
           - name: onJoypadDirLeft

@@ -14,8 +14,6 @@ languages:
           Type:
             defaultValue: '"ISWorldItemIconTrack"'
         fields:
-          isValidSquare:
-            type: boolean
           itemObjTable:
             type: table<InventoryItem, InventoryItem>
           container:

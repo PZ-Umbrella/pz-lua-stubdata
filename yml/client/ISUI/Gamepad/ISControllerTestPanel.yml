@@ -1,0 +1,56 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISControllerTestPanel:
+        extends: ISPanel
+        constructors:
+          - parameters:
+              - name: controllerTab
+                type: GameOptionControllerTab
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: width
+                type: number
+              - name: height
+                type: number
+        staticFields:
+          Type:
+            defaultValue: '"ControllerTest"'
+        fields:
+          selectedController:
+            type: integer
+            nullable: true
+          axisLabelWid:
+            type: number
+            nullable: true
+          buttonX:
+            type: number
+          label:
+            type: ISLabel
+          combo:
+            type: ISComboBox
+          axisY:
+            type: table
+          controllerTab:
+            type: GameOptionControllerTab
+          smallFontHgt:
+            type: number
+        methods:
+          - name: onControllerSelected
+          - name: joypadSensitivityM
+          - name: joypadSensitivityP
+          - name: render
+          - name: createChildren
+          - name: setControllerCombo
+          - name: OnGamepadConnect
+            parameters:
+              - name: index
+                type: integer
+          - name: OnGamepadDisconnect
+            parameters:
+              - name: index
+                type: integer
+          - name: doLayout

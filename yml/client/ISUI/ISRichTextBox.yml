@@ -64,8 +64,6 @@ languages:
           validateTooltipText:
             type: string
             nullable: true
-          name:
-            nullable: true
           text:
             type: string
           onclick:
@@ -127,6 +125,6 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData

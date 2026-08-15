@@ -83,6 +83,7 @@ languages:
           - name: onRebuildItemNodes
             parameters:
               - name: _inputItems
+                nullable: true
           - name: onInputsChanged
           - name: updateTitleWidget
           - name: onGainJoypadFocus

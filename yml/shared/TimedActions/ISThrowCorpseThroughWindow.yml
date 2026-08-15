@@ -1,0 +1,37 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISThrowCorpseThroughWindow:
+        extends: ISBaseTimedAction
+        constructors:
+          - parameters:
+              - name: character
+                type: IsoPlayer
+              - name: window
+                type: IsoWindow
+        staticFields:
+          Type:
+            defaultValue: '"ISThrowCorpseThroughWindow"'
+        fields:
+          window:
+            type: IsoWindow
+          allowedWhileDraggingCorpses:
+            type: boolean
+        methods:
+          - name: isValid
+            return:
+              - type: boolean
+          - name: waitToStart
+            return:
+              - type: boolean
+          - name: update
+          - name: start
+          - name: stop
+          - name: perform
+          - name: complete
+            return:
+              - type: boolean
+          - name: getDuration
+            return:
+              - type: number

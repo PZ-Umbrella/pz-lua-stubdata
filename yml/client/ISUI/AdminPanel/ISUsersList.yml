@@ -27,16 +27,56 @@ languages:
             type: ISButton
           bannedIPs:
             type: ISButton
+          refresh:
+            type: ISButton
+          close:
+            type: ISButton
           searchEntry:
             type: ISTextEntryBox
-          close:
+          sortByNameButton:
+            type: ISButton
+          sortByRoleButton:
+            type: ISButton
+          sortByLastConnectionButton:
+            type: ISButton
+          sortByWarningsButton:
             type: ISButton
           datas:
             type: ISScrollingListBox
+          warningsColumnX:
+            type: number
+          lastConnectionColumnX:
+            type: number
+          roleColumnX:
+            type: number
+          showOnlineOnly:
+            type: boolean
+          sortDown:
+            type: boolean
+          sortType:
+            type: string
           player:
             type: IsoPlayer
+          arrowUp:
+            type: Texture
+          arrowDown:
+            type: Texture
         methods:
           - name: initialise
+          - name: refresh
+          - name: calculateColumnPositions
+          - name: createColumnHeader
+            parameters:
+              - name: name
+                type: string
+              - name: sortType
+                type: string
+              - name: x
+                type: number
+              - name: width
+                type: number
+            return:
+              - type: ISButton
           - name: populateList
           - name: drawDatas
             parameters:
@@ -53,6 +93,11 @@ languages:
               - name: _item
                 type: IsoPlayer
           - name: doSearch
+          - name: toggleShowOnlineOnly
+          - name: onClickSort
+            parameters:
+              - name: button
+                type: ISButton
           - name: prerender
           - name: onClick
             parameters:
@@ -100,6 +145,15 @@ languages:
                 type: number
           - name: closeModal
         staticMethods:
+          - name: comparator
+            parameters:
+              - name: user1
+                type: umbrella.ISScrollingListBox.Item
+              - name: user2
+                type: umbrella.ISScrollingListBox.Item
+            return:
+              - type: boolean
+                nullable: true
           - name: onAddWarningPoint
             parameters:
               - name: username

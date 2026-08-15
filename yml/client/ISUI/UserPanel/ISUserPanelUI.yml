@@ -54,11 +54,15 @@ languages:
           - name: onShowConnectionInfo
             parameters:
               - name: option
+                type: integer
               - name: enabled
+                type: boolean
           - name: onShowServerInfo
             parameters:
               - name: option
+                type: integer
               - name: enabled
+                type: boolean
           - name: updateButtons
           - name: onOptionMouseDown
             parameters:

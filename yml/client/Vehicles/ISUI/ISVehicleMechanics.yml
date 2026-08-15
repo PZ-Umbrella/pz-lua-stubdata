@@ -49,6 +49,16 @@ languages:
             nullable: true
           checkEngine:
             type: boolean
+          progressHgt:
+            type: number
+          progressPadBottom:
+            type: number
+          rectY:
+            type: number
+          rectHgt:
+            type: number
+          progressY:
+            type: number
           listbox:
             type: ISScrollingListBox
           bodyworklist:
@@ -228,7 +238,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirUp
           - name: onJoypadDirDown
           - name: onJoypadDirLeft
@@ -304,7 +314,9 @@ languages:
               - name: vehicle
                 type: BaseVehicle
               - name: hotwired
+                type: boolean
               - name: broken
+                type: boolean
           - name: onCheatRepair
             parameters:
               - name: playerObj
@@ -332,6 +344,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: part
+                type: VehiclePart
           - name: onCheatSetConditionAux
             parameters:
               - name: target

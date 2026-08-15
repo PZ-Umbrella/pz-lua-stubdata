@@ -81,7 +81,7 @@ languages:
               - name: descendant
                 type: ISUIElement
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadBeforeDeactivate
@@ -143,7 +143,7 @@ languages:
           - name: onJoypadDownInParent
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISVehicleAnimal3DModel:

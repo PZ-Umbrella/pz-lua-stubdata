@@ -24,6 +24,7 @@ languages:
               - name: z
                 type: number
               - name: tile
+                type: string
           - name: addStairs
             parameters:
               - name: x
@@ -33,6 +34,8 @@ languages:
               - name: z
                 type: number
               - name: north
+                type: boolean
+                nullable: true
           - name: addFence
             parameters:
               - name: x
@@ -42,7 +45,9 @@ languages:
               - name: z
                 type: number
               - name: tile
+                type: string
               - name: north
+                type: boolean
           - name: addWallFrame
             parameters:
               - name: x
@@ -52,7 +57,9 @@ languages:
               - name: z
                 type: number
               - name: tile
+                type: string
               - name: north
+                type: boolean
           - name: addWall
             parameters:
               - name: x
@@ -62,7 +69,9 @@ languages:
               - name: z
                 type: number
               - name: tile
+                type: string
               - name: north
+                type: boolean
           - name: addDoor
             parameters:
               - name: x
@@ -72,8 +81,11 @@ languages:
               - name: z
                 type: number
               - name: tile
+                type: string
               - name: openTile
+                type: string
               - name: north
+                type: boolean
           - name: addItem
             parameters:
               - name: x
@@ -83,6 +95,7 @@ languages:
               - name: z
                 type: number
               - name: tile
+                type: string
           - name: getSQ
             parameters:
               - name: x
@@ -92,7 +105,7 @@ languages:
               - name: z
                 type: number
             return:
-              - type: unknown
+              - type: IsoGridSquare
           - name: removeItemsButFloor
             parameters:
               - name: x

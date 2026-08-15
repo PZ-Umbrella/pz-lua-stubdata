@@ -63,23 +63,27 @@ languages:
           Type:
             defaultValue: '"ISWorldMapSharing_CheckList"'
         fields:
+          boxSize:
+            type: number
           selected:
             type: number
           leftMargin:
             type: number
-          boxSize:
-            type: number
           textGap:
             type: number
-          tickTexture: {}
+          tickTexture:
+            type: Texture
           joypadParent:
             type: ISWorldMapSharing_PanelPlayers
         methods:
           - name: doDrawItem
             parameters:
               - name: y
+                type: number
               - name: item
+                type: umbrella.ISScrollingListBox.Item
               - name: alt
+                type: boolean
             return:
               - type: number
           - name: onMouseDown
@@ -115,7 +119,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISWorldMapSharing.PanelMain:
@@ -131,19 +135,25 @@ languages:
                 type: number
               - name: height
                 type: number
+              - name: mapUI
         staticFields:
           Type:
             defaultValue: '"ISWorldMapSharing_PanelMain"'
         fields:
           labelAuthor:
             type: ISLabel
+          hideAuthorTickBox:
+            type: ISTickBox
           radioBtns:
             type: ISRadioButtons
           tickBox:
             type: ISTickBox
           buttonPlayers:
             type: ISButton
-          currentSymbol: {}
+          currentSymbol:
+            type: WorldMapBaseSymbol
+          mapUI:
+            type: umbrella.MapUI
         methods:
           - name: createChildren
           - name: becomeCurrent
@@ -151,6 +161,12 @@ languages:
               - name: joypadData
                 type: JoypadData
           - name: prerender
+          - name: onTickBoxHideAuthor
+            parameters:
+              - name: index
+                type: integer
+              - name: selected
+                type: boolean
           - name: onRadioButton
             parameters:
               - name: buttons
@@ -161,6 +177,7 @@ languages:
           - name: setCurrentSymbol
             parameters:
               - name: symbol
+                type: WorldMapBaseSymbol
           - name: setJoypadButtons
           - name: onGainJoypadFocus
             parameters:
@@ -169,7 +186,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISWorldMapSharing_PanelPlayers:
@@ -221,7 +238,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
         staticMethods:

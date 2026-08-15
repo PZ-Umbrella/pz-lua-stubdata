@@ -83,6 +83,7 @@ languages:
               - name: _y
                 type: number
               - name: _t
+                type: number
           - name: drawGridDataold
             parameters:
               - name: _x
@@ -90,6 +91,7 @@ languages:
               - name: _y
                 type: number
               - name: _t
+                type: number
           - name: updateVisualGrid
           - name: updateGridRectangle
             return:

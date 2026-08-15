@@ -1,0 +1,42 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISDropAnimalCorpseAndThen:
+        extends: ISBaseTimedAction
+        constructors:
+          - parameters:
+              - name: character
+                type: IsoPlayer
+              - name: item
+                type: InventoryItem
+              - name: andThen
+                type: string
+        staticFields:
+          Type:
+            defaultValue: '"ISDropAnimalCorpseAndThen"'
+        fields:
+          item:
+            type: InventoryItem
+          sound:
+            type: integer
+          andThen:
+            type: string
+        methods:
+          - name: isValid
+            return:
+              - type: boolean
+          - name: waitToStart
+            return:
+              - type: boolean
+          - name: update
+          - name: start
+          - name: stop
+          - name: perform
+          - name: complete
+            return:
+              - type: boolean
+          - name: getDuration
+            return:
+              - type: number
+          - name: stopSound

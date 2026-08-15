@@ -67,8 +67,6 @@ languages:
             type: number
           playerY:
             type: number
-          name:
-            nullable: true
           prompt:
             type: string
           time:
@@ -105,7 +103,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: render
           - name: addTime
             parameters:

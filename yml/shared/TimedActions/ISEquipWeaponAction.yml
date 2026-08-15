@@ -10,7 +10,7 @@ languages:
                 type: IsoPlayer
               - name: item
                 type: InventoryItem
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
               - name: primary
                 type: boolean
@@ -29,6 +29,8 @@ languages:
           sound:
             type: integer
             nullable: true
+          maxTimeInit:
+            type: number
           primary:
             type: boolean
           twoHands:

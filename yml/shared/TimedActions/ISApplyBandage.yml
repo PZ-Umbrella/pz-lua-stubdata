@@ -42,6 +42,10 @@ languages:
             type: number
           bandagedPlayerY:
             type: number
+          wasBandaged:
+            type: boolean
+          itemWasPresent:
+            type: boolean
         methods:
           - name: isValid
             return:
@@ -50,8 +54,10 @@ languages:
             return:
               - type: boolean
           - name: update
+          - name: serverStart
           - name: start
           - name: stop
+          - name: serverStop
           - name: perform
           - name: complete
             return:

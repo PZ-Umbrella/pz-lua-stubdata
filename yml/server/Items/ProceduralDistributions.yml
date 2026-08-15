@@ -2,6 +2,65 @@ version: "1.1"
 languages:
   lua:
     classes:
-      ProceduralDistributions: {}
+      ProceduralDistributions:
+        staticFields:
+          list:
+            type: table<string, umbrella.ProceduralDistribution>
+            tags:
+              - StubGen_Extra
       ClutterTables: {}
       BagsAndContainers: {}
+      umbrella.ProceduralDistribution:
+        fields:
+          rolls:
+            type: integer
+          items:
+            type: (string | integer)[]
+          isShop:
+            type: boolean
+            nullable: true
+          noAutoAge:
+            type: boolean
+            nullable: true
+          fillRand:
+            type: integer
+            nullable: true
+          maxMap:
+            type: integer
+            nullable: true
+          stashChance:
+            type: integer
+            nullable: true
+          dontSpawnAmmo:
+            type: boolean
+            nullable: true
+          ignoreZombieDensity:
+            type: boolean
+            nullable: true
+          cookFood:
+            type: boolean
+            nullable: true
+          canBurn:
+            type: boolean
+            nullable: true
+          isTrash:
+            type: boolean
+            nullable: true
+          isWorn:
+            type: boolean
+            nullable: true
+          isRotten:
+            type: boolean
+            nullable: true
+          onlyOne:
+            type: boolean
+            nullable: true
+          defaultInventoryLoot:
+            type: boolean
+            nullable: true
+          junk:
+            type: umbrella.ContainerDistribution
+            nullable: true
+          bags:
+            type: umbrella.ContainerDistribution
+            nullable: true

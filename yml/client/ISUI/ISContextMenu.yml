@@ -175,6 +175,7 @@ languages:
           - name: checkHighlightedOption
             parameters:
               - name: option
+                type: umbrella.ISContextMenu.Option
                 nullable: true
           - name: callOptionHighlightFunction
             parameters:
@@ -185,7 +186,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: closeAll
           - name: onMouseDownOutside
             parameters:

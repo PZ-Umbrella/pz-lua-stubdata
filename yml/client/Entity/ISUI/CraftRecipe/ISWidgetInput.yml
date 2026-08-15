@@ -64,8 +64,6 @@ languages:
             nullable: true
           iconSize:
             type: number
-          iconMargin:
-            type: number
           labelIconSize:
             type: number
           selectInputButtonSize:

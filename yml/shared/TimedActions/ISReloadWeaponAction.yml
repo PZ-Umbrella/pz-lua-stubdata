@@ -14,6 +14,8 @@ languages:
           Type:
             defaultValue: '"ISReloadWeaponAction"'
         fields:
+          gun:
+            type: HandWeapon
           ammoCountStart:
             type: integer
           bullets:
@@ -24,8 +26,6 @@ languages:
             nullable: true
           playedInsertAmmoStartSound:
             type: boolean
-          gun:
-            type: HandWeapon
           reloading:
             type: boolean
           useProgressBar:
@@ -61,6 +61,14 @@ languages:
                 type: HandWeapon
             return:
               - type: boolean
+          - name: getReloadTime
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: baseTime
+                type: number
+            return:
+              - type: number
           - name: setReloadSpeed
             parameters:
               - name: character
@@ -92,6 +100,8 @@ languages:
               - name: gun
                 type: HandWeapon
               - name: shift
+                type: boolean
+                nullable: true
           - name: canShoot
             parameters:
               - name: player
@@ -111,6 +121,7 @@ languages:
           - name: onShoot
             parameters:
               - name: player
+                type: IsoPlayer
               - name: weapon
                 type: HandWeapon
           - name: OnPlayerAttackFinished

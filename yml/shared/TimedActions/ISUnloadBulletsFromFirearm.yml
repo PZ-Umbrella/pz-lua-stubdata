@@ -14,6 +14,8 @@ languages:
           Type:
             defaultValue: '"ISUnloadBulletsFromFirearm"'
         fields:
+          gun:
+            type: HandWeapon
           ammoCountStart:
             type: integer
             nullable: true
@@ -21,8 +23,6 @@ languages:
             type: boolean
           playedEjectAmmoStartSound:
             type: boolean
-          gun:
-            type: HandWeapon
           useProgressBar:
             type: boolean
         methods:

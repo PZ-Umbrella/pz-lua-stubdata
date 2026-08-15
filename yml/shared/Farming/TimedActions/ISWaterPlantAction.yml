@@ -14,7 +14,7 @@ languages:
                 type: integer
               - name: sq
                 type: IsoGridSquare
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
         staticFields:
           Type:
@@ -31,6 +31,8 @@ languages:
             nullable: true
           character:
             type: IsoPlayer
+          maxTimeInit:
+            type: number
           deltaPerUse:
             type: number
           sq:

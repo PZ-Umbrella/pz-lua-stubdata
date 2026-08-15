@@ -57,6 +57,8 @@ languages:
             type: ISButton
           ok:
             type: ISButton
+          cancel:
+            type: ISButton
           joypadButtons:
             type: ISButton[]
             nullable: true
@@ -64,8 +66,6 @@ languages:
             type: boolean
           character:
             type: IsoPlayer
-            nullable: true
-          name:
             nullable: true
           target:
             type: unknown
@@ -109,7 +109,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
           - name: getCode
             return:
               - type: number

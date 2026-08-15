@@ -1,0 +1,42 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      ISUITextureGetter:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: textureFilePath
+                type: string
+        staticFields:
+          Type:
+            defaultValue: '"ISUITextureGetter"'
+        fields:
+          texture:
+            type: Texture
+            nullable: true
+          textureFilePath:
+            type: string
+        methods:
+          - name: getTexture
+            return:
+              - type: Texture
+                nullable: true
+          - name: getHeight
+            return:
+              - type: number
+          - name: getWidth
+            return:
+              - type: number
+          - name: getTextureFilePath
+            return:
+              - type: string
+          - name: loadTexture
+        staticMethods:
+          - name: checkGetTexture
+            parameters:
+              - name: texture
+                type: Texture | ISUITextureGetter
+            return:
+              - type: Texture
+                nullable: true

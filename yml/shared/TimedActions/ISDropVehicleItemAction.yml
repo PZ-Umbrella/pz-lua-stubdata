@@ -7,6 +7,7 @@ languages:
         constructors:
           - parameters:
               - name: character
+                type: IsoPlayer
               - name: item
                 type: InventoryItem
               - name: vehicle
@@ -19,6 +20,9 @@ languages:
           Type:
             defaultValue: '"ISDropVehicleItemAction"'
         fields:
+          wasValid:
+            type: boolean
+            nullable: true
           dropSquare:
             type: IsoGridSquare
           item:

@@ -10,8 +10,8 @@ languages:
                 type: IsoPlayer
               - name: iconID
                 type: string
-              - name: itemTypeList
-                type: string[]
+              - name: itemDataList
+                type: table[]
               - name: targetContainer
                 type: ItemContainer
               - name: itemType
@@ -20,16 +20,12 @@ languages:
           Type:
             defaultValue: '"ISForageAction"'
         fields:
-          itemCount:
-            type: integer
           targetContainer:
             type: ItemContainer
           itemType:
             type: string
-          itemTypeList:
-            type: string[]
-          iconID:
-            type: string
+          itemDataList:
+            type: table[]
           manager:
             type: ISSearchManager
           forageIcon:
@@ -37,6 +33,8 @@ languages:
           zoneData:
             type: umbrella.Foraging.ZoneData
             nullable: true
+          iconID:
+            type: string
           itemDef:
             type: umbrella.Foraging.ItemDefinition
           currentTime:
@@ -54,7 +52,6 @@ languages:
           - name: stop
           - name: start
           - name: perform
-          - name: forage
           - name: complete
             return:
               - type: boolean

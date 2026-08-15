@@ -37,19 +37,35 @@ languages:
           - name: indexOf
             parameters:
               - name: table1
-                type: string
+                type: table
               - name: value
                 type: unknown
             return:
               - type: integer
+          - name: remove
+            parameters:
+              - name: table1
+                type: table
+              - name: value
+                type: unknown
+            return:
+              - type: number
           - name: tableContains
             parameters:
               - name: table2
-                type: string
+                type: table
               - name: value
                 type: unknown
             return:
               - type: boolean
+          - name: concatenateArrays
+            parameters:
+              - name: table1
+                type: table
+              - name: table2
+                type: table
+            return:
+              - type: table
           - name: getNextTiles
             parameters:
               - name: cell
@@ -161,6 +177,50 @@ languages:
                 type: ItemContainer
               - name: playerNum
                 type: integer
+            return:
+              - type: boolean
+          - name: walkAdjObject
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: object
+                type: IsoObject
+              - name: allowDiagonal
+                type: boolean
+                nullable: true
+              - name: keepActions
+                type: boolean
+                nullable: true
+            return:
+              - type: boolean
+          - name: walkAdjSquares
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: squares
+                type: IsoGridSquare[]
+              - name: allowDiagonal
+                type: boolean
+                nullable: true
+              - name: keepActions
+                type: boolean
+                nullable: true
+            return:
+              - type: boolean
+          - name: walkAdjSquaresExcluded
+            parameters:
+              - name: playerObj
+                type: IsoPlayer
+              - name: squares
+                type: IsoGridSquare[]
+              - name: squaresExcluded
+                type: IsoGridSquare[]
+              - name: allowDiagonal
+                type: boolean
+                nullable: true
+              - name: keepActions
+                type: boolean
+                nullable: true
             return:
               - type: boolean
           - name: haveToBeTransfered

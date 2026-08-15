@@ -32,6 +32,8 @@ languages:
           tooltip:
             nullable: true
           joypadFocused: {}
+          SuperType:
+            type: ISPanelJoypad
           keeplog:
             type: boolean
           logIndex:
@@ -84,6 +86,7 @@ languages:
           - name: setSelectable
             parameters:
               - name: enable
+                type: boolean
           - name: isSelectable
             return:
               - type: boolean
@@ -102,6 +105,9 @@ languages:
             parameters:
               - name: hasButton
                 type: boolean
+          - name: hasClearButton
+            return:
+              - type: boolean
           - name: setText
             parameters:
               - name: str
@@ -229,6 +235,6 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData

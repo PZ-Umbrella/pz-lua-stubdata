@@ -139,6 +139,7 @@ languages:
           - name: setRecipes
             parameters:
               - name: _recipeQuery
+                type: List<CraftRecipe>
           - name: onRecipeChanged
             parameters:
               - name: _recipe

@@ -3,6 +3,37 @@ languages:
   lua:
     classes:
       forageServer:
+        staticFields:
+          pools:
+            type: table<string, table<string, umbrella.Foraging.PoolEntry>>
+          byId:
+            type: table<string, table<string, umbrella.Foraging.PoolIcon>>
+          lastFind:
+            type: table<string, umbrella.XY>
+          focus:
+            type: table<string, string>
+          lastReqMs:
+            type: table<string, integer>
+          minReqMs:
+            defaultValue: "250"
+          maxPickupDistance:
+            defaultValue: "30"
+          maxXPDistance:
+            defaultValue: "20"
+          nearMargin:
+            defaultValue: "25"
+          poolGraceMs:
+            defaultValue: "60000"
+          relevanceMs:
+            defaultValue: "2000"
+          _nextRelevanceMs:
+            defaultValue: "0"
+          affinityRadius:
+            defaultValue: "8"
+          affinityRolled:
+            type: table<string, table<string, table<string, boolean>>>
+          affinityChunks:
+            type: table<string, table<string, table<string, boolean>>>
         staticMethods:
           - name: updateData
           - name: clearData
@@ -42,3 +73,112 @@ languages:
               - name: _clientID
                 type: unknown
                 nullable: true
+          - name: generatePool
+            parameters:
+              - name: _player
+                type: IsoPlayer
+              - name: _zoneData
+                type: umbrella.Foraging.ZoneData
+              - name: _focus
+                type: string
+            return:
+              - type: table<string, umbrella.Foraging.PoolIcon>
+          - name: ensurePool
+            parameters:
+              - name: _player
+                type: IsoPlayer
+              - name: _zoneData
+                type: umbrella.Foraging.ZoneData
+              - name: _focus
+                type: string
+            return:
+              - type: umbrella.Foraging.PoolEntry
+                nullable: true
+              - type: boolean
+                nullable: true
+          - name: scanAffinity
+            parameters:
+              - name: _player
+                type: IsoPlayer
+              - name: _zoneData
+                type: umbrella.Foraging.ZoneData
+              - name: _entry
+                type: umbrella.Foraging.PoolEntry
+          - name: onRequestZone
+            parameters:
+              - name: _player
+                type: IsoPlayer
+              - name: _focus
+                type: string
+          - name: onSpot
+            parameters:
+              - name: _player
+                type: IsoPlayer
+              - name: _iconID
+                type: string
+          - name: buildItems
+            parameters:
+              - name: _player
+                type: IsoPlayer
+              - name: _rec
+                type: umbrella.Foraging.PoolIcon
+              - name: _itemDef
+                type: umbrella.Foraging.ItemDefinition
+            return:
+              - type: ArrayList<InventoryItem>
+          - name: onPickup
+            parameters:
+              - name: _player
+                type: IsoPlayer
+              - name: _iconID
+                type: string
+              - name: _container
+                type: ItemContainer
+            return:
+              - type: boolean
+          - name: dropZonePool
+            parameters:
+              - name: _user
+                type: string
+              - name: _zoneId
+                type: string
+          - name: dropPlayer
+            parameters:
+              - name: _user
+                type: string
+          - name: playerNearZone
+            parameters:
+              - name: _px
+                type: number
+              - name: _py
+                type: number
+              - name: _zoneId
+                type: string
+            return:
+              - type: boolean
+          - name: relevanceTick
+      umbrella.Foraging.PoolEntry:
+        fields:
+          lastMs:
+            type: integer
+          icons:
+            type: table<string, umbrella.Foraging.PoolIcon>
+      umbrella.Foraging.PoolRecord:
+        extends: umbrella.XYZ
+        fields:
+          itemType:
+            type: string
+          catName:
+            type: string
+          count:
+            type: integer
+      umbrella.Foraging.PoolIcon:
+        extends: umbrella.PoolRecord
+        fields:
+          iconID:
+            type: string
+          zoneId:
+            type: string
+    fields:
+      forageClient:
+        type: forageServer

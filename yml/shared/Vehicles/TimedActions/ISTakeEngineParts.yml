@@ -12,18 +12,20 @@ languages:
                 type: VehiclePart
               - name: item
                 type: InventoryItem
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
         staticFields:
           Type:
             defaultValue: '"ISTakeEngineParts"'
         fields:
-          vehicle:
-            type: BaseVehicle
           part:
             type: VehiclePart
+          vehicle:
+            type: BaseVehicle
           item:
             type: InventoryItem
+          maxTimeInit:
+            type: number
           jobType:
             type: string
         methods:

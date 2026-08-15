@@ -10,7 +10,7 @@ languages:
                 type: IsoPlayer
               - name: plant
                 type: CPlantGlobalObject
-              - name: maxTime
+              - name: maxTimeInit
                 type: number
         staticFields:
           Type:
@@ -23,6 +23,8 @@ languages:
             type: IsoPlayer
           plant:
             type: CPlantGlobalObject
+          maxTimeInit:
+            type: number
         methods:
           - name: isValid
             return:

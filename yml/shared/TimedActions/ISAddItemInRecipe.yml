@@ -30,6 +30,9 @@ languages:
           jobType:
             type: string
         methods:
+          - name: isValidStart
+            return:
+              - type: boolean
           - name: isValid
             return:
               - type: boolean

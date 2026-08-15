@@ -24,6 +24,10 @@ languages:
         fields:
           title:
             type: string
+          topPanel:
+            type: ISPanel
+          functionCombo:
+            type: ISComboBox
           sourceView:
             type: ISScrollingListBox
           bottomPanel:
@@ -78,3 +82,9 @@ languages:
             parameters:
               - name: listBox
                 type: ISScrollingListBox
+          - name: fillFunctionCombo
+          - name: onFunctionCombo
+            parameters:
+              - name: combo
+                type: ISComboBox
+          - name: onResize

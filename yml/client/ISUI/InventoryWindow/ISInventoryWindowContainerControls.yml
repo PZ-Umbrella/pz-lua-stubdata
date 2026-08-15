@@ -15,22 +15,24 @@ languages:
           inventoryWindow:
             type: ISInventoryPage
           handlers:
-            type: table
+            type: table<ISInventoryWindowControlHandler, ISInventoryWindowControlHandler>
           controls:
-            type: table
+            type: ISUIElement[]
         methods:
           - name: createChildren
           - name: checkHandler
             parameters:
               - name: handlerClass
+                type: ISInventoryWindowControlHandler
               - name: container
+                type: ItemContainer
                 nullable: true
             return:
-              - type: unknown
+              - type: ISInventoryWindowControlHandler
           - name: arrange
           - name: getDisplayedContainer
             return:
-              - type: unknown
+              - type: ItemContainer
                 nullable: true
           - name: handleJoypadContextMenu
             parameters:
@@ -41,7 +43,6 @@ languages:
           - name: AddHandler
             parameters:
               - name: handlerClass
-                type: ISInventoryWindowControlHandler_TransferAll |
-                  ISInventoryWindowControlHandler_TransferSameType
+                type: ISInventoryWindowControlHandler
       ISInventoryWindowContainerControls_HandlerList: {}
       ISInventoryWindowContainerControls_HandlerSet: {}

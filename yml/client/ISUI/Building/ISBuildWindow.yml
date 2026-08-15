@@ -138,3 +138,8 @@ languages:
                 type: ISUIElement
               - name: joypadData
                 type: JoypadData
+        staticMethods:
+          - name: OnPlayerDeath
+            parameters:
+              - name: playerObj
+                type: IsoPlayer

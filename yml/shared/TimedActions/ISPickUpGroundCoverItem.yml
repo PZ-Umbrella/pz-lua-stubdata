@@ -18,6 +18,9 @@ languages:
         fields:
           spriteFrame:
             type: number
+          sound:
+            type: integer
+            nullable: true
           square:
             type: IsoGridSquare
           object:
@@ -45,6 +48,7 @@ languages:
           - name: complete
             return:
               - type: boolean
+          - name: stopSound
           - name: getDuration
             return:
               - type: number

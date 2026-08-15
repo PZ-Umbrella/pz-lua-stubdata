@@ -12,6 +12,9 @@ languages:
           Type:
             defaultValue: '"ISHotbar"'
         fields:
+          toolRender:
+            type: ISToolTipInv
+            nullable: true
           attachedItems:
             type: table<integer, InventoryItem>
           needsRefresh:

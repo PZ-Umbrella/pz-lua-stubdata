@@ -4,6 +4,16 @@ languages:
     tags:
       - StubGen_Definitions
     classes:
+      umbrella.Bounds:
+        fields:
+          x1:
+            type: number
+          y1:
+            type: number
+          x2:
+            type: number
+          y2:
+            type: number
       umbrella.HSB:
         fields:
           h:
@@ -12,6 +22,23 @@ languages:
             type: number
           b:
             type: number
+      umbrella.JoypadNavigate:
+        fields:
+          up:
+            type: ISUIElement
+            nullable: true
+          down:
+            type: ISUIElement
+            nullable: true
+          left:
+            type: ISUIElement
+            nullable: true
+          right:
+            type: ISUIElement
+            nullable: true
+          parent:
+            type: ISUIElement
+            nullable: true
       umbrella.Rect:
         fields:
           x:
@@ -57,12 +84,14 @@ languages:
             type: number
           y:
             type: number
-      umbrella.XYWH:
+      umbrella.XYZ:
+        extends: umbrella.XY
         fields:
-          x:
+          z:
             type: number
-          y:
-            type: number
+      umbrella.XYWH:
+        extends: umbrella.XY
+        fields:
           w:
             type: number
           h:

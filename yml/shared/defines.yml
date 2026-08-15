@@ -48,6 +48,8 @@ languages:
             defaultValue: "0.00005"
           StressFromHemophobic:
             defaultValue: "0.0000003333"
+          StressFromDiscomfort:
+            defaultValue: "0.00000013"
           AngerDecrease:
             defaultValue: "0.0001"
           SleepFatigueReduction:
@@ -68,8 +70,6 @@ languages:
             defaultValue: "0.0465"
           FoodSicknessDecrease:
             defaultValue: "0.0015"
-          SicknessDecrease:
-            defaultValue: "0.0015"
           BurnCorpsePetrolAmount:
             defaultValue: "0.1"
           CleanBloodBleachAmount:
@@ -78,6 +78,8 @@ languages:
             defaultValue: "1.24999"
           LightFromPetrolAmount:
             defaultValue: "0.1"
+          CleanStainCleaningFluidAmount:
+            defaultValue: "0.0999"
           farmingFluidContainerMillilitresPerUse:
             defaultValue: "200"
           fireFightingFluidContainerMillilitresPerUse:
@@ -86,6 +88,12 @@ languages:
             defaultValue: "0.0005"
           IdleDecrease:
             defaultValue: "0.0060"
+          VehicleDiscomfortWhenOverEncumbered:
+            defaultValue: "0.25"
+          EquippedOrWornEncumbranceMultiplier:
+            defaultValue: "0.3"
+          CorpseSicknessFilterDrainMultiplier:
+            defaultValue: "0.3"
       ZombiePopulationMultiplier:
         staticFields:
           Insane:

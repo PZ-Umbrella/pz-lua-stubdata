@@ -47,6 +47,8 @@ languages:
             type: ServerWorkshopItemScreen
           mainOptions:
             type: MainOptions
+          creditsScreen:
+            type: CreditsScreen
           sandOptions:
             type: SandboxOptionsScreen
           worldSelect:
@@ -87,6 +89,10 @@ languages:
             type: ISLabel
           resetLua:
             type: ISButton
+          hasSaveFiles:
+            type: boolean
+          continueDisabled:
+            type: boolean
           latestSaveOption:
             type: ISLabel
           loadOption:
@@ -103,9 +109,11 @@ languages:
             type: ISLabel
           workshopOption:
             type: ISLabel
+          creditOption:
+            type: ISLabel
           exitOption:
             type: ISLabel
-          quitToDesktop:
+          quitToDesktopOption:
             type: ISLabel
           maxMenuItemWidth:
             type: number
@@ -121,8 +129,6 @@ languages:
             type: ISLabel
           desc:
             type: SurvivorDesc
-          animPopup:
-            type: ISModalRichText
           threeD:
             type: ISUI3DModel
           firstFrame:
@@ -130,10 +136,6 @@ languages:
           delay:
             type: number
           time:
-            type: number
-          creditTime:
-            type: number
-          creditsIndex:
             type: number
           warningFade:
             type: number
@@ -164,10 +166,6 @@ languages:
             nullable: true
           warningFadeMax:
             type: number
-          credits:
-            type: LuaList
-          creditTimeMax:
-            type: number
           inGame:
             type: boolean
           version:
@@ -187,6 +185,7 @@ languages:
               - name: visible
                 type: boolean
           - name: instantiate
+          - name: startNormalMainScreen
           - name: copyRev
           - name: render
           - name: calcLogoHeight
@@ -215,6 +214,7 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+          - name: quitToDesktop
           - name: onClickTermsOfService
             parameters:
               - name: button
@@ -231,24 +231,8 @@ languages:
             parameters:
               - name: preset
                 type: umbrella.SandboxOptionsScreen.Preset
-          - name: setBeginnerPreset
-          - name: setEasyPreset
-          - name: setNormalPreset
-          - name: setHardPreset
-          - name: setHardcorePreset
           - name: onEnterFromGame
           - name: onReturnToGame
-          - name: addCredit
-            parameters:
-              - name: credit
-                type: string
-              - name: number
-                type: number
-          - name: doArtCredits
-          - name: doCodeCredits
-          - name: doWritingCredits
-          - name: doScriptingCredits
-          - name: doCredits
           - name: onKeyRelease
             parameters:
               - name: key
@@ -264,7 +248,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp

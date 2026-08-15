@@ -17,10 +17,6 @@ languages:
             parameters:
               - name: playerNum
                 type: integer
-          - name: showBuildingRoomsEditor
-            parameters:
-              - name: playerNum
-                type: integer
           - name: onDisplayRight
             parameters:
               - name: joypadData

@@ -15,28 +15,31 @@ languages:
           lootWindow:
             type: ISInventoryPage
           handlers:
-            type: table
+            type: table<ISLootWindowObjectControlHandler, ISLootWindowObjectControlHandler>
           controls:
-            type: table
+            type: ISUIElement[]
         methods:
           - name: createChildren
           - name: checkHandler
             parameters:
               - name: handlerClass
+                type: ISLootWindowObjectControlHandler
               - name: object
+                type: IsoObject
                 nullable: true
               - name: container
+                type: ItemContainer
                 nullable: true
             return:
-              - type: unknown
+              - type: ISLootWindowObjectControlHandler
           - name: arrange
           - name: getDisplayedContainer
             return:
-              - type: unknown
+              - type: ItemContainer
                 nullable: true
           - name: getDisplayedObject
             return:
-              - type: unknown
+              - type: IsoObject
                 nullable: true
           - name: handleJoypadContextMenu
             parameters:
@@ -47,12 +50,13 @@ languages:
           - name: AddHandler
             parameters:
               - name: handlerClass
-                type: table
+                type: ISLootWindowObjectControlHandler
+              - name: displayToRight
+                type: boolean
           - name: AddFloorHandler
             parameters:
               - name: handlerClass
-                type: ISLootWindowFloorControlHandler_TakeAll |
-                  ISLootWindowFloorControlHandler_TakeSameType
+                type: ISLootWindowObjectControlHandler
       ISLootWindowContainerControls_HandlerList: {}
       ISLootWindowContainerControls_HandlerSet: {}
       ISLootWindowContainerControls_FloorHandlerList: {}

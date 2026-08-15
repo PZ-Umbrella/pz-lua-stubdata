@@ -54,6 +54,8 @@ languages:
           image:
             type: Texture
             nullable: true
+          textureColor:
+            type: umbrella.RGBA
           forcedWidthImage:
             type: number
             nullable: true
@@ -103,12 +105,18 @@ languages:
             nullable: true
           onClickArgs:
             type: unknown[]
+          SuperType:
+            type: ISPanel
           backgroundColorMouseOver:
-            type: umbrella.RGBA
-          textureColor:
             type: umbrella.RGBA
           textColor:
             type: umbrella.RGBA
+          isBaseBackgroundVisible:
+            type: boolean
+          isHighlightedBackgroundVisible:
+            type: boolean
+          isBorderVisible:
+            type: boolean
           target:
             type: unknown
             nullable: true
@@ -203,12 +211,25 @@ languages:
               - name: texture
                 type: Texture
           - name: clearJoypadButton
+          - name: shouldDrawBackground
+            return:
+              - type: boolean
+          - name: shouldDrawBorder
+            return:
+              - type: boolean
+          - name: getBackgroundColor
+            return:
+              - type: umbrella.RGBA
           - name: prerender
           - name: setImage
             parameters:
               - name: image
                 type: Texture
                 nullable: true
+          - name: setTextureColor
+            parameters:
+              - name: color
+                type: ColorInfo
           - name: forceImageSize
             parameters:
               - name: width
@@ -293,8 +314,10 @@ languages:
                 type: number
               - name: a
                 type: number
+          - name: restoreDefaultColors
           - name: enableAcceptColor
           - name: enableCancelColor
+          - name: enableDisabledColor
           - name: toggleAcceptCancel
             parameters:
               - name: bEnabled

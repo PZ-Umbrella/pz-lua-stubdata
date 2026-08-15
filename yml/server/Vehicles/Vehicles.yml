@@ -204,7 +204,9 @@ languages:
           - name: Seat_Racecar
             parameters:
               - name: vehicle
+                type: BaseVehicle
               - name: part
+                type: VehiclePart
       Vehicles.InstallComplete:
         local: true
         staticMethods:
@@ -310,6 +312,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: TrailerAnimalFood
             parameters:
               - name: vehicle
@@ -317,6 +320,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: GasTank
             parameters:
               - name: vehicle
@@ -324,6 +328,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Battery
             parameters:
               - name: vehicle
@@ -331,6 +336,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Engine
             parameters:
               - name: vehicle
@@ -338,6 +344,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Headlight
             parameters:
               - name: vehicle
@@ -345,6 +352,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Heater
             parameters:
               - name: vehicle
@@ -352,6 +360,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Lightbar
             parameters:
               - name: vehicle
@@ -359,6 +368,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: PassengerCompartment
             parameters:
               - name: vehicle
@@ -366,6 +376,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Radio
             parameters:
               - name: vehicle
@@ -373,6 +384,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Brakes
             parameters:
               - name: vehicle
@@ -380,6 +392,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Suspension
             parameters:
               - name: vehicle
@@ -387,6 +400,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Muffler
             parameters:
               - name: vehicle
@@ -394,6 +408,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: Tire
             parameters:
               - name: vehicle
@@ -401,6 +416,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
           - name: TrunkDoor
             parameters:
               - name: vehicle
@@ -408,6 +424,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: elapsedMinutes
+                type: number
       Vehicles.Use:
         local: true
         staticMethods:
@@ -418,6 +435,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: character
+                type: IsoPlayer
           - name: EngineDoor
             parameters:
               - name: vehicle
@@ -425,6 +443,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: character
+                type: IsoPlayer
           - name: TrunkDoorOpen
             parameters:
               - name: vehicle
@@ -432,6 +451,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: character
+                type: IsoPlayer
           - name: TrunkDoor
             parameters:
               - name: vehicle
@@ -439,6 +459,7 @@ languages:
               - name: part
                 type: VehiclePart
               - name: character
+                type: IsoPlayer
       Vehicles.CheckEngine:
         local: true
         staticMethods:
@@ -507,6 +528,12 @@ languages:
               - type: boolean
       VehicleUtils:
         staticMethods:
+          - name: getInventoryContainersRecurse
+            parameters:
+              - name: containers
+                type: ItemContainer[]
+              - name: container
+                type: ItemContainer
           - name: getContainers
             parameters:
               - name: playerNum
@@ -670,8 +697,6 @@ languages:
                 type: IsoPlayer
               - name: vehicle
                 type: BaseVehicle
-              - name: pressedNotTapped
-                type: boolean
           - name: RemoveTire
             parameters:
               - name: part

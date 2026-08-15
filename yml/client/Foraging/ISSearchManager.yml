@@ -92,6 +92,8 @@ languages:
             type: number
           disableTick:
             type: number
+          _nextForageReq:
+            type: number
           isSpotting:
             type: boolean
           baseWidth:
@@ -411,6 +413,12 @@ languages:
               - name: _recreate
                 type: boolean
                 nullable: true
+          - name: applyServerPool
+            parameters:
+              - name: _zoneId
+                type: string
+              - name: _icons
+                type: table<string, umbrella.Foraging.PoolRecord>
           - name: doChangeZone
             parameters:
               - name: _zoneData

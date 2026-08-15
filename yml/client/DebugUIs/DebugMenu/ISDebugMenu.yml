@@ -73,6 +73,7 @@ languages:
               - name: _button
                 type: ISButton
           - name: onClickSandboxSettings
+          - name: onForgetRecipes
           - name: close
         staticMethods:
           - name: OnOpenPanel

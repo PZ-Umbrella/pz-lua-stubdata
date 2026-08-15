@@ -9,12 +9,15 @@ languages:
               - name: character
                 type: IsoPlayer
               - name: targetSquare
+                type: IsoGridSquare
                 nullable: true
         staticFields:
           Type:
             defaultValue: '"ISDropCorpseAction"'
         fields:
           forceProgressBar:
+            type: boolean
+          allowedWhileDraggingCorpses:
             type: boolean
         methods:
           - name: isValid

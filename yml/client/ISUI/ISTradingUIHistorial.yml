@@ -3,7 +3,7 @@ languages:
   lua:
     classes:
       ISTradingUIHistorical:
-        extends: ISPanel
+        extends: ISPanelJoypad
         constructors:
           - parameters:
               - name: x
@@ -21,15 +21,11 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISTradingUIHistorical"'
-          messages: {}
-          instance:
-            type: ISTradingUIHistorical
-            nullable: true
         fields:
-          no:
-            type: ISButton
           list:
             type: ISScrollingListBox
+          no:
+            type: ISButton
           msgList:
             type: umbrella.ISTradingUI.HistoryMessage[]
           otherPlayer:
@@ -56,3 +52,20 @@ languages:
             parameters:
               - name: button
                 type: ISButton
+          - name: close
+          - name: onGainJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onLoseJoypadFocus
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirUp
+            parameters:
+              - name: joypadData
+                type: JoypadData
+          - name: onJoypadDirDown
+            parameters:
+              - name: joypadData
+                type: JoypadData

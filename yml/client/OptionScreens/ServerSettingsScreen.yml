@@ -7,6 +7,7 @@ languages:
         - type: umbrella.ServerSettingsScreen.EntrySetting
         - type: umbrella.ServerSettingsScreen.EnumSetting
         - type: umbrella.ServerSettingsScreen.StringSetting
+        - type: umbrella.ServerSettingsScreen.SpinboxSetting
     classes:
       ServerSettingsScreen:
         extends: ISPanelJoypad
@@ -92,7 +93,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirUp
@@ -141,6 +142,7 @@ languages:
           - name: onDoubleClickListBox
             parameters:
               - name: item
+                type: unknown
           - name: doDrawItem
             parameters:
               - name: y
@@ -239,7 +241,7 @@ languages:
             type: Page3.ChooseModsWindow
         fields:
           nonDefaultOptions:
-            type: table
+            type: "{ INI: ServerOptions, Sandbox: ServerOption }"
           listbox:
             type: ISScrollingListBox
           tooltipPanel:
@@ -247,16 +249,17 @@ languages:
           filterEntry:
             type: ISTextEntryBox
           controls:
-            type: table
+            type: table<string, table<string, ISUIElement>>
           groupBox:
-            type: table
+            type: table<string, table<string, ISUIElement>>
           customui:
-            type: table
+            type: ISUIElement[]
           buttonCancel:
             type: ISButton
           buttonAccept:
             type: ISButton
           currentPanel:
+            type: ISUIElement
             nullable: true
           selectedYear:
             type: integer
@@ -273,9 +276,12 @@ languages:
           - name: createPanel
             parameters:
               - name: category
+                type: umbrella.ServerSettingsScreen.SettingsCategory
               - name: page
+                type: umbrella.ServerSettingsScreen.SettingsPage
             return:
-              - type: ServerSettingsScreen.ServerSettingsScreenGroupBox
+              - type: ServerSettingsScreen.ServerSettingsScreenPanel |
+                  ServerSettingsScreen.ServerSettingsScreenGroupBox
           - name: doDrawItem
             parameters:
               - name: y
@@ -289,10 +295,12 @@ languages:
           - name: onMouseDownListBox
             parameters:
               - name: item
+                type: table
           - name: onPanelChange
           - name: onComboBoxSelected
             parameters:
               - name: combo
+                type: ISComboBox
               - name: categoryName
                 type: string
               - name: optionName
@@ -300,7 +308,9 @@ languages:
           - name: onTickBoxSelected
             parameters:
               - name: _
+                type: integer
               - name: value
+                type: boolean
               - name: categoryName
                 type: string
               - name: optionName
@@ -314,26 +324,39 @@ languages:
               - name: category
                 type: string
               - name: options
+                type: ServerOptions | SandboxOptions
           - name: settingsToUI
           - name: settingsFromUIAux
             parameters:
               - name: category
                 type: string
               - name: options
+                type: ServerOptions | SandboxOptions
           - name: settingsFromUI
           - name: settingValueChanged
             parameters:
               - name: category
+                type: unknown
               - name: settingName
                 type: string
               - name: newValue
+                type: unknown
           - name: notify
             parameters:
               - name: message
+                type: string
               - name: arg1
+                type: unknown
+                nullable: true
               - name: arg2
+                type: unknown
+                nullable: true
               - name: arg3
+                type: unknown
+                nullable: true
               - name: arg4
+                type: unknown
+                nullable: true
           - name: aboutToShowStartScreen
           - name: aboutToShow
           - name: onButtonCancel
@@ -357,7 +380,7 @@ languages:
           - name: onJoypadDown_ListBox
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirRight_ListBox
@@ -429,6 +452,7 @@ languages:
           buttonAccept:
             type: ISButton
           checkName:
+            type: string
             nullable: true
         methods:
           - name: create
@@ -503,17 +527,19 @@ languages:
           joypadButtons:
             type: ISButton[]
           multiColumnUI:
-            type: table
+            type: ISUIElement[][]
           multiColumnCurrent:
-            type: table
+            type: integer[]
         methods:
           - name: render
           - name: setJoypadColumn
             parameters:
               - name: index
+                type: integer
           - name: addJoypadColumn
             parameters:
               - name: uiList
+                type: ISUIElement[]
       ServerSettingsScreen.Page7:
         extends: ServerSettingsScreen.MultiColumnPanelJoypad
         local: true
@@ -533,7 +559,8 @@ languages:
         fields:
           professionLabel:
             type: ISLabel
-          profListBox: {}
+          profListBox:
+            type: ServerSettingsScreen.ServerSettingsScreenMapsListBox
           addProfessionLabel:
             type: ISLabel
           profComboBox:
@@ -544,7 +571,8 @@ languages:
             type: ISTextEntryBox
           spawnPointListLabel:
             type: ISLabel
-          pointListBox: {}
+          pointListBox:
+            type: ServerSettingsScreen.ServerSettingsScreenMapsListBox
           addSpawnPointLabel:
             type: ISLabel
           entryAddSpawnPoint:
@@ -562,13 +590,15 @@ languages:
           - name: addProfessionToList
             parameters:
               - name: professionType
+                type: string
               - name: pointsTable
-                type: table
+                type: umbrella.SpawnPoint[]
               - name: select
                 type: boolean
           - name: isProfessionInList
             parameters:
               - name: professionType
+                type: string
             return:
               - type: boolean
           - name: fillProfessionCombo
@@ -576,19 +606,24 @@ languages:
           - name: addPointToList
             parameters:
               - name: pointTable
+                type: umbrella.SpawnPoint[]
               - name: select
+                type: boolean
           - name: onMouseDownProfession
             parameters:
               - name: data
+                nullable: true
           - name: onAddProfession
           - name: onAddOtherProfession
           - name: onRemoveProfession
             parameters:
               - name: index
+                type: integer
           - name: onAddPoint
           - name: onRemovePoint
             parameters:
               - name: index
+                type: integer
           - name: onButtonCancel
           - name: onButtonAccept
           - name: onGainJoypadFocus
@@ -602,7 +637,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -630,7 +665,7 @@ languages:
             defaultValue: '"ServerSettingsScreenPanel"'
         fields:
           entryText:
-            type: table
+            type: table<string, string>
         methods:
           - name: prerender
           - name: render
@@ -651,7 +686,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -678,13 +713,13 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDownInParent
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
             return:
@@ -696,7 +731,8 @@ languages:
           Type:
             defaultValue: '"SpawnRegionsPanel"'
         fields:
-          listbox: {}
+          listbox:
+            type: ServerSettingsScreen.SpawnRegionsListBox
           nameFilePanel:
             type: SpawnRegionsNameFilePanel
           entry:
@@ -714,6 +750,7 @@ languages:
           - name: addToList
             parameters:
               - name: name
+                type: string
               - name: file
                 type: string
           - name: onButtonAddRegion
@@ -723,13 +760,23 @@ languages:
           - name: notify
             parameters:
               - name: message
+                type: string
               - name: arg1
+                type: unknown
+                nullable: true
               - name: arg2
+                type: unknown
+                nullable: true
               - name: arg3
+                type: unknown
+                nullable: true
               - name: arg4
+                type: unknown
+                nullable: true
           - name: setSettings
             parameters:
               - name: settings
+                type: ServerSettings
           - name: settingsFromUI
           - name: onGainJoypadFocus
             parameters:
@@ -742,7 +789,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -766,8 +813,10 @@ languages:
           entryFile:
             type: ISTextEntryBox
           currentItem:
+            type: integer
             nullable: true
-          scrollBarVisible: {}
+          scrollBarVisible:
+            type: boolean
         methods:
           - name: createChildren
           - name: prerender
@@ -783,12 +832,6 @@ languages:
             return:
               - type: number
           - name: positionEntries
-      ServerSettingsScreen.SpawnPointsListBox:
-        extends: ISScrollingListBox
-        local: true
-        staticFields:
-          Type:
-            defaultValue: '"SpawnPointsListBox"'
       ServerSettingsScreen.ServerSettingsScreenGroupBox:
         extends: ServerSettingsScreen.ServerSettingsScreenPanel
         local: true
@@ -805,6 +848,7 @@ languages:
               - name: tickBoxLabel
                 type: string
               - name: category
+                type: string
         staticFields:
           Type:
             defaultValue: '"ServerSettingsScreenGroupBox"'
@@ -814,34 +858,41 @@ languages:
           settings:
             type: umbrella.ServerSettingsScreen.Setting[]
             nullable: true
-          category: {}
+          category:
+            type: string
           tickBox:
             type: ISTickBox
           cover:
             type: ISPanel
-          contents: {}
-          joypadButtons: {}
+          contents:
+            type: ISUIElement
+          joypadButtons:
+            type: ISButton[]
           _instance:
             type: ServerSettingsScreen.Page3
           settingNames:
-            type: table
+            type: string[]
           labels:
-            type: table
+            type: ISLabel[]
           controls:
-            type: table
+            type: ISUIElement[]
           titles:
-            type: table
+            type: ISLabel[]
         methods:
           - name: createChildren
           - name: prerender
           - name: onTicked
             parameters:
               - name: index
+                type: integer
               - name: selected
+                type: boolean
           - name: settingsToUI
             parameters:
               - name: settings
+                type: ServerSettings
               - name: category
+                type: string
           - name: setJoypadButtons
           - name: ensureVisible
       ServerSettingsScreen.ServerSettingsScreenModsPanel:
@@ -851,19 +902,19 @@ languages:
           Type:
             defaultValue: '"ServerSettingsScreenModsPanel"'
         fields:
-          listbox: {}
-          button:
-            type: ISButton
+          listbox:
+            type: ServerSettingsScreen.ServerSettingsScreenModsListBox
           settings:
             type: umbrella.ServerSettingsScreen.Setting[]
           modInfoByID:
-            type: table
+            type: table<string, ChooseGameInfo.Mod>
         methods:
           - name: createChildren
           - name: prerender
           - name: setSettings
             parameters:
               - name: settings
+                type: ServerSettings
           - name: settingsFromUI
           - name: modListToString
             return:
@@ -871,6 +922,7 @@ languages:
           - name: addModToList
             parameters:
               - name: modID
+                type: string
           - name: aboutToShowStartScreen
           - name: onGainJoypadFocus
             parameters:
@@ -883,7 +935,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -903,6 +955,7 @@ languages:
             defaultValue: '"ServerSettingsScreenModsListBox"'
         fields:
           mouseOverButtonIndex:
+            type: integer
             nullable: true
         methods:
           - name: prerender
@@ -929,7 +982,8 @@ languages:
           Type:
             defaultValue: '"ServerSettingsScreenMapsPanel"'
         fields:
-          listbox: {}
+          listbox:
+            type: ServerSettingsScreen.ServerSettingsScreenMapsListBox
           buttonMoveUp:
             type: ISButton
           buttonMoveDown:
@@ -951,27 +1005,41 @@ languages:
           - name: setSettings
             parameters:
               - name: settings
+                type: ServerSettings
           - name: settingsFromUI
           - name: notify
             parameters:
               - name: message
+                type: string
               - name: arg1
+                type: unknown
+                nullable: true
               - name: arg2
+                type: unknown
+                nullable: true
               - name: arg3
+                type: unknown
+                nullable: true
               - name: arg4
+                type: unknown
+                nullable: true
           - name: fillComboBox
             parameters:
               - name: modsString
+                type: string
           - name: findMapInList
             parameters:
               - name: mapFolder
+                type: string
             return:
-              - type: unknown
+              - type: integer
                 nullable: true
           - name: addMapToList
             parameters:
               - name: mapFolder
+                type: string
               - name: index
+                type: integer
           - name: onAddInstalledMap
           - name: onAddOtherMap
           - name: onGainJoypadFocus
@@ -985,7 +1053,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -1005,6 +1073,7 @@ languages:
             defaultValue: '"ServerSettingsScreenMapsListBox"'
         fields:
           mouseOverButtonIndex:
+            type: integer
             nullable: true
         methods:
           - name: prerender
@@ -1034,7 +1103,8 @@ languages:
           Type:
             defaultValue: '"ServerSettingsScreenWorkshopPanel"'
         fields:
-          listbox: {}
+          listbox:
+            type: ServerSettingsScreen.ServerSettingsScreenWorkshopListBox
           buttonRemove:
             type: ISButton
           comboBox:
@@ -1044,13 +1114,14 @@ languages:
           settings:
             type: umbrella.ServerSettingsScreen.Setting[]
           itemDetails:
-            type: table
+            type: table<string, SteamUGCDetails>
         methods:
           - name: createChildren
           - name: prerender
           - name: setSettings
             parameters:
               - name: settings
+                type: ServerSettings
           - name: settingsFromUI
           - name: aboutToShowStartScreen
           - name: itemListToString
@@ -1059,9 +1130,11 @@ languages:
           - name: addItemToList
             parameters:
               - name: workshopID
+                type: string
           - name: isValidWorkshopID
             parameters:
               - name: workshopID
+                type: string
             return:
               - type: boolean
           - name: onButtonRemove
@@ -1070,10 +1143,13 @@ languages:
           - name: onRemoveItem
             parameters:
               - name: index
+                type: integer
           - name: onItemQueryFinished
             parameters:
               - name: status
+                type: string
               - name: info
+                type: Array<SteamUGCDetails>
           - name: onGainJoypadFocus
             parameters:
               - name: joypadData
@@ -1085,7 +1161,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -1105,6 +1181,7 @@ languages:
             defaultValue: '"ServerSettingsScreenWorkshopListBox"'
         fields:
           mouseOverButtonIndex:
+            type: integer
             nullable: true
         methods:
           - name: prerender
@@ -1131,7 +1208,8 @@ languages:
           Type:
             defaultValue: '"SandboxPresetPanel"'
         fields:
-          listbox: {}
+          listbox:
+            type: ServerSettingsScreen.ServerSettingsScreenModsListBox
           buttonApplyPreset:
             type: ISButton
           settings:
@@ -1151,6 +1229,7 @@ languages:
           - name: setSettings
             parameters:
               - name: settings
+                type: ServerSettings
           - name: settingsFromUI
           - name: onGainJoypadFocus
             parameters:
@@ -1163,7 +1242,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDirLeft
@@ -1209,6 +1288,7 @@ languages:
           - name: setJoypadFocused
             parameters:
               - name: focused
+                type: boolean
               - name: joypadData
                 type: JoypadData
           - name: onGainJoypadFocus
@@ -1222,13 +1302,13 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: onJoypadDownInParent
             parameters:
               - name: button
-                type: ISButton
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
             return:
@@ -1295,6 +1375,12 @@ languages:
               - name: modID
                 type: string
           - name: render
+      umbrella.ServerSettingsScreen.SettingsCategory:
+        fields:
+          name:
+            type: string
+          pages:
+            type: umbrella.ServerSettingsScreen.SettingsPage[]
       umbrella.ServerSettingsScreen.SettingsPage:
         fields:
           name:
@@ -1349,6 +1435,12 @@ languages:
           type:
             type: '"string" | "text"'
           text:
+            type: string
+      umbrella.ServerSettingsScreen.SpinboxSetting:
+        fields:
+          type:
+            type: '"spinbox"'
+          name:
             type: string
       umbrella.ServerSettingsScreen.SpawnRegionItem:
         fields:

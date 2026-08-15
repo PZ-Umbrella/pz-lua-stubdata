@@ -3,13 +3,23 @@ languages:
   lua:
     aliases:
       umbrella.ContainerDistribution:
-        - type: umbrella.Distributions.ItemsContainerDistribution
+        - type: umbrella.ProceduralDistribution
         - type: umbrella.Distributions.ListContainerDistribution
     classes:
       Distributions: {}
       SuburbsDistributions: {}
-      ClutterTables: {}
-      BagsAndContainers: {}
+      ClutterTables:
+        fields:
+          "[string]":
+            type: any
+            tags:
+              - StubGen_Extra
+      BagsAndContainers:
+        fields:
+          "[string]":
+            type: umbrella.ProceduralDistribution
+            tags:
+              - StubGen_Extra
       umbrella.Distributions.ListContainerDistribution:
         fields:
           procedural:
@@ -18,60 +28,6 @@ languages:
             type: umbrella.Distributions.ProceduralItem[]
           isShop:
             type: boolean
-            nullable: true
-      umbrella.Distributions.ItemsContainerDistribution:
-        fields:
-          rolls:
-            type: integer
-          items:
-            type: (string | integer)[]
-          isShop:
-            type: boolean
-            nullable: true
-          noAutoAge:
-            type: boolean
-            nullable: true
-          fillRand:
-            type: integer
-            nullable: true
-          maxMap:
-            type: integer
-            nullable: true
-          stashChance:
-            type: integer
-            nullable: true
-          dontSpawnAmmo:
-            type: boolean
-            nullable: true
-          ignoreZombieDensity:
-            type: boolean
-            nullable: true
-          cookFood:
-            type: boolean
-            nullable: true
-          canBurn:
-            type: boolean
-            nullable: true
-          isTrash:
-            type: boolean
-            nullable: true
-          isWorn:
-            type: boolean
-            nullable: true
-          isRotten:
-            type: boolean
-            nullable: true
-          onlyOne:
-            type: boolean
-            nullable: true
-          defaultInventoryLoot:
-            type: boolean
-            nullable: true
-          junk:
-            type: umbrella.ContainerDistribution
-            nullable: true
-          bags:
-            type: umbrella.ContainerDistribution
             nullable: true
       umbrella.Distributions.ProceduralItem:
         fields:

@@ -32,7 +32,7 @@ languages:
           rodItemTypeBend:
             type: string
           bobber:
-            type: Fishing.Bobber
+            type: Bobber
             nullable: true
           spawnBobberDelayTimer:
             type: number
@@ -116,6 +116,7 @@ languages:
           - name: damageLine
           - name: brokeLine
           - name: missFish
+          - name: removeLure
           - name: consumeLure
             parameters:
               - name: isTrash

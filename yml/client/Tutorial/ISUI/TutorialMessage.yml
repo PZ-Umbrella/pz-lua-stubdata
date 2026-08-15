@@ -15,7 +15,10 @@ languages:
               - name: height
                 type: number
               - name: clickToSkip
+                type: boolean
+                nullable: true
               - name: message
+                type: string
         staticFields:
           Type:
             defaultValue: '"TutorialMessage"'
@@ -23,7 +26,7 @@ languages:
             type: TutorialMessage
             nullable: true
           spiffo:
-            nullable: true
+            type: Texture
         fields:
           richtext:
             type: ISRichTextPanel
@@ -32,7 +35,8 @@ languages:
           message:
             type: string
             nullable: true
-          clickToSkip: {}
+          clickToSkip:
+            type: boolean
           timer:
             type: number
           clicktoSkip:
@@ -59,7 +63,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
         staticMethods:
           - name: onKeyPressed
             parameters:
@@ -76,10 +80,15 @@ languages:
               - name: h
                 type: number
               - name: message
+                type: string
               - name: clickToSkip
+                type: boolean
+                nullable: true
               - name: target
                 type: unknown
+                nullable: true
               - name: test
+                type: boolean
+                nullable: true
             return:
               - type: TutorialMessage
-                nullable: true

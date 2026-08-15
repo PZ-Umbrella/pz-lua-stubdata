@@ -85,3 +85,4 @@ languages:
           - name: OnSafehousesChanged
           - name: OnRolesReceived
           - name: OnNetworkUsersReceived
+          - name: OnRoleUpdated

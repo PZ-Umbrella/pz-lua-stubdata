@@ -10,10 +10,12 @@ languages:
                 type: IsoPlayer
               - name: entity
                 type: IsoObject
-              - name: itemSlot
+              - name: resource
+                type: ResourceItem
+              - name: internalItemSlot
                 type: ISItemSlot
-              - name: item
-                type: InventoryItem
+              - name: targetItem
+                type: InventoryItem | integer
                 nullable: true
         staticFields:
           Type:
@@ -32,6 +34,7 @@ languages:
             type: ISItemSlot
             nullable: true
           targetItem:
+            type: InventoryItem | integer
             nullable: true
           actionAnimVariables:
             type: table<string, string>

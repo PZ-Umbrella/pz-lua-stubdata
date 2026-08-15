@@ -2,5 +2,10 @@ version: "1.1"
 languages:
   lua:
     classes:
-      VehicleDistributions: {}
+      VehicleDistributions:
+        fields:
+          "[string]":
+            type: umbrella.ProceduralDistribution
+            tags:
+              - StubGen_Extra
       ClutterTables: {}

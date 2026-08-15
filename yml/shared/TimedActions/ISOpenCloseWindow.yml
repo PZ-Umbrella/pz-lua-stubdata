@@ -20,6 +20,8 @@ languages:
             type: boolean
           ignoreHandsWounds:
             type: boolean
+          retriggerLastAction:
+            type: boolean
         methods:
           - name: isValid
             return:

@@ -52,14 +52,17 @@ languages:
             type: integer
             nullable: true
       umbrella.SpawnRegion:
+        extends: umbrella.FileSpawnRegion
         fields:
-          name:
-            type: string
           points:
-            type: umbrella.SpawnPoint
+            type: table<string, umbrella.SpawnPoint[]>
       umbrella.FileSpawnRegion:
         fields:
           name:
             type: string
           file:
             type: string
+            nullable: true
+          serverfile:
+            type: string
+            nullable: true

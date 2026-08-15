@@ -40,7 +40,7 @@ languages:
           helpButton:
             type: ISButton
           joypadNavigate:
-            type: table
+            type: umbrella.JoypadNavigate
         methods:
           - name: create
           - name: prerender

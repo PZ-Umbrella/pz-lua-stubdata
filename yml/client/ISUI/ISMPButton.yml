@@ -1,6 +1,13 @@
 version: "1.1"
 languages:
   lua:
+    aliases:
+      umbrella.ISMPButton.MouseCallback:
+        - type: "fun(target: unknown, button: ISMPButton, x: number, y: number)"
+      umbrella.ISMPButton.OnClick:
+        - type: "fun(target: unknown, button: ISMPButton, ...: unknown)"
+      umbrella.ISMPButton.RepeatWhilePressed:
+        - type: "fun(target: unknown, button: ISMPButton)"
     classes:
       ISMPButton:
         extends: ISPanel
@@ -19,13 +26,21 @@ languages:
               - name: clicktarget
                 type: MultiplayerUI
               - name: onclick
+                type: umbrella.ISMPButton.OnClick
+                nullable: true
               - name: onmousedown
+                type: umbrella.ISMPButton.MouseCallback
+                nullable: true
               - name: allowMouseUpProcessing
+                type: boolean
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISMPButton"'
         fields:
-          joypadFocused: {}
+          joypadFocused:
+            type: boolean
+            nullable: true
           pressed:
             type: boolean
           isJoypad:
@@ -38,65 +53,84 @@ languages:
             type: number
           blinkBGAlphaIncrease:
             type: boolean
-          image: {}
+          image:
+            type: Texture
           forcedWidthImage:
             type: number
           forcedHeightImage:
             type: number
-          overlayText: {}
+          overlayText:
+            type: string
           blinkImageAlpha:
             type: number
           blinkImageAlphaIncrease:
             type: boolean
-          font: {}
+          font:
+            type: UIFont
           title:
             type: string
-          onmouseover: {}
-          onmouseoutfunction: {}
+          onmouseover:
+            type: umbrella.ISMPButton.MouseCallback
+            nullable: true
+          onmouseoutfunction:
+            type: umbrella.ISMPButton.MouseCallback
+            nullable: true
           displayBackground:
             type: boolean
           pressedTime:
+            type: integer
             nullable: true
           tooltipUI:
             type: ISToolTip
-          repeatWhilePressedFunc: {}
+          repeatWhilePressedFunc:
+            type: umbrella.ISMPButton.RepeatWhilePressed
+            nullable: true
           enable:
             type: boolean
           borderColorEnabled:
-            type: table
+            type: umbrella.RGBA
           backgroundColorEnabled:
-            type: table
+            type: umbrella.RGBA
           tooltip:
             nullable: true
           originalWidth:
             type: number
-          onclick: {}
+          onclick:
+            type: umbrella.ISMPButton.OnClick
+            nullable: true
           onClickArgs:
             type: table
+          SuperType:
+            type: ISPanel
           backgroundColorMouseOver:
-            type: table
+            type: umbrella.RGBA
           textureColor:
-            type: table
+            type: umbrella.RGBA
           textColor:
-            type: table
+            type: umbrella.RGBA
           target:
             type: MultiplayerUI
-          onmousedown: {}
+          onmousedown:
+            type: umbrella.ISMPButton.MouseCallback
+            nullable: true
           ISMPButton:
             type: boolean
-          allowMouseUpProcessing: {}
+          allowMouseUpProcessing:
+            type: boolean
           yoffset:
             type: number
-          fade: {}
+          fade:
+            type: UITransition
           joypadTextureWH:
             type: number
           repeatWhilePressedTimer:
             type: number
           sounds:
-            type: table
+            type: table<string, string>
           originalHeight:
             type: number
           textureBackground:
+            type: Texture
             nullable: true
         methods:
           - name: initialise
@@ -115,6 +149,7 @@ languages:
           - name: setJoypadFocused
             parameters:
               - name: focused
+                type: boolean
           - name: onMouseUp
             parameters:
               - name: x
@@ -149,11 +184,13 @@ languages:
           - name: setJoypadButton
             parameters:
               - name: texture
+                type: Texture
           - name: clearJoypadButton
           - name: prerender
           - name: setImage
             parameters:
               - name: image
+                type: Texture
           - name: forceImageSize
             parameters:
               - name: width
@@ -163,10 +200,12 @@ languages:
           - name: setOverlayText
             parameters:
               - name: text
+                type: string
           - name: render
           - name: setFont
             parameters:
               - name: font
+                type: UIFont
           - name: getTitle
             return:
               - type: string
@@ -177,17 +216,24 @@ languages:
           - name: setOnMouseOverFunction
             parameters:
               - name: onmouseover
+                type: umbrella.ISMPButton.MouseCallback
+                nullable: true
           - name: setOnMouseOutFunction
             parameters:
               - name: onmouseout
+                type: umbrella.ISMPButton.MouseCallback
+                nullable: true
           - name: setDisplayBackground
             parameters:
               - name: background
+                type: boolean
           - name: update
           - name: updateTooltip
           - name: setRepeatWhilePressed
             parameters:
               - name: func
+                type: umbrella.ISMPButton.RepeatWhilePressed
+                nullable: true
           - name: setBackgroundRGBA
             parameters:
               - name: r
@@ -233,18 +279,22 @@ languages:
           - name: toggleAcceptCancel
             parameters:
               - name: bEnabled
+                type: boolean
           - name: setEnable
             parameters:
               - name: bEnabled
+                type: boolean
           - name: isEnabled
             return:
               - type: boolean
           - name: setTooltip
             parameters:
               - name: tooltip
+                type: string
           - name: setWidthToTitle
             parameters:
               - name: minWidth
+                type: number
                 nullable: true
               - name: isJoypad
                 type: boolean
@@ -252,16 +302,30 @@ languages:
           - name: setOnClick
             parameters:
               - name: func
+                type: umbrella.ISMPButton.OnClick
               - name: arg1
+                type: unknown
+                nullable: true
               - name: arg2
+                type: unknown
+                nullable: true
               - name: arg3
+                type: unknown
+                nullable: true
               - name: arg4
+                type: unknown
+                nullable: true
           - name: setSound
             parameters:
               - name: which
+                type: string
               - name: soundName
                 type: string
           - name: calculateLayout
             parameters:
               - name: _preferredWidth
+                type: number
+                nullable: true
               - name: _preferredHeight
+                type: number
+                nullable: true

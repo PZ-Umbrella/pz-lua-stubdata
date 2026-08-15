@@ -56,7 +56,7 @@ languages:
               - name: buttonPrompt
                 type: ISButtonPrompt
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: checkKey
@@ -89,12 +89,15 @@ languages:
         constructors:
           - parameters:
               - name: frm
+                type: ISFirearmRadialMenu
         staticFields:
           Type:
             defaultValue: '"BaseCommand"'
         fields:
-          frm: {}
-          character: {}
+          frm:
+            type: ISFirearmRadialMenu
+          character:
+            type: IsoPlayer
         methods:
           - name: getWeapon
             return:
@@ -102,7 +105,9 @@ languages:
           - name: fillMenu
             parameters:
               - name: menu
+                type: ISRadialMenu
               - name: weapon
+                type: HandWeapon
       ISFirearmRadialMenu.CInsertMagazine:
         extends: ISFirearmRadialMenu.BaseCommand
         local: true
@@ -117,7 +122,9 @@ languages:
           - name: fillMenu
             parameters:
               - name: menu
+                type: ISRadialMenu
               - name: weapon
+                type: HandWeapon
           - name: invoke
       ISFirearmRadialMenu.CEjectMagazine:
         extends: ISFirearmRadialMenu.BaseCommand
@@ -133,7 +140,9 @@ languages:
           - name: fillMenu
             parameters:
               - name: menu
+                type: ISRadialMenu
               - name: weapon
+                type: HandWeapon
           - name: invoke
       ISFirearmRadialMenu.CLoadBulletsInMagazine:
         extends: ISFirearmRadialMenu.BaseCommand
@@ -155,13 +164,16 @@ languages:
           - name: hasBulletsForMagazine
             parameters:
               - name: magazine
+                type: InventoryItem
                 nullable: true
             return:
               - type: boolean
           - name: fillMenu
             parameters:
               - name: menu
+                type: ISRadialMenu
               - name: weapon
+                type: HandWeapon
           - name: invoke
       ISFirearmRadialMenu.CLoadRounds:
         extends: ISFirearmRadialMenu.BaseCommand
@@ -177,12 +189,15 @@ languages:
           - name: hasBullets
             parameters:
               - name: weapon
+                type: HandWeapon
             return:
               - type: boolean
           - name: fillMenu
             parameters:
               - name: menu
+                type: ISRadialMenu
               - name: weapon
+                type: HandWeapon
           - name: invoke
       ISFirearmRadialMenu.CUnloadRounds:
         extends: ISFirearmRadialMenu.BaseCommand
@@ -198,7 +213,9 @@ languages:
           - name: fillMenu
             parameters:
               - name: menu
+                type: ISRadialMenu
               - name: weapon
+                type: HandWeapon
           - name: invoke
       ISFirearmRadialMenu.CRack:
         extends: ISFirearmRadialMenu.BaseCommand
@@ -214,5 +231,7 @@ languages:
           - name: fillMenu
             parameters:
               - name: menu
+                type: ISRadialMenu
               - name: weapon
+                type: HandWeapon
           - name: invoke

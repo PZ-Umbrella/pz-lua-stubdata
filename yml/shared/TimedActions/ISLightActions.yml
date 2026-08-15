@@ -9,6 +9,7 @@ languages:
               - name: mode
                 type: string
               - name: character
+                type: IsoPlayer
               - name: lightswitch
                 type: IsoLightSwitch
               - name: item

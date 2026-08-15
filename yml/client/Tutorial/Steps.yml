@@ -336,6 +336,7 @@ languages:
           - name: OnMomDead
             parameters:
               - name: zed
+                type: IsoZombie
           - name: HitZombie
             return:
               - type: boolean

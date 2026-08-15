@@ -28,6 +28,7 @@ languages:
             return:
               - type: boolean
           - name: update
+          - name: serverStart
           - name: start
           - name: stop
           - name: perform

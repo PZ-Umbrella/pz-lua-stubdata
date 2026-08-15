@@ -54,8 +54,6 @@ languages:
             type: boolean
           showCurrentContents:
             type: boolean
-          margin:
-            type: number
           autoFillContents:
             type: boolean
           isAutoFill:
@@ -147,9 +145,11 @@ languages:
           - name: onListItemClicked
             parameters:
               - name: _item
+                type: unknown
           - name: onRebuildItemNodes
             parameters:
               - name: _inputItems
+                nullable: true
           - name: updateContainers
             parameters:
               - name: _containers

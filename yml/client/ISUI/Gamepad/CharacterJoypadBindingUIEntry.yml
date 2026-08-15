@@ -1,0 +1,64 @@
+version: "1.1"
+languages:
+  lua:
+    classes:
+      CharacterJoypadBindingUIEntry:
+        extends: ISBaseObject
+        constructors:
+          - parameters:
+              - name: characterJoypadBindingUI
+                type: CharacterJoypadBindingUI
+              - name: containerPanel
+                type: ISUIElement
+              - name: bindingKey
+                type: umbrella.PhysicalJoypadElement
+        staticFields:
+          Type:
+            defaultValue: '"CharacterJoypadBindingUIEntry"'
+        fields:
+          bindingKey:
+            type: umbrella.PhysicalJoypadElement
+          characterJoypadBindingUI:
+            type: CharacterJoypadBindingUI
+          initialBevelDirection:
+            type: string
+          containerPanel:
+            type: ISUIElement
+            nullable: true
+          bindingRowPanel:
+            type: CharacterJoypadBindingUIRow
+        methods:
+          - name: tostring
+            return:
+              - type: string
+          - name: getStyle
+            return:
+              - type: ISStyle
+          - name: getBindingRowPanel
+            return:
+              - type: CharacterJoypadBindingUIRow
+          - name: onBindingRowPanelLayoutChanged
+          - name: onJoypadButtonBindingEdited
+          - name: onJoypadAxisBindingValueEdited
+            parameters:
+              - name: sender
+                type: CharacterJoypadBindingUIRow
+              - name: charBinding
+                type: umbrella.PhysicalJoypadElement
+          - name: onBindingRowPanelEditingActivated
+            parameters:
+              - name: rowPanel
+                type: CharacterJoypadBindingUIRow
+          - name: initBindingRowPanel
+          - name: setEditSelected
+            parameters:
+              - name: isEditing
+                type: boolean
+          - name: setContainerPanel
+            parameters:
+              - name: containerPanel
+                type: ISUIElement
+          - name: getLineToRowAbsolute
+            return:
+              - type: ISLine
+                nullable: true

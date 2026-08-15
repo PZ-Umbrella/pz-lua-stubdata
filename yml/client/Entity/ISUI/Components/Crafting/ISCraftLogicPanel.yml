@@ -52,33 +52,6 @@ languages:
           resourceInventoryPanel:
             type: ISCraftInventoryPanel
             nullable: true
-          energyInputs:
-            type: ISEnergySlotPanel
-            nullable: true
-          fluidInputs:
-            type: ISFluidSlotPanel
-            nullable: true
-          itemInputs:
-            type: ISItemSlotPanel
-            nullable: true
-          craftProgress:
-            type: ISWidgetCraftProgress
-            nullable: true
-          craftControl:
-            type: ISWidgetCraftControl
-            nullable: true
-          craftControlDebug:
-            type: ISWidgetCraftDebug
-            nullable: true
-          itemOutputs:
-            type: ISItemSlotPanel
-            nullable: true
-          fluidOutputs:
-            type: ISFluidSlotPanel
-            nullable: true
-          energyOutputs:
-            type: ISEnergySlotPanel
-            nullable: true
           _filterString:
             type: string
             nullable: true
@@ -130,7 +103,6 @@ languages:
           - name: createRecipesColumn
           - name: createRecipePanel
           - name: createInventoryPanel
-          - name: createLegacyRecipePanel
           - name: onRecipeChanged
             parameters:
               - name: _recipe

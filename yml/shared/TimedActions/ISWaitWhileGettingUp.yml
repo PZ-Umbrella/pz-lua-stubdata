@@ -22,6 +22,8 @@ languages:
             nullable: true
           useProgressBar:
             type: boolean
+          allowedWhileDraggingCorpses:
+            type: boolean
         methods:
           - name: isValid
             return:

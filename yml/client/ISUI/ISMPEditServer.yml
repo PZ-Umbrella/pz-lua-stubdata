@@ -7,8 +7,9 @@ languages:
         constructors:
           - parameters:
               - name: ui
-                type: MultiplayerUI
+                type: ISUIElement
               - name: server
+                type: Server
                 nullable: true
         staticFields:
           Type:
@@ -30,10 +31,12 @@ languages:
             type: ISButton
           isPasswordModified:
             type: boolean
-          ui_password_eye: {}
+          ui_password_eye:
+            type: Texture
           ui:
-            type: MultiplayerUI
+            type: ISUIElement
           server:
+            type: Server
             nullable: true
         methods:
           - name: initialise
@@ -45,9 +48,13 @@ languages:
           - name: onResolutionChange
             parameters:
               - name: oldw
+                type: number
               - name: oldh
+                type: number
               - name: neww
+                type: number
               - name: newh
+                type: number
           - name: prerender
           - name: render
           - name: onMouseUp
@@ -99,4 +106,4 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton

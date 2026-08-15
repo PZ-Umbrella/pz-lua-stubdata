@@ -4,4 +4,3 @@ languages:
     functions:
       - name: MapObjectTestCampfire
       - name: MapObjectTestFarming
-      - name: MapObjectTestRainBarrel

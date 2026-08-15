@@ -270,11 +270,13 @@ languages:
           - name: renderSpriteGridTile
             parameters:
               - name: sprite
+                type: IsoSprite
               - name: dx
                 type: number
               - name: dy
                 type: number
               - name: dz
+                type: number
           - name: renderUnderlyingTile
             parameters:
               - name: overlayName

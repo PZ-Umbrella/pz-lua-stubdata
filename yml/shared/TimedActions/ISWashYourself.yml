@@ -10,9 +10,6 @@ languages:
                 type: IsoPlayer
               - name: sink
                 type: IsoObject
-              - name: soaps
-                type: InventoryItem[]
-                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISWashYourself"'
@@ -54,6 +51,12 @@ languages:
           - name: complete
             return:
               - type: boolean
+          - name: animEvent
+            parameters:
+              - name: event
+                type: string
+              - name: parameter
+                type: string
           - name: getDuration
             return:
               - type: number
@@ -63,10 +66,16 @@ languages:
               - name: character
                 type: IsoPlayer
             return:
-              - type: number
+              - type: integer
+          - name: GetSoapRemaining
+            parameters:
+              - name: soaps
+                type: ArrayList<InventoryItem>
+            return:
+              - type: integer
           - name: GetRequiredWater
             parameters:
               - name: character
                 type: IsoPlayer
             return:
-              - type: number
+              - type: integer

@@ -5,7 +5,7 @@ languages:
       RecMedia:
         fields:
           "[string]":
-            type: table<string, umbrella.RecMediaItem>
+            type: umbrella.RecMediaItem
       umbrella.RecMediaItem:
         fields:
           itemDisplayName:
@@ -29,6 +29,8 @@ languages:
             notes: |-
               Defines the rarity of the recorded media items.
               0 = common, 1 = uncommon, 2 = rare (weights: 700, 300, 100)
+          lines:
+            type: umbrella.RecMediaLine[]
       umbrella.RecMediaLine:
         fields:
           text:

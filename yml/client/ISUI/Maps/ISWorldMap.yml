@@ -53,7 +53,9 @@ languages:
           - name: onDarkModeChanged
             parameters:
               - name: value
+                type: number
               - name: slider
+                type: ISSliderPanel
           - name: getVisibleOptions
             return:
               - type: ConfigOption[]
@@ -77,7 +79,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISWorldMapButtonPanel:
@@ -108,7 +110,7 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
       ISWorldMap:
@@ -126,6 +128,9 @@ languages:
         staticFields:
           Type:
             defaultValue: '"ISWorldMap"'
+          instance:
+            type: ISWorldMap
+            nullable: true
         fields:
           mapAPI:
             type: UIWorldMapV1
@@ -243,7 +248,10 @@ languages:
             type: Texture
           texViewOrthographic:
             type: Texture
-          texViewTerrainImage: {}
+          texViewTerrainImage:
+            type: Texture
+          activeWhilePaused:
+            type: boolean
         methods:
           - name: instantiate
           - name: createChildren
@@ -256,6 +264,7 @@ languages:
           - name: drawMapRect
             parameters:
               - name: bounds
+                type: umbrella.Bounds | ISBounds
           - name: onMouseUpPrintMedia
           - name: closePrintMedia
           - name: renderStashMaps
@@ -418,13 +427,16 @@ languages:
           - name: onJoypadDown
             parameters:
               - name: button
-                type: integer
+                type: JoypadButton
               - name: joypadData
                 type: JoypadData
           - name: saveSettings
           - name: restoreSettings
           - name: initDataAndStyle
         staticMethods:
+          - name: shouldPause
+            return:
+              - type: boolean
           - name: IsAllowed
             return:
               - type: boolean
@@ -490,7 +502,8 @@ languages:
           Type:
             defaultValue: '"AnnotatedMapOverlay"'
         fields:
-          mapAPI: {}
+          mapAPI:
+            type: UIWorldMapV3
         methods:
           - name: instantiate
           - name: prerender

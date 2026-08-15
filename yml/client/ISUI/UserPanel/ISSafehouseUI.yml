@@ -28,26 +28,22 @@ languages:
             type: ISSafehouseUI
             nullable: true
         fields:
-          no:
-            type: ISButton
-          title:
+          nameLbl:
             type: ISLabel
           changeTitle:
             type: ISButton
           owner:
             type: ISLabel
-          pos:
-            type: ISLabel
+          changeOwnership:
+            type: ISButton
           dateCreated:
+            type: ISLabel
+          pos:
             type: ISLabel
           location:
             type: ISLabel
           points:
             type: ISLabel
-          releaseSafehouse:
-            type: ISButton
-          changeOwnership:
-            type: ISButton
           refreshPlayerList:
             type: ISButton
           playerList:
@@ -60,6 +56,10 @@ languages:
             type: ISButton
           respawn:
             type: ISTickBox
+          no:
+            type: ISButton
+          releaseSafehouse:
+            type: ISButton
           selectedPlayer:
             type: string
             nullable: true
@@ -138,8 +138,10 @@ languages:
           - name: ReceiveSafehouseInvite
             parameters:
               - name: safehouse
-                type: string
+                type: SafeHouse
               - name: host
+                type: string
+              - name: username
                 type: string
           - name: AcceptedSafehouseInvite
             parameters:

@@ -44,4 +44,6 @@ languages:
           - name: start
           - name: stop
           - name: perform
+          - name: attachTrailer
+          - name: detachTrailer
           - name: stopSound

@@ -37,6 +37,7 @@ languages:
                 type: boolean
           - name: onClickNewspaperButton
           - name: onClickMapButton
+          - name: renderUpdate
       PZAPI.UI:
         local: true
         staticFields:

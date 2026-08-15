@@ -153,6 +153,7 @@ languages:
           - name: doWaterAnimalMenu
             parameters:
               - name: animalSubMenu
+                type: ISContextMenu
               - name: animal
                 type: IsoAnimal
               - name: playerObj
@@ -210,6 +211,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: item
+                type: InventoryItem
           - name: onDebugSetStress
             parameters:
               - name: animal
@@ -223,6 +225,7 @@ languages:
               - name: playerObj
                 type: IsoPlayer
               - name: acceptance
+                type: number
           - name: onDebugAttackPlayer
             parameters:
               - name: animal
@@ -301,16 +304,19 @@ languages:
               - name: animal
                 type: IsoAnimal
               - name: chr
+                type: IsoPlayer
           - name: onPetAnimal
             parameters:
               - name: animal
                 type: IsoAnimal
               - name: chr
+                type: IsoPlayer
           - name: onPickupAnimal
             parameters:
               - name: animal
                 type: IsoAnimal
               - name: chr
+                type: IsoPlayer
           - name: onAddEgg
             parameters:
               - name: animal

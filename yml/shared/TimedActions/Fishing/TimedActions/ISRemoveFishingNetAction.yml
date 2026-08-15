@@ -22,6 +22,9 @@ languages:
           - name: isValid
             return:
               - type: boolean
+          - name: waitToStart
+            return:
+              - type: boolean
           - name: update
           - name: start
           - name: stop

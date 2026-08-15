@@ -5,6 +5,8 @@ languages:
       umbrella.Foraging.TestFunction:
         - type: "fun(character: IsoPlayer, skillDef: umbrella.Foraging.SkillDefinition,
             bonusEffect: string)"
+      umbrella.Foraging.ZoneDataBounds:
+        - type: umbrella.Bounds
     classes:
       forageSystem:
         staticFields:
@@ -23,7 +25,8 @@ languages:
           zoneDefinitions: {}
           categoryDefinitions: {}
           defaultDefinitions: {}
-          lootTable: {}
+          lootTable:
+            type: table<string, umbrella.Foraging.LootTable>
           lootTableMonth:
             type: integer
             nullable: true
@@ -85,7 +88,7 @@ languages:
           clothingPenalties: {}
           isForageableFuncs: {}
           globalXPModifier:
-            defaultValue: "800"
+            defaultValue: "400"
           levelXPModifier:
             defaultValue: "5"
           worldSprites: {}
@@ -364,6 +367,23 @@ languages:
               - name: _overwrite
                 type: boolean
                 nullable: true
+          - name: getAffinitySpriteNames
+            parameters:
+              - name: _object
+                type: IsoObject
+            return:
+              - type: string[]
+          - name: resolveSpriteAffinity
+            parameters:
+              - name: _spriteName
+                type: string
+              - name: _focusCategory
+                type: string
+            return:
+              - type: string
+                nullable: true
+              - type: umbrella.Foraging.CategoryDefinition
+                nullable: true
           - name: populateCatDefs
             parameters:
               - name: _catDefs
@@ -548,7 +568,9 @@ languages:
           - name: getMonthMulti
             parameters:
               - name: _itemDef
+                type: umbrella.Foraging.ItemDefinition
               - name: _month
+                type: integer
             return:
               - type: number
           - name: getTimeOfDay
@@ -584,9 +606,13 @@ languages:
           - name: getWeatherMulti
             parameters:
               - name: _def
+                type: umbrella.Foraging.CategoryDefinition
               - name: _rainAmount
+                type: number
               - name: _puddleAmount
+                type: number
               - name: _snowAmount
+                type: number
             return:
               - type: number
           - name: hasRequiredItems
@@ -670,16 +696,23 @@ languages:
           - name: isValidMonthInternal
             parameters:
               - name: _character
+                type: IsoPlayer
               - name: _itemDef
+                type: umbrella.Foraging.ItemDefinition
               - name: _zoneDef
+                type: umbrella.Foraging.ZoneDefinition
               - name: _month
+                type: integer
+                nullable: true
             return:
               - type: unknown
           - name: isValidMonth
             parameters:
               - name: _def
+                type: umbrella.Foraging.ItemDefinition
               - name: _month
                 type: integer
+                nullable: true
             return:
               - type: boolean
           - name: setScriptItemFocusCategories
@@ -854,6 +887,18 @@ languages:
                 type: ArrayList<InventoryItem>
             return:
               - type: ArrayList<InventoryItem>
+          - name: actionComplete
+            parameters:
+              - name: _character
+                type: IsoPlayer
+              - name: _iconID
+                type: string
+          - name: forageAction
+            parameters:
+              - name: _character
+                type: IsoPlayer
+              - name: _forageIcon
+                type: ISForageIcon
       umbrella.Foraging.ItemDefinition:
         fields:
           type:
@@ -945,6 +990,8 @@ languages:
             type: number
           items:
             type: umbrella.Foraging.LootTableItem[]
+          definition:
+            type: umbrella.Foraging.CategoryDefinition
       umbrella.Foraging.LootTableIndexedCategoryEntry:
         fields:
           catName:
@@ -1012,16 +1059,6 @@ languages:
           lastAction:
             type: integer
             nullable: true
-      umbrella.Foraging.ZoneDataBounds:
-        fields:
-          x1:
-            type: number
-          y1:
-            type: number
-          x2:
-            type: number
-          y2:
-            type: number
       umbrella.Foraging.ZoneDefinition:
         fields:
           name:

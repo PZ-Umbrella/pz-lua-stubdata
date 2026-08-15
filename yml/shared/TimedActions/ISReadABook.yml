@@ -24,6 +24,8 @@ languages:
           isLiteratureRead:
             type: boolean
             nullable: true
+          forceStopped:
+            type: boolean
           startPage:
             type: integer
           playerNum:
@@ -44,6 +46,7 @@ languages:
             return:
               - type: boolean
           - name: update
+          - name: doHaloText
           - name: start
           - name: stop
           - name: perform

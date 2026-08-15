@@ -34,8 +34,6 @@ languages:
             type: boolean
           isLeftDown:
             type: boolean
-          clickedUI:
-            type: boolean
           canBeBuild:
             type: boolean
           build:
@@ -180,6 +178,14 @@ languages:
                 type: IsoGridSquare
             return:
               - type: boolean
+          - name: beforeWorldRender
+            parameters:
+              - name: x
+                type: number
+              - name: y
+                type: number
+              - name: z
+                type: number
           - name: render
             parameters:
               - name: x
@@ -208,7 +214,7 @@ languages:
               - name: joypadData
                 type: JoypadData
               - name: button
-                type: integer
+                type: JoypadButton
           - name: onJoypadDirDown
             parameters:
               - name: joypadData

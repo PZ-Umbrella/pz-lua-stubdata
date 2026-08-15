@@ -17,8 +17,6 @@ languages:
           isForageable:
             type: boolean
             nullable: true
-          isValidSquare:
-            type: boolean
           itemObjTable:
             type: table<InventoryItem, InventoryItem>
         methods:
