@@ -26,6 +26,9 @@ languages:
           spawning:
             type: 0 | 1 | 2
             nullable: true
+            notes: |-
+              Defines the rarity of the recorded media items.
+              0 = common, 1 = uncommon, 2 = rare (weights: 700, 300, 100)
           lines:
             type: umbrella.RecMediaLine[]
       umbrella.RecMediaLine:
