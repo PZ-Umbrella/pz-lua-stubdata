@@ -16,6 +16,8 @@ languages:
           Type:
             defaultValue: '"ISDestroyStuffAction"'
         fields:
+          wasValid:
+            type: boolean
           spriteFrame:
             type: number
           sledge:
@@ -26,6 +28,15 @@ languages:
           item:
             type: IsoObject
         methods:
+          - name: hasSledgehammerInRange
+            parameters:
+              - name: character
+                type: IsoPlayer
+              - name: item
+                type: IsoObject
+                nullable: true
+            return:
+              - type: boolean
           - name: isValid
             return:
               - type: boolean

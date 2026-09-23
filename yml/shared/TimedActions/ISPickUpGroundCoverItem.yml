@@ -75,6 +75,8 @@ languages:
             defaultValue: '"Stone2"'
           Stone:
             defaultValue: '"Stone2"'
+          Stone2:
+            defaultValue: '"Stone2"'
           Log:
             defaultValue: '"Log"'
           Twigs:

@@ -60,6 +60,3 @@ languages:
           - name: complete
             return:
               - type: boolean
-          - name: getDuration
-            return:
-              - type: number

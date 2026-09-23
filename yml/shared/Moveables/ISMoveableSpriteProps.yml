@@ -649,6 +649,8 @@ languages:
                 nullable: true
           - name: placeMoveableInternal
             parameters:
+              - name: _character
+                type: IsoPlayer
               - name: _square
                 type: IsoGridSquare
               - name: _item

@@ -11,3 +11,7 @@ languages:
             return:
               - type: ArrayList<ItemContainer>
                 nullable: true
+          - name: checkWeapon
+            parameters:
+              - name: chr
+                type: IsoPlayer

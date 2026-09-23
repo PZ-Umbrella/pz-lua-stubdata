@@ -46,9 +46,6 @@ languages:
             parameters:
               - name: key
                 type: integer
-          - name: randXp
-            return:
-              - type: boolean
           - name: addXp
             parameters:
               - name: owner

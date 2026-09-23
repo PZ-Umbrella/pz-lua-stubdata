@@ -454,10 +454,6 @@ languages:
                 type: IsoPlayer
               - name: otherPlayer
                 type: IsoPlayer
-          - name: checkWeapon
-            parameters:
-              - name: chr
-                type: IsoPlayer
           - name: onToggleThumpableLight
             parameters:
               - name: lightSource
@@ -1435,22 +1431,8 @@ languages:
                 type: GameEntity
               - name: playerObj
                 type: IsoPlayer
-              - name: customFunction
-                type: string
-              - name: param
-                type: string
-                nullable: true
-          - name: onTimedAction
-            parameters:
-              - name: timedAction
-                type: string
-              - name: object
-                type: InventoryItem
-              - name: playerObj
-                type: IsoPlayer
-              - name: param
-                type: string
-                nullable: true
+              - name: entry
+                type: ContextMenuConfigScript.EntryScript
           - name: onBarricade
             parameters:
               - name: spriteName

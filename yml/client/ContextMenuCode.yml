@@ -20,18 +20,6 @@ languages:
                 type: ISContextMenu
               - name: param
                 type: umbrella.ContextMenuCode.Param
-          - name: CompostInteraction
-            parameters:
-              - name: context
-                type: ISContextMenu
-              - name: option
-                type: umbrella.ISContextMenu.Option
-              - name: compost
-                type: IsoCompost
-              - name: playerObj
-                type: IsoPlayer
-              - name: param
-                type: umbrella.ContextMenuCode.Param
           - name: OnButcherHook
             parameters:
               - name: context

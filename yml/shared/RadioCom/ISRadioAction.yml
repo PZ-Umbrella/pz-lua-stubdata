@@ -38,6 +38,9 @@ languages:
           - name: start
           - name: update
           - name: perform
+          - name: complete
+            return:
+              - type: boolean
           - name: isValidToggleOnOff
             return:
               - type: boolean

@@ -53,3 +53,10 @@ languages:
                 type: number
               - name: square
                 type: IsoGridSquare
+        staticMethods:
+          - name: onTileObjectAdded
+            parameters:
+              - name: square
+                type: IsoGridSquare
+              - name: sprite
+                type: string
