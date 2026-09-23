@@ -100,6 +100,12 @@ languages:
           - name: update
             return:
               - type: boolean
+          - name: shouldAutoClose
+            return:
+              - type: boolean
+          - name: wasEntityRemoved
+            return:
+              - type: boolean
           - name: close
           - name: validateSizeBounds
           - name: isKeyConsumed

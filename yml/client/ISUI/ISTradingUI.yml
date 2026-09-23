@@ -25,7 +25,6 @@ languages:
             type: table<integer, ISTradingUI>
           CoolDownMessage:
             defaultValue: "300"
-          States: {}
           MaxItems:
             defaultValue: "20"
           tradeQuestionUI:

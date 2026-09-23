@@ -191,6 +191,12 @@ languages:
               - name: character
                 type: IsoPlayer
                 nullable: true
+          - name: onReattachAnimal
+            parameters:
+              - name: hook
+                type: IsoButcherHook
+              - name: animal
+                type: IsoAnimal
     functions:
       - name: setAnimalBodyData
         parameters:

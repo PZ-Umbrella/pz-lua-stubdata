@@ -764,12 +764,21 @@ languages:
                 type: IsoPlayer
             return:
               - type: table<string, integer>
+          - name: initHeadlightWithoutItem
+            parameters:
+              - name: vehicle
+                type: BaseVehicle
+              - name: part
+                type: VehiclePart
           - name: initHeadlight
             parameters:
               - name: vehicle
                 type: BaseVehicle
               - name: part
                 type: VehiclePart
+              - name: doNotCreateItem
+                type: boolean
+                nullable: true
       umbrella.VehicleUtils.Item:
         fields:
           type:

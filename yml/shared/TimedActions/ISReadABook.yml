@@ -51,6 +51,9 @@ languages:
           - name: stop
           - name: perform
           - name: startLoadingPrintMediaTextures
+            return:
+              - type: Texture
+                nullable: true
           - name: displayPrintMedia
           - name: revealPrintMediaLocationsOnMap
             parameters:

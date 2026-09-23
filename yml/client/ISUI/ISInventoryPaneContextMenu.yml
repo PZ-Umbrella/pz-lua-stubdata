@@ -1314,15 +1314,12 @@ languages:
                 nullable: true
           - name: onCustomFunction
             parameters:
-              - name: customFunction
-                type: string
+              - name: entry
+                type: ContextMenuConfigScript.EntryScript
               - name: item
                 type: InventoryItem
               - name: playerObj
                 type: IsoPlayer
-              - name: param
-                type: string
-                nullable: true
           - name: onNoRecipes
             parameters:
               - name: items

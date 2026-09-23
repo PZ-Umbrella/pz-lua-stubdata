@@ -218,9 +218,3 @@ languages:
             parameters:
               - name: self
                 type: ISButcherHookUI
-          - name: onReattachAnimal
-            parameters:
-              - name: hook
-                type: IsoButcherHook
-              - name: animal
-                type: IsoAnimal

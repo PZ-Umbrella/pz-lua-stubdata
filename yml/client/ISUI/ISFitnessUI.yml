@@ -53,6 +53,11 @@ languages:
           exeData:
             type: umbrella.FitnessExercises.Exercise
             nullable: true
+          itemsToReequip:
+            type: table<string, InventoryItem>
+          currentExercice:
+            type: string
+            nullable: true
           joypadButtons:
             type: ISButton[]
           titleY:
@@ -104,6 +109,7 @@ languages:
             return:
               - type: number
           - name: prerender
+          - name: update
           - name: updateButtons
             parameters:
               - name: currentAction

@@ -16,6 +16,9 @@ languages:
                 type: number
               - name: mapUI
                 type: umbrella.MapUI
+              - name: isWorldMap
+                type: boolean
+                nullable: true
         staticFields:
           Type:
             defaultValue: '"ISWorldMapSymbols"'
@@ -94,6 +97,9 @@ languages:
             type: table
           showTranslationOption:
             type: boolean
+          isWorldMap:
+            type: boolean
+            nullable: true
         methods:
           - name: createChildren
           - name: checkInventory

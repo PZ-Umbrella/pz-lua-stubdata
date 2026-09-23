@@ -16,6 +16,8 @@ languages:
         fields:
           item:
             type: Literature
+          modal:
+            type: ISUIWriteJournal
           container:
             type: ItemContainer
           ignoreHandsWounds:
